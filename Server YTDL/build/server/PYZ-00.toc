@@ -1,0 +1,4258 @@
+('C:\\Users\\Hugo Teixeira\\Desktop\\Stuff\\Server '
+ 'YTDL\\build\\server\\PYZ-00.pyz',
+ [('multiprocessing.popen_fork',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\popen_fork.py',
+   'PYMODULE'),
+  ('multiprocessing.connection',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\connection.py',
+   'PYMODULE'),
+  ('multiprocessing.resource_sharer',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\resource_sharer.py',
+   'PYMODULE'),
+  ('multiprocessing.process',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\process.py',
+   'PYMODULE'),
+  ('threading',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\threading.py',
+   'PYMODULE'),
+  ('_threading_local',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\_threading_local.py',
+   'PYMODULE'),
+  ('contextlib',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\contextlib.py',
+   'PYMODULE'),
+  ('selectors',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\selectors.py',
+   'PYMODULE'),
+  ('xmlrpc.client',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\xmlrpc\\client.py',
+   'PYMODULE'),
+  ('xmlrpc',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\xmlrpc\\__init__.py',
+   'PYMODULE'),
+  ('gzip',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\gzip.py',
+   'PYMODULE'),
+  ('argparse',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\argparse.py',
+   'PYMODULE'),
+  ('textwrap',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\textwrap.py',
+   'PYMODULE'),
+  ('copy',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\copy.py',
+   'PYMODULE'),
+  ('gettext',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\gettext.py',
+   'PYMODULE'),
+  ('shutil',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\shutil.py',
+   'PYMODULE'),
+  ('zipfile',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\zipfile.py',
+   'PYMODULE'),
+  ('py_compile',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\py_compile.py',
+   'PYMODULE'),
+  ('ntpath',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\ntpath.py',
+   'PYMODULE'),
+  ('string',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\string.py',
+   'PYMODULE'),
+  ('genericpath',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\genericpath.py',
+   'PYMODULE'),
+  ('importlib.machinery',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\importlib\\machinery.py',
+   'PYMODULE'),
+  ('importlib',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\importlib\\__init__.py',
+   'PYMODULE'),
+  ('importlib._bootstrap',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\importlib\\_bootstrap.py',
+   'PYMODULE'),
+  ('importlib._bootstrap_external',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\importlib\\_bootstrap_external.py',
+   'PYMODULE'),
+  ('importlib.metadata',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\importlib\\metadata.py',
+   'PYMODULE'),
+  ('importlib.abc',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\importlib\\abc.py',
+   'PYMODULE'),
+  ('configparser',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\configparser.py',
+   'PYMODULE'),
+  ('pathlib',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\pathlib.py',
+   'PYMODULE'),
+  ('email',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\__init__.py',
+   'PYMODULE'),
+  ('email.parser',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\parser.py',
+   'PYMODULE'),
+  ('email._policybase',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\_policybase.py',
+   'PYMODULE'),
+  ('email.utils',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\utils.py',
+   'PYMODULE'),
+  ('email._parseaddr',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\_parseaddr.py',
+   'PYMODULE'),
+  ('calendar',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\calendar.py',
+   'PYMODULE'),
+  ('random',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\random.py',
+   'PYMODULE'),
+  ('hashlib',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\hashlib.py',
+   'PYMODULE'),
+  ('bisect',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\bisect.py',
+   'PYMODULE'),
+  ('email.feedparser',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\feedparser.py',
+   'PYMODULE'),
+  ('email.message',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\message.py',
+   'PYMODULE'),
+  ('email.policy',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\policy.py',
+   'PYMODULE'),
+  ('email.contentmanager',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\contentmanager.py',
+   'PYMODULE'),
+  ('email.quoprimime',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\quoprimime.py',
+   'PYMODULE'),
+  ('email.headerregistry',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\headerregistry.py',
+   'PYMODULE'),
+  ('email.iterators',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\iterators.py',
+   'PYMODULE'),
+  ('email.generator',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\generator.py',
+   'PYMODULE'),
+  ('email._encoded_words',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\_encoded_words.py',
+   'PYMODULE'),
+  ('quopri',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\quopri.py',
+   'PYMODULE'),
+  ('getopt',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\getopt.py',
+   'PYMODULE'),
+  ('uu',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\uu.py',
+   'PYMODULE'),
+  ('optparse',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\optparse.py',
+   'PYMODULE'),
+  ('email._header_value_parser',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\_header_value_parser.py',
+   'PYMODULE'),
+  ('urllib',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\urllib\\__init__.py',
+   'PYMODULE'),
+  ('email.header',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\header.py',
+   'PYMODULE'),
+  ('email.base64mime',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\base64mime.py',
+   'PYMODULE'),
+  ('email.charset',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\charset.py',
+   'PYMODULE'),
+  ('email.encoders',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\encoders.py',
+   'PYMODULE'),
+  ('email.errors',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\email\\errors.py',
+   'PYMODULE'),
+  ('csv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\csv.py',
+   'PYMODULE'),
+  ('tokenize',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\tokenize.py',
+   'PYMODULE'),
+  ('token',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\token.py',
+   'PYMODULE'),
+  ('posixpath',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\posixpath.py',
+   'PYMODULE'),
+  ('importlib.util',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\importlib\\util.py',
+   'PYMODULE'),
+  ('tarfile',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\tarfile.py',
+   'PYMODULE'),
+  ('lzma',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\lzma.py',
+   'PYMODULE'),
+  ('bz2',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\bz2.py',
+   'PYMODULE'),
+  ('fnmatch',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\fnmatch.py',
+   'PYMODULE'),
+  ('stat',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\stat.py',
+   'PYMODULE'),
+  ('_compression',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\_compression.py',
+   'PYMODULE'),
+  ('xml.parsers.expat',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\xml\\parsers\\expat.py',
+   'PYMODULE'),
+  ('xml.parsers',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\xml\\parsers\\__init__.py',
+   'PYMODULE'),
+  ('xml',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\xml\\__init__.py',
+   'PYMODULE'),
+  ('xml.sax.expatreader',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\xml\\sax\\expatreader.py',
+   'PYMODULE'),
+  ('xml.sax.saxutils',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\xml\\sax\\saxutils.py',
+   'PYMODULE'),
+  ('urllib.request',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\urllib\\request.py',
+   'PYMODULE'),
+  ('getpass',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\getpass.py',
+   'PYMODULE'),
+  ('nturl2path',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\nturl2path.py',
+   'PYMODULE'),
+  ('ftplib',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\ftplib.py',
+   'PYMODULE'),
+  ('netrc',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\netrc.py',
+   'PYMODULE'),
+  ('shlex',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\shlex.py',
+   'PYMODULE'),
+  ('mimetypes',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\mimetypes.py',
+   'PYMODULE'),
+  ('http.cookiejar',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\http\\cookiejar.py',
+   'PYMODULE'),
+  ('http',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\http\\__init__.py',
+   'PYMODULE'),
+  ('ssl',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\ssl.py',
+   'PYMODULE'),
+  ('urllib.response',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\urllib\\response.py',
+   'PYMODULE'),
+  ('urllib.error',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\urllib\\error.py',
+   'PYMODULE'),
+  ('xml.sax',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\xml\\sax\\__init__.py',
+   'PYMODULE'),
+  ('xml.sax.handler',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\xml\\sax\\handler.py',
+   'PYMODULE'),
+  ('xml.sax._exceptions',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\xml\\sax\\_exceptions.py',
+   'PYMODULE'),
+  ('xml.sax.xmlreader',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\xml\\sax\\xmlreader.py',
+   'PYMODULE'),
+  ('urllib.parse',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\urllib\\parse.py',
+   'PYMODULE'),
+  ('http.client',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\http\\client.py',
+   'PYMODULE'),
+  ('decimal',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\decimal.py',
+   'PYMODULE'),
+  ('_pydecimal',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\_pydecimal.py',
+   'PYMODULE'),
+  ('contextvars',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\contextvars.py',
+   'PYMODULE'),
+  ('numbers',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\numbers.py',
+   'PYMODULE'),
+  ('datetime',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\datetime.py',
+   'PYMODULE'),
+  ('_strptime',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\_strptime.py',
+   'PYMODULE'),
+  ('base64',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\base64.py',
+   'PYMODULE'),
+  ('hmac',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\hmac.py',
+   'PYMODULE'),
+  ('multiprocessing.context',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\context.py',
+   'PYMODULE'),
+  ('multiprocessing.popen_forkserver',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\popen_forkserver.py',
+   'PYMODULE'),
+  ('multiprocessing.popen_spawn_posix',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\popen_spawn_posix.py',
+   'PYMODULE'),
+  ('multiprocessing.resource_tracker',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\resource_tracker.py',
+   'PYMODULE'),
+  ('multiprocessing.forkserver',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\forkserver.py',
+   'PYMODULE'),
+  ('multiprocessing.sharedctypes',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\sharedctypes.py',
+   'PYMODULE'),
+  ('multiprocessing.heap',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\heap.py',
+   'PYMODULE'),
+  ('ctypes',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\ctypes\\__init__.py',
+   'PYMODULE'),
+  ('ctypes._endian',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\ctypes\\_endian.py',
+   'PYMODULE'),
+  ('multiprocessing.pool',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\pool.py',
+   'PYMODULE'),
+  ('multiprocessing.dummy',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\dummy\\__init__.py',
+   'PYMODULE'),
+  ('multiprocessing.dummy.connection',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\dummy\\connection.py',
+   'PYMODULE'),
+  ('queue',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\queue.py',
+   'PYMODULE'),
+  ('multiprocessing.queues',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\queues.py',
+   'PYMODULE'),
+  ('multiprocessing.synchronize',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\synchronize.py',
+   'PYMODULE'),
+  ('multiprocessing.managers',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\managers.py',
+   'PYMODULE'),
+  ('multiprocessing.shared_memory',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\shared_memory.py',
+   'PYMODULE'),
+  ('secrets',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\secrets.py',
+   'PYMODULE'),
+  ('multiprocessing.reduction',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\reduction.py',
+   'PYMODULE'),
+  ('pickle',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\pickle.py',
+   'PYMODULE'),
+  ('pprint',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\pprint.py',
+   'PYMODULE'),
+  ('doctest',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\doctest.py',
+   'PYMODULE'),
+  ('unittest',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\unittest\\__init__.py',
+   'PYMODULE'),
+  ('unittest.signals',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\unittest\\signals.py',
+   'PYMODULE'),
+  ('unittest.main',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\unittest\\main.py',
+   'PYMODULE'),
+  ('unittest.runner',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\unittest\\runner.py',
+   'PYMODULE'),
+  ('unittest.loader',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\unittest\\loader.py',
+   'PYMODULE'),
+  ('unittest.suite',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\unittest\\suite.py',
+   'PYMODULE'),
+  ('unittest.case',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\unittest\\case.py',
+   'PYMODULE'),
+  ('unittest.async_case',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\unittest\\async_case.py',
+   'PYMODULE'),
+  ('asyncio',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\__init__.py',
+   'PYMODULE'),
+  ('asyncio.unix_events',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\unix_events.py',
+   'PYMODULE'),
+  ('asyncio.log',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\log.py',
+   'PYMODULE'),
+  ('asyncio.windows_events',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\windows_events.py',
+   'PYMODULE'),
+  ('asyncio.windows_utils',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\windows_utils.py',
+   'PYMODULE'),
+  ('asyncio.selector_events',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\selector_events.py',
+   'PYMODULE'),
+  ('asyncio.proactor_events',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\proactor_events.py',
+   'PYMODULE'),
+  ('asyncio.base_subprocess',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\base_subprocess.py',
+   'PYMODULE'),
+  ('asyncio.subprocess',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\subprocess.py',
+   'PYMODULE'),
+  ('asyncio.streams',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\streams.py',
+   'PYMODULE'),
+  ('asyncio.queues',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\queues.py',
+   'PYMODULE'),
+  ('asyncio.runners',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\runners.py',
+   'PYMODULE'),
+  ('asyncio.events',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\events.py',
+   'PYMODULE'),
+  ('asyncio.trsock',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\trsock.py',
+   'PYMODULE'),
+  ('asyncio.staggered',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\staggered.py',
+   'PYMODULE'),
+  ('typing',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\typing.py',
+   'PYMODULE'),
+  ('asyncio.tasks',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\tasks.py',
+   'PYMODULE'),
+  ('concurrent.futures',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\concurrent\\futures\\__init__.py',
+   'PYMODULE'),
+  ('concurrent.futures.thread',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\concurrent\\futures\\thread.py',
+   'PYMODULE'),
+  ('concurrent.futures.process',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\concurrent\\futures\\process.py',
+   'PYMODULE'),
+  ('concurrent.futures._base',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\concurrent\\futures\\_base.py',
+   'PYMODULE'),
+  ('concurrent',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\concurrent\\__init__.py',
+   'PYMODULE'),
+  ('asyncio.base_tasks',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\base_tasks.py',
+   'PYMODULE'),
+  ('asyncio.locks',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\locks.py',
+   'PYMODULE'),
+  ('asyncio.sslproto',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\sslproto.py',
+   'PYMODULE'),
+  ('asyncio.transports',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\transports.py',
+   'PYMODULE'),
+  ('asyncio.base_events',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\base_events.py',
+   'PYMODULE'),
+  ('asyncio.protocols',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\protocols.py',
+   'PYMODULE'),
+  ('asyncio.futures',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\futures.py',
+   'PYMODULE'),
+  ('asyncio.coroutines',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\coroutines.py',
+   'PYMODULE'),
+  ('asyncio.base_futures',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\base_futures.py',
+   'PYMODULE'),
+  ('asyncio.exceptions',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\exceptions.py',
+   'PYMODULE'),
+  ('asyncio.format_helpers',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\format_helpers.py',
+   'PYMODULE'),
+  ('asyncio.constants',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\asyncio\\constants.py',
+   'PYMODULE'),
+  ('unittest.result',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\unittest\\result.py',
+   'PYMODULE'),
+  ('unittest.util',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\unittest\\util.py',
+   'PYMODULE'),
+  ('pdb',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\pdb.py',
+   'PYMODULE'),
+  ('pydoc',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\pydoc.py',
+   'PYMODULE'),
+  ('webbrowser',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\webbrowser.py',
+   'PYMODULE'),
+  ('pydoc_data.topics',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\pydoc_data\\topics.py',
+   'PYMODULE'),
+  ('pydoc_data',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\pydoc_data\\__init__.py',
+   'PYMODULE'),
+  ('tty',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\tty.py',
+   'PYMODULE'),
+  ('sysconfig',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\sysconfig.py',
+   'PYMODULE'),
+  ('_osx_support',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\_osx_support.py',
+   'PYMODULE'),
+  ('distutils.log',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\distutils\\log.py',
+   'PYMODULE'),
+  ('distutils',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\distutils\\__init__.py',
+   'PYMODULE'),
+  ('distutils.ccompiler',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\distutils\\ccompiler.py',
+   'PYMODULE'),
+  ('distutils.fancy_getopt',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\distutils\\fancy_getopt.py',
+   'PYMODULE'),
+  ('distutils.debug',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\distutils\\debug.py',
+   'PYMODULE'),
+  ('distutils.util',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\distutils\\util.py',
+   'PYMODULE'),
+  ('distutils.filelist',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\distutils\\filelist.py',
+   'PYMODULE'),
+  ('lib2to3.refactor',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\lib2to3\\refactor.py',
+   'PYMODULE'),
+  ('lib2to3.btm_matcher',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\lib2to3\\btm_matcher.py',
+   'PYMODULE'),
+  ('lib2to3.btm_utils',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\lib2to3\\btm_utils.py',
+   'PYMODULE'),
+  ('lib2to3.pgen2.grammar',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\lib2to3\\pgen2\\grammar.py',
+   'PYMODULE'),
+  ('lib2to3.pygram',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\lib2to3\\pygram.py',
+   'PYMODULE'),
+  ('lib2to3.pytree',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\lib2to3\\pytree.py',
+   'PYMODULE'),
+  ('lib2to3',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\lib2to3\\__init__.py',
+   'PYMODULE'),
+  ('lib2to3.patcomp',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\lib2to3\\patcomp.py',
+   'PYMODULE'),
+  ('lib2to3.pgen2.parse',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\lib2to3\\pgen2\\parse.py',
+   'PYMODULE'),
+  ('lib2to3.pgen2.literals',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\lib2to3\\pgen2\\literals.py',
+   'PYMODULE'),
+  ('lib2to3.fixer_util',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\lib2to3\\fixer_util.py',
+   'PYMODULE'),
+  ('lib2to3.pgen2.token',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\lib2to3\\pgen2\\token.py',
+   'PYMODULE'),
+  ('lib2to3.pgen2.tokenize',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\lib2to3\\pgen2\\tokenize.py',
+   'PYMODULE'),
+  ('lib2to3.pgen2.driver',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\lib2to3\\pgen2\\driver.py',
+   'PYMODULE'),
+  ('lib2to3.pgen2.pgen',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\lib2to3\\pgen2\\pgen.py',
+   'PYMODULE'),
+  ('lib2to3.pgen2',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\lib2to3\\pgen2\\__init__.py',
+   'PYMODULE'),
+  ('distutils.dep_util',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\distutils\\dep_util.py',
+   'PYMODULE'),
+  ('distutils.dir_util',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\distutils\\dir_util.py',
+   'PYMODULE'),
+  ('distutils.file_util',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\distutils\\file_util.py',
+   'PYMODULE'),
+  ('distutils.spawn',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\distutils\\spawn.py',
+   'PYMODULE'),
+  ('distutils.errors',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\distutils\\errors.py',
+   'PYMODULE'),
+  ('distutils.sysconfig',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\distutils\\sysconfig.py',
+   'PYMODULE'),
+  ('distutils.text_file',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\distutils\\text_file.py',
+   'PYMODULE'),
+  ('platform',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\platform.py',
+   'PYMODULE'),
+  ('plistlib',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\plistlib.py',
+   'PYMODULE'),
+  ('pkgutil',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\pkgutil.py',
+   'PYMODULE'),
+  ('zipimport',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\zipimport.py',
+   'PYMODULE'),
+  ('runpy',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\runpy.py',
+   'PYMODULE'),
+  ('glob',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\glob.py',
+   'PYMODULE'),
+  ('code',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\code.py',
+   'PYMODULE'),
+  ('codeop',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\codeop.py',
+   'PYMODULE'),
+  ('dis',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\dis.py',
+   'PYMODULE'),
+  ('opcode',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\opcode.py',
+   'PYMODULE'),
+  ('bdb',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\bdb.py',
+   'PYMODULE'),
+  ('cmd',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\cmd.py',
+   'PYMODULE'),
+  ('inspect',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\inspect.py',
+   'PYMODULE'),
+  ('ast',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\ast.py',
+   'PYMODULE'),
+  ('difflib',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\difflib.py',
+   'PYMODULE'),
+  ('__future__',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\__future__.py',
+   'PYMODULE'),
+  ('_compat_pickle',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\_compat_pickle.py',
+   'PYMODULE'),
+  ('tempfile',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\tempfile.py',
+   'PYMODULE'),
+  ('struct',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\struct.py',
+   'PYMODULE'),
+  ('socket',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\socket.py',
+   'PYMODULE'),
+  ('multiprocessing.util',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\util.py',
+   'PYMODULE'),
+  ('test.support',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\test\\support\\__init__.py',
+   'PYMODULE'),
+  ('tracemalloc',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\tracemalloc.py',
+   'PYMODULE'),
+  ('tkinter',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\tkinter\\__init__.py',
+   'PYMODULE'),
+  ('tkinter.constants',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\tkinter\\constants.py',
+   'PYMODULE'),
+  ('ctypes.util',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\ctypes\\util.py',
+   'PYMODULE'),
+  ('ctypes._aix',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\ctypes\\_aix.py',
+   'PYMODULE'),
+  ('ctypes.macholib.dyld',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\ctypes\\macholib\\dyld.py',
+   'PYMODULE'),
+  ('ctypes.macholib',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\ctypes\\macholib\\__init__.py',
+   'PYMODULE'),
+  ('ctypes.macholib.dylib',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\ctypes\\macholib\\dylib.py',
+   'PYMODULE'),
+  ('ctypes.macholib.framework',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\ctypes\\macholib\\framework.py',
+   'PYMODULE'),
+  ('ctypes.wintypes',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\ctypes\\wintypes.py',
+   'PYMODULE'),
+  ('test.support.testresult',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\test\\support\\testresult.py',
+   'PYMODULE'),
+  ('xml.etree.ElementTree',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\xml\\etree\\ElementTree.py',
+   'PYMODULE'),
+  ('xml.etree.cElementTree',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\xml\\etree\\cElementTree.py',
+   'PYMODULE'),
+  ('xml.etree.ElementInclude',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\xml\\etree\\ElementInclude.py',
+   'PYMODULE'),
+  ('xml.etree.ElementPath',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\xml\\etree\\ElementPath.py',
+   'PYMODULE'),
+  ('xml.etree',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\xml\\etree\\__init__.py',
+   'PYMODULE'),
+  ('nntplib',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\nntplib.py',
+   'PYMODULE'),
+  ('logging.handlers',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\logging\\handlers.py',
+   'PYMODULE'),
+  ('smtplib',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\smtplib.py',
+   'PYMODULE'),
+  ('test',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\test\\__init__.py',
+   'PYMODULE'),
+  ('signal',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\signal.py',
+   'PYMODULE'),
+  ('multiprocessing.popen_spawn_win32',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\popen_spawn_win32.py',
+   'PYMODULE'),
+  ('subprocess',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\subprocess.py',
+   'PYMODULE'),
+  ('multiprocessing.spawn',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\spawn.py',
+   'PYMODULE'),
+  ('multiprocessing',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\__init__.py',
+   'PYMODULE'),
+  ('stringprep',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\stringprep.py',
+   'PYMODULE'),
+  ('_py_abc',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\_py_abc.py',
+   'PYMODULE'),
+  ('os',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\os.py',
+   'PYMODULE'),
+  ('youtube_dl',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\__init__.py',
+   'PYMODULE'),
+  ('youtube_dl.YoutubeDL',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\YoutubeDL.py',
+   'PYMODULE'),
+  ('pty',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\pty.py',
+   'PYMODULE'),
+  ('youtube_dl.version',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\version.py',
+   'PYMODULE'),
+  ('youtube_dl.postprocessor',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\postprocessor\\__init__.py',
+   'PYMODULE'),
+  ('youtube_dl.postprocessor.metadatafromtitle',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\postprocessor\\metadatafromtitle.py',
+   'PYMODULE'),
+  ('youtube_dl.postprocessor.common',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\postprocessor\\common.py',
+   'PYMODULE'),
+  ('youtube_dl.postprocessor.execafterdownload',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\postprocessor\\execafterdownload.py',
+   'PYMODULE'),
+  ('youtube_dl.postprocessor.xattrpp',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\postprocessor\\xattrpp.py',
+   'PYMODULE'),
+  ('youtube_dl.postprocessor.ffmpeg',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\postprocessor\\ffmpeg.py',
+   'PYMODULE'),
+  ('youtube_dl.postprocessor.embedthumbnail',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\postprocessor\\embedthumbnail.py',
+   'PYMODULE'),
+  ('youtube_dl.downloader.rtmp',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\downloader\\rtmp.py',
+   'PYMODULE'),
+  ('youtube_dl.downloader.common',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\downloader\\common.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.openload',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\openload.py',
+   'PYMODULE'),
+  ('youtube_dl.cache',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\cache.py',
+   'PYMODULE'),
+  ('json',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\json\\__init__.py',
+   'PYMODULE'),
+  ('json.encoder',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\json\\encoder.py',
+   'PYMODULE'),
+  ('json.decoder',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\json\\decoder.py',
+   'PYMODULE'),
+  ('json.scanner',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\json\\scanner.py',
+   'PYMODULE'),
+  ('fileinput',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\fileinput.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.adobepass',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\adobepass.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.common',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\common.py',
+   'PYMODULE'),
+  ('youtube_dl.downloader.f4m',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\downloader\\f4m.py',
+   'PYMODULE'),
+  ('youtube_dl.downloader.fragment',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\downloader\\fragment.py',
+   'PYMODULE'),
+  ('youtube_dl.downloader.http',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\downloader\\http.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\__init__.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.extractors',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\extractors.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.zype',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\zype.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.zingmp3',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\zingmp3.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.zdf',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\zdf.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.zattoo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\zattoo.py',
+   'PYMODULE'),
+  ('uuid',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\uuid.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.zaq1',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\zaq1.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.zapiks',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\zapiks.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.youtube',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\youtube.py',
+   'PYMODULE'),
+  ('youtube_dl.swfinterp',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\swfinterp.py',
+   'PYMODULE'),
+  ('youtube_dl.jsinterp',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\jsinterp.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.yourupload',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\yourupload.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.yourporn',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\yourporn.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.youporn',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\youporn.py',
+   'PYMODULE'),
+  ('youtube_dl.aes',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\aes.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.younow',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\younow.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.youku',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\youku.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.youjizz',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\youjizz.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ynet',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ynet.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.yinyuetai',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\yinyuetai.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.yesjapan',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\yesjapan.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.yapfiles',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\yapfiles.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.yandexvideo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\yandexvideo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.yandexmusic',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\yandexmusic.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.yandexdisk',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\yandexdisk.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.yahoo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\yahoo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.xxxymovies',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\xxxymovies.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.xvideos',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\xvideos.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.xuite',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\xuite.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.xtube',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\xtube.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.xstream',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\xstream.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.xnxx',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\xnxx.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.xminus',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\xminus.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ximalaya',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ximalaya.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.xiami',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\xiami.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.xhamster',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\xhamster.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.xfileshare',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\xfileshare.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.xboxclips',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\xboxclips.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.xbef',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\xbef.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.wwe',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\wwe.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.wsj',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\wsj.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.worldstarhiphop',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\worldstarhiphop.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.wistia',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\wistia.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.weiqitv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\weiqitv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.weibo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\weibo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.webofstories',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\webofstories.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.webcaster',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\webcaster.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.wdr',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\wdr.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.watchindianporn',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\watchindianporn.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.watchbox',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\watchbox.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.wat',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\wat.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.washingtonpost',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\washingtonpost.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.walla',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\walla.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.wakanim',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\wakanim.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vzaar',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vzaar.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vyborymos',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vyborymos.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vvvvid',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vvvvid.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vuclip',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vuclip.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vube',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vube.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.medialaan',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\medialaan.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.gigya',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\gigya.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vshare',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vshare.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vrv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vrv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vrak',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vrak.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vrt',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vrt.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.voxmedia',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\voxmedia.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.once',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\once.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.voot',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\voot.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.voicerepublic',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\voicerepublic.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vodplatform',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vodplatform.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vodpl',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vodpl.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vodlocker',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vodlocker.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vlive',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vlive.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vk',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vk.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.viu',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\viu.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.viqeo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\viqeo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.viki',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\viki.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vine',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vine.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vimple',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vimple.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vimeo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vimeo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.viidea',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\viidea.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.viewlift',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\viewlift.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vier',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vier.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vidzi',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vidzi.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vidme',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vidme.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vidlii',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vidlii.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vidio',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vidio.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.videopress',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\videopress.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.videomore',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\videomore.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.videofyme',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\videofyme.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.videodetective',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\videodetective.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.videa',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\videa.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.viddler',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\viddler.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vidbit',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vidbit.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vice',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vice.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vh1',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vh1.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vgtv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vgtv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vevo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vevo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vesti',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vesti.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.veoh',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\veoh.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.veehd',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\veehd.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.vbox7',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\vbox7.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.varzesh3',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\varzesh3.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ustudio',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ustudio.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ustream',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ustream.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.usatoday',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\usatoday.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.usanetwork',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\usanetwork.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.urplay',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\urplay.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.urort',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\urort.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.uplynk',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\uplynk.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.uol',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\uol.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.unity',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\unity.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.unistra',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\unistra.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.umg',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\umg.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.dlive',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\dlive.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.digiteka',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\digiteka.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.uktvplay',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\uktvplay.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ufctv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ufctv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.imggaming',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\imggaming.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.udn',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\udn.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.udemy',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\udemy.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.twitter',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\twitter.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.twitch',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\twitch.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.twitcasting',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\twitcasting.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.twentythreevideo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\twentythreevideo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.twentymin',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\twentymin.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.twentyfourvideo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\twentyfourvideo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tweakers',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tweakers.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tvplayer',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tvplayer.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tvplay',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tvplay.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tvp',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tvp.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tvnow',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tvnow.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tvnoe',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tvnoe.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tvnet',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tvnet.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tvn24',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tvn24.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tvland',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tvland.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tvigle',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tvigle.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tvc',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tvc.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tvanouvelles',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tvanouvelles.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tva',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tva.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tv5mondeplus',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tv5mondeplus.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tv4',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tv4.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tv2hu',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tv2hu.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tv2dk',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tv2dk.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tv2',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tv2.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.turbo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\turbo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tunepk',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tunepk.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tunein',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tunein.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tumblr',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tumblr.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tubitv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tubitv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tube8',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tube8.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.trutv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\trutv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.turner',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\turner.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.trunews',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\trunews.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.trilulilu',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\trilulilu.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.traileraddict',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\traileraddict.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.toypics',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\toypics.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.toutv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\toutv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.toongoggles',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\toongoggles.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tonline',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tonline.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.toggle',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\toggle.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tnaflix',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tnaflix.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tmz',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tmz.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tinypic',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tinypic.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tiktok',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tiktok.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.threeqsdn',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\threeqsdn.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.thisoldhouse',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\thisoldhouse.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.thisav',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\thisav.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.thisamericanlife',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\thisamericanlife.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.theweatherchannel',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\theweatherchannel.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.thesun',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\thesun.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.thestar',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\thestar.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.thescene',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\thescene.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.theplatform',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\theplatform.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.theintercept',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\theintercept.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tfo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tfo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tf1',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tf1.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.testurl',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\testurl.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tenplay',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tenplay.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tennistv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tennistv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.telewebion',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\telewebion.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.teletask',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\teletask.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.telequebec',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\telequebec.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.telemb',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\telemb.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.telegraaf',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\telegraaf.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.telecinco',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\telecinco.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.telebruxelles',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\telebruxelles.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tele13',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tele13.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tele5',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tele5.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ted',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ted.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.techtalks',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\techtalks.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.teamtreehouse',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\teamtreehouse.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.teamcoco',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\teamcoco.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.teachingchannel',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\teachingchannel.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.teachertube',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\teachertube.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.teachable',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\teachable.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tdslifeway',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tdslifeway.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tbs',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tbs.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tastytrade',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tastytrade.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tass',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tass.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.tagesschau',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\tagesschau.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.sztvhu',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\sztvhu.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.syfy',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\syfy.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.swrmediathek',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\swrmediathek.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.svt',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\svt.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.sverigesradio',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\sverigesradio.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.sunporno',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\sunporno.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.stv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\stv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.stretchinternet',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\stretchinternet.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.streetvoice',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\streetvoice.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.streamcz',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\streamcz.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.streamcloud',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\streamcloud.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.streamable',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\streamable.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.steam',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\steam.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.stanfordoc',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\stanfordoc.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.srmediathek',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\srmediathek.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.srgssr',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\srgssr.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.sprout',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\sprout.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.springboardplatform',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\springboardplatform.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.sportdeutschland',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\sportdeutschland.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.sportbox',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\sportbox.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.sport5',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\sport5.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.stitcher',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\stitcher.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.spike',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\spike.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.spiegeltv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\spiegeltv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.spiegel',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\spiegel.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.spankwire',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\spankwire.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.spankbang',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\spankbang.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.southpark',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\southpark.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.soundgasm',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\soundgasm.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.soundcloud',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\soundcloud.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.sonyliv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\sonyliv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.sohu',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\sohu.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.snotr',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\snotr.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.smotri',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\smotri.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.slutload',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\slutload.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.slideslive',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\slideslive.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.slideshare',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\slideshare.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.sky',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\sky.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.skynewsarabia',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\skynewsarabia.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.skylinewebcams',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\skylinewebcams.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.sixplay',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\sixplay.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.sina',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\sina.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.showroomlive',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\showroomlive.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.shared',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\shared.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.shahid',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\shahid.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.aws',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\aws.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.seznamzpravy',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\seznamzpravy.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.sexu',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\sexu.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.sevenplus',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\sevenplus.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.servus',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\servus.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.sendtonews',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\sendtonews.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.senateisvp',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\senateisvp.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.seeker',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\seeker.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.scte',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\scte.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.scrippsnetworks',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\scrippsnetworks.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.screencastomatic',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\screencastomatic.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.screencast',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\screencast.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.sbs',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\sbs.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.savefrom',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\savefrom.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.sapo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\sapo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.safari',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\safari.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ruv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ruv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ruutu',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ruutu.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rutv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rutv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rutube',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rutube.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ruhd',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ruhd.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rtvs',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rtvs.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rtvnh',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rtvnh.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rtve',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rtve.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rts',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rts.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rtp',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rtp.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rtl2',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rtl2.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rtlnl',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rtlnl.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rte',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rte.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rtbf',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rtbf.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rozhlas',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rozhlas.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.roxwel',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\roxwel.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rottentomatoes',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rottentomatoes.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.roosterteeth',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\roosterteeth.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rockstargames',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rockstargames.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ro220',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ro220.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rmcdecouverte',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rmcdecouverte.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rice',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rice.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.reverbnation',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\reverbnation.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.reuters',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\reuters.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.restudy',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\restudy.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rentv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rentv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.regiotv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\regiotv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.redtube',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\redtube.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.reddit',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\reddit.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.redbulltv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\redbulltv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rds',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rds.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rbmaradio',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rbmaradio.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.raywenderlich',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\raywenderlich.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.rai',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\rai.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.radiofrance',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\radiofrance.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.radiobremen',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\radiobremen.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.radiojavan',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\radiojavan.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.radiode',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\radiode.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.radiocanada',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\radiocanada.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.r7',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\r7.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.qqmusic',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\qqmusic.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.pyvideo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\pyvideo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.puls4',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\puls4.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.prosiebensat1',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\prosiebensat1.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.presstv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\presstv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.puhutv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\puhutv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.pornoxo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\pornoxo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.pornovoisines',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\pornovoisines.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.pornotube',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\pornotube.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.pornhub',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\pornhub.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.pornhd',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\pornhd.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.porncom',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\porncom.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.porn91',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\porn91.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.popcorntv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\popcorntv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.popcorntimes',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\popcorntimes.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.polskieradio',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\polskieradio.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.pokemon',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\pokemon.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.podomatic',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\podomatic.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.pluralsight',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\pluralsight.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.playwire',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\playwire.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.playvid',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\playvid.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.playtvak',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\playtvak.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.plays',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\plays.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.playplustv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\playplustv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.playfm',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\playfm.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.platzi',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\platzi.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.pladform',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\pladform.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.pinkbike',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\pinkbike.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.piksel',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\piksel.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.picarto',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\picarto.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.photobucket',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\photobucket.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.phoenix',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\phoenix.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.philharmoniedeparis',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\philharmoniedeparis.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.periscope',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\periscope.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.performgroup',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\performgroup.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.people',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\people.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.peertube',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\peertube.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.pearvideo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\pearvideo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.pbs',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\pbs.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.patreon',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\patreon.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.parliamentliveuk',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\parliamentliveuk.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.pandoratv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\pandoratv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.packtpub',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\packtpub.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.outsidetv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\outsidetv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.orf',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\orf.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ora',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ora.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ooyala',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ooyala.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.onionstudios',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\onionstudios.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.onet',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\onet.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ondemandkorea',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ondemandkorea.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.oktoberfesttv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\oktoberfesttv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.odnoklassniki',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\odnoklassniki.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.odatv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\odatv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nzz',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nzz.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nuvid',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nuvid.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nytimes',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nytimes.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ntvru',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ntvru.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ntvde',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ntvde.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ntvcojp',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ntvcojp.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nrl',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nrl.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nrk',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nrk.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.npr',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\npr.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.npo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\npo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.noz',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\noz.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nowness',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nowness.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nova',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nova.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nosvideo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nosvideo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.normalboots',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\normalboots.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.noovo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\noovo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nonktube',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nonktube.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nuevo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nuevo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.noco',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\noco.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nobelprize',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nobelprize.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.njpwworld',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\njpwworld.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nintendo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nintendo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ninenow',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ninenow.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ninegag',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ninegag.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ninecninemedia',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ninecninemedia.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.niconico',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\niconico.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nick',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nick.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nhl',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nhl.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nhk',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nhk.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nfl',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nfl.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nexx',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nexx.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nextmedia',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nextmedia.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.newstube',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\newstube.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.newgrounds',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\newgrounds.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.neteasemusic',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\neteasemusic.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nerdcubed',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nerdcubed.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.netzkino',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\netzkino.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ndtv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ndtv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ndr',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ndr.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nbc',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nbc.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nba',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nba.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.naver',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\naver.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.nationalgeographic',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\nationalgeographic.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.myvidster',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\myvidster.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.myvi',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\myvi.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.myspass',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\myspass.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.myspace',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\myspace.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.mychannels',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\mychannels.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.mwave',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\mwave.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.muenchentv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\muenchentv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.mtv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\mtv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.msn',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\msn.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.movingimage',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\movingimage.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.moviezine',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\moviezine.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.movieclips',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\movieclips.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.motorsport',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\motorsport.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.motherless',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\motherless.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.morningstar',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\morningstar.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.mojvideo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\mojvideo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.mofosex',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\mofosex.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.moevideo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\moevideo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.mnet',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\mnet.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.mlb',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\mlb.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.mixcloud',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\mixcloud.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.mitele',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\mitele.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.mit',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\mit.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.miomio',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\miomio.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.minoto',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\minoto.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ministrygrid',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ministrygrid.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.microsoftvirtualacademy',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\microsoftvirtualacademy.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.miaopai',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\miaopai.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.mgtv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\mgtv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.mgoon',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\mgoon.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.metacritic',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\metacritic.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.metacafe',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\metacafe.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.meta',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\meta.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.melonvod',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\melonvod.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.meipai',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\meipai.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.megaphone',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\megaphone.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.medici',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\medici.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.mediasite',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\mediasite.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.mediaset',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\mediaset.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.mdr',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\mdr.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.matchtv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\matchtv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.massengeschmacktv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\massengeschmacktv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.markiza',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\markiza.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.manyvids',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\manyvids.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.mangomolo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\mangomolo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.malltv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\malltv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.mailru',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\mailru.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.m6',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\m6.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.lynda',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\lynda.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.lrt',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\lrt.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.lovehomeporn',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\lovehomeporn.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.localnews8',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\localnews8.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.lnkgo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\lnkgo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.livestream',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\livestream.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.liveleak',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\liveleak.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.livejournal',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\livejournal.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.litv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\litv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.linuxacademy',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\linuxacademy.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.linkedin',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\linkedin.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.line',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\line.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.limelight',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\limelight.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.lifenews',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\lifenews.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.libsyn',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\libsyn.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.libraryofcongress',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\libraryofcongress.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.lenta',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\lenta.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.lemonde',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\lemonde.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.lego',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\lego.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.leeco',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\leeco.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.lecturio',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\lecturio.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.lecture2go',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\lecture2go.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.lcp',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\lcp.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.lci',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\lci.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.laola1tv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\laola1tv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.la7',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\la7.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.kuwo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\kuwo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.kusi',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\kusi.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ku6',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ku6.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.krasview',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\krasview.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.konserthusetplay',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\konserthusetplay.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.kinopoisk',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\kinopoisk.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.kinja',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\kinja.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.kickstarter',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\kickstarter.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.khanacademy',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\khanacademy.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ketnet',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ketnet.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.keezmovies',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\keezmovies.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.karrierevideos',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\karrierevideos.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.karaoketv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\karaoketv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.kankan',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\kankan.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.kanalplay',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\kanalplay.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.kaltura',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\kaltura.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.kakao',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\kakao.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.jwplatform',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\jwplatform.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.joj',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\joj.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.jove',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\jove.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.jeuxvideo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\jeuxvideo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.jamendo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\jamendo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.izlesene',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\izlesene.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.iwara',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\iwara.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ivideon',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ivideon.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ivi',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ivi.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.itv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\itv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ir90tv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ir90tv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.iqiyi',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\iqiyi.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.iprima',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\iprima.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.internetvideoarchive',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\internetvideoarchive.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.internazionale',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\internazionale.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.instagram',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\instagram.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.infoq',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\infoq.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.indavideo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\indavideo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.inc',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\inc.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ina',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ina.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.imgur',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\imgur.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.imdb',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\imdb.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ign',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ign.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.hypem',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\hypem.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.hungama',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\hungama.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.huffpost',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\huffpost.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.huajiao',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\huajiao.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.hrti',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\hrti.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.howstuffworks',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\howstuffworks.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.howcast',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\howcast.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.hotstar',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\hotstar.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.hotnewhiphop',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\hotnewhiphop.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.hornbunny',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\hornbunny.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.hitrecord',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\hitrecord.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.hitbox',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\hitbox.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.historicfilms',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\historicfilms.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.hidive',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\hidive.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.hketv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\hketv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.hgtv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\hgtv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.hentaistigma',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\hentaistigma.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.helsinki',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\helsinki.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.hellporno',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\hellporno.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.heise',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\heise.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.hearthisat',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\hearthisat.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.hbo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\hbo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.groupon',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\groupon.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.gputechconf',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\gputechconf.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.goshgay',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\goshgay.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.googlesearch',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\googlesearch.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.googleplus',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\googleplus.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.googledrive',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\googledrive.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.golem',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\golem.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.godtube',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\godtube.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.go',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\go.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.globo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\globo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.glide',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\glide.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.giga',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\giga.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.giantbomb',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\giantbomb.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.gfycat',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\gfycat.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.generic',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\generic.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.gdcvault',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\gdcvault.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.gazeta',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\gazeta.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.gaskrank',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\gaskrank.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.gamestar',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\gamestar.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.gamespot',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\gamespot.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.gameinformer',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\gameinformer.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.gaia',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\gaia.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.fxnetworks',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\fxnetworks.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.fusion',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\fusion.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.funk',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\funk.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.funimation',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\funimation.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.frontendmasters',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\frontendmasters.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.freshlive',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\freshlive.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.freespeech',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\freespeech.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.freesound',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\freesound.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.francetv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\francetv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.franceinter',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\franceinter.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.franceculture',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\franceculture.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.foxsports',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\foxsports.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.foxnews',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\foxnews.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.amp',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\amp.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.foxgay',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\foxgay.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.fox9',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\fox9.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.fox',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\fox.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.fourtube',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\fourtube.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.formula1',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\formula1.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.footyroom',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\footyroom.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.folketinget',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\folketinget.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.flickr',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\flickr.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.fivetv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\fivetv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.fivemin',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\fivemin.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.firsttv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\firsttv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.filmweb',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\filmweb.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.filmon',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\filmon.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.fczenit',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\fczenit.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.fc2',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\fc2.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.faz',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\faz.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.facebook',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\facebook.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.eyedotv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\eyedotv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.extremetube',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\extremetube.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.expressen',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\expressen.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.expotv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\expotv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.everyonesmixtape',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\everyonesmixtape.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.europa',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\europa.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.esri',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\esri.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.espn',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\espn.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.escapist',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\escapist.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.eroprofile',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\eroprofile.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.eporner',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\eporner.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.engadget',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\engadget.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.embedly',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\embedly.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.elpais',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\elpais.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ellentube',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ellentube.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.eitb',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\eitb.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.einthusan',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\einthusan.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.eighttracks',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\eighttracks.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ehow',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ehow.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.egghead',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\egghead.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.echomsk',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\echomsk.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ebaumsworld',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ebaumsworld.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.eagleplatform',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\eagleplatform.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.dw',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\dw.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.dropbox',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\dropbox.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.dispeak',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\dispeak.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.disney',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\disney.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.discoveryvr',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\discoveryvr.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.discoverynetworks',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\discoverynetworks.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.discoverygo',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\discoverygo.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.discovery',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\discovery.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.defense',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\defense.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.dumpert',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\dumpert.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.dvtv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\dvtv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.dtube',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\dtube.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.drtv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\drtv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.drtuber',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\drtuber.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.drbonanza',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\drbonanza.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.dreisat',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\dreisat.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.dplay',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\dplay.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.douyutv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\douyutv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.dotsub',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\dotsub.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.digg',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\digg.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.dhm',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\dhm.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.dfb',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\dfb.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.democracynow',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\democracynow.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.deezer',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\deezer.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.dctp',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\dctp.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.dbtv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\dbtv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.daum',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\daum.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.dailymotion',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\dailymotion.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.dailymail',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\dailymail.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cwtv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cwtv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.curiositystream',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\curiositystream.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cultureunplugged',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cultureunplugged.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ctvnews',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ctvnews.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ctsnews',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ctsnews.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cspan',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cspan.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.crunchyroll',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\crunchyroll.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.crooksandliars',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\crooksandliars.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.crackle',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\crackle.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cracked',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cracked.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.corus',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\corus.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.contv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\contv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.condenast',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\condenast.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.commonprotocols',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\commonprotocols.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.commonmistakes',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\commonmistakes.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.comedycentral',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\comedycentral.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.coub',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\coub.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cnn',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cnn.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cnbc',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cnbc.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cmt',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cmt.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.clyp',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\clyp.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.clubic',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\clubic.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cloudy',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cloudy.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cloudflarestream',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cloudflarestream.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.closertotruth',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\closertotruth.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.clipsyndicate',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\clipsyndicate.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cliprs',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cliprs.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.clippit',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\clippit.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cliphunter',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cliphunter.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cjsw',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cjsw.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ciscolive',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ciscolive.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cinemax',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cinemax.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cinchcast',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cinchcast.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.chirbit',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\chirbit.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.chilloutzone',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\chilloutzone.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.chaturbate',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\chaturbate.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.charlierose',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\charlierose.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.channel9',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\channel9.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ceskatelevize',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ceskatelevize.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cda',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cda.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cctv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cctv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ccma',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ccma.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ccc',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ccc.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cbssports',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cbssports.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cbsnews',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cbsnews.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cbsinteractive',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cbsinteractive.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cbslocal',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cbslocal.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cbs',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cbs.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cbc',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cbc.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cartoonnetwork',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cartoonnetwork.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.carambatv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\carambatv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.canvas',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\canvas.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.canalc2',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\canalc2.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.canalplus',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\canalplus.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.camwithher',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\camwithher.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.camtube',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\camtube.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.cammodels',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\cammodels.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.camdemy',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\camdemy.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.c56',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\c56.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.byutv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\byutv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.buzzfeed',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\buzzfeed.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.businessinsider',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\businessinsider.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.brightcove',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\brightcove.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.breakcom',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\breakcom.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.bravotv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\bravotv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.br',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\br.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.bpb',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\bpb.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.bostonglobe',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\bostonglobe.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.bokecc',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\bokecc.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.bloomberg',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\bloomberg.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.blinkx',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\blinkx.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.bleacherreport',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\bleacherreport.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.biqle',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\biqle.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.bitchute',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\bitchute.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.biobiochiletv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\biobiochiletv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.bilibili',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\bilibili.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.bild',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\bild.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.bigflix',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\bigflix.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.bfi',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\bfi.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.bet',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\bet.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.beatport',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\beatport.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.bellmedia',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\bellmedia.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.behindkink',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\behindkink.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.beeg',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\beeg.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.beampro',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\beampro.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.bbc',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\bbc.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.bandcamp',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\bandcamp.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.baidu',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\baidu.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.azmedien',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\azmedien.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.awaan',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\awaan.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.audiomack',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\audiomack.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.audioboom',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\audioboom.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.audimedia',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\audimedia.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.atvat',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\atvat.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.atttechchannel',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\atttechchannel.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.atresplayer',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\atresplayer.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.asiancrush',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\asiancrush.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.arte',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\arte.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.ard',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\ard.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.arkena',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\arkena.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.archiveorg',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\archiveorg.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.appletrailers',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\appletrailers.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.appleconnect',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\appleconnect.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.aparat',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\aparat.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.apa',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\apa.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.aliexpress',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\aliexpress.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.allocine',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\allocine.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.aol',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\aol.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.anvato',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\anvato.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.animeondemand',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\animeondemand.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.americastestkitchen',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\americastestkitchen.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.amcnetworks',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\amcnetworks.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.alphaporno',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\alphaporno.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.aljazeera',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\aljazeera.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.airmozilla',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\airmozilla.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.afreecatv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\afreecatv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.aenetworks',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\aenetworks.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.adultswim',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\adultswim.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.adobetv',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\adobetv.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.adobeconnect',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\adobeconnect.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.adn',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\adn.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.acast',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\acast.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.academicearth',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\academicearth.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.abcotvs',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\abcotvs.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.abcnews',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\abcnews.py',
+   'PYMODULE'),
+  ('youtube_dl.extractor.abc',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\extractor\\abc.py',
+   'PYMODULE'),
+  ('youtube_dl.downloader',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\downloader\\__init__.py',
+   'PYMODULE'),
+  ('youtube_dl.downloader.external',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\downloader\\external.py',
+   'PYMODULE'),
+  ('youtube_dl.downloader.ism',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\downloader\\ism.py',
+   'PYMODULE'),
+  ('youtube_dl.downloader.rtsp',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\downloader\\rtsp.py',
+   'PYMODULE'),
+  ('youtube_dl.downloader.dash',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\downloader\\dash.py',
+   'PYMODULE'),
+  ('youtube_dl.downloader.hls',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\downloader\\hls.py',
+   'PYMODULE'),
+  ('youtube_dl.update',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\update.py',
+   'PYMODULE'),
+  ('youtube_dl.utils',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\utils.py',
+   'PYMODULE'),
+  ('youtube_dl.socks',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\socks.py',
+   'PYMODULE'),
+  ('youtube_dl.compat',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\compat.py',
+   'PYMODULE'),
+  ('html.parser',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\html\\parser.py',
+   'PYMODULE'),
+  ('html',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\html\\__init__.py',
+   'PYMODULE'),
+  ('_markupbase',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\_markupbase.py',
+   'PYMODULE'),
+  ('html.entities',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\html\\entities.py',
+   'PYMODULE'),
+  ('http.cookies',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\http\\cookies.py',
+   'PYMODULE'),
+  ('youtube_dl.options',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Roaming\\Python\\Python38\\site-packages\\youtube_dl\\options.py',
+   'PYMODULE'),
+  ('logging',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\logging\\__init__.py',
+   'PYMODULE'),
+  ('http.server',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\http\\server.py',
+   'PYMODULE'),
+  ('socketserver',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\socketserver.py',
+   'PYMODULE')])
