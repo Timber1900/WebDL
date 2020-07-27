@@ -28,13 +28,17 @@ class S(BaseHTTPRequestHandler):
         else:
             ydl_opts = {
                 "outtmpl": os.environ["USERPROFILE"] + "/Videos/Youtube/%(title)s.%(ext)s",
-                "format": "bestvideo[ext=mp4]+bestaudio",
+                "format": "bestvideo[ext=mkv]+bestaudio",
                 "ignoreerrors": True,
                 "cachedir": False,
             }
-        with yt.YoutubeDL(ydl_opts) as ydl:
-            ydl.download([url])
-        print("Downloaded")
+        try:
+            with yt.YoutubeDL(ydl_opts) as ydl:
+                ydl.download([url])
+        except:
+            print("Something went wrong")
+        else:
+            print("Downloaded")
 
 
 
