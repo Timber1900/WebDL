@@ -18,6 +18,8 @@ class GUI:
 
     def __init__(self):
         self.root.protocol("WM_DELETE_WINDOW", self.close)
+        self.root.title("Youtube Downloader")
+        self.root.iconbitmap("./page_32.ico")
         self.progress["value"] = 0
         self.v1.set("0%")
         self.v2.set("Waiting.")
