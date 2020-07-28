@@ -3,8 +3,11 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import logging
 import youtube_dl as yt
 import os
+from tkinter import * 
+from tkinter.ttk import *
 
 class S(BaseHTTPRequestHandler):
+
     def _set_response(self):
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
@@ -21,8 +24,32 @@ class S(BaseHTTPRequestHandler):
         print(url)
         print(filetype)
 
-        
-        
+        class GUI:
+            root = Tk()
+            progress = Progressbar(root, orient = HORIZONTAL, 
+                length = 100, mode = 'determinate') 
+            progress['value'] = 100
+            v = StringVar()
+            v.set("0%")
+            text = Label(root, textvariable=v)
+            def my_hook(self, d):
+                if d['status'] == 'finished':
+                    file_tuple = os.path.split(os.path.abspath(d['filename']))
+                    print("Done downloading {}".format(file_tuple[1]))
+                if d['status'] == 'downloading':
+                    p = d['_percent_str']
+                    p = p.replace('%','')
+                    self.updateBar(p)
+                    self.v.set(d['_percent_str'])
+                    self.text.pack(padx=5, pady=20, side=LEFT)
+                    self.root.update()
+                    
+            
+            def updateBar(self, val):
+                self.progress['value'] = val
+                self.progress.pack(padx=5, pady=20, side=LEFT)     
+        g = GUI()
+                
         if filetype == "mp3":
             ydl_opts = {
                 "outtmpl": os.environ["USERPROFILE"] + "/Videos/Youtube/%(title)s.%(ext)s",
@@ -30,7 +57,7 @@ class S(BaseHTTPRequestHandler):
                 "ignoreerrors": True,
                 "cachedir": False,
                 'logger': MyLogger(),
-                'progress_hooks': [my_hook],
+                'progress_hooks': [g.my_hook],
             }
         else:
             ydl_opts = {
@@ -39,11 +66,12 @@ class S(BaseHTTPRequestHandler):
                 "ignoreerrors": True,
                 "cachedir": False,
                 'logger': MyLogger(),
-                'progress_hooks': [my_hook],
+                'progress_hooks': [g.my_hook],
             }
         try:
             with yt.YoutubeDL(ydl_opts) as ydl:
                 ydl.download([url])
+            g.root.destroy()
         except:
             print("Something went wrong")
     
@@ -58,19 +86,11 @@ class MyLogger(object):
     def error(self, msg):
         print(msg)
 
-def my_hook(d):
-            if d['status'] == 'finished':
-                file_tuple = os.path.split(os.path.abspath(d['filename']))
-                print("Done downloading {}".format(file_tuple[1]))
-            if d['status'] == 'downloading':
-                p = d['_percent_str']
-                p = p.replace('%','')
-                print(p)
-            
 def run(server_class=HTTPServer, handler_class=S, port=1234):
     server_address = ('localhost', port)
     httpd = server_class(server_address, handler_class)
     httpd.serve_forever()
+    
 
 run()
 
