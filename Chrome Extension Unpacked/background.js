@@ -20,7 +20,6 @@ function sendUrl(url) {
             method: 'POST',
         }
         request(clientServerOptions, function (error, response) {
-            console.log(error, response);
             return;
         });
     }

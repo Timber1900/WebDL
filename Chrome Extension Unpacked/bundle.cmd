@@ -1,0 +1,1 @@
+browserify background.js > "D:\DeepStorage\Programming\GitHub Repos\YoutubeVideoDownloader\Chrome Extension\bundle.js"
