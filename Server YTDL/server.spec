@@ -3,8 +3,8 @@
 block_cipher = None
 
 
-a = Analysis(['server.py'],
-             pathex=['C:\\Users\\Hugo Teixeira\\Desktop\\Stuff\\Server YTDL'],
+a = Analysis(['server.pyw'],
+             pathex=['D:\\DeepStorage\\Programming\\GitHub Repos\\YoutubeVideoDownloader\\Server YTDL'],
              binaries=[],
              datas=[],
              hiddenimports=[],
@@ -30,4 +30,4 @@ exe = EXE(pyz,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=True )
+          console=False , icon='page_32.ico')
