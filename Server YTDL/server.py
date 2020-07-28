@@ -1,19 +1,61 @@
-
+import sys
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import logging
 import youtube_dl as yt
 import os
+import threading
 from tkinter import * 
 from tkinter.ttk import *
+
+class GUI:
+    root = Tk()
+    progress = Progressbar(root, orient = HORIZONTAL, 
+        length = 300, mode = 'determinate') 
+    v1 = StringVar()
+    text = Label(root, textvariable=v1)
+    v2 = StringVar()
+    text2 = Label(root, textvariable=v2)
+    
+
+    def __init__(self):
+        self.root.protocol('WM_DELETE_WINDOW', self.doSomething)
+        self.progress['value'] = 0
+        self.v1.set("0%")
+        self.v2.set("Waiting.")
+        self.text2.pack(padx=10, pady= 10, side=BOTTOM)     
+        self.text.pack(padx=5, pady=20, side=LEFT)
+        self.progress.pack(padx=5, pady=10, side=LEFT)
+        
+
+    def my_hook(self, d):
+        if d['status'] == 'finished':
+            file_tuple = os.path.split(os.path.abspath(d['filename']))
+            self.v2.set("Done downloading {}".format(file_tuple[1]))   
+        if d['status'] == 'downloading':
+            p = d['_percent_str']
+            p = p.replace('%','')
+            self.updateBar(p)
+            self.v1.set(d['_percent_str'])
+            self.v2.set("Downloading")
+            
+    
+    def updateBar(self, val):
+        self.progress['value'] = val
+
+    
+
+    def doSomething(self): 
+        self.root.destroy()
+        
+        
+g = GUI()
 
 class S(BaseHTTPRequestHandler):
 
     def _set_response(self):
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
-        self.end_headers()
-
-    
+        self.end_headers()    
 
     def do_POST(self):
         content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
@@ -23,33 +65,7 @@ class S(BaseHTTPRequestHandler):
         filetype = raw.split('"')[7]
         print(url)
         print(filetype)
-
-        class GUI:
-            root = Tk()
-            progress = Progressbar(root, orient = HORIZONTAL, 
-                length = 100, mode = 'determinate') 
-            progress['value'] = 100
-            v = StringVar()
-            v.set("0%")
-            text = Label(root, textvariable=v)
-            def my_hook(self, d):
-                if d['status'] == 'finished':
-                    file_tuple = os.path.split(os.path.abspath(d['filename']))
-                    print("Done downloading {}".format(file_tuple[1]))
-                if d['status'] == 'downloading':
-                    p = d['_percent_str']
-                    p = p.replace('%','')
-                    self.updateBar(p)
-                    self.v.set(d['_percent_str'])
-                    self.text.pack(padx=5, pady=20, side=LEFT)
-                    self.root.update()
-                    
-            
-            def updateBar(self, val):
-                self.progress['value'] = val
-                self.progress.pack(padx=5, pady=20, side=LEFT)     
-        g = GUI()
-                
+      
         if filetype == "mp3":
             ydl_opts = {
                 "outtmpl": os.environ["USERPROFILE"] + "/Videos/Youtube/%(title)s.%(ext)s",
@@ -71,7 +87,8 @@ class S(BaseHTTPRequestHandler):
         try:
             with yt.YoutubeDL(ydl_opts) as ydl:
                 ydl.download([url])
-            g.root.destroy()
+            g.progress['value'] = 0 
+            g.v1.set("0%")
         except:
             print("Something went wrong")
     
@@ -86,12 +103,22 @@ class MyLogger(object):
     def error(self, msg):
         print(msg)
 
-def run(server_class=HTTPServer, handler_class=S, port=1234):
-    server_address = ('localhost', port)
-    httpd = server_class(server_address, handler_class)
-    httpd.serve_forever()
+class WebThread(threading.Thread):
+    _is_running = TRUE
+    def run(self, server_class=HTTPServer, handler_class=S, port=1234):
+        while self._is_running:
+            server_address = ('localhost', port)
+            httpd = server_class(server_address, handler_class)
+            httpd.serve_forever() 
     
+    def exit(self):
+        self._is_running = FALSE
+        print(self._is_running)
+        sys.exit()
 
-run()
+
+web = WebThread()
+web.start()
 
 
+mainloop()
