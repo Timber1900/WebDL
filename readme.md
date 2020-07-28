@@ -34,7 +34,7 @@ Output file will be located at your Videos folder inside "Youtube"
 
 
 
-`Main contributers:` <br />Timber1900:   https://github.com/Timber1900, <br />Almeida: https://github.com/Almeeida
+`Main contributers:` <br />Timber1900:   https://github.com/Timber1900, <br />Almeida: https://github.com/Almeidx
 
 `Other information:` <br />When active the server will run on port 1234, changing this is possible *but* you will have to change the server.js file on "Server ytdl" and  look for 'http://localhost:1234' inside the bundle.js file 'on Chrome Extension'.
 
