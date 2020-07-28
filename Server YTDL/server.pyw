@@ -6,48 +6,58 @@ import os
 import threading
 from tkinter import *
 from tkinter.ttk import *
+import pygubu
 
 
-class GUI:
-    root = Tk()
-    progress = Progressbar(root, orient=HORIZONTAL, length=300, mode="determinate")
-    v1 = StringVar()
-    text = Label(root, textvariable=v1)
-    v2 = StringVar()
-    text2 = Label(root, textvariable=v2)
 
-    def __init__(self):
-        self.root.protocol("WM_DELETE_WINDOW", self.close)
-        self.root.title("Youtube Downloader")
-        self.root.resizable(False, False)
-        self.root.iconbitmap("./page_32.ico")
-        self.progress["value"] = 0
-        self.v1.set("0%")
-        self.v2.set("Waiting.")
-        self.text2.pack(padx=10, pady=10, side=BOTTOM)
-        self.text.pack(padx=5, pady=20, side=LEFT)
-        self.progress.pack(padx=5, pady=10, side=LEFT)
+class NewprojectApp:
+    def __init__(self, master):
+        self.master = master
+        self.filetype = "mp4"
+        self.master.protocol("WM_DELETE_WINDOW", self.close)
+        self.master.title("Youtube Downloader")
+        self.master.resizable(False, False)
+        self.master.iconbitmap("./page_32.ico")
+        self.builder = builder = pygubu.Builder()
+        builder.add_from_file("./temp.ui")
+        self.mainwindow = builder.get_object('mainwindows')
+        builder.connect_callbacks(self)
+        self.status = builder.get_variable('status')
+        self.path = builder.get_variable('home')
+        self.path.set(os.environ["USERPROFILE"] + "\Videos\Youtube")
+        self.v1 = builder.get_variable('v1')
+        self.progress = builder.get_object('downloadprocess')
+    
+    def changeToMp3(self):
+        self.filetype = "mp3"
+
+    def changeToMp4(self):
+        self.filetype = "mp4"
+
+    def run(self):
+        self.mainwindow.mainloop()
 
     def my_hook(self, d):
         if d["status"] == "finished":
             file_tuple = os.path.split(os.path.abspath(d["filename"]))
-            self.v2.set("Done downloading '" + format(file_tuple[1] + "'"))
+            self.status.set("Done downloading '" + format(file_tuple[1] + "'"))
         if d["status"] == "downloading":
             p = d["_percent_str"]
             p = p.replace("%", "")
-            self.updateBar(p)
+            self.progress["value"] = p
             self.v1.set(d["_percent_str"])
-            self.v2.set("Downloading")
-
-    def updateBar(self, val):
-        self.progress["value"] = val
-
+            self.status.set("Downloading")
+    
     def close(self):
-        self.root.destroy()
+        self.master.destroy()
         sys.exit()
 
 
-g = GUI()
+    
+root = Tk()
+app = NewprojectApp(root)
+
+
 
 
 class S(BaseHTTPRequestHandler):
@@ -63,35 +73,35 @@ class S(BaseHTTPRequestHandler):
         post_data = self.rfile.read(content_length)  # <--- Gets the data itself
         raw = post_data.decode("utf-8")
         url = raw.split('"')[3]
-        filetype = raw.split('"')[7]
 
-        if filetype == "mp3":
+        if app.path.get()[:3] != "C:\\":
+             app.path.set(os.environ["USERPROFILE"] + "\Videos\\" + app.path.get())
+
+        if app.filetype == "mp3":
             ydl_opts = {
-                "outtmpl": os.environ["USERPROFILE"]
-                + "/Videos/Youtube/%(title)s.%(ext)s",
+                "outtmpl": app.path.get() + "\%(title)s.%(ext)s",
                 "format": "bestaudio/best",
                 "ignoreerrors": True,
                 "cachedir": False,
                 "logger": MyLogger(),
-                "progress_hooks": [g.my_hook],
+                "progress_hooks": [app.my_hook],
             }
         else:
             ydl_opts = {
-                "outtmpl": os.environ["USERPROFILE"]
-                + "/Videos/Youtube/%(title)s.%(ext)s",
+                "outtmpl": app.path.get() + "\%(title)s.%(ext)s",
                 "format": "bestvideo[ext=mp4]+bestaudio",
                 "ignoreerrors": True,
                 "cachedir": False,
                 "logger": MyLogger(),
-                "progress_hooks": [g.my_hook],
+                "progress_hooks": [app.my_hook],
             }
         try:
             with yt.YoutubeDL(ydl_opts) as ydl:
                 ydl.download([url])
-            g.progress["value"] = 100
-            g.v1.set("100%")
+            app.progress["value"] = 100
+            app.v1.set("100%")
         except:
-            g.v2.set("Something went wrong")
+            app.status.set("Something went wrong")
 
 
 class MyLogger(object):
@@ -115,6 +125,4 @@ class WebThread(threading.Thread):
 web = WebThread()
 web.daemon = TRUE
 web.start()
-
-
-mainloop()
+app.run()
