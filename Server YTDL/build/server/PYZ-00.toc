@@ -80,10 +80,6 @@
    'c:\\users\\hugo '
    'teixeira\\appdata\\local\\programs\\python\\python38\\lib\\importlib\\__init__.py',
    'PYMODULE'),
-  ('importlib.abc',
-   'c:\\users\\hugo '
-   'teixeira\\appdata\\local\\programs\\python\\python38\\lib\\importlib\\abc.py',
-   'PYMODULE'),
   ('importlib._bootstrap',
    'c:\\users\\hugo '
    'teixeira\\appdata\\local\\programs\\python\\python38\\lib\\importlib\\_bootstrap.py',
@@ -95,6 +91,10 @@
   ('importlib.metadata',
    'c:\\users\\hugo '
    'teixeira\\appdata\\local\\programs\\python\\python38\\lib\\importlib\\metadata.py',
+   'PYMODULE'),
+  ('importlib.abc',
+   'c:\\users\\hugo '
+   'teixeira\\appdata\\local\\programs\\python\\python38\\lib\\importlib\\abc.py',
    'PYMODULE'),
   ('configparser',
    'c:\\users\\hugo '

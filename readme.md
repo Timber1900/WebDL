@@ -12,16 +12,7 @@
 Download FFMPEG,
 Extract the zip to root,
 Add FFMPEG/bin to path,
-Extract 'Server YTDL' and add the .exe file to root,
-Go to "Computer\HKEY_CLASSES_ROOT\Directory\Background\shell",
-Create a yey named 'ytdl',
-Change default key value to Open YTDL Server,
-Create a new string value name 'icon',
-Set its value to the location of your 'server.ico',
-Create a new key inside 'ytdl' named 'command',
-Change its default value to '"C:\server.exe"',
-Close regestry editor,
-You should now have a option to open the server when you right click somewhere on your computer (See photo1.png),
+Execute 'Youtube Downloader.exe'
 Extract 'Chrome Extension' somewhere on your computer,
 Add the extension as a developer mode extension to chrome,
 Done!!
