@@ -76,8 +76,8 @@ class S(BaseHTTPRequestHandler):
         )  # <--- Gets the size of data
         post_data = self.rfile.read(content_length)  # <--- Gets the data itself
         raw = post_data.decode("utf-8")
-        url = raw.split('"')[3]
-
+        url = raw.split('"')[1]
+        
         if app.path.get()[:3] != "C:\\":
             app.path.set(os.environ["USERPROFILE"] + "\Videos\\" + app.path.get())
 
