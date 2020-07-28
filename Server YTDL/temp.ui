@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.0">
+  <object class="ttk.Frame" id="mainwindows">
+    <property name="height">200</property>
+    <property name="width">450</property>
+    <layout manager="pack">
+      <property name="propagate">True</property>
+      <property name="side">top</property>
+    </layout>
+    <child>
+      <object class="ttk.Progressbar" id="downloadprocess">
+        <property name="length">300</property>
+        <property name="orient">horizontal</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="x">75</property>
+          <property name="y">25</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="progress">
+        <property name="anchor">w</property>
+        <property name="text" translatable="yes">0%
+</property>
+        <property name="textvariable">string:v1</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="relx">0.0</property>
+          <property name="x">380</property>
+          <property name="y">25</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Button" id="mp3">
+        <property name="command">changeToMp3</property>
+        <property name="text" translatable="yes">MP3
+</property>
+        <layout manager="place">
+          <property name="anchor">center</property>
+          <property name="height">25</property>
+          <property name="width">75</property>
+          <property name="x">50</property>
+          <property name="y">180</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Button" id="MP4">
+        <property name="command">changeToMp4</property>
+        <property name="text" translatable="yes">MP4</property>
+        <layout manager="place">
+          <property name="anchor">center</property>
+          <property name="height">25</property>
+          <property name="width">75</property>
+          <property name="x">50</property>
+          <property name="y">150</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Entry" id="Output">
+        <property name="text" translatable="yes">HomeAdress</property>
+        <property name="textvariable">string:home</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="width">325</property>
+          <property name="x">100</property>
+          <property name="y">155</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="label_2">
+        <property name="justify">center</property>
+        <property name="text" translatable="yes">Awaiting download
+</property>
+        <property name="textvariable">string:status</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="width">410</property>
+          <property name="x">20</property>
+          <property name="y">90</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+</interface>
