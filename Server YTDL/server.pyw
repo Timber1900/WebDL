@@ -19,6 +19,7 @@ class GUI:
     def __init__(self):
         self.root.protocol("WM_DELETE_WINDOW", self.close)
         self.root.title("Youtube Downloader")
+        self.root.resizable(False, False)
         self.root.iconbitmap("./page_32.ico")
         self.progress["value"] = 0
         self.v1.set("0%")
@@ -30,7 +31,7 @@ class GUI:
     def my_hook(self, d):
         if d["status"] == "finished":
             file_tuple = os.path.split(os.path.abspath(d["filename"]))
-            self.v2.set("Done downloading {}".format(file_tuple[1]))
+            self.v2.set("Done downloading '" + format(file_tuple[1] + "'"))
         if d["status"] == "downloading":
             p = d["_percent_str"]
             p = p.replace("%", "")
