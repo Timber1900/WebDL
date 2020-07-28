@@ -29,12 +29,17 @@ class NewprojectApp:
         self.path.set(os.environ["USERPROFILE"] + "\Videos\Youtube")
         self.v1 = builder.get_variable("v1")
         self.progress = builder.get_object("downloadprocess")
+        self.cur = builder.get_variable("curfile")
+
 
     def changeToMp3(self):
         self.filetype = "mp3"
+        self.cur.set("MP3")
+
 
     def changeToMp4(self):
         self.filetype = "mp4"
+        self.cur.set("MP4")
 
     def run(self):
         self.mainwindow.mainloop()

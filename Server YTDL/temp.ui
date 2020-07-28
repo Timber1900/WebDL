@@ -85,5 +85,21 @@
         </layout>
       </object>
     </child>
+    <child>
+      <object class="ttk.Label" id="cur">
+        <property name="compound">top</property>
+        <property name="cursor">based_arrow_up</property>
+        <property name="takefocus">false</property>
+        <property name="text" translatable="yes">MP4</property>
+        <property name="textvariable">string:curfile</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">15</property>
+          <property name="width">50</property>
+          <property name="x">100</property>
+          <property name="y">180</property>
+        </layout>
+      </object>
+    </child>
   </object>
 </interface>
