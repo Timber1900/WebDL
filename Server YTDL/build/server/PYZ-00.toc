@@ -1,4 +1,4 @@
-('C:\\Users\\Hugo Teixeira\\Desktop\\Stuff\\Server '
+('D:\\DeepStorage\\Programming\\GitHub Repos\\YoutubeVideoDownloader\\Server '
  'YTDL\\build\\server\\PYZ-00.pyz',
  [('multiprocessing.popen_fork',
    'C:\\Users\\Hugo '
@@ -15,18 +15,6 @@
   ('multiprocessing.process',
    'C:\\Users\\Hugo '
    'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\multiprocessing\\process.py',
-   'PYMODULE'),
-  ('threading',
-   'C:\\Users\\Hugo '
-   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\threading.py',
-   'PYMODULE'),
-  ('_threading_local',
-   'C:\\Users\\Hugo '
-   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\_threading_local.py',
-   'PYMODULE'),
-  ('contextlib',
-   'C:\\Users\\Hugo '
-   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\contextlib.py',
    'PYMODULE'),
   ('selectors',
    'C:\\Users\\Hugo '
@@ -92,10 +80,6 @@
    'C:\\Users\\Hugo '
    'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\importlib\\__init__.py',
    'PYMODULE'),
-  ('importlib.abc',
-   'C:\\Users\\Hugo '
-   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\importlib\\abc.py',
-   'PYMODULE'),
   ('importlib._bootstrap',
    'C:\\Users\\Hugo '
    'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\importlib\\_bootstrap.py',
@@ -107,6 +91,10 @@
   ('importlib.metadata',
    'C:\\Users\\Hugo '
    'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\importlib\\metadata.py',
+   'PYMODULE'),
+  ('importlib.abc',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\importlib\\abc.py',
    'PYMODULE'),
   ('configparser',
    'C:\\Users\\Hugo '
@@ -243,6 +231,10 @@
   ('token',
    'C:\\Users\\Hugo '
    'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\token.py',
+   'PYMODULE'),
+  ('contextlib',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\contextlib.py',
    'PYMODULE'),
   ('posixpath',
    'C:\\Users\\Hugo '
@@ -908,14 +900,6 @@
    'C:\\Users\\Hugo '
    'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\tracemalloc.py',
    'PYMODULE'),
-  ('tkinter',
-   'C:\\Users\\Hugo '
-   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\tkinter\\__init__.py',
-   'PYMODULE'),
-  ('tkinter.constants',
-   'C:\\Users\\Hugo '
-   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\tkinter\\constants.py',
-   'PYMODULE'),
   ('ctypes.util',
    'C:\\Users\\Hugo '
    'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\ctypes\\util.py',
@@ -1011,6 +995,26 @@
   ('stringprep',
    'C:\\Users\\Hugo '
    'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\stringprep.py',
+   'PYMODULE'),
+  ('tkinter.ttk',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\tkinter\\ttk.py',
+   'PYMODULE'),
+  ('tkinter',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\tkinter\\__init__.py',
+   'PYMODULE'),
+  ('tkinter.constants',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\tkinter\\constants.py',
+   'PYMODULE'),
+  ('threading',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\threading.py',
+   'PYMODULE'),
+  ('_threading_local',
+   'C:\\Users\\Hugo '
+   'Teixeira\\AppData\\Local\\Programs\\Python\\Python38\\lib\\_threading_local.py',
    'PYMODULE'),
   ('os',
    'C:\\Users\\Hugo '

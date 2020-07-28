@@ -17,7 +17,7 @@ class GUI:
     text2 = Label(root, textvariable=v2)
 
     def __init__(self):
-        self.root.protocol("WM_DELETE_WINDOW", self.doSomething)
+        self.root.protocol("WM_DELETE_WINDOW", self.close)
         self.progress["value"] = 0
         self.v1.set("0%")
         self.v2.set("Waiting.")
@@ -39,7 +39,7 @@ class GUI:
     def updateBar(self, val):
         self.progress["value"] = val
 
-    def doSomething(self):
+    def close(self):
         self.root.destroy()
         sys.exit()
 
@@ -61,8 +61,6 @@ class S(BaseHTTPRequestHandler):
         raw = post_data.decode("utf-8")
         url = raw.split('"')[3]
         filetype = raw.split('"')[7]
-        print(url)
-        print(filetype)
 
         if filetype == "mp3":
             ydl_opts = {
@@ -90,7 +88,7 @@ class S(BaseHTTPRequestHandler):
             g.progress["value"] = 100
             g.v1.set("100%")
         except:
-            print("Something went wrong")
+            g.v2.set("Something went wrong")
 
 
 class MyLogger(object):
@@ -105,19 +103,11 @@ class MyLogger(object):
 
 
 class WebThread(threading.Thread):
-    _is_running = TRUE
 
     def run(self, server_class=HTTPServer, handler_class=S, port=1234):
-        while self._is_running:
-            server_address = ("localhost", port)
-            httpd = server_class(server_address, handler_class)
-            httpd.serve_forever()
-
-    def exit(self):
-        self._is_running = FALSE
-        print(self._is_running)
-        sys.exit()
-
+        server_address = ("localhost", port)
+        httpd = server_class(server_address, handler_class)
+        httpd.serve_forever()
 
 web = WebThread()
 web.daemon = TRUE
