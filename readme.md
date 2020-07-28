@@ -38,4 +38,4 @@ Output file will be located at your Videos folder inside "Youtube"
 
 `Other information:` <br />When active the server will run on port 1234, changing this is possible *but* you will have to change the server.js file on "Server ytdl" and  look for 'http://localhost:1234' inside the bundle.js file 'on Chrome Extension'.
 
-`Some other stuff we used:`<br />Browserify: "https://www.npmjs.com/package/browserify" <br />Express: "https://www.npmjs.com/package/express"
+`Some other stuff we used:`<br />Browserify: "https://www.npmjs.com/package/browserify" <br />Express: "https://www.npmjs.com/package/express" <br />PyInstaller: "https://pypi.org/project/PyInstaller/" <br /> Install Creator: "https://www.clickteam.com/install-creator-2"
