@@ -988,13 +988,13 @@
    'c:\\users\\hugo '
    'teixeira\\appdata\\local\\programs\\python\\python38\\lib\\multiprocessing\\__init__.py',
    'PYMODULE'),
-  ('_py_abc',
-   'c:\\users\\hugo '
-   'teixeira\\appdata\\local\\programs\\python\\python38\\lib\\_py_abc.py',
-   'PYMODULE'),
   ('stringprep',
    'c:\\users\\hugo '
    'teixeira\\appdata\\local\\programs\\python\\python38\\lib\\stringprep.py',
+   'PYMODULE'),
+  ('_py_abc',
+   'c:\\users\\hugo '
+   'teixeira\\appdata\\local\\programs\\python\\python38\\lib\\_py_abc.py',
    'PYMODULE'),
   ('tkinter.ttk',
    'c:\\users\\hugo '
