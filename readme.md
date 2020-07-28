@@ -39,3 +39,5 @@ Output file will be located at your Videos folder inside "Youtube"
 `Other information:` <br />When active the server will run on port 1234, changing this is possible *but* you will have to change the server.js file on "Server ytdl" and  look for 'http://localhost:1234' inside the bundle.js file 'on Chrome Extension'.
 
 `Some other stuff we used:`<br />Browserify: "https://www.npmjs.com/package/browserify" <br />Express: "https://www.npmjs.com/package/express" <br />PyInstaller: "https://pypi.org/project/PyInstaller/" <br /> Install Creator: "https://www.clickteam.com/install-creator-2"
+
+`Extra Info` <br /> You can chose between mp4 and mp4 by right clicking a page in the browser and going to "Youtube Downloader" <br /> Output folder is "Videos/Youtube", might add custom folders in the future <br /> If you want to remove the warning of developer mode extensions use "https://github.com/Ceiridge/Chrome-Developer-Mode-Extension-Warning-Patcher"
