@@ -1,6 +1,6 @@
 ## YoutubeDl Video Downloader
 
-[Release](https://github.com/Timber1900/YoutubeVideoDownloader/releases/tag/1.0)
+[Release](https://github.com/Timber1900/YoutubeVideoDownloader/releases/tag/2.0)
 
 
 `Dependencies:`
