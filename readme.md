@@ -1,6 +1,6 @@
 ## YoutubeDl Video Downloader
 
-[Release](https://github.com/Timber1900/YoutubeVideoDownloader/releases/tag/2.1)
+[Release](https://github.com/Timber1900/YoutubeVideoDownloader/releases/tag/2.2)
 
 
 `Instalation Guide:`
