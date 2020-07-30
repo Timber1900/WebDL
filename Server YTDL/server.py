@@ -33,6 +33,8 @@ class NewprojectApp:
         self.mp3 = builder.get_object("mp3")
         self.mp4 = builder.get_object("mp4")
         self.vel = builder.get_variable("vel")
+        self.name = builder.get_variable("name")
+        self.FileName = ""
 
     def changeToMp3(self):
         self.filetype = "mp3"
@@ -62,8 +64,7 @@ class NewprojectApp:
             if isinstance(vel, float):
                 vel = vel / (1048576)
                 self.vel.set("{:.2f}".format(vel) + " MB/s")
-                
-            
+                      
 
 
     def close(self):
@@ -92,9 +93,14 @@ class S(BaseHTTPRequestHandler):
         if app.path.get()[:3] != "C:\\":
             app.path.set(os.environ["USERPROFILE"] + "\Videos\\" + app.path.get())
 
+        if app.name.get() == "":
+            name = "\%(title)s.%(ext)s"
+        else:
+            name = "\\" + app.name.get() + ".%(ext)s" 
+
         if app.filetype == "mp3":
             ydl_opts = {
-                "outtmpl": app.path.get() + "\%(title)s.%(ext)s",
+                "outtmpl": app.path.get() + name,
                 "format": "bestaudio/best",
                 "ignoreerrors": True,
                 "cachedir": False,
@@ -103,7 +109,7 @@ class S(BaseHTTPRequestHandler):
             }
         else:
             ydl_opts = {
-                "outtmpl": app.path.get() + "\%(title)s.%(ext)s",
+                "outtmpl": app.path.get() + name,
                 'format': '137+bestaudio/best',
                 "ignoreerrors": True,
                 "cachedir": False,

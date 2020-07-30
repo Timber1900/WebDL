@@ -40,7 +40,7 @@
 </property>
         <layout manager="place">
           <property name="anchor">center</property>
-          <property name="height">25</property>
+          <property name="height">24</property>
           <property name="width">75</property>
           <property name="x">50</property>
           <property name="y">150</property>
@@ -54,7 +54,7 @@
         <property name="text" translatable="yes">MP4</property>
         <layout manager="place">
           <property name="anchor">center</property>
-          <property name="height">25</property>
+          <property name="height">24</property>
           <property name="width">75</property>
           <property name="x">50</property>
           <property name="y">120</property>
@@ -65,11 +65,13 @@
       <object class="ttk.Entry" id="Output">
         <property name="exportselection">false</property>
         <property name="textvariable">string:home</property>
+        <property name="validate">none</property>
         <layout manager="place">
           <property name="anchor">nw</property>
+          <property name="height">22</property>
           <property name="width">325</property>
           <property name="x">100</property>
-          <property name="y">125</property>
+          <property name="y">139</property>
         </layout>
       </object>
     </child>
@@ -96,6 +98,31 @@
           <property name="anchor">nw</property>
           <property name="x">75</property>
           <property name="y">50</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Entry" id="name">
+        <property name="font">TkDefaultFont</property>
+        <property name="state">normal</property>
+        <property name="textvariable">string:name</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">24</property>
+          <property name="width">195</property>
+          <property name="x">230</property>
+          <property name="y">108</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="FileName">
+        <property name="font">{Calibri} 20 {}</property>
+        <property name="text" translatable="yes">File Name:</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="x">100</property>
+          <property name="y">100</property>
         </layout>
       </object>
     </child>
