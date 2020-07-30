@@ -7,8 +7,7 @@
  
 ~~~
 Execute 'Youtube Downloader.exe'
-Extract 'Chrome Extension' somewhere on your computer,
-Add the extension as a developer mode extension to chrome,
+Drag "Youtube Downloader.crx" to the extensions page in chrome,
 Done!!
 ~~~
 
