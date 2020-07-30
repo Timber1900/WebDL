@@ -19,5 +19,8 @@
             "16": "icons/page-16.png",
             "32": "icons/page-32.png"
         }
+    },
+    "icons": { 
+        "48": "icons/page-48.png"
     }
 }
