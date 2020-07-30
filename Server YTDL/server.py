@@ -88,16 +88,16 @@ class S(BaseHTTPRequestHandler):
                 "ignoreerrors": True,
                 "cachedir": False,
                 "logger": MyLogger(),
-                "progress_hooks": [app.my_hook],
+                "progress_hooks": [app.my_hook]
             }
         else:
             ydl_opts = {
                 "outtmpl": app.path.get() + "\%(title)s.%(ext)s",
-                "format": "bestvideo[ext=mp4]+bestaudio",
+                'format': '137+bestaudio/best',
                 "ignoreerrors": True,
                 "cachedir": False,
                 "logger": MyLogger(),
-                "progress_hooks": [app.my_hook],
+                "progress_hooks": [app.my_hook]
             }
         try:
             with yt.YoutubeDL(ydl_opts) as ydl:
