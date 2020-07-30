@@ -19,7 +19,7 @@
   },
   {
    "optionDest": "icon_file",
-   "value": "C:/Users/Hugo Teixeira/Desktop/Server YTDL/page_32.ico"
+   "value": "C:/Users/35196/Desktop/Stuff/GitHub repos/YoutubeVideoDownloader/Server YTDL/page_32.ico"
   },
   {
    "optionDest": "ascii",
@@ -60,10 +60,6 @@
   {
    "optionDest": "hiddenimports",
    "value": "pygubu.builder.ttkstdwidgets"
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/35196/Desktop/Stuff/GitHub repos/YoutubeVideoDownloader/Server YTDL/ffmpeg.exe;."
   },
   {
    "optionDest": "datas",
