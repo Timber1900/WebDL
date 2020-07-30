@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <interface version="1.0">
   <object class="ttk.Frame" id="mainwindows">
-    <property name="height">200</property>
+    <property name="height">170</property>
     <property name="width">450</property>
     <layout manager="pack">
       <property name="propagate">True</property>
@@ -35,21 +35,9 @@
     <child>
       <object class="ttk.Button" id="mp3">
         <property name="command">changeToMp3</property>
+        <property name="state">normal</property>
         <property name="text" translatable="yes">MP3
 </property>
-        <layout manager="place">
-          <property name="anchor">center</property>
-          <property name="height">25</property>
-          <property name="width">75</property>
-          <property name="x">50</property>
-          <property name="y">180</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="ttk.Button" id="MP4">
-        <property name="command">changeToMp4</property>
-        <property name="text" translatable="yes">MP4</property>
         <layout manager="place">
           <property name="anchor">center</property>
           <property name="height">25</property>
@@ -60,14 +48,28 @@
       </object>
     </child>
     <child>
+      <object class="ttk.Button" id="mp4">
+        <property name="command">changeToMp4</property>
+        <property name="state">disabled</property>
+        <property name="text" translatable="yes">MP4</property>
+        <layout manager="place">
+          <property name="anchor">center</property>
+          <property name="height">25</property>
+          <property name="width">75</property>
+          <property name="x">50</property>
+          <property name="y">120</property>
+        </layout>
+      </object>
+    </child>
+    <child>
       <object class="ttk.Entry" id="Output">
-        <property name="text" translatable="yes">HomeAdress</property>
+        <property name="exportselection">false</property>
         <property name="textvariable">string:home</property>
         <layout manager="place">
           <property name="anchor">nw</property>
           <property name="width">325</property>
           <property name="x">100</property>
-          <property name="y">155</property>
+          <property name="y">125</property>
         </layout>
       </object>
     </child>
@@ -79,25 +81,21 @@
         <property name="textvariable">string:status</property>
         <layout manager="place">
           <property name="anchor">nw</property>
+          <property name="height">20</property>
           <property name="width">410</property>
           <property name="x">20</property>
-          <property name="y">90</property>
+          <property name="y">80</property>
         </layout>
       </object>
     </child>
     <child>
-      <object class="ttk.Label" id="cur">
-        <property name="compound">top</property>
-        <property name="cursor">based_arrow_up</property>
-        <property name="takefocus">false</property>
-        <property name="text" translatable="yes">MP4</property>
-        <property name="textvariable">string:curfile</property>
+      <object class="ttk.Label" id="Velocity">
+        <property name="text" translatable="yes">0 MB/s</property>
+        <property name="textvariable">string:vel</property>
         <layout manager="place">
           <property name="anchor">nw</property>
-          <property name="height">15</property>
-          <property name="width">50</property>
-          <property name="x">100</property>
-          <property name="y">180</property>
+          <property name="x">75</property>
+          <property name="y">50</property>
         </layout>
       </object>
     </child>

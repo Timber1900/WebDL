@@ -4,6 +4,7 @@ import youtube_dl as yt
 from tkinter import *
 from tkinter.ttk import *
 import pygubu
+import math
 
 
 def resource_path(relative_path):
@@ -29,17 +30,20 @@ class NewprojectApp:
         self.path.set(os.environ["USERPROFILE"] + "\Videos\Youtube")
         self.v1 = builder.get_variable("v1")
         self.progress = builder.get_object("downloadprocess")
-        self.cur = builder.get_variable("curfile")
-
+        self.mp3 = builder.get_object("mp3")
+        self.mp4 = builder.get_object("mp4")
+        self.vel = builder.get_variable("vel")
 
     def changeToMp3(self):
         self.filetype = "mp3"
-        self.cur.set("MP3")
-
+        self.mp3["state"] = "disabled"
+        self.mp4["state"] = "normal"        
 
     def changeToMp4(self):
         self.filetype = "mp4"
-        self.cur.set("MP4")
+        self.mp4["state"] = "disabled"
+        self.mp3["state"] = "normal" 
+        
 
     def run(self):
         self.mainwindow.mainloop()
@@ -54,6 +58,13 @@ class NewprojectApp:
             self.progress["value"] = p
             self.v1.set(d["_percent_str"])
             self.status.set("Downloading")
+            vel = d["speed"]
+            if isinstance(vel, float):
+                vel = vel / (1048576)
+                self.vel.set("{:.2f}".format(vel) + " MB/s")
+                
+            
+
 
     def close(self):
         self.master.destroy()
