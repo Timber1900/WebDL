@@ -7,7 +7,7 @@
   },
   {
    "optionDest": "filenames",
-   "value": "C:/Users/Hugo Teixeira/Desktop/Server YTDL/server.py"
+   "value": "C:/Users/35196/Desktop/Stuff/GitHub repos/YoutubeVideoDownloader/Server YTDL/server.py"
   },
   {
    "optionDest": "onefile",
@@ -58,16 +58,20 @@
    "value": false
   },
   {
-   "optionDest": "datas",
-   "value": "C:/Users/Hugo Teixeira/Desktop/Server YTDL/page_32.ico;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Hugo Teixeira/Desktop/Server YTDL/temp.ui;."
-  },
-  {
    "optionDest": "hiddenimports",
    "value": "pygubu.builder.ttkstdwidgets"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/35196/Desktop/Stuff/GitHub repos/YoutubeVideoDownloader/Server YTDL/ffmpeg.exe;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/35196/Desktop/Stuff/GitHub repos/YoutubeVideoDownloader/Server YTDL/temp.ui;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/35196/Desktop/Stuff/GitHub repos/YoutubeVideoDownloader/Server YTDL/page_32.ico;."
   }
  ],
  "nonPyinstallerOptions": {
