@@ -64,6 +64,8 @@ class NewprojectApp:
             if isinstance(vel, float):
                 vel = vel / (1048576)
                 self.vel.set("{:.2f}".format(vel) + " MB/s")
+            self.mp4["state"] = "disabled"
+            self.mp3["state"] = "disabled" 
                       
 
 
@@ -101,7 +103,7 @@ class S(BaseHTTPRequestHandler):
         if app.filetype == "mp3":
             ydl_opts = {
                 "outtmpl": app.path.get() + name,
-                "format": "bestaudio/best",
+                "format": "140",
                 "ignoreerrors": True,
                 "cachedir": False,
                 "logger": MyLogger(),
@@ -121,6 +123,10 @@ class S(BaseHTTPRequestHandler):
                 ydl.download([url])
             app.progress["value"] = 100
             app.v1.set("100%")
+            if app.filetype == "mp3":
+                app.mp4["state"] = "normal"
+            else:
+                app.mp3["state"] = "normal" 
         except:
             app.status.set("Something went wrong")
 
