@@ -11,8 +11,14 @@ function buttonClicked() {
 
 chrome.browserAction.onClicked.addListener(buttonClicked);
 
+const re1 = 'https://www.youtube.com/watch'
+const re2 = 'https://www.youtube.com/playlist'
+const re3 = 'https://music.youtube.com/watch'
+const re4 = 'https://music.youtube.com/playlist'
+
+
 function sendUrl(url) {
-    if (url.substr(0, 32) == 'https://www.youtube.com/watch?v=' || url.substr(0, 38) == 'https://www.youtube.com/playlist?list=') {
+    if (url.search(re1) != -1 || url.search(re2) != -1 || url.search(re3) != -1 || url.search(re4) != -1 ) {
         console.log(url)
         const clientServerOptions = {
             uri: 'http://localhost:1234',
