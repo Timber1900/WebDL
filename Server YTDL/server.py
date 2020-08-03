@@ -50,8 +50,10 @@ class NewprojectApp:
         self.mp3["state"] = "normal" 
 
     def chosePath(self):
-        self.path = filedialog.askdirectory(initialdir = self.path, title = "Select A File")
-        self.output.set(self.path)
+        temp = filedialog.askdirectory(initialdir = self.path, title = "Select A File")
+        if temp:
+            self.path = temp
+            self.output.set(self.path)
         
     def run(self):
         self.mainwindow.mainloop()
