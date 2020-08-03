@@ -42,8 +42,8 @@
           <property name="anchor">center</property>
           <property name="height">24</property>
           <property name="width">75</property>
-          <property name="x">50</property>
-          <property name="y">150</property>
+          <property name="x">125</property>
+          <property name="y">120</property>
         </layout>
       </object>
     </child>
@@ -88,31 +88,6 @@
       </object>
     </child>
     <child>
-      <object class="ttk.Entry" id="name">
-        <property name="font">TkDefaultFont</property>
-        <property name="state">normal</property>
-        <property name="textvariable">string:name</property>
-        <layout manager="place">
-          <property name="anchor">nw</property>
-          <property name="height">24</property>
-          <property name="width">195</property>
-          <property name="x">230</property>
-          <property name="y">108</property>
-        </layout>
-      </object>
-    </child>
-    <child>
-      <object class="ttk.Label" id="FileName">
-        <property name="font">{Calibri} 20 {}</property>
-        <property name="text" translatable="yes">File Name:</property>
-        <layout manager="place">
-          <property name="anchor">nw</property>
-          <property name="x">100</property>
-          <property name="y">100</property>
-        </layout>
-      </object>
-    </child>
-    <child>
       <object class="ttk.Button" id="browse">
         <property name="command">chosePath</property>
         <property name="text" translatable="yes">Browse</property>
@@ -120,8 +95,8 @@
           <property name="anchor">center</property>
           <property name="height">24</property>
           <property name="width">75</property>
-          <property name="x">130</property>
-          <property name="y">150</property>
+          <property name="x">200</property>
+          <property name="y">120</property>
         </layout>
       </object>
     </child>
@@ -130,9 +105,20 @@
         <property name="textvariable">string:output</property>
         <layout manager="place">
           <property name="anchor">center</property>
-          <property name="width">260</property>
-          <property name="x">310</property>
+          <property name="width">400</property>
+          <property name="x">225</property>
           <property name="y">150</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Checkbutton" id="filename">
+        <property name="text" translatable="yes">Chose file name</property>
+        <property name="variable">string:checked</property>
+        <layout manager="place">
+          <property name="anchor">center</property>
+          <property name="x">300</property>
+          <property name="y">120</property>
         </layout>
       </object>
     </child>

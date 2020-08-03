@@ -34,10 +34,10 @@ class NewprojectApp:
         self.mp4 = builder.get_object("mp4")
         self.b = builder.get_object("browse")
         self.vel = builder.get_variable("vel")
-        self.name = builder.get_variable("name")
         self.output = builder.get_variable("output")
         self.output.set(self.path)
         self.FileName = ""
+        self.checked = builder.get_variable("checked")
 
     def changeToMp3(self):
         self.filetype = "mp3"
@@ -50,7 +50,7 @@ class NewprojectApp:
         self.mp3["state"] = "normal" 
 
     def chosePath(self):
-        temp = filedialog.askdirectory(initialdir = self.path, title = "Select A File")
+        temp = filedialog.askdirectory(initialdir = self.path, title = "Select A Directory")
         if temp:
             self.path = temp
             self.output.set(self.path)
@@ -74,44 +74,45 @@ class NewprojectApp:
                 self.vel.set("{:.2f}".format(vel) + " MB/s")
             self.mp4["state"] = "disabled"
             self.mp3["state"] = "disabled" 
-                      
 
 
     def close(self):
         self.master.destroy()
         sys.exit()
 
-    
-
-
-
-root = Tk()
-app = NewprojectApp(root)
-
 
 class S(BaseHTTPRequestHandler):
     def _set_response(self):
-        self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
+        self.send_response(200)
+
+    def log_message(self, format, *args):
+        return
+
 
     def do_POST(self):
+        self._set_response()
         content_length = int(
             self.headers["Content-Length"]
         )  # <--- Gets the size of data
         post_data = self.rfile.read(content_length)  # <--- Gets the data itself
         raw = post_data.decode("utf-8")
         url = raw.split('"')[1]
-        
-
-        if app.name.get() == "":
-            name = "\%(title)s.%(ext)s"
+        output = None
+        if app.checked.get() == "1":
+            temp = filedialog.asksaveasfilename(initialdir = app.path, title = "Save as?")
+            if temp: 
+                temp = temp.split(".")[0]
+                output = temp + ".%(ext)s"
+            else: 
+                return
         else:
-            name = "\\" + app.name.get() + ".%(ext)s" 
-
+            output = app.path + "\%(title)s.%(ext)s"
+                    
         if app.filetype == "mp3":
             ydl_opts = {
-                "outtmpl": app.path + name,
+                "outtmpl": output,
                 "format": "140",
                 "ignoreerrors": True,
                 "cachedir": False,
@@ -120,7 +121,7 @@ class S(BaseHTTPRequestHandler):
             }
         else:
             ydl_opts = {
-                "outtmpl": app.path + name,
+                "outtmpl": output,
                 'format': '137+bestaudio/best',
                 "ignoreerrors": True,
                 "cachedir": False,
@@ -158,7 +159,15 @@ class WebThread(threading.Thread):
         httpd.serve_forever()
 
 
-web = WebThread()
-web.daemon = TRUE
-web.start()
-app.run()
+
+    
+
+if __name__ == "__main__":
+    root = Tk()
+    app = NewprojectApp(root)
+    web = WebThread()
+    web.daemon = TRUE
+    web.start()
+    app.run()
+
+
