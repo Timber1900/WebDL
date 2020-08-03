@@ -3,6 +3,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import youtube_dl as yt
 from tkinter import *
 from tkinter.ttk import *
+from tkinter import filedialog
 import pygubu
 import math
 
@@ -26,14 +27,16 @@ class NewprojectApp:
         self.mainwindow = builder.get_object("mainwindows")
         builder.connect_callbacks(self)
         self.status = builder.get_variable("status")
-        self.path = builder.get_variable("home")
-        self.path.set(os.environ["USERPROFILE"] + "\Videos\Youtube")
+        self.path = os.environ["USERPROFILE"] + "\Videos\Youtube" 
         self.v1 = builder.get_variable("v1")
         self.progress = builder.get_object("downloadprocess")
         self.mp3 = builder.get_object("mp3")
         self.mp4 = builder.get_object("mp4")
+        self.b = builder.get_object("browse")
         self.vel = builder.get_variable("vel")
         self.name = builder.get_variable("name")
+        self.output = builder.get_variable("output")
+        self.output.set(self.path)
         self.FileName = ""
 
     def changeToMp3(self):
@@ -45,8 +48,11 @@ class NewprojectApp:
         self.filetype = "mp4"
         self.mp4["state"] = "disabled"
         self.mp3["state"] = "normal" 
-        
 
+    def chosePath(self):
+        self.path = filedialog.askdirectory(initialdir = self.path, title = "Select A File")
+        self.output.set(self.path)
+        
     def run(self):
         self.mainwindow.mainloop()
 
@@ -73,6 +79,9 @@ class NewprojectApp:
         self.master.destroy()
         sys.exit()
 
+    
+
+
 
 root = Tk()
 app = NewprojectApp(root)
@@ -92,8 +101,6 @@ class S(BaseHTTPRequestHandler):
         raw = post_data.decode("utf-8")
         url = raw.split('"')[1]
         
-        if app.path.get()[:3] != "C:\\":
-            app.path.set(os.environ["USERPROFILE"] + "\Videos\\" + app.path.get())
 
         if app.name.get() == "":
             name = "\%(title)s.%(ext)s"
@@ -102,7 +109,7 @@ class S(BaseHTTPRequestHandler):
 
         if app.filetype == "mp3":
             ydl_opts = {
-                "outtmpl": app.path.get() + name,
+                "outtmpl": app.path + name,
                 "format": "140",
                 "ignoreerrors": True,
                 "cachedir": False,
@@ -111,7 +118,7 @@ class S(BaseHTTPRequestHandler):
             }
         else:
             ydl_opts = {
-                "outtmpl": app.path.get() + name,
+                "outtmpl": app.path + name,
                 'format': '137+bestaudio/best',
                 "ignoreerrors": True,
                 "cachedir": False,
