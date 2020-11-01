@@ -61,6 +61,7 @@ class NewprojectApp:
     def my_hook(self, d):
         if d["status"] == "finished":
             file_tuple = os.path.split(os.path.abspath(d["filename"]))
+            print(d["filename"])
             self.status.set("Done downloading '" + format(file_tuple[1] + "'"))
         if d["status"] == "downloading":
             p = d["_percent_str"]
