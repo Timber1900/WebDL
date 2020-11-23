@@ -1,11 +1,9 @@
-import sys, os, threading
+import os, threading
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import youtube_dl as yt
 from tkinter import *
-from tkinter.ttk import *
 from tkinter import filedialog
 import pygubu
-import math
 
 
 def resource_path(relative_path):
@@ -27,7 +25,7 @@ class NewprojectApp:
         self.mainwindow = builder.get_object("mainwindows")
         builder.connect_callbacks(self)
         self.status = builder.get_variable("status")
-        self.path = os.environ["USERPROFILE"] + "\Videos\Youtube" 
+        self.path = os.environ["USERPROFILE"] + "\Videos\Youtube"
         self.v1 = builder.get_variable("v1")
         self.progress = builder.get_object("downloadprocess")
         self.mp3 = builder.get_object("mp3")
@@ -42,19 +40,19 @@ class NewprojectApp:
     def changeToMp3(self):
         self.filetype = "mp3"
         self.mp3["state"] = "disabled"
-        self.mp4["state"] = "normal"        
+        self.mp4["state"] = "normal"
 
     def changeToMp4(self):
         self.filetype = "mp4"
         self.mp4["state"] = "disabled"
-        self.mp3["state"] = "normal" 
+        self.mp3["state"] = "normal"
 
     def chosePath(self):
-        temp = filedialog.askdirectory(initialdir = self.path, title = "Select A Directory")
+        temp = filedialog.askdirectory(initialdir=self.path, title="Select A Directory")
         if temp:
             self.path = temp
             self.output.set(self.path)
-        
+
     def run(self):
         self.mainwindow.mainloop()
 
@@ -71,11 +69,10 @@ class NewprojectApp:
             self.status.set("Downloading")
             vel = d["speed"]
             if isinstance(vel, float):
-                vel = vel / (1048576)
+                vel = vel / 1048576
                 self.vel.set("{:.2f}".format(vel) + " MB/s")
             self.mp4["state"] = "disabled"
-            self.mp3["state"] = "disabled" 
-
+            self.mp3["state"] = "disabled"
 
     def close(self):
         self.master.destroy()
@@ -91,7 +88,6 @@ class S(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         return
 
-
     def do_POST(self):
         self._set_response()
         content_length = int(
@@ -102,15 +98,15 @@ class S(BaseHTTPRequestHandler):
         url = raw.split('"')[1]
         output = None
         if app.checked.get() == "1":
-            temp = filedialog.asksaveasfilename(initialdir = app.path, title = "Save as?")
-            if temp: 
+            temp = filedialog.asksaveasfilename(initialdir=app.path, title="Save as?")
+            if temp:
                 temp = temp.split(".")[0]
                 output = temp + ".%(ext)s"
-            else: 
+            else:
                 return
         else:
             output = app.path + "\%(title)s.%(ext)s"
-                    
+
         if app.filetype == "mp3":
             ydl_opts = {
                 "outtmpl": output,
@@ -137,20 +133,24 @@ class S(BaseHTTPRequestHandler):
             if app.filetype == "mp3":
                 app.mp4["state"] = "normal"
             else:
-                app.mp3["state"] = "normal" 
+                app.mp3["state"] = "normal"
         except:
             app.status.set("Something went wrong")
 
 
 class MyLogger(object):
     def debug(self, msg):
+        #print(msg)
         pass
 
     def warning(self, msg):
+        #print(msg)
         pass
 
     def error(self, msg):
-        print(msg)
+        pass
+        #print(msg)
+
 
 
 class WebThread(threading.Thread):
@@ -160,9 +160,6 @@ class WebThread(threading.Thread):
         httpd.serve_forever()
 
 
-
-    
-
 if __name__ == "__main__":
     root = Tk()
     app = NewprojectApp(root)
@@ -170,5 +167,3 @@ if __name__ == "__main__":
     web.daemon = TRUE
     web.start()
     app.run()
-
-
