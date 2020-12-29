@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.0">
+  <object class="ttk.Frame" id="mainwindows">
+    <property name="height">170</property>
+    <property name="width">450</property>
+    <layout manager="pack">
+      <property name="propagate">True</property>
+      <property name="side">top</property>
+    </layout>
+    <child>
+      <object class="ttk.Progressbar" id="downloadprocess">
+        <property name="length">300</property>
+        <property name="orient">horizontal</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="x">75</property>
+          <property name="y">25</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="progress">
+        <property name="anchor">w</property>
+        <property name="text" translatable="yes">0%
+</property>
+        <property name="textvariable">string:v1</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="relx">0.0</property>
+          <property name="x">380</property>
+          <property name="y">25</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Button" id="mp3">
+        <property name="command">changeToMp3</property>
+        <property name="state">normal</property>
+        <property name="text" translatable="yes">MP3
+</property>
+        <layout manager="place">
+          <property name="anchor">center</property>
+          <property name="height">24</property>
+          <property name="width">75</property>
+          <property name="x">125</property>
+          <property name="y">120</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Button" id="mp4">
+        <property name="command">changeToMp4</property>
+        <property name="state">disabled</property>
+        <property name="text" translatable="yes">MP4</property>
+        <layout manager="place">
+          <property name="anchor">center</property>
+          <property name="height">24</property>
+          <property name="width">75</property>
+          <property name="x">50</property>
+          <property name="y">120</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="download">
+        <property name="justify">center</property>
+        <property name="text" translatable="yes">Awaiting download
+</property>
+        <property name="textvariable">string:status</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="height">20</property>
+          <property name="width">410</property>
+          <property name="x">20</property>
+          <property name="y">80</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="Velocity">
+        <property name="text" translatable="yes">0 MB/s</property>
+        <property name="textvariable">string:vel</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="x">75</property>
+          <property name="y">50</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Button" id="browse">
+        <property name="command">chosePath</property>
+        <property name="text" translatable="yes">Browse</property>
+        <layout manager="place">
+          <property name="anchor">center</property>
+          <property name="height">24</property>
+          <property name="width">75</property>
+          <property name="x">200</property>
+          <property name="y">120</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="output">
+        <property name="textvariable">string:output</property>
+        <layout manager="place">
+          <property name="anchor">center</property>
+          <property name="width">400</property>
+          <property name="x">225</property>
+          <property name="y">150</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Checkbutton" id="filename">
+        <property name="text" translatable="yes">Chose file name</property>
+        <property name="variable">string:checked</property>
+        <layout manager="place">
+          <property name="anchor">center</property>
+          <property name="x">300</property>
+          <property name="y">120</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+  <object class="ttk.Frame" id="logframe">
+    <property name="height">500</property>
+    <property name="width">800</property>
+    <layout manager="pack">
+      <property name="propagate">True</property>
+      <property name="side">top</property>
+    </layout>
+    <child>
+      <object class="tk.Text" id="logtextbox">
+        <property name="background">#1e1e1e</property>
+        <property name="blockcursor">true</property>
+        <property name="font">{CaskaydiaCove Nerd Font} 12 {}</property>
+        <property name="foreground">#ffffff</property>
+        <property name="height">10</property>
+        <property name="width">50</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="relheight">1.0</property>
+          <property name="relwidth">1.0</property>
+          <property name="relx">0.0</property>
+          <property name="x">0</property>
+          <property name="y">0</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Button" id="button_1">
+        <property name="command">clearLog</property>
+        <property name="text" translatable="yes">Clear</property>
+        <layout manager="place">
+          <property name="anchor">se</property>
+          <property name="relx">1.0</property>
+          <property name="rely">1.0</property>
+          <property name="x">0</property>
+          <property name="y">0</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+</interface>

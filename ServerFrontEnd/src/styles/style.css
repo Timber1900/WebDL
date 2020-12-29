@@ -1,0 +1,73 @@
+#div1 {
+  text-align: center;
+}
+
+.progspan {
+  width: 100%;
+}
+
+progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 10px;
+  width: 80%;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #cccccc;
+  width: 100%;
+  border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #0078d7;
+  border-radius: 10px;
+}
+
+.text {
+  font-family: Roboto;
+  font-size: 20px;
+  color: #ffffff;
+  padding: 2px;
+  width: 10%;
+}
+
+.text2 {
+  font-family: Roboto;
+  font-size: 16px;
+  color: #ffffff;
+  width: 10%;
+  overflow: hidden;
+}
+
+body {
+  background-color: #1e1e1e;
+}
+
+button {
+  width: 80px;
+  padding: 4px;
+}
+
+.fileinput {
+  display: none;
+}
+
+#speed {
+  justify-content: left;
+}
+
+#statusdiv {
+  padding-top: 6px;
+  padding-bottom: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#buttondiv {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
