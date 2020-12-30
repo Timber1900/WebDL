@@ -1,0 +1,31 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "",
+  "main": "views/main.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "window": {
+    "title": "Youtube Downloader",
+    "toolbar": true,
+    "width": 466,
+    "height": 172,
+    "min-width": 466,
+    "min-height": 172,
+    "max-width": 466,
+    "max-height": 172,
+    "resizable": false,
+    "position": "center",
+    "icon": "assets/icon.png"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ffmpeg-static": "^4.2.7",
+    "ytdl-core": "^4.2.1",
+    "ytpl": "^2.0.4"
+  }
+}

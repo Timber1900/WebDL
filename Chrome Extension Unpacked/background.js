@@ -11,22 +11,37 @@ function buttonClicked() {
 
 chrome.browserAction.onClicked.addListener(buttonClicked);
 
-const re1 = 'https://www.youtube.com/watch'
-const re2 = 'https://www.youtube.com/playlist'
-const re3 = 'https://music.youtube.com/watch'
-const re4 = 'https://music.youtube.com/playlist'
-
-
 function sendUrl(url) {
-    if (url.search(re1) != -1 || url.search(re2) != -1 || url.search(re3) != -1 || url.search(re4) != -1 ) {
-        console.log(url)
+    console.log(url)
+    chrome.storage.sync.get(['PORT'], function(result) {
         const clientServerOptions = {
-            uri: 'http://localhost:1234',
-            body: JSON.stringify(url),
-            method: 'POST',
+            uri: 'http://localhost:' + result.PORT,
+            headers: {'Content-Type': 'application/json; charset=utf-8'},
+            body: JSON.stringify({url}),
+            method: 'POST', 
         }
         request(clientServerOptions, function (error, response) {
-            return;
-        });
-    }
+            console.log(response)
+        });;
+    });
+    
 }
+
+function setPort(){
+    chrome.storage.sync.get(['PORT'], function(result) {
+        const val = prompt("Set a default port.", result.PORT);
+        if(/[0-9]+/.test(val)){
+            chrome.storage.sync.set({PORT: val}, function() {
+                console.log('Value is set to ' + val);
+            });
+        }
+        else{
+            alert("Port has to be a whole number")
+        }
+    });
+}
+
+chrome.contextMenus.create({
+    title: "Set server port...", 
+    onclick: setPort
+});
