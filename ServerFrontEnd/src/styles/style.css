@@ -18,6 +18,8 @@ progress::-webkit-progress-bar {
   background-color: #cccccc;
   width: 100%;
   border-radius: 10px;
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
 }
 
 progress::-webkit-progress-value {
@@ -43,6 +45,11 @@ progress::-webkit-progress-value {
 
 body {
   background-color: #1e1e1e;
+  width: 450px;
+  height: 156px;
+  overflow: hidden;
+  padding: 8px;
+  margin: 0px;
 }
 
 button {

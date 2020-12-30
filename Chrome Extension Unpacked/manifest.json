@@ -10,7 +10,7 @@
     },
     "permissions": [
         "activeTab",
-        "http://localhost:1234/",
+        "http://localhost/",
         "contextMenus",
         "storage"
     ],

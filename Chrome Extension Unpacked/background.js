@@ -28,15 +28,17 @@ function sendUrl(url) {
 }
 
 function setPort(){
-    const val = prompt("Set a default port.", "1234");
-    if(/[0-9]+/.test(val)){
-        chrome.storage.sync.set({PORT: val}, function() {
-            console.log('Value is set to ' + val);
-        });
-    }
-    else{
-        alert("Port has to be a whole number")
-    }
+    chrome.storage.sync.get(['PORT'], function(result) {
+        const val = prompt("Set a default port.", result.PORT);
+        if(/[0-9]+/.test(val)){
+            chrome.storage.sync.set({PORT: val}, function() {
+                console.log('Value is set to ' + val);
+            });
+        }
+        else{
+            alert("Port has to be a whole number")
+        }
+    });
 }
 
 chrome.contextMenus.create({
