@@ -1,21 +1,17 @@
-#div1 {
-  text-align: center;
-}
-
-.progspan {
-  width: 100%;
+.prg {
+  position: absolute;
+  top: 30px;
+  left: 30px;
 }
 
 progress {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   border-radius: 10px;
-  width: 80%;
+  width: 640px;
 }
 
 progress::-webkit-progress-bar {
-  background-color: #cccccc;
+  background-color: #35393b;
   width: 100%;
   border-radius: 10px;
   transition: all 0.1s;
@@ -27,54 +23,112 @@ progress::-webkit-progress-value {
   border-radius: 10px;
 }
 
-.text {
-  font-family: Roboto;
-  font-size: 20px;
-  color: #ffffff;
-  padding: 2px;
-  width: 10%;
-}
-
-.text2 {
-  font-family: Roboto;
-  font-size: 16px;
-  color: #ffffff;
-  width: 10%;
-  overflow: hidden;
-}
-
 body {
-  background-color: #1e1e1e;
-  width: 450px;
-  height: 156px;
+  background-color: #181a1b;
   overflow: hidden;
   padding: 8px;
   margin: 0px;
 }
 
-button {
-  width: 80px;
-  padding: 4px;
+#vel {
+  position: absolute;
+  left: 30px;
+  top: 50px;
+}
+
+#prg {
+  position: absolute;
+  right: 30px;
+  top: 50px;
+}
+
+#curvid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#vdh {
+  position: absolute;
+  width: 640px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -320px;
+}
+
+label {
+  font-family: Roboto;
+  font-size: 16px;
+  color: #e8e6e3;
+}
+
+.rules-btn {
+  position: absolute;
+  top: 320px;
+  left: 270px;
+  width: 40px;
+  height: 20px;
+  transform: translateX(-290px);
+  transition: transform 1s ease-in-out;
+}
+
+.rules-btn.show {
+  transform: translateX(0px);
+  transition: transform 1s ease-in-out;
+}
+
+.rules {
+  position: absolute;
+  padding: 20px;
+  top: 0;
+  left: 0;
+  background: #333;
+  color: #fff;
+  width: 250px;
+  height: 310px;
+  line-height: 1.5;
+  transform: translateX(-290px);
+  transition: transform 1s ease-in-out;
+}
+
+.rules.show {
+  transform: translateX(0px);
+}
+
+.btn {
+  cursor: pointer;
+  border: 0;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:hover {
+  background: #222;
+}
+
+.btn:active {
+  transform: scale(0.98);
 }
 
 .fileinput {
   display: none;
 }
 
-#speed {
-  justify-content: left;
+.set-btn {
+  float: right;
+  height: 20px;
 }
 
-#statusdiv {
-  padding-top: 6px;
+.set-div {
+  padding: 5px;
+  padding-top: 10px;
   padding-bottom: 10px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-#buttondiv {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }

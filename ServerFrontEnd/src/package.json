@@ -9,12 +9,8 @@
   "window": {
     "title": "Youtube Downloader",
     "toolbar": true,
-    "width": 466,
-    "height": 172,
-    "min-width": 466,
-    "min-height": 172,
-    "max-width": 466,
-    "max-height": 172,
+    "width": 700,
+    "height": 350,
     "resizable": false,
     "position": "center",
     "icon": "assets/icon.png"
@@ -25,6 +21,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "ffmpeg-static": "^4.2.7",
+    "fluent-ffmpeg": "^2.1.2",
     "ytdl-core": "^4.2.1",
     "ytpl": "^2.0.4"
   }

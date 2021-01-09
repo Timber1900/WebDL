@@ -5,36 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="../styles/style.css">
+    <script src="../app/index.js"></script>
     <title>Youtube Downloader</title>
 </head>
 <body>
-    <script src="../app/index.js"></script>
-    <div id="div1">
-        <span class="progspan">
-            <progress value="0" max="100" id="progress1"></progress>
-            <label class="text" id="progress2">0%</label>
-        </span>
+    <progress class="prg" id="prog" max="100"></progress>
+    <label id="vel">0MB/s</label>
+    <label id="prg">0%</label>
+    <div id="vdh">
+        <label id="curvid">Waiting for download</label>
     </div>
-    <div>
-        <label class="text" id="speed">0 MB/s</label>
-    </div>
-    <div id="statusdiv">
-        <label class="text2" id="text2">Awaiting download</label>
-    </div>
-    <div id="buttondiv">
-        <button onclick="mp4()" id="mp4" disabled=true>MP4</button>
-        <button onclick="mp3()" id="mp3">MP3</button>
-        <span>
-            <button onclick="document.getElementById('file').click()">Browse</button>
-            <input type="file" nwdirectory class="fileinput" id="file" onchange="selectFolder()"/>
-        </span>
-        <span>
-            <input type="checkbox" id="check"/>
-            <a class="text">Chose file name</a>
-        </span>
-    </div>
-    <div style="padding-top: 10px;">
-        <label class="text2" id="filepath"></label>
+
+    <button id="rules-btn" class="btn rules-btn"></button>
+    <div id="rules" class="rules">
+        <div class="set-div"><span>
+            <label for="folderSelect">Select folder:</label>
+            <button onclick="document.getElementById('file').click()" id="folderSelect" class="set-btn">Browse</button>
+            <input type="file" nwdirectory id="file" class="fileinput" onchange="selectFolder()"/>
+        </span></div>
+        <div class="set-div">
+            <label for="sel">Filetype:</label>
+            <select id="sel" class="set-btn">
+                <option value="mp3">
+                    MP3
+                </option>
+                <option value="mp4" selected="selected">
+                    MP4
+                </option>
+            </select>
+        </div>
+        <div class="set-div">
+            <label for="qual">Quality:</label>
+            <select id="qual" class="set-btn">
+                <option value="hd2160">
+                    4K
+                </option>
+                <option value="hd1440">
+                    1440p
+                </option>
+                <option value="hd1080" selected="selected">
+                    1080p
+                </option>
+                <option value="hd720">
+                    720p
+                </option>
+                <option value="large">
+                    480p
+                </option>
+                <option value="medium">
+                    360p
+                </option>
+                <option value="small">
+                    240p
+                </option>
+                <option value="tiny">
+                    144p
+                </option>
+            </select>
+        </div>
+        <div class="set-div">
+            <label for="port">Change port:</label>
+            <button id="port" onclick="selectPort()" class="set-btn">Change</button>
+        </div>
+        <div class="set-div">
+            <label for="playlist">Select playlist videos:</label>
+            <input type="checkbox" id="playlist" class="set-btn"></input>
+        </div>
+        <div class="set-div">
+            <label for="startend">Select start/end time:</label>
+            <input type="checkbox" id="startend" class="set-btn"></input>
+        </div>
+        <div class="set-div">
+            <label for="startend">Change filename:</label>
+            <input type="checkbox" id="check" class="set-btn"></input>
+        </div>
     </div>
 </body>
 </html>
