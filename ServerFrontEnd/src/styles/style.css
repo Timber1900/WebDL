@@ -34,6 +34,7 @@ body {
   position: absolute;
   left: 30px;
   top: 50px;
+
 }
 
 #prg {
@@ -48,11 +49,13 @@ body {
   top: 300px;
 }
 
+
 label {
   font-family: Roboto;
   font-size: 16px;
   color: #e8e6e3;
 }
+
 
 .rules {
   position: fixed;
@@ -70,6 +73,7 @@ label {
 
 .rules:hover {
   left: 0px;
+
 }
 
 .rules a {
@@ -88,7 +92,9 @@ label {
 }
 
 .set-btn {
+
   position: relative;
+
   float: right;
   height: 20px;
 }
@@ -111,4 +117,5 @@ label {
   width: 336px;
   height: 188px;
   outline: none;
+
 }

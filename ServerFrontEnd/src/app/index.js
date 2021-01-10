@@ -7,6 +7,7 @@ const cp = require('child_process');
 const ffmpeg = require('ffmpeg-static');
 const app = express();
 let ytpl = require('ytpl');
+const { get } = require('http');
 
 let port;
 try {
@@ -53,8 +54,6 @@ async function download(url) {
   } catch {
     videos = [{ url }];
   }
-
-
 
   if (document.getElementById('sel').value == 'mp3') {
     const callNewVid = (a) => {
@@ -148,6 +147,7 @@ async function mp4Download(vid, curVid, callback) {
     }
   };
 
+
   if (document.getElementById('startend').checked) {
     const result = getTime(getTime);
     startTime = result[0];
@@ -176,7 +176,7 @@ async function mp4Download(vid, curVid, callback) {
     if (document.getElementById('check').checked) {
       title = prompt('Choose a name for the file', title) || title;
     }
-
+    
     let oldDownloaded = 0;
     let hrStart = process.hrtime();
     const audio = ytdl(vid.url, { quality: 'highestaudio' });
