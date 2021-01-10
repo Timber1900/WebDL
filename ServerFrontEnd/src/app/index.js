@@ -31,26 +31,6 @@ try {
   fs.writeFileSync(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'path.json'), JSON.stringify({ path }));
 }
 
-window.onload = () => {
-  const rulesBtn = document.getElementById('rules-btn');
-  const rules = document.getElementById('rules');
-  const open = () => {
-    rules.classList.add('show');
-    rulesBtn.classList.add('show');
-    rulesBtn.removeEventListener('click', open);
-    rulesBtn.addEventListener('click', close);
-  };
-
-  const close = () => {
-    rules.classList.remove('show');
-    rulesBtn.classList.remove('show');
-    rulesBtn.removeEventListener('click', close);
-    rulesBtn.addEventListener('click', open);
-  };
-
-  rulesBtn.addEventListener('click', open);
-};
-
 app.post('/', (req, res) => {
   const { body } = req;
   res.send('Video received');
@@ -69,7 +49,7 @@ function selectFolder() {
 async function download(url) {
   let videos = [];
   try {
-    playlist = await ytpl(url);
+    playlist = await ytpl(url, { pages: Infinity });
     videos = playlist.items;
   } catch {
     videos = [{ url }];
@@ -102,11 +82,17 @@ async function mp4Download(vid, curVid, callback) {
   const time = (hrStart) => {
     const hrDiff = process.hrtime(hrStart);
     return hrDiff[0] + hrDiff[1] / 1e9;
-  };
+  };  
+  let cont = true;
 
   const info = await ytdl.getInfo(vid.url);
+  if(info.formats.length == 0){
+    console.error("No video formats available");
+    callback(curVid + 1);
+    cont = false
+  }
   title = info.videoDetails.title;
-  let cont = true;
+  document.getElementById('vidprev').src = info.videoDetails.thumbnails[3].url
 
   if (document.getElementById('playlist').checked) {
     if (!confirm('Do you want to download - ' + title + '?')) {
@@ -161,6 +147,7 @@ async function mp4Download(vid, curVid, callback) {
     }
   };
 
+
   if (document.getElementById('startend').checked) {
     const result = getTime(getTime);
     startTime = result[0];
@@ -183,13 +170,13 @@ async function mp4Download(vid, curVid, callback) {
     }
     document.getElementById('curvid').innerHTML = 'Downloading ' + title;
 
-    const regex = /["\*\/:<>\?\\\|]/g;
+    const regex = /["*/:<>?\\|]/g;
     title = title.replace(regex, '');
 
     if (document.getElementById('check').checked) {
       title = prompt('Choose a name for the file', title) || title;
     }
-
+    
     let oldDownloaded = 0;
     let hrStart = process.hrtime();
     const audio = ytdl(vid.url, { quality: 'highestaudio' });
@@ -285,56 +272,61 @@ async function mp3Download(vid, curVid, callback) {
   };
 
   video = ytdl(vid.url, { quality: 'highestaudio' });
-  let {
-    videoDetails: { title },
-  } = await ytdl.getBasicInfo(vid.url);
-
-  let cont = true;
-
-  if (document.getElementById('playlist').checked) {
-    if (!confirm('Do you want to download - ' + title + '?')) {
-      callback(curVid + 1);
-      cont = false;
-    }
-  }
-
-  if (cont) {
-    const regex = /["\*\/:<>\?\\\|]/g;
-    title = title.replace(regex, '');
-
-    if (document.getElementById('check').checked) {
-      title = prompt('Choose a name for the file', title) || title;
-    }
-
-    document.getElementById('curvid').innerHTML = 'Downloading ' + title;
-    video.on('response', (res) => {
-      let hrStart = process.hrtime();
-      let totalSize = res.headers['content-length'];
-      let dataRead = 0;
-      res.on('data', function (data) {
-        let elapsed = time(hrStart);
-        hrStart = process.hrtime();
-        dataRead += data.length;
-        const mbData = data.length / 1e6;
-        const vel = mbData / elapsed;
-        let percent = dataRead / totalSize;
-        document.getElementById('prog').value = percent * 100;
-        document.getElementById('prg').innerHTML = (percent * 100).toFixed(2).toString() + '%';
-        document.getElementById('vel').innerHTML = vel.toFixed(0) + ' MB/s';
-      });
-      res.on('end', () => {
-        document.getElementById('curvid').innerHTML = 'Done downloading ' + title;
-        document.getElementById('prog').value = 0;
-        document.getElementById('prg').innerHTML = '0%';
-        document.getElementById('vel').innerHTML = '0 MB/s';
+  const info = await ytdl.getInfo(vid.url);
+  if(info.formats.length == 0){
+    console.error("No video formats available");
+    callback(curVid + 1);
+  } else {
+    let title = info.videoDetails.title;
+    document.getElementById('vidprev').src = info.videoDetails.thumbnails[3].url
+  
+    let cont = true;
+  
+    if (document.getElementById('playlist').checked) {
+      if (!confirm('Do you want to download - ' + title + '?')) {
         callback(curVid + 1);
+        cont = false;
+      }
+    }
+
+    if (cont) {
+      const regex = /["*/:<>?\\|]/g;
+      title = title.replace(regex, '');
+  
+      if (document.getElementById('check').checked) {
+        title = prompt('Choose a name for the file', title) || title;
+      }
+  
+      document.getElementById('curvid').innerHTML = 'Downloading ' + title;
+      video.on('response', (res) => {
+        let hrStart = process.hrtime();
+        let totalSize = res.headers['content-length'];
+        let dataRead = 0;
+        res.on('data', function (data) {
+          let elapsed = time(hrStart);
+          hrStart = process.hrtime();
+          dataRead += data.length;
+          const mbData = data.length / 1e6;
+          const vel = mbData / elapsed;
+          let percent = dataRead / totalSize;
+          document.getElementById('prog').value = percent * 100;
+          document.getElementById('prg').innerHTML = (percent * 100).toFixed(2).toString() + '%';
+          document.getElementById('vel').innerHTML = vel.toFixed(0) + ' MB/s';
+        });
+        res.on('end', () => {
+          document.getElementById('curvid').innerHTML = 'Done downloading ' + title;
+          document.getElementById('prog').value = 0;
+          document.getElementById('prg').innerHTML = '0%';
+          document.getElementById('vel').innerHTML = '0 MB/s';
+          callback(curVid + 1);
+        });
       });
-    });
-    video.on('error', (err) => {
-      console.error(err);
-      callback(curVid + 1);
-    });
-    video.pipe(fs.createWriteStream(join(path, title + '.mp3')));
+      video.on('error', err => {
+        console.error(err);
+        callback(curVid + 1);
+      })
+      video.pipe(fs.createWriteStream(join(path, title + '.mp3')));
+    }
   }
 }
 

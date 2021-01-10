@@ -8,23 +8,23 @@
     <script src="../app/index.js"></script>
     <title>Youtube Downloader</title>
 </head>
+
 <body>
     <progress class="prg" id="prog" max="100"></progress>
     <label id="vel">0MB/s</label>
     <label id="prg">0%</label>
-    <div id="vdh">
-        <label id="curvid">Waiting for download</label>
-    </div>
 
-    <button id="rules-btn" class="btn rules-btn"></button>
+    <label id="curvid">Waiting for download</label>
+    <img id="vidprev" src="../assets/defthumb.png">
+
     <div id="rules" class="rules">
-        <div class="set-div"><span>
-            <label for="folderSelect">Select folder:</label>
+        <div class="set-div">
+            <a for="folderSelect">Select folder:</a>
             <button onclick="document.getElementById('file').click()" id="folderSelect" class="set-btn">Browse</button>
             <input type="file" nwdirectory id="file" class="fileinput" onchange="selectFolder()"/>
-        </span></div>
+        </div>
         <div class="set-div">
-            <label for="sel">Filetype:</label>
+            <a for="sel">Filetype:</a>
             <select id="sel" class="set-btn">
                 <option value="mp3">
                     MP3
@@ -35,7 +35,7 @@
             </select>
         </div>
         <div class="set-div">
-            <label for="qual">Quality:</label>
+            <a for="qual">Quality:</a>
             <select id="qual" class="set-btn">
                 <option value="hd2160">
                     4K
@@ -64,21 +64,20 @@
             </select>
         </div>
         <div class="set-div">
-            <label for="port">Change port:</label>
+            <a for="port">Change port:</a>
             <button id="port" onclick="selectPort()" class="set-btn">Change</button>
         </div>
         <div class="set-div">
-            <label for="playlist">Select playlist videos:</label>
+            <a for="playlist">Select playlist videos:</a>
             <input type="checkbox" id="playlist" class="set-btn"></input>
         </div>
         <div class="set-div">
-            <label for="startend">Select start/end time:</label>
+            <a for="startend">Select start/end time:</a>
             <input type="checkbox" id="startend" class="set-btn"></input>
         </div>
         <div class="set-div">
-            <label for="startend">Change filename:</label>
+            <a for="startend">Change filename:</a >
             <input type="checkbox" id="check" class="set-btn"></input>
         </div>
     </div>
-</body>
 </html>
