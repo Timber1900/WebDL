@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nw src/",
-    "prod": "nwbuild --platforms win64 --buildDir dist/ src/",
+    "prod": "nwbuild --platforms win64 --buildDir dist/ src/ && change_icon.bat",
     "prettier": "prettier --write **/*.{js,json}"
   },
   "keywords": [],

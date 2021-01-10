@@ -44,18 +44,8 @@ body {
 
 #curvid {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-#vdh {
-  position: absolute;
-  width: 640px;
-  height: 200px;
-  top: 50%;
-  left: 50%;
-  margin: -100px 0 0 -320px;
+  left: 30px;
+  top: 300px;
 }
 
 label {
@@ -64,71 +54,61 @@ label {
   color: #e8e6e3;
 }
 
-.rules-btn {
-  position: absolute;
-  top: 320px;
-  left: 270px;
-  width: 40px;
-  height: 20px;
-  transform: translateX(-290px);
-  transition: transform 1s ease-in-out;
-}
-
-.rules-btn.show {
-  transform: translateX(0px);
-  transition: transform 1s ease-in-out;
-}
-
 .rules {
-  position: absolute;
-  padding: 20px;
+  position: fixed;
   top: 0;
-  left: 0;
+  left: -235px;
+  z-index: 1;
   background: #333;
   color: #fff;
   width: 250px;
-  height: 310px;
-  line-height: 1.5;
-  transform: translateX(-290px);
-  transition: transform 1s ease-in-out;
+  height: 100%;
+  transition: 1s;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-.rules.show {
-  transform: translateX(0px);
+.rules:hover {
+  left: 0px;
 }
 
-.btn {
-  cursor: pointer;
-  border: 0;
-  padding: 10px 20px;
-  background: #000;
-  color: #fff;
-  border-radius: 5px;
+.rules a {
+  text-decoration: none;
+  font-family: Roboto;
+  font-size: 16px;
+  color: #e8e6e3;
+  transition: 0.3s;
 }
 
-.btn:focus {
-  outline: 0;
+.rules a:hover {
+  color: #f1f1f1;
 }
-
-.btn:hover {
-  background: #222;
-}
-
-.btn:active {
-  transform: scale(0.98);
-}
-
 .fileinput {
   display: none;
 }
 
 .set-btn {
+  position: relative;
   float: right;
   height: 20px;
 }
 
 .set-div {
-  padding: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
+  padding-right: 15px;
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#vidprev {
+  position: absolute;
+  left: 30px;
+  top: 100px;
+  border-radius: 5px;
+  border: 3px solid #222;
+  width: 336px;
+  height: 188px;
+  outline: none;
 }
