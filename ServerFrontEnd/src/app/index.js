@@ -6,6 +6,7 @@ const express = require('express');
 const cp = require('child_process');
 const ffmpeg = require('ffmpeg-static');
 let ytpl = require('ytpl');
+const { get } = require('http');
 
 function selectFolder() {
   fs.writeFileSync(
@@ -23,7 +24,6 @@ async function addToQueue(url) {
   } catch {
     videos = [{ url }];
   }
-
   document.getElementById('curvid').innerHTML = 'Fetching videos';
 
   let i = 0;
@@ -34,6 +34,7 @@ async function addToQueue(url) {
       const info = await ytdl.getBasicInfo(vid.url).catch((err) => {console.error(err); return null});
       if (info) {
         addDiv(vid.url, info.videoDetails.thumbnails[0].url, info.videoDetails.title);
+
       }
       document.getElementById('curvid').innerHTML = `Fetching videos ${i + 1}/${total}`;
       i++;
@@ -52,6 +53,7 @@ function selectPort() {
   fs.writeFileSync(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'port.json'), JSON.stringify({ port }));
   chrome.runtime.reload();
 }
+
 
 function addDiv(url, thumbnail, title) {
   const div = document.createElement('div');

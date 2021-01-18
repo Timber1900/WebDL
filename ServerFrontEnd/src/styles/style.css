@@ -83,6 +83,7 @@ label {
 .rules a:hover {
   color: #f1f1f1;
 }
+
 .fileinput {
   display: none;
 }
@@ -153,8 +154,8 @@ label {
   border-top: 0;
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
 }
+
 
 .playItem:hover {
   background-color: #333;
