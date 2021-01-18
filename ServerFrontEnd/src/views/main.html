@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="../styles/style.css">
     <script src="../app/index.js"></script>
+    <script src="../app/downloadQueue.js"></script>
+    <script src="../app/mp3download.js"></script>
+    <script src="../app/mp4download.js"></script>
+    <script src="../app/server.js"></script>
     <title>Youtube Downloader</title>
 </head>
 
@@ -13,10 +17,17 @@
     <progress class="prg" id="prog" max="100"></progress>
     <label id="vel">0MB/s</label>
     <label id="prg">0%</label>
-
     <label id="curvid">Waiting for download</label>
     <img id="vidprev" src="../assets/defthumb.png">
-
+    <div id="playlistSelect"></div>
+    <div id="queue-buttons-div">
+        <button onclick="downloadQueue()" id="dow-vid" class="queue-buttons">Download videos</button>
+        <button onclick="clearQueue()" id="clear-queue" class="queue-buttons">Clear queue</button>
+    </div>
+    <div id="queue-check-div">
+        <input type="checkbox" id="queue-check" checked="true" onchange="selectAll()"></input>
+        <label for="queue-check" id="queue-check-label">Select all</label>
+    </div>
     <div id="rules" class="rules">
         <div class="set-div">
             <a for="folderSelect">Select folder:</a>
@@ -66,10 +77,6 @@
         <div class="set-div">
             <a for="port">Change port:</a>
             <button id="port" onclick="selectPort()" class="set-btn">Change</button>
-        </div>
-        <div class="set-div">
-            <a for="playlist">Select playlist videos:</a>
-            <input type="checkbox" id="playlist" class="set-btn"></input>
         </div>
         <div class="set-div">
             <a for="startend">Select start/end time:</a>
