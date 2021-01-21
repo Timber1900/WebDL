@@ -7,7 +7,7 @@
 progress {
   appearance: none;
   border-radius: 10px;
-  width: 640px;
+  width: 690px;
 }
 
 progress::-webkit-progress-bar {
@@ -43,9 +43,14 @@ body {
 }
 
 #curvid {
-  position: absolute;
+  text-overflow: ellipsis;
   left: 30px;
+  right: 384px;
   top: 300px;
+  height: 40px;
+  line-height: 20px;
+  overflow: hidden;
+  position: absolute;
 }
 
 label {
@@ -83,7 +88,6 @@ label {
 .rules a:hover {
   color: #f1f1f1;
 }
-
 .fileinput {
   display: none;
 }
@@ -120,7 +124,7 @@ label {
   border: 3px solid #222;
   left: 400px;
   top: 100px;
-  width: 258px;
+  width: 308px;
   height: 188px;
   overflow-y: scroll;
 }
@@ -148,14 +152,13 @@ label {
 .playItem {
   display: flex;
   border-radius: 2px;
-  width: 248px;
+  width: 298px;
   height: 50px;
   border: 1px solid #222;
   border-top: 0;
   overflow: hidden;
   white-space: nowrap;
 }
-
 
 .playItem:hover {
   background-color: #333;
@@ -175,6 +178,9 @@ label {
 }
 
 .video-name-container {
+  position: absolute;
+  left: 82px;
+  right: 24px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -256,4 +262,52 @@ label {
 
 #queue-check-label {
   float: right;
+
+}
+
+#menu-image {
+  position: absolute;
+  left: 0;
+  top: 13px;
+}
+
+.video-options {
+  position: absolute;
+  right: 0;
+  height: 50px;
+  width: 24px;
+  visibility: hidden;
+}
+
+.playItem:hover .video-options {
+  visibility: visible;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #222;
+  min-width: 160px;
+  z-index: 1;
+  right: 0;
+  top: 35px;
+  border-radius: 10px;
+  border: rgb(43, 43, 43) solid 2px;
+  overflow: visible;
+}
+
+/* Links inside the dropdown */
+.dropdown-content label {
+  padding: 10px 10px 5px 5px;
+  text-align: center;
+  display: block;
+}
+
+.dropdown-content label:hover {
+  background-color: rgb(43, 43, 43);
+}
+
+/* Show the dropdown menu on hover */
+.video-options:hover .dropdown-content {
+  display: block;
 }

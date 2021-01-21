@@ -6,7 +6,6 @@ const express = require('express');
 const cp = require('child_process');
 const ffmpeg = require('ffmpeg-static');
 let ytpl = require('ytpl');
-const { get } = require('http');
 
 function selectFolder() {
   fs.writeFileSync(
@@ -35,6 +34,16 @@ async function addToQueue(url) {
       if (info) {
         addDiv(vid.url, info.videoDetails.thumbnails[0].url, info.videoDetails.title);
 
+  document.getElementById('curvid').innerHTML = 'Fetching videos';
+
+  let i = 0;
+  const total = videos.length;
+
+  for (const vid of videos) {
+    if (vid) {
+      const info = await ytdl.getBasicInfo(vid.url).catch((err) => {console.error(err); return null});
+      if (info) {
+        addDiv(vid.url, info.videoDetails.thumbnails[0].url, info.videoDetails.title);
       }
       document.getElementById('curvid').innerHTML = `Fetching videos ${i + 1}/${total}`;
       i++;
@@ -56,29 +65,13 @@ function selectPort() {
 
 
 function addDiv(url, thumbnail, title) {
-  const div = document.createElement('div');
-  div.classList.add('playItem');
-  div.classList.add('show');
-  div.addEventListener('click', selectVid.bind(div));
+  const div = templateDiv.cloneNode(true);
   div.setAttribute('url', url);
-
-  const span1 = document.createElement('span');
-  const span2 = document.createElement('span');
-  span2.classList.add('video-name-container');
-
-  const image = document.createElement('img');
-  image.src = thumbnail;
-  image.classList.add('image');
-
-  const label = document.createElement('label');
-  label.classList.add('video-name');
-  label.innerHTML = title;
-
-  span1.appendChild(image);
-  span2.appendChild(label);
-
-  div.appendChild(span1);
-  div.appendChild(span2);
+  div.addEventListener('click', selectVid.bind(div));
+  div.children[0].children[0].src = thumbnail;
+  div.children[1].children[0].innerHTML = title;
+  div.children[2].children[1].children[0].addEventListener('click', renameVideo.bind(div.children[1].children[0]));
+  div.children[2].children[1].children[2].addEventListener('click', downloadSingleVid.bind(div));
 
   document.getElementById('playlistSelect').appendChild(div);
 }
@@ -129,3 +122,40 @@ const selectAll = () => {
     }
   }
 };
+
+const renameVideo = function () {
+  this.setAttribute('contenteditable', true)
+  this.focus()
+  const label = this
+  function stopRenameEnter(event){
+    if (event.target === label && event.key === 'Enter') {
+      label.innerHTML.replace(/\n/g, "")
+      label.setAttribute('contenteditable', false)
+      document.removeEventListener('keydown', stopRenameEnter)
+    }
+  }
+  function stopRename(){
+    label.setAttribute('contenteditable', false)
+    label.removeEventListener('focusout', stopRename)
+  }
+  document.addEventListener('keydown', stopRenameEnter)
+  this.addEventListener('focusout', stopRename)
+};
+
+const downloadSingleVid = function() {
+  const div = this;
+  const callback = (a) => {
+    const vidsContainer = document.getElementById('playlistSelect');
+    if(!div.classList.contains('error')){
+      vidsContainer.removeChild(div);
+    }   
+  }
+  if (document.getElementById('sel').value == 'mp3') {
+    mp3Download(this.getAttribute('url'), 0, callback, this)
+  } else {
+    mp4Download(this.getAttribute('url'), 0, callback, this)
+  }
+}
+
+window.onload = () => {
+}
