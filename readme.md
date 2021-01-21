@@ -45,7 +45,7 @@ This windows application + companion [chrome extension](https://chrome.google.co
   1. Check if the app port (Set port in settings) and extension port (Set port on the right click context menu) are equal, default is 1234 however I recomend using a more general one like 3000 or 3003
   1. If they are equal try changing the port to some other one as the current one may be being used already
   1. Check if you don't have another process of the app running this would block the other one from receiving videos
-  1. If none of this works please launch a [issue](https://github.com/Timber1900/YoutubeVideoDownloader/issues/new/?template=question.md) detailing the problem and we'll try to help
+  1. If none of this works please launch a [issue](https://github.com/Timber1900/YoutubeVideoDownloader/issues/new?assignees=timber1900&labels=Feature+request&template=feature_request.md&title=) detailing the problem and we'll try to help
 
 ### Is there a maximum ammount of videos for downloading a playlist?
 
@@ -53,7 +53,7 @@ This windows application + companion [chrome extension](https://chrome.google.co
 
 ### Where can I request a feature?
 
-- Feature request may or may not be worked on, however if you have a brilliant idea and want to know if we want to work on it please launch a [issue](https://github.com/Timber1900/YoutubeVideoDownloader/issues/new/?template=feature_request.md)
+- Feature request may or may not be worked on, however if you have a brilliant idea and want to know if we want to work on it please launch a [issue](https://github.com/Timber1900/YoutubeVideoDownloader/issues/new?assignees=timber1900&labels=question&template=question.md&title=)
 
 ### What can I do if I want to help to develop this app?
 
