@@ -158,7 +158,6 @@ label {
   border-top: 0;
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
 .playItem:hover {
@@ -263,6 +262,7 @@ label {
 
 #queue-check-label {
   float: right;
+
 }
 
 #menu-image {
