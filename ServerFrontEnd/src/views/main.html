@@ -11,6 +11,7 @@
     <script src="../app/mp4download.js"></script>
     <script src="../app/server.js"></script>
     <script src="../app/templateDiv.js"></script>
+    <script src="../app/id.js"></script>
     <title>Youtube Downloader</title>
 </head>
 
@@ -47,45 +48,12 @@
             </select>
         </div>
         <div class="set-div">
-            <a for="qual">Quality:</a>
-            <select id="qual" class="set-btn">
-                <option value="hd2160">
-                    4K
-                </option>
-                <option value="hd1440">
-                    1440p
-                </option>
-                <option value="hd1080" selected="selected">
-                    1080p
-                </option>
-                <option value="hd720">
-                    720p
-                </option>
-                <option value="large">
-                    480p
-                </option>
-                <option value="medium">
-                    360p
-                </option>
-                <option value="small">
-                    240p
-                </option>
-                <option value="tiny">
-                    144p
-                </option>
-            </select>
-        </div>
-        <div class="set-div">
             <a for="port">Change port:</a>
             <button id="port" onclick="selectPort()" class="set-btn">Change</button>
         </div>
         <div class="set-div">
             <a for="startend">Select start/end time:</a>
             <input type="checkbox" id="startend" class="set-btn"></input>
-        </div>
-        <div class="set-div">
-            <a for="startend">Change filename:</a >
-            <input type="checkbox" id="check" class="set-btn"></input>
         </div>
     </div>
 </html>

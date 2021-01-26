@@ -1,18 +1,9 @@
-async function mp4Download(url, curVid, callback, vid) {
+async function mp4Download(url, curVid, callback, vid, info, formats) {
   const time = (hrStart) => {
     const hrDiff = process.hrtime(hrStart);
     return hrDiff[0] + hrDiff[1] / 1e9;
   };
   let cont = true;
-
-  const info = await ytdl.getInfo(url);
-  if (info.formats.length == 0) {
-    console.error('No video formats available');
-    vid.classList.remove('show')
-    vid.classList.add('error') 
-    callback(curVid + 1);
-    cont = false;
-  }
   title = info.videoDetails.title;
   document.getElementById('vidprev').src = info.videoDetails.thumbnails[3].url;
 
@@ -70,28 +61,12 @@ async function mp4Download(url, curVid, callback, vid) {
     console.log(result);
   }
   if (cont) {
-    let videoFormat;
-    let foundFormat = false;
-    for (const f of info.formats) {
-      if (f.quality == document.getElementById('qual').value && f.container == 'mp4') {
-        videoFormat = f;
-        foundFormat = true;
-        break;
-      }
-    }
-    if (!foundFormat) {
-      alert('Choosen format not found');
-      callback(curVid + 1);
-      return;
-    }
+    const videoFormat = formats.get(vid.children[2].children[1].children[2].children[1].value);
+
     document.getElementById('curvid').innerHTML = 'Downloading ' + title;
 
     const regex = /["*/:<>?\\|]/g;
     title = title.replace(regex, '');
-
-    if (document.getElementById('check').checked) {
-      title = prompt('Choose a name for the file', title) || title;
-    }
 
     let oldDownloaded = 0;
     let hrStart = process.hrtime();
@@ -110,14 +85,14 @@ async function mp4Download(url, curVid, callback, vid) {
     });
     video.on('error', (err) => {
       console.error(err);
-      vid.classList.remove('show')
-      vid.classList.add('error')
+      vid.classList.remove('show');
+      vid.classList.add('error');
       callback(curVid + 1);
     });
     audio.on('error', (err) => {
       console.error(err);
-      vid.classList.remove('show')
-      vid.classList.add('error')
+      vid.classList.remove('show');
+      vid.classList.add('error');
       callback(curVid + 1);
     });
     // Start the ffmpeg child process

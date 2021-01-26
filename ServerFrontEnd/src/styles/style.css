@@ -262,7 +262,6 @@ label {
 
 #queue-check-label {
   float: right;
-
 }
 
 #menu-image {
@@ -298,7 +297,7 @@ label {
 
 /* Links inside the dropdown */
 .dropdown-content label {
-  padding: 10px 10px 5px 5px;
+  padding: 5px 10px;
   text-align: center;
   display: block;
 }
@@ -310,4 +309,20 @@ label {
 /* Show the dropdown menu on hover */
 .video-options:hover .dropdown-content {
   display: block;
+}
+
+.qual-span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.qual-span label:hover {
+  background-color: #222;
+}
+
+.qual-sel {
+  padding: 5px 10px;
+  height: 26px;
 }
