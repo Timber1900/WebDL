@@ -15,7 +15,7 @@ const label = document.createElement('label');
 label.classList.add('video-name');
 
 const menu_image = document.createElement('img');
-menu_image.src = "../assets/more_vert-24px.png";
+menu_image.src = '../assets/more_vert-24px.png';
 menu_image.id = 'menu-image';
 
 const menu_div = document.createElement('div');
@@ -24,9 +24,9 @@ menu_div.classList.add('dropdown-content');
 const rename_label = document.createElement('label');
 const trim_label = document.createElement('label');
 const download_label = document.createElement('label');
-rename_label.innerHTML = "Rename video"
-trim_label.innerHTML = "Trim video"
-download_label.innerHTML = "Download video"
+rename_label.innerHTML = 'Rename video';
+trim_label.innerHTML = 'Trim video';
+download_label.innerHTML = 'Download video';
 
 menu_div.appendChild(rename_label);
 menu_div.appendChild(trim_label);
@@ -40,6 +40,5 @@ span3.appendChild(menu_div);
 div.appendChild(span1);
 div.appendChild(span2);
 div.appendChild(span3);
-
 
 const templateDiv = div;

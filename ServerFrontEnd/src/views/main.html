@@ -1,91 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="../styles/style.css">
-    <script src="../app/index.js"></script>
-    <script src="../app/downloadQueue.js"></script>
-    <script src="../app/mp3download.js"></script>
-    <script src="../app/mp4download.js"></script>
-    <script src="../app/server.js"></script>
-    <script src="../app/templateDiv.js"></script>
-    <title>Youtube Downloader</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../styles/test.css">
+  <script src="../app/index.js"></script>
+  <script src="../app/downloadQueue.js"></script>
+  <script src="../app/mp3download.js"></script>
+  <script src="../app/mp4download.js"></script>
+  <script src="../app/server.js"></script>
+  <script src="../app/templateDiv.js"></script>
+  <script src="../app/test.js"></script>
+  <title>Youtube Downloader</title>
 </head>
 
 <body>
-    <progress class="prg" id="prog" max="100"></progress>
-    <label id="vel">0MB/s</label>
-    <label id="prg">0%</label>
-    <label id="curvid">Waiting for download</label>
-    <img id="vidprev" src="../assets/defthumb.png">
-    <div id="playlistSelect"></div>
-    <div id="queue-buttons-div">
-        <button onclick="downloadQueue()" id="dow-vid" class="queue-buttons">Download videos</button>
-        <button onclick="clearQueue()" id="clear-queue" class="queue-buttons">Clear queue</button>
+  <progress class="prg" id="prog" max="100"></progress>
+  <label id="vel">0MB/s</label>
+  <label id="prg">0%</label>
+  <label id="curvid">Waiting for download</label>
+  <img id="vidprev" src="../assets/defthumb.png">
+  <div id="playlistSelect">
+    <div class="playItem show" url="https://www.youtube.com/watch?v=nJm0OIuPt2Y">
+      <span>
+        <img class="image" src="https://i.ytimg.com/vi/nJm0OIuPt2Y/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&amp;rs=AOn4CLB3A7sjKPLXP1Y92Mgz1oumfIQzTw">
+      </span>
+      <span class="video-name-container">
+        <label class="video-name">Among Us But Wildcat Is A Big Brain Impostor And We All Have CUSTOM SKINS!</label>
+      </span>
+      <span class="video-options">
+        <img src="../assets/more_vert-24px.png" id="menu-image">
+          <div class="dropdown-content">
+            <label>Rename video</label>
+            <div class="popup" onclick="myFunction()">
+              <label>Trim video</label>
+            </div>
+            <label>Download video</label>
+          </div>
+      </span>
+      <div class="popuptext" id="myPopup">
+        <div id="left"></div>
+      </div>
     </div>
-    <div id="queue-check-div">
-        <input type="checkbox" id="queue-check" checked="true" onchange="selectAll()"></input>
-        <label for="queue-check" id="queue-check-label">Select all</label>
+  </div>
+  <div id="queue-buttons-div">
+    <button onclick="downloadQueue()" id="dow-vid" class="queue-buttons">Download videos</button>
+    <button onclick="clearQueue()" id="clear-queue" class="queue-buttons">Clear queue</button>
+  </div>
+  <div id="queue-check-div">
+    <input type="checkbox" id="queue-check" checked="true" onchange="selectAll()"></input>
+    <label for="queue-check" id="queue-check-label">Select all</label>
+  </div>
+  <div id="rules" class="rules">
+    <div class="set-div">
+      <a for="folderSelect">Select folder:</a>
+      <button onclick="document.getElementById('file').click()" id="folderSelect" class="set-btn">Browse</button>
+      <input type="file" nwdirectory id="file" class="fileinput" onchange="selectFolder()"/>
     </div>
-    <div id="rules" class="rules">
-        <div class="set-div">
-            <a for="folderSelect">Select folder:</a>
-            <button onclick="document.getElementById('file').click()" id="folderSelect" class="set-btn">Browse</button>
-            <input type="file" nwdirectory id="file" class="fileinput" onchange="selectFolder()"/>
-        </div>
-        <div class="set-div">
-            <a for="sel">Filetype:</a>
-            <select id="sel" class="set-btn">
-                <option value="mp3">
-                    MP3
-                </option>
-                <option value="mp4" selected="selected">
-                    MP4
-                </option>
-            </select>
-        </div>
-        <div class="set-div">
-            <a for="qual">Quality:</a>
-            <select id="qual" class="set-btn">
-                <option value="hd2160">
-                    4K
-                </option>
-                <option value="hd1440">
-                    1440p
-                </option>
-                <option value="hd1080" selected="selected">
-                    1080p
-                </option>
-                <option value="hd720">
-                    720p
-                </option>
-                <option value="large">
-                    480p
-                </option>
-                <option value="medium">
-                    360p
-                </option>
-                <option value="small">
-                    240p
-                </option>
-                <option value="tiny">
-                    144p
-                </option>
-            </select>
-        </div>
-        <div class="set-div">
-            <a for="port">Change port:</a>
-            <button id="port" onclick="selectPort()" class="set-btn">Change</button>
-        </div>
-        <div class="set-div">
-            <a for="startend">Select start/end time:</a>
-            <input type="checkbox" id="startend" class="set-btn"></input>
-        </div>
-        <div class="set-div">
-            <a for="startend">Change filename:</a >
-            <input type="checkbox" id="check" class="set-btn"></input>
-        </div>
+    <div class="set-div">
+      <a for="sel">Filetype:</a>
+      <select id="sel" class="set-btn">
+        <option value="mp3">
+          MP3
+        </option>
+        <option value="mp4" selected="selected">
+          MP4
+        </option>
+      </select>
     </div>
+    <div class="set-div">
+      <a for="qual">Quality:</a>
+      <select id="qual" class="set-btn">
+        <option value="hd2160">
+          4K
+        </option>
+        <option value="hd1440">
+          1440p
+        </option>
+        <option value="hd1080" selected="selected">
+          1080p
+        </option>
+        <option value="hd720">
+          720p
+        </option>
+        <option value="large">
+          480p
+        </option>
+        <option value="medium">
+          360p
+        </option>
+        <option value="small">
+          240p
+        </option>
+        <option value="tiny">
+          144p
+        </option>
+      </select>
+    </div>
+    <div class="set-div">
+      <a for="port">Change port:</a>
+      <button id="port" onclick="selectPort()" class="set-btn">Change</button>
+    </div>
+    <div class="set-div">
+      <a for="startend">Select start/end time:</a>
+      <input type="checkbox" id="startend" class="set-btn"></input>
+    </div>
+    <div class="set-div">
+      <a for="startend">Change filename:</a >
+      <input type="checkbox" id="check" class="set-btn"></input>
+    </div>
+  </div>
 </html>

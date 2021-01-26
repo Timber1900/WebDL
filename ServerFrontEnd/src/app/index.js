@@ -30,26 +30,17 @@ async function addToQueue(url) {
 
   for (const vid of videos) {
     if (vid) {
-      const info = await ytdl.getBasicInfo(vid.url).catch((err) => {console.error(err); return null});
-      if (info) {
-        addDiv(vid.url, info.videoDetails.thumbnails[0].url, info.videoDetails.title);
-
-  document.getElementById('curvid').innerHTML = 'Fetching videos';
-
-  let i = 0;
-  const total = videos.length;
-
-  for (const vid of videos) {
-    if (vid) {
-      const info = await ytdl.getBasicInfo(vid.url).catch((err) => {console.error(err); return null});
+      const info = await ytdl.getBasicInfo(vid.url).catch((err) => {
+        console.error(err);
+        return null;
+      });
       if (info) {
         addDiv(vid.url, info.videoDetails.thumbnails[0].url, info.videoDetails.title);
       }
-      document.getElementById('curvid').innerHTML = `Fetching videos ${i + 1}/${total}`;
-      i++;
     }
   }
-  document.getElementById('curvid').innerHTML = 'Done fetching';
+
+  document.getElementById('curvid').innerHTML = 'Fetching videos';
 }
 
 function selectPort() {
@@ -62,7 +53,6 @@ function selectPort() {
   fs.writeFileSync(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'port.json'), JSON.stringify({ port }));
   chrome.runtime.reload();
 }
-
 
 function addDiv(url, thumbnail, title) {
   const div = templateDiv.cloneNode(true);
@@ -124,38 +114,37 @@ const selectAll = () => {
 };
 
 const renameVideo = function () {
-  this.setAttribute('contenteditable', true)
-  this.focus()
-  const label = this
-  function stopRenameEnter(event){
+  this.setAttribute('contenteditable', true);
+  this.focus();
+  const label = this;
+  function stopRenameEnter(event) {
     if (event.target === label && event.key === 'Enter') {
-      label.innerHTML.replace(/\n/g, "")
-      label.setAttribute('contenteditable', false)
-      document.removeEventListener('keydown', stopRenameEnter)
+      label.innerHTML.replace(/\n/g, '');
+      label.setAttribute('contenteditable', false);
+      document.removeEventListener('keydown', stopRenameEnter);
     }
   }
-  function stopRename(){
-    label.setAttribute('contenteditable', false)
-    label.removeEventListener('focusout', stopRename)
+  function stopRename() {
+    label.setAttribute('contenteditable', false);
+    label.removeEventListener('focusout', stopRename);
   }
-  document.addEventListener('keydown', stopRenameEnter)
-  this.addEventListener('focusout', stopRename)
+  document.addEventListener('keydown', stopRenameEnter);
+  this.addEventListener('focusout', stopRename);
 };
 
-const downloadSingleVid = function() {
+const downloadSingleVid = function () {
   const div = this;
   const callback = (a) => {
     const vidsContainer = document.getElementById('playlistSelect');
-    if(!div.classList.contains('error')){
+    if (!div.classList.contains('error')) {
       vidsContainer.removeChild(div);
-    }   
-  }
+    }
+  };
   if (document.getElementById('sel').value == 'mp3') {
-    mp3Download(this.getAttribute('url'), 0, callback, this)
+    mp3Download(this.getAttribute('url'), 0, callback, this);
   } else {
-    mp4Download(this.getAttribute('url'), 0, callback, this)
+    mp4Download(this.getAttribute('url'), 0, callback, this);
   }
-}
+};
 
-window.onload = () => {
-}
+window.onload = () => {};

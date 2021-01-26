@@ -12,15 +12,15 @@ async function downloadQueue() {
       };
       const callback = (a) => {
         if (a < videos.length) {
-          if(!videos[a - 1].classList.contains('error')){
+          if (!videos[a - 1].classList.contains('error')) {
             vidsContainer.removeChild(videos[a - 1]);
           }
           callNewVid(a);
         }
         if (a >= videos.length) {
-          if(!videos[a - 1].classList.contains('error')){
+          if (!videos[a - 1].classList.contains('error')) {
             vidsContainer.removeChild(videos[a - 1]);
-          }          
+          }
           document.getElementById('dow-vid').disabled = false;
           document.getElementById('clear-queue').disabled = false;
         }
@@ -32,15 +32,15 @@ async function downloadQueue() {
       };
       const callback = (a) => {
         if (a < videos.length) {
-          if(!videos[a - 1].classList.contains('error')){
+          if (!videos[a - 1].classList.contains('error')) {
             vidsContainer.removeChild(videos[a - 1]);
-          } 
+          }
           callNewVid(a);
         }
         if (a >= videos.length) {
-          if(!videos[a - 1].classList.contains('error')){
+          if (!videos[a - 1].classList.contains('error')) {
             vidsContainer.removeChild(videos[a - 1]);
-          }           
+          }
           document.getElementById('dow-vid').disabled = false;
           document.getElementById('clear-queue').disabled = false;
         }

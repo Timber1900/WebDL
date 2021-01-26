@@ -8,8 +8,8 @@ async function mp4Download(url, curVid, callback, vid) {
   const info = await ytdl.getInfo(url);
   if (info.formats.length == 0) {
     console.error('No video formats available');
-    vid.classList.remove('show')
-    vid.classList.add('error') 
+    vid.classList.remove('show');
+    vid.classList.add('error');
     callback(curVid + 1);
     cont = false;
   }
@@ -110,14 +110,14 @@ async function mp4Download(url, curVid, callback, vid) {
     });
     video.on('error', (err) => {
       console.error(err);
-      vid.classList.remove('show')
-      vid.classList.add('error')
+      vid.classList.remove('show');
+      vid.classList.add('error');
       callback(curVid + 1);
     });
     audio.on('error', (err) => {
       console.error(err);
-      vid.classList.remove('show')
-      vid.classList.add('error')
+      vid.classList.remove('show');
+      vid.classList.add('error');
       callback(curVid + 1);
     });
     // Start the ffmpeg child process
