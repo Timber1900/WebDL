@@ -8,19 +8,22 @@ async function downloadQueue() {
 
     if (document.getElementById('sel').value == 'mp3') {
       const callNewVid = (a) => {
-        mp3Download(videos[a].getAttribute('url'), a, callback, videos[a]);
+        const url = videos[a].getAttribute('url');
+        const queued_vid = queued_videos.get(url);
+        mp3Download(url, a, callback, videos[a], queued_vid[0]);
+        queued_videos.delete(url);
       };
       const callback = (a) => {
         if (a < videos.length) {
-          if(!videos[a - 1].classList.contains('error')){
+          if (!videos[a - 1].classList.contains('error')) {
             vidsContainer.removeChild(videos[a - 1]);
           }
           callNewVid(a);
         }
         if (a >= videos.length) {
-          if(!videos[a - 1].classList.contains('error')){
+          if (!videos[a - 1].classList.contains('error')) {
             vidsContainer.removeChild(videos[a - 1]);
-          }          
+          }
           document.getElementById('dow-vid').disabled = false;
           document.getElementById('clear-queue').disabled = false;
         }
@@ -28,19 +31,22 @@ async function downloadQueue() {
       callNewVid(0);
     } else {
       const callNewVid = (a) => {
-        mp4Download(videos[a].getAttribute('url'), a, callback, videos[a]);
+        const url = videos[a].getAttribute('url');
+        const queued_vid = queued_videos.get(url);
+        mp4Download(url, a, callback, videos[a], queued_vid[0], queued_vid[1]);
+        queued_videos.delete(url);
       };
       const callback = (a) => {
         if (a < videos.length) {
-          if(!videos[a - 1].classList.contains('error')){
+          if (!videos[a - 1].classList.contains('error')) {
             vidsContainer.removeChild(videos[a - 1]);
-          } 
+          }
           callNewVid(a);
         }
         if (a >= videos.length) {
-          if(!videos[a - 1].classList.contains('error')){
+          if (!videos[a - 1].classList.contains('error')) {
             vidsContainer.removeChild(videos[a - 1]);
-          }           
+          }
           document.getElementById('dow-vid').disabled = false;
           document.getElementById('clear-queue').disabled = false;
         }
