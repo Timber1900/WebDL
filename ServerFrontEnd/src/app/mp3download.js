@@ -6,7 +6,7 @@ async function mp3Download(url, curVid, callback, vid, info) {
 
   video = ytdl(url, { quality: 'highestaudio' });
 
-  const title = vid.children[1].innerHTML;
+  let title = vid.children[1].innerHTML;
   document.getElementById('vidprev').src = info.videoDetails.thumbnails[3].url;
 
   const regex = /["*/:<>?\\|]/g;
@@ -44,5 +44,3 @@ async function mp3Download(url, curVid, callback, vid, info) {
   });
   video.pipe(fs.createWriteStream(join(path, title + '.mp3')));
 }
-
-

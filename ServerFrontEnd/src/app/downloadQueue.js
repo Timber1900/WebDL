@@ -10,7 +10,11 @@ async function downloadQueue() {
       const callNewVid = (a) => {
         const url = videos[a].getAttribute('url');
         const queued_vid = queued_videos.get(url);
-        mp3Download(url, a, callback, videos[a], queued_vid[0]);
+        if (videos[a].getAttribute('youtube') == 'true') {
+          mp3Download(url, a, callback, videos[a], queued_vid[0]);
+        } else {
+          non_youtube_download(url, a, callback, videos[a], queued_vid[0], queued_vid[1]);
+        }
         queued_videos.delete(url);
       };
       const callback = (a) => {
@@ -33,7 +37,11 @@ async function downloadQueue() {
       const callNewVid = (a) => {
         const url = videos[a].getAttribute('url');
         const queued_vid = queued_videos.get(url);
-        mp4Download(url, a, callback, videos[a], queued_vid[0], queued_vid[1]);
+        if (videos[a].getAttribute('youtube') == 'true') {
+          mp4Download(url, a, callback, videos[a], queued_vid[0], queued_vid[1]);
+        } else {
+          non_youtube_download(url, a, callback, videos[a], queued_vid[0], queued_vid[1]);
+        }
         queued_videos.delete(url);
       };
       const callback = (a) => {

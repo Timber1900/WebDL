@@ -6,10 +6,10 @@ const span1 = document.createElement('span');
 const span2 = document.createElement('span');
 const span3 = document.createElement('span');
 const span4 = document.createElement('span');
-span1.classList.add('preview-container')
+span1.classList.add('preview-container');
 span2.classList.add('video-name-container');
 span3.classList.add('video-options');
-span4.classList.add('video-options-placeholder')
+span4.classList.add('video-options-placeholder');
 
 const image = document.createElement('img');
 image.classList.add('image');
