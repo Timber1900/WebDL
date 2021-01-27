@@ -292,11 +292,11 @@ label {
 }
 
 .playItem:active {
-  background-color: #555;
+  background-color: #444;
 }
 
 .playItem.show:active {
-  background-color: #555;
+  background-color: #444;
 }
 
 .dropdown-content {
