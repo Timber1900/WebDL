@@ -28,39 +28,54 @@ async function addToQueue(url) {
   document.getElementById('curvid').innerHTML = 'Fetching videos';
 
   let i = 0;
-  const total = videos.length;
-
+  const promises = [];
   for (const vid of videos) {
-    if (vid) {
-      let formats = new Map();
-      const info = await ytdl.getInfo(vid.url).catch((err) => {
-        console.error(err);
-        return null;
-      });
-      if (info && info.formats.length > 0) {
-        for (const format of info.formats) {
-          if ((format.container === 'mp4' || format.container === 'webm') && format.hasVideo && !format.hasAudio) {
-            if (formats.has(format.qualityLabel)) {
-              formats.set(
-                format.qualityLabel,
-                format.averageBitrate >= formats.get(format.qualityLabel).averageBitrate
-                  ? format
-                  : formats.get(format.qualityLabel),
-              );
-            } else {
-              formats.set(format.qualityLabel, format);
-            }
+    promises.push(test(vid, i))
+    i++
+  }
+
+  Promise.all(promises)
+    .then((val) => {
+      document.getElementById('curvid').innerHTML = 'Sorting videos';
+      const filtered = val.filter(e => e != null)
+      const sorted = filtered.sort((a, b) => a.getAttribute('rank') > b.getAttribute('rank'))
+      const parent = document.getElementById('playlistSelect')
+      for(const div of sorted) {
+        parent.appendChild(div)
+      }
+      document.getElementById('curvid').innerHTML = 'Done fetching';
+
+    })
+}
+
+async function test(vid, i){
+  if (vid) {
+    let formats = new Map();
+    const info = await ytdl.getInfo(vid.url).catch((err) => {
+      console.log(`%c ${err}`, "color: #F87D7A");
+      return Promise.resolve()
+    });
+    if (info && info.formats.length > 0) {
+      for (const format of info.formats) {
+        if ((format.container === 'mp4' || format.container === 'webm') && format.hasVideo && !format.hasAudio) {
+          if (formats.has(format.qualityLabel)) {
+            formats.set(
+              format.qualityLabel,
+              format.averageBitrate >= formats.get(format.qualityLabel).averageBitrate
+                ? format
+                : formats.get(format.qualityLabel),
+            );
+          } else {
+            formats.set(format.qualityLabel, format);
           }
         }
-        addDiv(vid.url, info.videoDetails.thumbnails[0].url, info.videoDetails.title, formats, info);
-      } else {
-        console.error('Failed to fetch video info')
       }
-      document.getElementById('curvid').innerHTML = `Fetching videos ${i + 1}/${total}`;
-      i++;
+      return addDiv(vid.url, info.videoDetails.thumbnails[0].url, info.videoDetails.title, formats, info, i);
+    } else {
+      console.log(`%c Failed to fetch video ${vid.url} info`, "color: #F87D7A")
+      return Promise.resolve()
     }
   }
-  document.getElementById('curvid').innerHTML = 'Done fetching';
 }
 
 function selectPort() {
@@ -74,10 +89,11 @@ function selectPort() {
   chrome.runtime.reload();
 }
 
-function addDiv(url, thumbnail, title, formats, info) {
+function addDiv(url, thumbnail, title, formats, info, rank) {
   if (!queued_videos.has(url)) {
     const div = templateDiv.cloneNode(true);
     div.setAttribute('url', url);
+    div.setAttribute('rank', rank);
     queued_videos.set(url, [info, formats]);
     div.addEventListener('click', selectVid.bind(div));
     div.children[0].children[0].src = thumbnail;
@@ -95,9 +111,9 @@ function addDiv(url, thumbnail, title, formats, info) {
       option.innerHTML = qual[0];
       qual_span.children[1].appendChild(option);
     }
-    document.getElementById('playlistSelect').appendChild(div);
+    return Promise.resolve(div)
   } else {
-    alert('Video already on queue');
+    return Promise.resolve()
   }
 }
 
@@ -130,6 +146,7 @@ function getVids() {
 
 function clearQueue() {
   const vidsContainer = document.getElementById('playlistSelect');
+  queued_videos.clear()
   while (vidsContainer.firstChild) {
     vidsContainer.removeChild(vidsContainer.lastChild);
   }
@@ -181,11 +198,14 @@ const downloadSingleVid = function () {
       vidsContainer.removeChild(div);
     }
   };
+  const queued_vid = queued_videos.get(this.getAttribute('url'));
   if (document.getElementById('sel').value == 'mp3') {
-    mp3Download(this.getAttribute('url'), 0, callback, this);
+    mp3Download(this.getAttribute('url'), 0, callback, this, queued_vid[0]);
   } else {
-    mp4Download(this.getAttribute('url'), 0, callback, this);
+    mp4Download(this.getAttribute('url'), 0, callback, this, queued_vid[0], queued_vid[1]);
   }
+  queued_videos.delete(this.getAttribute('url'));
+
 };
 
 window.onload = () => {};
