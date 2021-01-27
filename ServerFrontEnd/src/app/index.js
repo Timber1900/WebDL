@@ -8,7 +8,6 @@ const ffmpeg = require('ffmpeg-static');
 let ytpl = require('ytpl');
 const { json } = require('express');
 const YoutubeDlWrap = require('youtube-dl-wrap');
-const { formatWithCursor } = require('prettier');
 const youtubeDlWrap = new YoutubeDlWrap(
   join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe')
 );
