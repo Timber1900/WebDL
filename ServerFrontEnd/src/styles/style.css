@@ -154,6 +154,8 @@ label {
   border-radius: 2px;
   width: 298px;
   height: 50px;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #222;
   border-top: 0;
   overflow: hidden;
@@ -164,27 +166,32 @@ label {
   background-color: #333;
 }
 
+.preview-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
 .image {
-  position: relative;
-  margin: 5px;
   width: 72px;
   height: 40px;
   border-radius: 2px;
 }
 
-.video-name {
-  position: relative;
-  line-height: 50px;
-}
-
 .video-name-container {
-  position: absolute;
-  left: 82px;
-  right: 24px;
+  line-height: 20px;
+  font-family: Roboto;
+  font-size: 16px;
+  color: #e8e6e3;
+  flex-grow: 1;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: #e8e6e3;
+}
+
+.video-name-container:focus {
+  text-overflow: initial;
 }
 
 .playItem.show {
@@ -264,13 +271,10 @@ label {
   float: right;
 }
 
-#menu-image {
-  position: absolute;
-  left: 0;
-  top: 13px;
-}
-
 .video-options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   right: 0;
   height: 50px;
@@ -278,8 +282,21 @@ label {
   visibility: hidden;
 }
 
+.video-options-placeholder {
+  height: 50px;
+  width: 24px;
+}
+
 .playItem:hover .video-options {
   visibility: visible;
+}
+
+.playItem:active {
+  background-color: #555;
+}
+
+.playItem.show:active {
+  background-color: #555;
 }
 
 .dropdown-content {
@@ -316,6 +333,7 @@ label {
   justify-content: center;
   align-items: center;
   height: 40px;
+  line-height: 26px;
 }
 
 .qual-span label:hover {

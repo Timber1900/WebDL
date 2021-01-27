@@ -4,7 +4,7 @@ async function mp4Download(url, curVid, callback, vid, info, formats) {
     return hrDiff[0] + hrDiff[1] / 1e9;
   };
   let cont = true;
-  title = info.videoDetails.title;
+  title = vid.children[1].innerHTML;
   document.getElementById('vidprev').src = info.videoDetails.thumbnails[3].url;
 
   let startTime = '00:00:00';

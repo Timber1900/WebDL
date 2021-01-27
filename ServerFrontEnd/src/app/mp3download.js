@@ -6,7 +6,7 @@ async function mp3Download(url, curVid, callback, vid, info) {
 
   video = ytdl(url, { quality: 'highestaudio' });
 
-  let title = info.videoDetails.title;
+  const title = vid.children[1].innerHTML;
   document.getElementById('vidprev').src = info.videoDetails.thumbnails[3].url;
 
   const regex = /["*/:<>?\\|]/g;

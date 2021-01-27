@@ -75,6 +75,9 @@ async function test(vid, i){
       console.log(`%c Failed to fetch video ${vid.url} info`, "color: #F87D7A")
       return Promise.resolve()
     }
+  } else {
+    console.log(`%c Failed to fetch video ${vid} info`, "color: #F87D7A")
+
   }
 }
 
@@ -97,8 +100,9 @@ function addDiv(url, thumbnail, title, formats, info, rank) {
     queued_videos.set(url, [info, formats]);
     div.addEventListener('click', selectVid.bind(div));
     div.children[0].children[0].src = thumbnail;
-    div.children[1].children[0].innerHTML = title;
-    div.children[2].children[1].children[0].addEventListener('click', renameVideo.bind(div.children[1].children[0]));
+    div.children[1].innerHTML = title;
+    div.children[1].addEventListener('blur', scrollBack.bind(div.children[1]))
+    div.children[2].children[1].children[0].addEventListener('click', renameVideo.bind(div.children[1]));
     div.children[2].children[1].children[1].addEventListener('click', downloadSingleVid.bind(div));
     const qual_span = div.children[2].children[1].children[2];
     const id = ID();
@@ -113,6 +117,7 @@ function addDiv(url, thumbnail, title, formats, info, rank) {
     }
     return Promise.resolve(div)
   } else {
+    console.log(`%c Video ${url} already in queue`, "color: #6A8A35")
     return Promise.resolve()
   }
 }
@@ -206,6 +211,10 @@ const downloadSingleVid = function () {
   }
   queued_videos.delete(this.getAttribute('url'));
 
+};
+
+const scrollBack = function() {
+	this.scrollLeft = 0;
 };
 
 window.onload = () => {};
