@@ -10,7 +10,7 @@ const { json } = require('express');
 const YoutubeDlWrap = require('youtube-dl-wrap');
 const { formatWithCursor } = require('prettier');
 const youtubeDlWrap = new YoutubeDlWrap(
-  'C:/Users/35196/Desktop/Stuff/GitHub repos/YoutubeVideoDownloader/ServerFrontEnd/src/assets/youtube-dl.exe',
+  join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe')
 );
 
 const queued_videos = new Map();
@@ -275,4 +275,28 @@ const scrollBack = function () {
   this.scrollLeft = 0;
 };
 
-window.onload = () => {};
+function downloadLatestRealease() {
+  
+  YoutubeDlWrap.getGithubReleases(1, 1)
+  .then(val => {
+    let cur_ver
+    try {
+      cur_ver = require(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'version.json')).version;
+    } catch (err) {
+      fs.mkdir(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader'), () => {});
+    }
+    if(cur_ver !== val[0].tag_name || !fs.existsSync(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe'))){
+      alert('Downloading latest youtube-dl...')
+      fs.writeFileSync(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'version.json'), JSON.stringify({ version: val[0].tag_name }));
+      YoutubeDlWrap.downloadFromWebsite(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe'), "win32")
+      .then(() => {
+        alert('Done downloading latest youtube-dl!')
+        console.log("%c Done downloading latest version!", "color: #6A8A35")
+      });
+    }
+  })
+}
+
+window.onload = () => {
+  downloadLatestRealease()
+};
