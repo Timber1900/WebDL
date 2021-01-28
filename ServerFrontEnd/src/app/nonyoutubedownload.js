@@ -6,7 +6,7 @@ async function non_youtube_download(url, curVid, callback, vid, info, formats) {
 
   const videoFormat = formats.get(vid.children[2].children[1].children[2].children[1].value);
 
-  video = youtubeDlWrap.execStream([url, '-f', videoFormat.format_id]);
+  const video = youtubeDlWrap.execStream([url, '-f', videoFormat.format_id]);
 
   let title = vid.children[1].innerHTML;
   if(info.thumbnail){

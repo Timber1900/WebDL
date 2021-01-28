@@ -24,116 +24,81 @@ function selectFolder() {
 }
 
 async function addToQueue(url) {
-  let videos = [];
-  try {
-    playlist = await ytpl(url, { pages: Infinity });
-    videos = playlist.items;
-    document.getElementById('curvid').innerHTML = 'Fetching videos';
-    let i = 0;
-    const promises = [];
-    for (const vid of videos) {
-      promises.push(test(vid, i));
-      i++;
+  document.getElementById('curvid').innerHTML = 'Fetching videos';
+  const videos = await ytpl(url).catch(() => {})
+  const urls = []
+  if(videos){
+    for(const vid of videos.items){
+      urls.push(vid.shortUrl)
     }
+  } else {
+    urls.push(url)
+  }
+  const divs = []
+  for(const URL of urls){
+    divs.push(getQueueDiv(URL))
+  }
 
-    Promise.all(promises).then((val) => {
-      document.getElementById('curvid').innerHTML = 'Sorting videos';
-      const filtered = val.filter((e) => e != null);
-      const sorted = filtered.sort((a, b) => a.getAttribute('rank') > b.getAttribute('rank'));
-      const parent = document.getElementById('playlistSelect');
-      for (const div of sorted) {
-        parent.appendChild(div);
+  Promise.all(divs)
+  .then(val => {
+    const parent = document.getElementById('playlistSelect');
+    console.log(val)
+    for (const divs of val) {
+      if(divs){
+        for(const div of divs){
+          parent.appendChild(div);
+        }
       }
-      document.getElementById('curvid').innerHTML = 'Done fetching';
-    });
+    }
+    document.getElementById('curvid').innerHTML = 'Done fetching';
+  })
+}
+
+async function getQueueDiv(url) {
+  try {
+    const info = await youtubeDlWrap.getVideoInfo(url)
+    const infos = Array.isArray(info) ? info : [info]
+    const divs = []
+    let i = 0;
+    for(const inf of infos){
+      divs.push(getDivs(inf, i))
+      i++
+    }
+    return Promise.all(divs)
   } catch {
-    test({ url }, 1)
-      .then((val) => {
-        const parent = document.getElementById('playlistSelect');
-        parent.appendChild(val);
-      })
-      .catch(() => {
-        const formats = new Map();
-        youtubeDlWrap.getVideoInfo(url)
-        .then((info) => {
-          for (const format of info.formats) {
-            if ((format.ext === 'mp4' || format.ext === 'webm') && format.height) {
-              if (formats.has(format.height + 'p' + (format.fps ? format.fps : ''))) {
-                const prev_format = formats.get(format.height + 'p' + (format.fps ? format.fps : ''));
-                formats.set(
-                  format.height + 'p' + (format.fps ? format.fps : ''),
-                  format.tbr > prev_format.tbr ? format : prev_format,
-                );
-              } else {
-                formats.set(format.height + 'p' + (format.fps ? format.fps : ''), format);
-              }
-            }
-          }
-          const sorted_map = new Map(
-            [...formats.entries()].sort(
-              (a, b) =>
-                -(a[1].height === b[1].height
-                  ? parseInt(a[1].fps) - parseInt(b[1].fps)
-                  : parseInt(a[1].height) - parseInt(b[1].height)),
-            ),
-          );
-          if(sorted_map.size == 0 && info.formats.length > 0){
-            let i = 0
-            for (const format of info.formats) {
-              sorted_map.set(i.toString(), format);
-              i++
-            }
-          }
-          if(info.thumbnail){
-            addDiv(url, info.thumbnails[info.thumbnails.length - 1].url, info.title, sorted_map, info, 0).then((val) => {
-              const parent = document.getElementById('playlistSelect');
-              val.setAttribute('youtube', false);
-              parent.appendChild(val);
-            });
-          } else {
-            addDiv(url, "https://piotrkowalski.pw/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png", info.title, sorted_map, info, 0).then((val) => {
-              const parent = document.getElementById('playlistSelect');
-              val.setAttribute('youtube', false);
-              parent.appendChild(val);
-            });
-          }
-        })
-        .catch(err => {
-          console.error(err)
-        });
-      });
+    console.log(`%c Video ${url} is not available`, 'color: #F87D7A');
+    return Promise.resolve(null);
   }
 }
 
-async function test(vid, i) {
-  if (vid) {
+async function getDivs(info, i){
+  if (info && info.formats.length > 0) {
     let formats = new Map();
-    const info = await ytdl.getInfo(vid.url).catch((err) => {
-      //console.log(`%c ${err}`, 'color: #F87D7A');
-      return Promise.reject();
-    });
-    if (info && info.formats.length > 0) {
-      for (const format of info.formats) {
-        if ((format.container === 'mp4' || format.container === 'webm') && format.hasVideo && !format.hasAudio) {
-          if (formats.has(format.qualityLabel)) {
-            formats.set(
-              format.qualityLabel,
-              format.averageBitrate >= formats.get(format.qualityLabel).averageBitrate
-                ? format
-                : formats.get(format.qualityLabel),
-            );
-          } else {
-            formats.set(format.qualityLabel, format);
-          }
+    for (const format of info.formats) {
+      if ((format.ext === 'mp4' || format.ext === 'webm') && (format.vcodec !== 'none') && format.acodec === "none") {
+        if (formats.has(format.format_note)) {
+          formats.set(
+            format.format_note,
+            format.tbr >= formats.get(format.format_note).tbr
+              ? format
+              : formats.get(format.format_note),
+          );
+        } else {
+          formats.set(format.format_note, format);
         }
       }
-      return addDiv(vid.url, info.videoDetails.thumbnails[0].url, info.videoDetails.title, formats, info, i);
-    } else {
-      console.log(`%c Failed to fetch video ${vid.url} info`, 'color: #F87D7A');
-      return Promise.resolve();
     }
+    const sorted_map = new Map(
+      [...formats.entries()].sort(
+        (a, b) =>
+          -(a[1].height === b[1].height
+            ? parseInt(a[1].fps) - parseInt(b[1].fps)
+            : parseInt(a[1].height) - parseInt(b[1].height)),
+      ),
+    );
+    return addDiv(info.id, info.thumbnails[0].url, info.title, sorted_map, info, i);
   } else {
-    console.log(`%c Failed to fetch video ${vid} info`, 'color: #F87D7A');
+    return Promise.resolve(null);
   }
 }
 
@@ -194,17 +159,6 @@ const selectVid = function (event) {
     }
   }
 };
-
-function getVids() {
-  const vids = [];
-  const vidsContainer = document.getElementById('playlistSelect');
-  for (const child of vidsContainer.children) {
-    if (child.classList.contains('show')) {
-      vids.push(child);
-    }
-  }
-  return vids;
-}
 
 function clearQueue() {
   const vidsContainer = document.getElementById('playlistSelect');
