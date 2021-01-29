@@ -154,6 +154,8 @@ label {
   border-radius: 2px;
   width: 298px;
   height: 50px;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #222;
   border-top: 0;
   overflow: hidden;
@@ -164,27 +166,32 @@ label {
   background-color: #333;
 }
 
+.preview-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
 .image {
-  position: relative;
-  margin: 5px;
   width: 72px;
   height: 40px;
   border-radius: 2px;
 }
 
-.video-name {
-  position: relative;
-  line-height: 50px;
-}
-
 .video-name-container {
-  position: absolute;
-  left: 82px;
-  right: 24px;
+  line-height: 20px;
+  font-family: Roboto;
+  font-size: 16px;
+  color: #e8e6e3;
+  flex-grow: 1;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: #e8e6e3;
+}
+
+.video-name-container:focus {
+  text-overflow: initial;
 }
 
 .playItem.show {
@@ -264,13 +271,10 @@ label {
   float: right;
 }
 
-#menu-image {
-  position: absolute;
-  left: 0;
-  top: 13px;
-}
-
 .video-options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   right: 0;
   height: 50px;
@@ -278,8 +282,21 @@ label {
   visibility: hidden;
 }
 
+.video-options-placeholder {
+  height: 50px;
+  width: 24px;
+}
+
 .playItem:hover .video-options {
   visibility: visible;
+}
+
+.playItem:active {
+  background-color: #444;
+}
+
+.playItem.show:active {
+  background-color: #444;
 }
 
 .dropdown-content {
@@ -297,7 +314,7 @@ label {
 
 /* Links inside the dropdown */
 .dropdown-content label {
-  padding: 10px 10px 5px 5px;
+  padding: 5px 10px;
   text-align: center;
   display: block;
 }
@@ -311,47 +328,19 @@ label {
   display: block;
 }
 
-.popup {
-  position: relative;
-  cursor: pointer;
+.qual-span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  line-height: 26px;
 }
 
-.popuptext {
-  visibility: hidden;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  position: fixed;
-  z-index: 1;
-  top: 50px;
-  bottom: 50px;
-  left: 50px;
-  right: 50px;
+.qual-span label:hover {
+  background-color: #222;
 }
 
-/* Toggle this class when clicking on the popup container (hide and show the popup) */
-.popuptext.show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.qual-sel {
+  padding: 5px 10px;
+  height: 26px;
 }

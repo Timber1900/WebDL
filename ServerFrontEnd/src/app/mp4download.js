@@ -1,9 +1,10 @@
-async function mp4Download(url, curVid, callback, vid) {
+async function mp4Download(url, curVid, callback, vid, info, formats) {
   const time = (hrStart) => {
     const hrDiff = process.hrtime(hrStart);
     return hrDiff[0] + hrDiff[1] / 1e9;
   };
   let cont = true;
+<<<<<<< HEAD
 
   const info = await ytdl.getInfo(url);
   if (info.formats.length == 0) {
@@ -14,6 +15,9 @@ async function mp4Download(url, curVid, callback, vid) {
     cont = false;
   }
   title = info.videoDetails.title;
+=======
+  title = vid.children[1].innerHTML;
+>>>>>>> master
   document.getElementById('vidprev').src = info.videoDetails.thumbnails[3].url;
 
   let startTime = '00:00:00';
@@ -70,28 +74,12 @@ async function mp4Download(url, curVid, callback, vid) {
     console.log(result);
   }
   if (cont) {
-    let videoFormat;
-    let foundFormat = false;
-    for (const f of info.formats) {
-      if (f.quality == document.getElementById('qual').value && f.container == 'mp4') {
-        videoFormat = f;
-        foundFormat = true;
-        break;
-      }
-    }
-    if (!foundFormat) {
-      alert('Choosen format not found');
-      callback(curVid + 1);
-      return;
-    }
+    const videoFormat = formats.get(vid.children[2].children[1].children[2].children[1].value);
+
     document.getElementById('curvid').innerHTML = 'Downloading ' + title;
 
     const regex = /["*/:<>?\\|]/g;
     title = title.replace(regex, '');
-
-    if (document.getElementById('check').checked) {
-      title = prompt('Choose a name for the file', title) || title;
-    }
 
     let oldDownloaded = 0;
     let hrStart = process.hrtime();

@@ -8,7 +8,14 @@ async function downloadQueue() {
 
     if (document.getElementById('sel').value == 'mp3') {
       const callNewVid = (a) => {
-        mp3Download(videos[a].getAttribute('url'), a, callback, videos[a]);
+        const url = videos[a].getAttribute('url');
+        const queued_vid = queued_videos.get(url);
+        if (videos[a].getAttribute('youtube') == 'true') {
+          mp3Download(url, a, callback, videos[a], queued_vid[0]);
+        } else {
+          non_youtube_download(url, a, callback, videos[a], queued_vid[0], queued_vid[1]);
+        }
+        queued_videos.delete(url);
       };
       const callback = (a) => {
         if (a < videos.length) {
@@ -28,7 +35,14 @@ async function downloadQueue() {
       callNewVid(0);
     } else {
       const callNewVid = (a) => {
-        mp4Download(videos[a].getAttribute('url'), a, callback, videos[a]);
+        const url = videos[a].getAttribute('url');
+        const queued_vid = queued_videos.get(url);
+        if (videos[a].getAttribute('youtube') == 'true') {
+          mp4Download(url, a, callback, videos[a], queued_vid[0], queued_vid[1]);
+        } else {
+          non_youtube_download(url, a, callback, videos[a], queued_vid[0], queued_vid[1]);
+        }
+        queued_videos.delete(url);
       };
       const callback = (a) => {
         if (a < videos.length) {
