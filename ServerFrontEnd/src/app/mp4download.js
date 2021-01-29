@@ -86,8 +86,7 @@ async function mp4Download(url, curVid, callback, vid, info, formats) {
     callback(curVid + 1);
   })
 
-  // video.pipe(fs.createWriteStream(join(path, title + '.mkv')));
-  // Start the ffmpeg child process
+
   const ffmpegProcess = cp.spawn(
     ffmpeg,
     [
@@ -114,6 +113,7 @@ async function mp4Download(url, curVid, callback, vid, info, formats) {
     {
       windowsHide: true,
       stdio: ['inherit', 'inherit', 'inherit', 'pipe', 'pipe', 'pipe'],
+      emitClose: true,
     },
   )
   .on('close', () => {
@@ -147,29 +147,18 @@ async function mp4Download(url, curVid, callback, vid, info, formats) {
       callback(curVid + 1);
     // }
   })
-  // .on('error', err => {
-  //   console.log(err)
-  // })
-  // .on('disconect', val => {
-  //   console.log(val)
-  // })
-  // .on('exit', val => {
-  //   console.log(val)
-  // })
-  // .on('message', val => {
-  //   console.log(val)
-  // })
-  // .on('spawn', val => {
-  //   console.log(val)
-  // });
-
-  ffmpegProcess.stdio[3].on('data', chunk => {
-    console.log(chunk)
-  });
+  ffmpegProcess.stdio[3].on('data', () => {
+    console.log(video)
+  })
 
   audio.pipe(ffmpegProcess.stdio[4]);
   video.pipe(ffmpegProcess.stdio[5]);
-  video.on('pipe', val => {
-    console.log(val)
+  
+
+  video.on('close', () => {
+    console.log("%c FUCK", "font-size: 100px; color: #8F0B00")
+  })
+  audio.on('close', () => {
+    console.log("%c FUCK", "font-size: 100px; color: #8F0B00")
   })
 }
