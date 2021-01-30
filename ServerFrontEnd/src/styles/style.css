@@ -59,11 +59,15 @@ label {
   color: #e8e6e3;
 }
 
+label:focus {
+  outline: none;
+}
+
 .rules {
   position: fixed;
   top: 0;
   left: -235px;
-  z-index: 1;
+  z-index: 2;
   background: #333;
   color: #fff;
   width: 250px;
@@ -300,16 +304,17 @@ label {
 }
 
 .dropdown-content {
-  display: none;
+  display: block;
   position: absolute;
   background-color: #222;
   min-width: 160px;
-  z-index: 1;
+  z-index: 2;
   right: 0;
   top: 35px;
   border-radius: 10px;
   border: rgb(43, 43, 43) solid 2px;
   overflow: visible;
+  visibility: hidden;
 }
 
 /* Links inside the dropdown */
@@ -325,7 +330,7 @@ label {
 
 /* Show the dropdown menu on hover */
 .video-options:hover .dropdown-content {
-  display: block;
+  visibility: visible;
 }
 
 .qual-span {
@@ -343,4 +348,104 @@ label {
 .qual-sel {
   padding: 5px 10px;
   height: 26px;
+}
+
+.separator {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #333;
+  margin: 0.05em 0;
+  padding: 0;
+}
+
+.outer {
+  background-color: #222;
+  border: 2px solid #333;
+  border-radius: 7px;
+  position: fixed;
+  left: 100px;
+  right: 100px;
+  top: 50px;
+  bottom: 50px;
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+  white-space: nowrap;
+}
+
+.outer.show {
+  display: flex;
+  visibility: visible;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.test1 {
+  background-color: #333;
+  border: solid #181a1b 2px;
+  border-radius: 2px;
+  width: 50px;
+  color: #e8e6e3;
+}
+
+.test1:focus {
+  outline: none;
+}
+
+.test1::-webkit-outer-spin-button,
+.test1::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.test2 {
+  padding: 2px !important;
+  width: auto;
+}
+
+.test3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 20px 5px 20px;
+}
+
+.trim-btn-span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  width: 100%;
+}
+
+.trim-btn {
+  appearance: button;
+  text-rendering: auto;
+  color: white;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  background-color: #222;
+  box-sizing: border-box;
+  margin: 0em;
+  font: 400 13.3333px Roboto;
+  padding: 1px 6px;
+  border-radius: 2px;
+  border-width: 2px;
+  border-color: #333;
+  border-style: solid;
+  margin: 2px;
+  flex: 1;
 }
