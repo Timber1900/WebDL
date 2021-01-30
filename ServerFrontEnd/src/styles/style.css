@@ -164,6 +164,7 @@ label:focus {
   border-top: 0;
   overflow: hidden;
   white-space: nowrap;
+  background-color: #181a1b;
 }
 
 .playItem:hover {
@@ -232,10 +233,14 @@ label:focus {
 }
 
 #queue-check-div {
+  display: flex;
   position: absolute;
   left: 400px;
-  bottom: 250px;
+  bottom: 255px;
   right: 36px;
+  z-index: -1;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .queue-buttons {
@@ -364,8 +369,8 @@ label:focus {
   border: 2px solid #333;
   border-radius: 7px;
   position: fixed;
-  left: 100px;
-  right: 100px;
+  left: 80px;
+  right: 80px;
   top: 50px;
   bottom: 50px;
   display: none;
@@ -373,6 +378,27 @@ label:focus {
   flex-direction: column;
   overflow-y: scroll;
   white-space: nowrap;
+  z-index: 1;
+}
+
+.outer::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #181a1b;
+}
+
+.outer::-webkit-scrollbar {
+  background-color: #181a1b;
+  width: 8px;
+  margin: 0 auto;
+}
+
+.outer::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #555;
 }
 
 .outer.show {

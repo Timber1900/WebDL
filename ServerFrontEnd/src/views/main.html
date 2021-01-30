@@ -30,8 +30,11 @@
     <button onclick="clearQueue()" id="clear-queue" class="queue-buttons">Clear queue</button>
   </div>
   <div id="queue-check-div">
-    <input type="checkbox" id="queue-check" checked="true" onchange="selectAll()"></input>
-    <label for="queue-check" id="queue-check-label">Select all</label>
+    <button class="queue-buttons" id="url-btn" onclick="addVid()">Input url</button>
+    <span>
+      <input type="checkbox" id="queue-check" checked="true" onchange="selectAll()"></input>
+      <label for="queue-check" id="queue-check-label">Select all</label>
+    </span>
   </div>
   <div id="rules" class="rules">
     <div class="set-div">
