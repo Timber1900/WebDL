@@ -21,12 +21,42 @@ const menu_div = document.createElement('div');
 menu_div.classList.add('dropdown-content');
 
 const rename_label = document.createElement('label');
-//const trim_label = document.createElement('label');
+
+const trim_span = document.createElement('span');
+
+const trim_label = document.createElement('label');
+trim_label.innerHTML = 'Trim video';
+
+const trim_outer_div = document.createElement('div');
+trim_outer_div.classList.add('outer')
+
+const trim_buttons_span = document.createElement('span');
+trim_buttons_span.classList.add('trim-btn-span')
+trim_buttons_span.setAttribute('name', 'buttons')
+
+
+const trim_leave_button = document.createElement('button');
+const trim_add_clip = document.createElement('button');
+trim_leave_button.classList.add('trim-btn')
+trim_leave_button.innerHTML = 'Leave'
+trim_add_clip.classList.add('trim-btn')
+trim_add_clip.innerHTML = 'Add clip'
+
+trim_buttons_span.appendChild(trim_leave_button)
+trim_buttons_span.appendChild(trim_add_clip)
+
+trim_outer_div.appendChild(trim_buttons_span)
+
+trim_span.appendChild(trim_label)
+trim_span.appendChild(trim_outer_div)
+
+
 const download_label = document.createElement('label');
+const separator = document.createElement('hr');
 const qual_span = document.createElement('span');
 rename_label.innerHTML = 'Rename video';
-//trim_label.innerHTML = 'Trim video';
 download_label.innerHTML = 'Download video';
+separator.classList.add('separator');
 qual_span.classList.add('qual-span');
 
 const qual_label = document.createElement('label');
@@ -38,8 +68,9 @@ qual_span.appendChild(qual_label);
 qual_span.appendChild(qual_sel);
 
 menu_div.appendChild(rename_label);
-//menu_div.appendChild(trim_label);
+menu_div.appendChild(trim_span);
 menu_div.appendChild(download_label);
+menu_div.appendChild(separator);
 menu_div.appendChild(qual_span);
 
 span1.appendChild(image);

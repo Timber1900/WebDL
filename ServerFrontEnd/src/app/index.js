@@ -8,9 +8,8 @@ const ffmpeg = require('ffmpeg-static');
 let ytpl = require('ytpl');
 const { json } = require('express');
 const YoutubeDlWrap = require('youtube-dl-wrap');
-const youtubeDlWrap = new YoutubeDlWrap(
-  join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe')
-);
+const { Console } = require('console');
+const youtubeDlWrap = new YoutubeDlWrap(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe'));
 
 const queued_videos = new Map();
 
@@ -53,71 +52,66 @@ async function addToQueue(url) {
       })
       .catch(() => {
         const formats = new Map();
-        youtubeDlWrap.getVideoInfo(url)
-        .then((info) => {
-          for (const format of info.formats) {
-            if ((format.ext === 'mp4' || format.ext === 'webm') && format.height) {
-              if (formats.has(format.height + 'p' + (format.fps ? format.fps : ''))) {
-                const prev_format = formats.get(format.height + 'p' + (format.fps ? format.fps : ''));
-                formats.set(
-                  format.height + 'p' + (format.fps ? format.fps : ''),
-                  format.tbr > prev_format.tbr ? format : prev_format,
-                );
-              } else {
-                formats.set(format.height + 'p' + (format.fps ? format.fps : ''), format);
+        youtubeDlWrap
+          .getVideoInfo(url)
+          .then((info) => {
+            console.log(info)
+            for (const format of info.formats) {
+              if ((format.ext === 'mp4' || format.ext === 'webm') && format.height) {
+                if (formats.has(format.height + 'p' + (format.fps ? format.fps : ''))) {
+                  const prev_format = formats.get(format.height + 'p' + (format.fps ? format.fps : ''));
+                  formats.set(
+                    format.height + 'p' + (format.fps ? format.fps : ''),
+                    format.tbr > prev_format.tbr ? format : prev_format,
+                  );
+                } else {
+                  formats.set(format.height + 'p' + (format.fps ? format.fps : ''), format);
+                }
               }
             }
-          }
-          const sorted_map = new Map(
-            [...formats.entries()].sort(
-              (a, b) =>
-                -(a[1].height === b[1].height
-                  ? parseInt(a[1].fps) - parseInt(b[1].fps)
-                  : parseInt(a[1].height) - parseInt(b[1].height)),
-            ),
-          );
-          if(sorted_map.size == 0 && info.formats.length > 0){
-            let i = 0
-            for (const format of info.formats) {
-              sorted_map.set(i.toString(), format);
-              i++
+            const sorted_map = new Map(
+              [...formats.entries()].sort(
+                (a, b) =>
+                  -(a[1].height === b[1].height
+                    ? parseInt(a[1].fps) - parseInt(b[1].fps)
+                    : parseInt(a[1].height) - parseInt(b[1].height)),
+              ),
+            );
+            if (sorted_map.size == 0 && info.formats.length > 0) {
+              let i = 0;
+              for (const format of info.formats) {
+                sorted_map.set(i.toString(), format);
+                i++;
+              }
             }
-          }
-          if(info.thumbnail){
-            addDiv(url, info.thumbnails[info.thumbnails.length - 1].url, info.title, sorted_map, info, 0).then((val) => {
-              const parent = document.getElementById('playlistSelect');
-              val.setAttribute('youtube', false);
-              parent.appendChild(val);
-            });
-          } else {
-            addDiv(url, "https://piotrkowalski.pw/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png", info.title, sorted_map, info, 0).then((val) => {
-              const parent = document.getElementById('playlistSelect');
-              val.setAttribute('youtube', false);
-              parent.appendChild(val);
-            });
-          }
-        })
-        .catch(err => {
-          console.error(err)
-        });
+            if (info.thumbnail) {
+              addDiv(url, info.thumbnails[info.thumbnails.length - 1].url, info.title, sorted_map, info, 0).then(
+                (val) => {
+                  const parent = document.getElementById('playlistSelect');
+                  val.setAttribute('youtube', false);
+                  parent.appendChild(val);
+                },
+              );
+            } else {
+              addDiv(
+                url,
+                'https://piotrkowalski.pw/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png',
+                info.title,
+                sorted_map,
+                info,
+                0,
+              ).then((val) => {
+                const parent = document.getElementById('playlistSelect');
+                val.setAttribute('youtube', false);
+                parent.appendChild(val);
+              });
+            }
+          })
+          // .catch((err) => {
+          //   console.error(err);
+          // });
       });
   }
-<<<<<<< HEAD
-  document.getElementById('curvid').innerHTML = 'Fetching videos';
-
-  let i = 0;
-  const total = videos.length;
-
-  for (const vid of videos) {
-    if (vid) {
-      const info = await ytdl.getBasicInfo(vid.url).catch((err) => {
-        console.error(err);
-        return null;
-      });
-      if (info) {
-        addDiv(vid.url, info.videoDetails.thumbnails[0].url, info.videoDetails.title);
-      }
-=======
 }
 
 async function test(vid, i) {
@@ -146,16 +140,10 @@ async function test(vid, i) {
     } else {
       console.log(`%c Failed to fetch video ${vid.url} info`, 'color: #F87D7A');
       return Promise.resolve();
->>>>>>> master
     }
   } else {
     console.log(`%c Failed to fetch video ${vid} info`, 'color: #F87D7A');
   }
-<<<<<<< HEAD
-
-  document.getElementById('curvid').innerHTML = 'Fetching videos';
-=======
->>>>>>> master
 }
 
 function selectPort() {
@@ -169,18 +157,6 @@ function selectPort() {
   chrome.runtime.reload();
 }
 
-<<<<<<< HEAD
-function addDiv(url, thumbnail, title) {
-  const div = templateDiv.cloneNode(true);
-  div.setAttribute('url', url);
-  div.addEventListener('click', selectVid.bind(div));
-  div.children[0].children[0].src = thumbnail;
-  div.children[1].children[0].innerHTML = title;
-  div.children[2].children[1].children[0].addEventListener('click', renameVideo.bind(div.children[1].children[0]));
-  div.children[2].children[1].children[2].addEventListener('click', downloadSingleVid.bind(div));
-
-  document.getElementById('playlistSelect').appendChild(div);
-=======
 function addDiv(url, thumbnail, title, formats, info, rank) {
   if (!queued_videos.has(url)) {
     const div = templateDiv.cloneNode(true);
@@ -193,8 +169,14 @@ function addDiv(url, thumbnail, title, formats, info, rank) {
     div.children[1].innerHTML = title;
     div.children[1].addEventListener('blur', scrollBack.bind(div.children[1]));
     div.children[2].children[1].children[0].addEventListener('click', renameVideo.bind(div.children[1]));
-    div.children[2].children[1].children[1].addEventListener('click', downloadSingleVid.bind(div));
-    const qual_span = div.children[2].children[1].children[2];
+
+    div.children[2].children[1].children[1].children[0].setAttribute('onclick', 'openTrimPopup(this)');
+    div.children[2].children[1].children[1].children[1].children[0].children[0].setAttribute('onclick', 'openTrimPopup(this.parentNode.parentNode.parentNode.children[0])')
+    div.children[2].children[1].children[1].children[1].children[0].children[1].setAttribute('onclick', 'addClip(this)')
+
+
+    div.children[2].children[1].children[2].addEventListener('click', downloadSingleVid.bind(div));
+    const qual_span = div.children[2].children[1].children[4];
     const id = ID();
     qual_span.children[0].setAttribute('for', id);
     qual_span.children[1].setAttribute('id', id);
@@ -210,7 +192,6 @@ function addDiv(url, thumbnail, title, formats, info, rank) {
     console.log(`%c Video ${url} already in queue`, 'color: #6A8A35');
     return Promise.resolve();
   }
->>>>>>> master
 }
 
 const selectVid = function (event) {
@@ -294,18 +275,8 @@ const downloadSingleVid = function () {
       vidsContainer.removeChild(div);
     }
   };
-<<<<<<< HEAD
-  if (document.getElementById('sel').value == 'mp3') {
-    mp3Download(this.getAttribute('url'), 0, callback, this);
-  } else {
-    mp4Download(this.getAttribute('url'), 0, callback, this);
-  }
-};
-
-window.onload = () => {};
-=======
   const queued_vid = queued_videos.get(this.getAttribute('url'));
-  if(this.getAttribute('youtube') == 'false'){
+  if (this.getAttribute('youtube') == 'false') {
     non_youtube_download(this.getAttribute('url'), 0, callback, this, queued_vid[0], queued_vid[1]);
   } else if (document.getElementById('sel').value == 'mp3') {
     mp3Download(this.getAttribute('url'), 0, callback, this, queued_vid[0]);
@@ -319,29 +290,60 @@ const scrollBack = function () {
   this.scrollLeft = 0;
 };
 
+const openTrimPopup = function (e) {
+  e.parentNode.children[1].classList.toggle('show')
+}
+
 function downloadLatestRealease() {
-  
-  YoutubeDlWrap.getGithubReleases(1, 1)
-  .then(val => {
-    let cur_ver
+  YoutubeDlWrap.getGithubReleases(1, 1).then((val) => {
+    let cur_ver;
     try {
       cur_ver = require(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'version.json')).version;
     } catch (err) {
       fs.mkdir(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader'), () => {});
     }
-    if(cur_ver !== val[0].tag_name || !fs.existsSync(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe'))){
-      alert('Downloading latest youtube-dl...')
-      fs.writeFileSync(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'version.json'), JSON.stringify({ version: val[0].tag_name }));
-      YoutubeDlWrap.downloadFromWebsite(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe'), "win32")
-      .then(() => {
-        alert('Done downloading latest youtube-dl!')
-        console.log("%c Done downloading latest version!", "color: #6A8A35")
+    if (
+      cur_ver !== val[0].tag_name ||
+      !fs.existsSync(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe'))
+    ) {
+      alert('Downloading latest youtube-dl...');
+      fs.writeFileSync(
+        join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'version.json'),
+        JSON.stringify({ version: val[0].tag_name }),
+      );
+      YoutubeDlWrap.downloadFromWebsite(
+        join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe'),
+        'win32',
+      ).then(() => {
+        alert('Done downloading latest youtube-dl!');
+        console.log('%c Done downloading latest version!', 'color: #6A8A35');
       });
     }
-  })
+  });
 }
 
+function GetElementInsideContainer(parent, childName) {
+  const children = parent.children
+  let elm
+  for(const child of children){
+    if(child.getAttribute('name') === childName){
+      elm = child
+      break
+    }
+  }
+  return elm ? elm : null;
+}
+
+const addClip = function(e) {
+  const parent = e.parentNode.parentNode
+  parent.appendChild(getTimeInputDiv())
+  const button = GetElementInsideContainer(parent, 'buttons').cloneNode(true)
+  GetElementInsideContainer(parent, 'buttons').remove()
+  parent.appendChild(button)
+}
+
+
 window.onload = () => {
-  downloadLatestRealease()
+  downloadLatestRealease();
 };
->>>>>>> master
+
