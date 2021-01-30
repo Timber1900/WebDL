@@ -49,7 +49,8 @@ async function addToQueue(url) {
         const parent = document.getElementById('playlistSelect');
         parent.appendChild(val);
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err)
         const formats = new Map();
         youtubeDlWrap
           .getVideoInfo(url)
@@ -353,6 +354,7 @@ const addVid = () => {
     addToQueue(url);
   }
 }
+
 
 window.onload = () => {
   downloadLatestRealease();

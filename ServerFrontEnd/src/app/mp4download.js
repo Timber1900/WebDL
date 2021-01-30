@@ -16,7 +16,6 @@ async function mp4Download(url, curVid, callback, vid, info, formats) {
       clips.push([start, end])
     }
   }
-
   const videoFormat = formats.get(vid.children[2].children[1].children[4].children[1].value);
   document.getElementById('curvid').innerHTML = 'Downloading ' + title;
 
@@ -103,7 +102,6 @@ async function mp4Download(url, curVid, callback, vid, info, formats) {
   });
   audio.pipe(ffmpegProcess.stdio[4]);
   video.pipe(ffmpegProcess.stdio[5]);
-
 }
 
 async function cutVid(start, end, path, title, i){

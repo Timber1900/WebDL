@@ -26,7 +26,6 @@ const getTimeInputSpan = (plahh, plamm, plassm, hh, mm, ss, lentotal) => {
   separatorLabel2.innerHTML = ":"
   separatorLabel2.classList.add('test2')
 
-
   const testFuncTwo = function() {
     const value = input1.value.toString() + input2.value.toString() + input3.value.toString()
     const vals = []
@@ -98,17 +97,16 @@ const getTimeInputDiv = (hh, mm, ss, lentotal) => {
   const rightInput = getTimeInputSpan(h, m, s, h, m, s, lentotal)
   const to = document.createElement('label')
   to.innerHTML = "To"
-  
   const removeButton = document.createElement('button')
   removeButton.classList.add('trim-btn')
   removeButton.innerHTML = "Remove"
   removeButton.setAttribute('onclick', 'this.parentNode.remove()')
 
+
   div.appendChild(leftInput)
   div.appendChild(to)
   div.appendChild(rightInput)
   div.appendChild(removeButton)
-
-
+  
   return div
 }
