@@ -3,7 +3,8 @@
 ## Todo:
 
 - [ ] Add search youtube feature
-- [ ] Refactoer code (css/js)
+- [ ] Refactor code (css/js)
+- [ ] Move to youtube-dl-wrap
 
 ## Table of Contents
 
