@@ -50,12 +50,12 @@ async function addToQueue(url) {
         const parent = document.getElementById('playlistSelect');
         parent.appendChild(val);
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err)
         const formats = new Map();
         youtubeDlWrap
           .getVideoInfo(url)
           .then((info) => {
-            console.log(info)
             for (const format of info.formats) {
               if ((format.ext === 'mp4' || format.ext === 'webm') && format.height) {
                 if (formats.has(format.height + 'p' + (format.fps ? format.fps : ''))) {
@@ -107,9 +107,9 @@ async function addToQueue(url) {
               });
             }
           })
-          // .catch((err) => {
-          //   console.error(err);
-          // });
+          .catch((err) => {
+            console.error(err);
+          });
       });
   }
 }
@@ -118,7 +118,7 @@ async function test(vid, i) {
   if (vid) {
     let formats = new Map();
     const info = await ytdl.getInfo(vid.url).catch((err) => {
-      //console.log(`%c ${err}`, 'color: #F87D7A');
+      console.log(`%c ${err}`, 'color: #F87D7A');
       return Promise.reject();
     });
     if (info && info.formats.length > 0) {
@@ -172,7 +172,15 @@ function addDiv(url, thumbnail, title, formats, info, rank) {
 
     div.children[2].children[1].children[1].children[0].setAttribute('onclick', 'openTrimPopup(this)');
     div.children[2].children[1].children[1].children[1].children[0].children[0].setAttribute('onclick', 'openTrimPopup(this.parentNode.parentNode.parentNode.children[0])')
-    div.children[2].children[1].children[1].children[1].children[0].children[1].setAttribute('onclick', 'addClip(this)')
+
+    console.log(info)
+    const fullsec = info.videoDetails.lengthSeconds;
+    const fullmin = fullsec / 60;
+    const hours = Math.floor(fullmin / 60);
+    const min = Math.floor(fullmin - hours * 60);
+    const sec = Math.floor(fullsec - min * 60);
+
+    div.children[2].children[1].children[1].children[1].children[0].children[1].setAttribute('onclick', `addClip(this, ${hours}, ${min}, ${sec}, ${fullsec})`)
 
 
     div.children[2].children[1].children[2].addEventListener('click', downloadSingleVid.bind(div));
@@ -334,9 +342,9 @@ function GetElementInsideContainer(parent, childName) {
   return elm ? elm : null;
 }
 
-const addClip = function(e) {
+const addClip = function(e, hh, mm, ss, lentotal) {
   const parent = e.parentNode.parentNode
-  parent.appendChild(getTimeInputDiv())
+  parent.appendChild(getTimeInputDiv(hh, mm, ss, lentotal))
   const button = GetElementInsideContainer(parent, 'buttons').cloneNode(true)
   GetElementInsideContainer(parent, 'buttons').remove()
   parent.appendChild(button)
