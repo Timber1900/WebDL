@@ -2,11 +2,8 @@
 
 ## Todo:
 
-- [x] Add trim video to queue context menu
-- [x] Add rename video to queue context menu
-- [x] Add download video to queue context menu
-- [x] Add choose format to queue context menu
-- [x] Manual link input for downloading videos
+- [ ] Add search youtube feature
+- [ ] Refactoer code (css/js)
 
 ## Table of Contents
 
