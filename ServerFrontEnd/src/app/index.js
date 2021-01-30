@@ -8,7 +8,6 @@ const ffmpeg = require('ffmpeg-static');
 let ytpl = require('ytpl');
 const { json } = require('express');
 const YoutubeDlWrap = require('youtube-dl-wrap');
-const { Console } = require('console');
 const youtubeDlWrap = new YoutubeDlWrap(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe'));
 
 const queued_videos = new Map();
@@ -173,7 +172,6 @@ function addDiv(url, thumbnail, title, formats, info, rank) {
     div.children[2].children[1].children[1].children[0].setAttribute('onclick', 'openTrimPopup(this)');
     div.children[2].children[1].children[1].children[1].children[0].children[0].setAttribute('onclick', 'openTrimPopup(this.parentNode.parentNode.parentNode.children[0])')
 
-    console.log(info)
     const fullsec = info.videoDetails.lengthSeconds;
     const fullmin = fullsec / 60;
     const hours = Math.floor(fullmin / 60);
@@ -348,6 +346,13 @@ const addClip = function(e, hh, mm, ss, lentotal) {
   const button = GetElementInsideContainer(parent, 'buttons').cloneNode(true)
   GetElementInsideContainer(parent, 'buttons').remove()
   parent.appendChild(button)
+}
+
+const addVid = () => {
+  const url = prompt('What\'s the video url?')
+  if(url){
+    addToQueue(url);
+  }
 }
 
 

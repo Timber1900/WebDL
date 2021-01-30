@@ -69,7 +69,7 @@ async function mp4Download(url, curVid, callback, vid, info, formats) {
       '-c:v',
       'copy',
       '-y',
-      clips
+      clips.length
         ? join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'tempvideo.mkv')
         : join(path, title + '.mkv'),
     ],
@@ -79,7 +79,8 @@ async function mp4Download(url, curVid, callback, vid, info, formats) {
     },
   );
   ffmpegProcess.on('close', () => {
-    if (clips) {
+    if (clips.length) {
+      console.log('cut')
       document.getElementById('curvid').innerHTML = 'Cutting video ...';
       const promises = []
       let i = 1;
@@ -101,7 +102,6 @@ async function mp4Download(url, curVid, callback, vid, info, formats) {
   });
   audio.pipe(ffmpegProcess.stdio[4]);
   video.pipe(ffmpegProcess.stdio[5]);
-
 }
 
 async function cutVid(start, end, path, title, i){
@@ -118,7 +118,7 @@ async function cutVid(start, end, path, title, i){
         duration,
         '-c',
         'copy',
-        join(path, `${title}-clip${i}.mkv`),
+        join(path, `${title}-clip-${i}.mkv`),
       ],
       {
         windowsHide: true,
