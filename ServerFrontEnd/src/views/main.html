@@ -14,7 +14,8 @@
     <script src="../app/templateDiv.js"></script>
     <script src="../app/id.js"></script>
     <script src="../app/nonyoutubedownload.js"></script>
-    
+    <script src="../app/searchItemTemplate.js"></script>
+
     <title>Youtube Downloader</title>
 </head>
 
@@ -22,7 +23,9 @@
   <progress class="prg" id="prog" max="100"></progress>
   <label id="vel">0MB/s</label>
   <label id="prg">0%</label>
-  <label id="curvid">Waiting for download</label>
+  <div id="curvid-div">
+    <label id="curvid">Waiting for download</label>
+  </div>
   <img id="vidprev" src="../assets/defthumb.png">
   <div id="playlistSelect"></div>
   <div id="queue-buttons-div">
@@ -31,50 +34,49 @@
   </div>
   <div id="queue-check-div">
     <button class="queue-buttons" id="url-btn" onclick="addVid()">Input url</button>
-    <span>
+    <button id="search-btn" class="queue-buttons" onclick="document.getElementById('search').classList.toggle('show')">Search youtube</button>
+    <span id="check-spn">
       <input type="checkbox" id="queue-check" checked="true" onchange="selectAll()"></input>
       <label for="queue-check" id="queue-check-label">Select all</label>
     </span>
   </div>
   <div id="rules" class="rules">
     <div class="set-div">
-      <a for="folderSelect">Select folder:</a>
-      <button onclick="document.getElementById('file').click()" id="folderSelect" class="set-btn">Browse</button>
-      <input type="file" nwdirectory id="file" class="fileinput" onchange="selectFolder()"/>
-    </div>
-    <div id="rules" class="rules">
-        <div class="set-div">
-            <a for="folderSelect">Select folder:</a>
-            <button onclick="document.getElementById('file').click()" id="folderSelect" class="set-btn">Browse</button>
-            <input type="file" nwdirectory id="file" class="fileinput" onchange="selectFolder()"/>
-        </div>
-        <div class="set-div">
-            <a for="sel">Filetype:</a>
-            <select id="sel" class="set-btn">
-                <option value="mp3">
-                    MP3
-                </option>
-                <option value="mp4" selected="selected">
-                    MP4
-                </option>
-            </select>
-        </div>
-        <div class="set-div">
-            <a for="port">Change port:</a>
-            <button id="port" onclick="selectPort()" class="set-btn">Change</button>
-        </div>
-        <div class="set-div">
-            <a for="startend">Select start/end time:</a>
-            <input type="checkbox" id="startend" class="set-btn"></input>
-        </div>
+        <a for="folderSelect">Select folder:</a>
+        <button onclick="document.getElementById('file').click()" id="folderSelect" class="set-btn">Browse</button>
+        <input type="file" nwdirectory id="file" class="fileinput" onchange="selectFolder()"/>
     </div>
     <div class="set-div">
-      <a for="port">Change port:</a>
-      <button id="port" onclick="selectPort()" class="set-btn">Change</button>
+        <a for="sel">Filetype:</a>
+        <select id="sel" class="set-btn">
+            <option value="mp3">
+                MP3
+            </option>
+            <option value="mp4" selected="selected">
+                MP4
+            </option>
+        </select>
     </div>
     <div class="set-div">
-      <a for="startend">Select start/end time:</a>
-      <input type="checkbox" id="startend" class="set-btn"></input>
+        <a for="port">Change port:</a>
+        <button id="port" onclick="selectPort()" class="set-btn">Change</button>
+    </div>
+  </div>
+  <div id="search">
+    <div class="search-text-div">
+      <input type="text" class="search-text" id="search_input">
+      <button class="queue-buttons" id="search-button" onclick="search()">Search</button>
+    </div>
+    <div class="search-inner">
+      <div class="vid-div">
+        <iframe width="338" height="190" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+      <div class="preview-div" id="search-items">
+      </div> 
+    </div>
+    <div class="search-btns-div">
+      <button class="search-btns" onclick="document.getElementById('search').classList.toggle('show')">Leave</button>
+      <button class="search-btns" onclick="addSearchToQueue(this)">Add to queue</button>
     </div>
   </div>
 </html>

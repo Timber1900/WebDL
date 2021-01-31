@@ -24,6 +24,7 @@
     "fluent-ffmpeg": "^2.1.2",
     "youtube-dl-wrap": "^2.0.0",
     "ytdl-core": "^4.4.3",
-    "ytpl": "^2.0.4"
+    "ytpl": "^2.0.4",
+    "ytsr": "^3.2.3"
   }
 }

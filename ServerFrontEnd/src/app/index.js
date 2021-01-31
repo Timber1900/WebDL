@@ -7,6 +7,7 @@ const cp = require('child_process');
 const ffmpeg = require('ffmpeg-static');
 let ytpl = require('ytpl');
 const { json } = require('express');
+const ytsr = require('ytsr')
 const YoutubeDlWrap = require('youtube-dl-wrap');
 const youtubeDlWrap = new YoutubeDlWrap(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe'));
 
@@ -355,8 +356,40 @@ const addVid = () => {
   }
 }
 
+const addSearchItem = (title, thumbnail, url) => {
+  const search_div = search_div_template.cloneNode(true);
+  search_div.setAttribute('url', url)
+  search_div.children[0].src = thumbnail;
+  search_div.children[1].innerHTML = title;
+  search_div.addEventListener('click', selectVidPreview.bind(search_div));
+  document.getElementById('search-items').appendChild(search_div);
+  
+}
+
+const search = () => {
+  const search_term = document.getElementById('search_input').value
+  ytsr(search_term, {pages: 1})
+  .then(val => {
+    for(const item of val.items){
+      if(item.type === 'video'){
+        addSearchItem(item.title, item.bestThumbnail.url, item.id)
+      }
+    }
+  })
+  .catch(console.error)
+}
+
+const selectVidPreview = function() {
+  const url = this.getAttribute('url')
+  this.parentNode.parentNode.children[0].children[0].src = `https://www.youtube.com/embed/${url}`
+}
+
+const addSearchToQueue = function(e) {
+  const id = e.parentNode.parentNode.children[1].children[0].children[0].src.replace('https://www.youtube.com/embed/', '')
+  addToQueue(id)
+}
 
 window.onload = () => {
-  downloadLatestRealease();
+  // downloadLatestRealease();
 };
 

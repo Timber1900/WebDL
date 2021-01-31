@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nw": "^0.50.3-sdk",
+    "nw": "^0.51.0-sdk",
     "nw-builder": "^3.5.7",
     "prettier": "^2.2.1"
   },
