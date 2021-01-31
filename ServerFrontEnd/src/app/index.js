@@ -9,13 +9,13 @@ let ytpl = require('ytpl');
 const { json } = require('express');
 const ytsr = require('ytsr')
 const YoutubeDlWrap = require('youtube-dl-wrap');
-const youtubeDlWrap = new YoutubeDlWrap(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe'));
+const youtubeDlWrap = new YoutubeDlWrap(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'youtube-dl.exe'));
 
 const queued_videos = new Map();
 
 function selectFolder() {
   fs.writeFileSync(
-    join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'path.json'),
+    join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'path.json'),
     JSON.stringify({ path: document.getElementById('file').value }),
   );
   path = document.getElementById('file').value;
@@ -153,7 +153,7 @@ function selectPort() {
   } else {
     alert('Port has to be a whole number');
   }
-  fs.writeFileSync(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'port.json'), JSON.stringify({ port }));
+  fs.writeFileSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'port.json'), JSON.stringify({ port }));
   chrome.runtime.reload();
 }
 
@@ -305,21 +305,21 @@ function downloadLatestRealease() {
   YoutubeDlWrap.getGithubReleases(1, 1).then((val) => {
     let cur_ver;
     try {
-      cur_ver = require(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'version.json')).version;
+      cur_ver = require(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'version.json')).version;
     } catch (err) {
-      fs.mkdir(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader'), () => {});
+      fs.mkdir(join(OS.homedir(), 'AppData', 'Roaming', '.webdl'), () => {});
     }
     if (
       cur_ver !== val[0].tag_name ||
-      !fs.existsSync(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe'))
+      !fs.existsSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'youtube-dl.exe'))
     ) {
       alert('Downloading latest youtube-dl...');
       fs.writeFileSync(
-        join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'version.json'),
+        join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'version.json'),
         JSON.stringify({ version: val[0].tag_name }),
       );
       YoutubeDlWrap.downloadFromWebsite(
-        join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe'),
+        join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'youtube-dl.exe'),
         'win32',
       ).then(() => {
         alert('Done downloading latest youtube-dl!');

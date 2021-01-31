@@ -1,13 +1,13 @@
 {
   "name": "src",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "views/main.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "window": {
-    "title": "Youtube Downloader",
+    "title": "Web-dl: A web video downloader",
     "toolbar": true,
     "width": 750,
     "height": 350,
@@ -21,7 +21,6 @@
   "dependencies": {
     "express": "^4.17.1",
     "ffmpeg-static": "^4.2.7",
-    "fluent-ffmpeg": "^2.1.2",
     "youtube-dl-wrap": "^2.0.0",
     "ytdl-core": "^4.4.3",
     "ytpl": "^2.0.4",
