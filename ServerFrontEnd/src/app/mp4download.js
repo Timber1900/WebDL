@@ -80,7 +80,6 @@ async function mp4Download(url, curVid, callback, vid, info, formats) {
   );
   ffmpegProcess.on('close', () => {
     if (clips.length) {
-      console.log('cut')
       document.getElementById('curvid').innerHTML = 'Cutting video ...';
       const promises = []
       let i = 1;
