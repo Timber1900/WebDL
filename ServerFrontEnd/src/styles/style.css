@@ -495,8 +495,8 @@ label:focus {
 }
 
 #search {
-  background-color: #222;
-  border: 2px solid #333;
+  background-color: #181a1b;
+  border: 2px solid #222;
   border-radius: 7px;
   position: fixed;
   left: 50px;
@@ -518,8 +518,8 @@ label:focus {
 
 .vid-div {
   display: flex;
-  background-color: #222;
-  border: 2px solid #333;
+  background-color: #181a1b;
+  border: 2px solid #222;
   border-radius: 7px;
   overflow: hidden;
   margin: 5px;
@@ -528,8 +528,8 @@ label:focus {
 }
 
 .preview-div {
-  background-color: #222;
-  border: 2px solid #333;
+  background-color: #181a1b;
+  border: 2px solid #222;
   border-radius: 7px;
   height: 190px;
   width: 277px;
@@ -574,9 +574,9 @@ label:focus {
 }
 
 .search-text {
-  background-color: #333;
-  border: solid #181a1b 2px;
-  border-radius: 2px;
+  background-color: #181a1b;
+  border: solid #222 2px;
+  border-radius: 5px;
   color: #e8e6e3;
   flex-grow: 1;
 }
