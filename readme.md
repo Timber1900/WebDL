@@ -1,4 +1,4 @@
-# YoutubeDl Video Downloader
+# WebDl Video Downloader
 
 ## Todo:
 
@@ -9,6 +9,7 @@
 ## Table of Contents
 
 - [Overview](#overview)
+  - [Supported sites](#supported-sites)
 - [Instalation guide](#instalation-guide)
 - [Using the extension](#using-the-extension)
 - [FAQ](#faq)
@@ -18,7 +19,15 @@
 
 ## Overview
 
-This windows application + companion [chrome extension](https://chrome.google.com/webstore/detail/webpage-downloader/nfkaeignpggbjnhhijmggoeploenicdo) downloads a youtube video on user request, just press the extension button and do the rest on the app!
+Meet **WebDL**! This windows application + companion [chrome extension](https://chrome.google.com/webstore/detail/webpage-downloader/nfkaeignpggbjnhhijmggoeploenicdo) downloads a web video on user request, just press the extension button and do the rest on the app!
+
+### Supported sites
+- Youtube
+- Twitch
+- Twitter
+- Imgur
+- Gyfcat
+- [Many others](https://ytdl-org.github.io/youtube-dl/supportedsites.html)
 
 ## Instalation guide
 
