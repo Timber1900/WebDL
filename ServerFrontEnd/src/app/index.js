@@ -370,10 +370,18 @@ const addSearchItem = (title, thumbnail, url) => {
   
 }
 
+let curSearch;
+
+
 const search = () => {
+  const vidsContainer = document.getElementById('search-items')
+  while (vidsContainer.firstChild) {
+    vidsContainer.removeChild(vidsContainer.lastChild);
+  }
   const search_term = document.getElementById('search_input').value
   ytsr(search_term, {pages: 1})
   .then(val => {
+    curSearch = val;
     for(const item of val.items){
       if(item.type === 'video'){
         addSearchItem(item.title, item.bestThumbnail.url, item.id)
@@ -393,7 +401,29 @@ const addSearchToQueue = function(e) {
   addToQueue(id)
 }
 
+const nextPage = function() {
+  const vidsContainer = document.getElementById('search-items')
+  while (vidsContainer.firstChild) {
+    vidsContainer.removeChild(vidsContainer.lastChild);
+  }
+  ytsr.continueReq(curSearch.continuation)
+  .then(val => {
+    curSearch = val;
+    for(const item of val.items){
+      if(item.type === 'video'){
+        addSearchItem(item.title, item.bestThumbnail.url, item.id)
+      }
+    }
+  });
+}
+
+
 window.onload = () => {
+  document.getElementById('search_input').addEventListener('keydown', event => {
+    if(event.key === 'Enter') {
+      search()
+    }
+  });
   downloadLatestRealease();
 };
 
