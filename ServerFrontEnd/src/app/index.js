@@ -51,11 +51,11 @@ async function addToQueue(url) {
         parent.appendChild(val);
       })
       .catch((err) => {
-        console.log(err)
         const formats = new Map();
         youtubeDlWrap
           .getVideoInfo(url)
           .then((info) => {
+            console.log(info)
             for (const format of info.formats) {
               if ((format.ext === 'mp4' || format.ext === 'webm') && format.height) {
                 if (formats.has(format.height + 'p' + (format.fps ? format.fps : ''))) {
@@ -85,10 +85,9 @@ async function addToQueue(url) {
               }
             }
             if (info.thumbnail) {
-              addDiv(url, info.thumbnails[info.thumbnails.length - 1].url, info.title, sorted_map, info, 0).then(
+              addDiv(url, info.thumbnails[info.thumbnails.length - 1].url, info.title, sorted_map, info, 0, false).then(
                 (val) => {
                   const parent = document.getElementById('playlistSelect');
-                  val.setAttribute('youtube', false);
                   parent.appendChild(val);
                 },
               );
@@ -100,9 +99,9 @@ async function addToQueue(url) {
                 sorted_map,
                 info,
                 0,
+                false,
               ).then((val) => {
                 const parent = document.getElementById('playlistSelect');
-                val.setAttribute('youtube', false);
                 parent.appendChild(val);
               });
             }
@@ -136,7 +135,7 @@ async function test(vid, i) {
           }
         }
       }
-      return addDiv(vid.url, info.videoDetails.thumbnails[0].url, info.videoDetails.title, formats, info, i);
+      return addDiv(vid.url, info.videoDetails.thumbnails[0].url, info.videoDetails.title, formats, info, i, true);
     } else {
       console.log(`%c Failed to fetch video ${vid.url} info`, 'color: #F87D7A');
       return Promise.resolve();
@@ -157,12 +156,12 @@ function selectPort() {
   chrome.runtime.reload();
 }
 
-function addDiv(url, thumbnail, title, formats, info, rank) {
+function addDiv(url, thumbnail, title, formats, info, rank, yt) {
   if (!queued_videos.has(url)) {
     const div = templateDiv.cloneNode(true);
     div.setAttribute('url', url);
     div.setAttribute('rank', rank);
-    div.setAttribute('youtube', true);
+    div.setAttribute('youtube', yt);
     queued_videos.set(url, [info, formats]);
     div.addEventListener('click', selectVid.bind(div));
     div.children[0].children[0].src = thumbnail;
@@ -173,7 +172,12 @@ function addDiv(url, thumbnail, title, formats, info, rank) {
     div.children[2].children[1].children[1].children[0].setAttribute('onclick', 'openTrimPopup(this)');
     div.children[2].children[1].children[1].children[1].children[0].children[0].setAttribute('onclick', 'openTrimPopup(this.parentNode.parentNode.parentNode.children[0])')
 
-    const fullsec = info.videoDetails.lengthSeconds;
+    let fullsec
+    if(yt){
+      fullsec = info.videoDetails.lengthSeconds;
+    } else {
+      fullsec = info.duration;
+    }
     const fullmin = fullsec / 60;
     const hours = Math.floor(fullmin / 60);
     const min = Math.floor(fullmin - hours * 60);
@@ -390,6 +394,6 @@ const addSearchToQueue = function(e) {
 }
 
 window.onload = () => {
-  // downloadLatestRealease();
+  downloadLatestRealease();
 };
 

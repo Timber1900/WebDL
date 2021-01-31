@@ -120,5 +120,5 @@ dist
 *.exe
 *.crx
 *.pem
-
+*.ai
 .vscode/
