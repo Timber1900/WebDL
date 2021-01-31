@@ -1,8 +1,8 @@
-# WebDl Video Downloader
+# WebDL Video Downloader
 
 ## Todo:
 
-- [ ] Add search youtube feature
+- [x] Add search youtube feature
 - [ ] Refactor code (css/js)
 - [ ] Move to youtube-dl-wrap
 
