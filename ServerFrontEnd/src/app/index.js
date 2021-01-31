@@ -7,14 +7,15 @@ const cp = require('child_process');
 const ffmpeg = require('ffmpeg-static');
 let ytpl = require('ytpl');
 const { json } = require('express');
+const ytsr = require('ytsr')
 const YoutubeDlWrap = require('youtube-dl-wrap');
-const youtubeDlWrap = new YoutubeDlWrap(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe'));
+const youtubeDlWrap = new YoutubeDlWrap(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'youtube-dl.exe'));
 
 const queued_videos = new Map();
 
 function selectFolder() {
   fs.writeFileSync(
-    join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'path.json'),
+    join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'path.json'),
     JSON.stringify({ path: document.getElementById('file').value }),
   );
   path = document.getElementById('file').value;
@@ -152,7 +153,7 @@ function selectPort() {
   } else {
     alert('Port has to be a whole number');
   }
-  fs.writeFileSync(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'port.json'), JSON.stringify({ port }));
+  fs.writeFileSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'port.json'), JSON.stringify({ port }));
   chrome.runtime.reload();
 }
 
@@ -304,21 +305,21 @@ function downloadLatestRealease() {
   YoutubeDlWrap.getGithubReleases(1, 1).then((val) => {
     let cur_ver;
     try {
-      cur_ver = require(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'version.json')).version;
+      cur_ver = require(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'version.json')).version;
     } catch (err) {
-      fs.mkdir(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader'), () => {});
+      fs.mkdir(join(OS.homedir(), 'AppData', 'Roaming', '.webdl'), () => {});
     }
     if (
       cur_ver !== val[0].tag_name ||
-      !fs.existsSync(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe'))
+      !fs.existsSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'youtube-dl.exe'))
     ) {
       alert('Downloading latest youtube-dl...');
       fs.writeFileSync(
-        join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'version.json'),
+        join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'version.json'),
         JSON.stringify({ version: val[0].tag_name }),
       );
       YoutubeDlWrap.downloadFromWebsite(
-        join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'youtube-dl.exe'),
+        join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'youtube-dl.exe'),
         'win32',
       ).then(() => {
         alert('Done downloading latest youtube-dl!');
@@ -355,8 +356,40 @@ const addVid = () => {
   }
 }
 
+const addSearchItem = (title, thumbnail, url) => {
+  const search_div = search_div_template.cloneNode(true);
+  search_div.setAttribute('url', url)
+  search_div.children[0].src = thumbnail;
+  search_div.children[1].innerHTML = title;
+  search_div.addEventListener('click', selectVidPreview.bind(search_div));
+  document.getElementById('search-items').appendChild(search_div);
+  
+}
+
+const search = () => {
+  const search_term = document.getElementById('search_input').value
+  ytsr(search_term, {pages: 1})
+  .then(val => {
+    for(const item of val.items){
+      if(item.type === 'video'){
+        addSearchItem(item.title, item.bestThumbnail.url, item.id)
+      }
+    }
+  })
+  .catch(console.error)
+}
+
+const selectVidPreview = function() {
+  const url = this.getAttribute('url')
+  this.parentNode.parentNode.children[0].children[0].src = `https://www.youtube.com/embed/${url}`
+}
+
+const addSearchToQueue = function(e) {
+  const id = e.parentNode.parentNode.children[1].children[0].children[0].src.replace('https://www.youtube.com/embed/', '')
+  addToQueue(id)
+}
 
 window.onload = () => {
-  downloadLatestRealease();
+  // downloadLatestRealease();
 };
 

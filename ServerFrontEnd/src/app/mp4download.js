@@ -70,7 +70,7 @@ async function mp4Download(url, curVid, callback, vid, info, formats) {
       'copy',
       '-y',
       clips.length
-        ? join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'tempvideo.mkv')
+        ? join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'tempvideo.mkv')
         : join(path, title + '.mkv'),
     ],
     {
@@ -91,7 +91,7 @@ async function mp4Download(url, curVid, callback, vid, info, formats) {
 
       Promise.all(promises)
       .then(() => {
-        fs.unlinkSync(join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'tempvideo.mkv'));
+        fs.unlinkSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'tempvideo.mkv'));
         document.getElementById('curvid').innerHTML = 'Done downloading ' + title;
         callback(curVid + 1);
       });
@@ -113,7 +113,7 @@ async function cutVid(start, end, path, title, i){
         '-ss',
         start,
         '-i',
-        join(OS.homedir(), 'AppData', 'Roaming', '.ytdldownloader', 'tempvideo.mkv'),
+        join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'tempvideo.mkv'),
         '-to',
         duration,
         '-c',
