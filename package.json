@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json.schemastore.org/package",
+  "name": "web-dl",
+  "scripts": {
+    "lint": "eslint app extension",
+    "lint:fix": "eslint app extension --fix",
+    "prettier": "prettier --write **/*.{js,json,html,css}"
+  },
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-marine": "^8.1.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1"
+  },
+  "eslintConfig": {
+    "extends": "marine/prettier/node",
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es2021": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 12
+    },
+    "globals": {
+      "chrome": true
+    },
+    "rules": {
+      "no-implicit-coercion": 0,
+      "no-negated-condition": 0,
+      "prettier/prettier": [
+        2,
+        {
+          "printWidth": 120,
+          "useTabs": false,
+          "tabWidth": 2,
+          "singleQuote": true,
+          "quoteProps": "as-needed",
+          "trailingComma": "all",
+          "endOfLine": "crlf"
+        }
+      ]
+    },
+    "ignorePatterns": [
+      "**/dist/*",
+      "**/node_modules/*"
+    ]
+  },
+  "prettier": {
+    "printWidth": 120,
+    "useTabs": false,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "quoteProps": "as-needed",
+    "trailingComma": "all",
+    "endOfLine": "crlf"
+  }
+}
