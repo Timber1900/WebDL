@@ -356,23 +356,20 @@ const addSearchItem = (title, thumbnail, url) => {
 
 let curSearch;
 
-let curSearch;
-
-
 const search = () => {
-  const vidsContainer = document.getElementById('search-items')
+  const vidsContainer = document.getElementById('search-items');
   while (vidsContainer.firstChild) {
     vidsContainer.removeChild(vidsContainer.lastChild);
   }
-  const search_term = document.getElementById('search_input').value
+  const search_term = document.getElementById('search_input').value;
   ytsr(search_term, {pages: 1})
-  .then(val => {
-    curSearch = val;
-    for(const item of val.items){
-      if(item.type === 'video'){
-        addSearchItem(item.title, item.bestThumbnail.url, item.id)
-      }
-    })
+    .then(val => {
+      curSearch = val;
+      for(const item of val.items){
+        if(item.type === 'video'){
+          addSearchItem(item.title, item.bestThumbnail.url, item.id);
+        }
+      }})
     .catch(console.error);
 };
 
@@ -390,26 +387,26 @@ const addSearchToQueue = function (e) {
 };
 
 const nextPage = function() {
-  const vidsContainer = document.getElementById('search-items')
+  const vidsContainer = document.getElementById('search-items');
   while (vidsContainer.firstChild) {
     vidsContainer.removeChild(vidsContainer.lastChild);
   }
   ytsr.continueReq(curSearch.continuation)
-  .then(val => {
-    curSearch = val;
-    for(const item of val.items){
-      if(item.type === 'video'){
-        addSearchItem(item.title, item.bestThumbnail.url, item.id)
+    .then(val => {
+      curSearch = val;
+      for(const item of val.items){
+        if(item.type === 'video'){
+          addSearchItem(item.title, item.bestThumbnail.url, item.id);
+        }
       }
-    }
-  });
-}
+    });
+};
 
 
 window.onload = () => {
   document.getElementById('search_input').addEventListener('keydown', event => {
     if(event.key === 'Enter') {
-      search()
+      search();
     }
   });
   downloadLatestRealease();
