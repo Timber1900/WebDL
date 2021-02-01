@@ -12,6 +12,7 @@ let ytpl = require('ytpl');
 const { json } = require('express');
 const ytsr = require('ytsr');
 const YoutubeDlWrap = require('youtube-dl-wrap');
+const { stringify } = require('querystring');
 const youtubeDlWrap = new YoutubeDlWrap(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'youtube-dl.exe'));
 
 const queued_videos = new Map();
@@ -413,6 +414,32 @@ window.onload = () => {
 };
 
 window.onload = () => {
+  new Promise((resolve, reject) => {
+    const ls = cp.exec('for /F "tokens=3" %A in (\'reg query "HKEY_LOCAL_MACHINE\\SOFTWARE\\WebDL" /v "Version"\') DO (Echo %A)');
+
+    ls.stdout.on('data', (data) => {
+      if(data.toString().charAt(0) === 'v'){
+        resolve(data.toString().trim());
+      }
+    });
+  })
+    .then(async (val) => {
+      const [{tag_name}] = await getVersion();
+      if(tag_name !== val){
+        alert('Newer versin found, downloading');
+        await downloadFromGithub(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'WebDL.exe'));
+        setTimeout(() => {
+          cp.spawn('cmd' , ['/S', '/C', join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'WebDL.exe')], {
+            detached: true,
+            cwd: OS.homedir(),
+            env: process.env
+          });
+          window.close();
+        }, 5000);
+      }
+    });
+
+
   document.getElementById('search_input').addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
       search();

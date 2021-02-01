@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nw src/",
-    "change_icon": "\"C:/Program Files (x86)/Resource Hacker/ResourceHacker.exe\" -open \"./dist/src/win64/src.exe\" -save \"./dist/src/win64/Web-dl.exe\" -action addoverwrite -res \"../assets/icon.ico\" -mask ICONGROUP,IDR_MAINFRAME && cd ../assets/ && copy ../assets/icon.ico \"../app/dist/src/win64/\" && cd ../app/dist/src/win64 && del /f src.exe && cd ../../../",
+    "change_icon": "\"C:/Program Files (x86)/Resource Hacker/ResourceHacker.exe\" -open \"./dist/src/win64/src.exe\" -save \"./dist/src/win64/Web-dl.exe\" -action addoverwrite -res \"../assets/icon.ico\" -mask ICONGROUP,IDR_MAINFRAME && cd ../assets/ && copy icon.ico \"../app/dist/src/win64/\" && cd ../app/dist/src/win64 && del /f src.exe && cd ../../../",
     "prod": "nwbuild --platforms win64 --buildDir dist/ src/ && yarn change_icon && echo Done!"
   },
   "devDependencies": {
