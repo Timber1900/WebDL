@@ -415,7 +415,7 @@ window.onload = () => {
 
 window.onload = () => {
   new Promise((resolve, reject) => {
-    const ls = cp.exec('for /F "tokens=3" %A in (\'reg query "HKEY_LOCAL_MACHINE\\SOFTWARE\\WebDL" /v "Version"\') DO (Echo %A)');
+    const ls = cp.exec('for /F "tokens=3" %A in (\'reg query "HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\WebDL" /v "Version"\') DO (Echo %A)');
 
     ls.stdout.on('data', (data) => {
       if(data.toString().charAt(0) === 'v'){

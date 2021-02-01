@@ -114,6 +114,9 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
+WebDL-cache/
+WebDL-SetupFiles/
+
 # End of https://www.toptal.com/developers/gitignore/api/node
 *.7z
 *.exe
