@@ -1814,6 +1814,13 @@
   resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
   integrity sha512-f5j5b/Gf71L+dbqxIpQ4Z2WlmI/mPJ0fOkGGmFgtb6sAu97EPczzbS3/tJKxmcYDj55OX6ssqwDAWOHIYDRDGA==
 
+"@types/nw.js@^0.13.11":
+  version "0.13.11"
+  resolved "https://registry.yarnpkg.com/@types/nw.js/-/nw.js-0.13.11.tgz#273d7086e112499b07520a01f878179b65542f68"
+  integrity sha512-xAPBXO2VPn5SVVr6+y5cRZuf7YuFU/XM+6uhweMAv1H0zyO99MPAo/d4sX88io0RP4QCjL17FGAYyvBpUw4k9w==
+  dependencies:
+    "@types/node" "*"
+
 "@types/parse-json@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
