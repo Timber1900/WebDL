@@ -6,7 +6,7 @@ import { addToQueue } from './addToQueue';
 
 const app = express();
 
-let port: string;
+export let port: string;
 
 try {
   const data = fs.readFileSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'port.json')).toString();

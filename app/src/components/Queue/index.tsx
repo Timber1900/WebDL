@@ -3,6 +3,9 @@ import { Outer, QueueContainer, ButtonsContainer } from './style';
 import Item, { Props } from './Item';
 import { ID } from '../../logic/id';
 import { downloadVideo } from '../../logic/youtube-dl-wrap/downloadVideo';
+import { downloadAudio } from '../../logic/youtube-dl-wrap/downloadAudio';
+import { addToQueue } from '../../logic/server/addToQueue';
+import { changeSearch, searchIsUp } from '../Search';
 
 export let updateQueue: React.Dispatch<React.SetStateAction<Props[]>>;
 export let outQueue: Array<Props>;
@@ -21,31 +24,58 @@ const Queue: FC = () => {
 
   const downloadQueue = () => {
     updateQueue(outQueue);
-    const vid = outQueue[0];
-    const format = vid.quality.get(vid.curQual);
-    let skipped = 0;
-    const callback = () => {
-      const removedQueue = [...outQueue];
-      removedQueue.splice(skipped, 1);
-      setQueue(removedQueue);
-      let tryAgain = true;
-      while (tryAgain) {
+
+    if (outQueue.length) {
+      let skipped = 0;
+      const callback = () => {
+        const removedQueue = [...outQueue];
+        removedQueue.splice(skipped, 1);
+        setQueue(removedQueue);
+        let tryAgain = true;
+        while (tryAgain) {
+          if (removedQueue.length > skipped) {
+            const vid = removedQueue[skipped];
+            if (vid.download) tryAgain = false;
+            if (tryAgain) skipped++;
+          } else {
+            tryAgain = false;
+          }
+        }
+
         if (removedQueue.length > skipped) {
           const vid = removedQueue[skipped];
-          if (vid.download) tryAgain = false;
-          if (tryAgain) skipped++;
-        } else {
-          tryAgain = false;
+          const format = vid.quality.get(vid.curQual);
+          if (Math.sign(parseInt(vid.ext)) === -1) {
+            let ext: string = vid.ext === '-3' ? 'mkv' : vid.ext === '-2' ? 'mp4' : 'webm';
+            downloadVideo(vid.id, callback, vid.title, vid.merge, format, ext, vid.clips, vid.duration);
+          } else {
+            let ext: string = vid.ext === '1' ? 'mp3' : 'm4a';
+            downloadAudio(vid.id, callback, vid.title, ext, vid.clips, vid.duration);
+          }
         }
+      };
+      const vid = outQueue[skipped];
+      const format = vid.quality.get(vid.curQual);
+      if (Math.sign(parseInt(vid.ext)) === -1) {
+        let ext: string = vid.ext === '-3' ? 'mkv' : vid.ext === '-2' ? 'mp4' : 'webm';
+        downloadVideo(vid.id, callback, vid.title, vid.merge, format, ext, vid.clips, vid.duration);
+      } else {
+        let ext: string = vid.ext === '2' ? 'mp3' : 'm4a';
+        downloadAudio(vid.id, callback, vid.title, ext, vid.clips, vid.duration);
       }
+    }
+  };
 
-      if (removedQueue.length > skipped) {
-        const vid = removedQueue[skipped];
-        const format = vid.quality.get(vid.curQual);
-        downloadVideo(vid.id, callback, vid.title, vid.merge, format);
-      }
-    };
-    downloadVideo(vid.id, callback, vid.title, vid.merge, format);
+  const inputUrl = () => {
+    // eslint-disable-next-line quotes
+    const url: string | null = prompt("What's the video url?");
+    if (url) {
+      addToQueue(url);
+    }
+  };
+
+  const search = () => {
+    changeSearch(!searchIsUp);
   };
 
   return (
@@ -63,14 +93,23 @@ const Queue: FC = () => {
             download={val.download}
             merge={val.merge}
             curQual={val.curQual}
+            ext={val.ext}
+            duration={val.duration}
+            clips={val.clips}
           />
         ))}
       </QueueContainer>
       <ButtonsContainer>
         <button onClick={downloadQueue}>Download Videos</button>
-        <button>Clear queue</button>
-        <button>Input url</button>
-        <button>Search Youtube</button>
+        <button
+          onClick={() => {
+            setQueue([]);
+          }}
+        >
+          Clear queue
+        </button>
+        <button onClick={inputUrl}>Input url</button>
+        <button onClick={search}>Search Youtube</button>
       </ButtonsContainer>
     </Outer>
   );

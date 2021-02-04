@@ -6,14 +6,12 @@ import { path } from '../../getPath';
 import fs from 'fs';
 import { updateProg, updateVel } from '../../../components/Progress';
 import { InnerProps } from '../../../components/Trim';
-import { cutVid } from '../cutVid';
+import { cutAudio } from '../cutVid';
 
-export const downloadVideo = async (
+export const downloadAudio = async (
   url: string,
   callback: any,
   title: string,
-  merge: boolean,
-  videoFormat: any,
   ext: string,
   raw_clips: InnerProps[],
   length: number,
@@ -35,16 +33,14 @@ export const downloadVideo = async (
   const regex = /["*/:<>?\\|]/g;
   const fixedTitle: string = title.replace(regex, '');
 
-  const format = merge ? `${videoFormat}+bestaudio` : `${videoFormat}`;
-
   youtubeDlWrap
     .exec([
       url,
       '-f',
-      format,
-      '--merge-output-format',
+      `bestaudio[ext=${ext}]`,
+      '--extract-audio',
+      '--audio-format',
       ext,
-      '--no-continue',
       '-o',
       clips.length
         ? join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`)
@@ -64,11 +60,11 @@ export const downloadVideo = async (
         const promises = [];
         let i = 1;
         for (const clip of clips) {
-          promises.push(cutVid(clip[0], clip[1], path, title, i, ext));
+          promises.push(cutAudio(clip[0], clip[1], path, title, i, ext));
           i++;
         }
 
-        Promise.all(promises).then((val) => {
+        Promise.all(promises).then(() => {
           fs.unlinkSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`));
           updateInfo(`Done downloading ${title}`);
           callback();

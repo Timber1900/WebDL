@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Outer, QualSelect } from './style';
+import { Outer } from './style';
 
 export type Props = {
   quality: Map<string, any>;
@@ -14,7 +14,7 @@ const Trim: FC<Props> = (props: Props) => {
   return (
     <Outer>
       <label>Quality</label>
-      <QualSelect
+      <select
         onChange={(e) => {
           console.log(e.target.value);
           props.setQual(e.target.value);
@@ -27,7 +27,7 @@ const Trim: FC<Props> = (props: Props) => {
             </option>
           );
         })}
-      </QualSelect>
+      </select>
     </Outer>
   );
 };

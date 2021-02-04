@@ -10,6 +10,7 @@
     "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-simple-timefield": "^3.2.3",
     "styled-components": "^5.2.1",
     "typeface-roboto": "^1.1.13",
     "web-vitals": "^0.2.4",
@@ -36,14 +37,15 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "7.20.3",
     "eslint-plugin-react-hooks": "4.0.8",
-    "typescript": "^4.1.3"
+    "fd-slicer": "1.1.0",
+    "typescript": "^4.1.3",
+    "yauzl": "2.10.0"
   },
   "scripts": {
     "start": "nw-react-scripts start",
-    "build": "nw-react-scripts build",
-    "test": "nw-react-scripts test",
-    "eject": "nw-react-scripts eject",
-    "prettier": "prettier --write **/*.{js,json,html,css,ts,tsx}"
+    "build": "nw-react-scripts build && yarn change_icon",
+    "prettier": "prettier --write **/*.{js,json,html,css,ts,tsx}",
+    "change_icon": "\"C:/Program Files (x86)/Resource Hacker/ResourceHacker.exe\" -open \"./build/test-app/win64/test-app.exe\" -save \"./build/test-app/win64/WebDL.exe\" -action addoverwrite -res \"../assets/icon.ico\" -mask ICONGROUP,IDR_MAINFRAME && cd ../assets/ && copy icon.ico \"../app/build/test-app/win64/\" && cd ../app/build/test-app/win64 && del /f test-app.exe && cd ../../../"
   },
   "browserslist": {
     "production": [
@@ -61,15 +63,12 @@
   "nwBuilder": {
     "//": "https://github.com/nwjs-community/nw-builder",
     "platforms": [
-      "osx64",
-      "win32",
       "win64"
     ],
     "version": "latest",
-    "flavor": "normal",
+    "flavor": "sdk",
     "buildDir": "./build",
-    "cacheDir": "./cache",
-    "macIcns": "./src/logo.icns"
+    "cacheDir": "./cache"
   },
   "window": {
     "title": "Web-dl: A web video downloader",
@@ -77,7 +76,7 @@
     "width": 750,
     "height": 350,
     "position": "center",
-    "icon": "assets/icon.png"
+    "icon": "public/icon.ico"
   },
   "prettier": {
     "printWidth": 120,

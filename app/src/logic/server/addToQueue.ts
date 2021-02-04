@@ -65,6 +65,7 @@ export const addToQueue = async (url: string) => {
           }
         }
       }
+      console.log(prevQueue);
       updateQueue(prevQueue);
     }
     updateInfo('Done fetching');

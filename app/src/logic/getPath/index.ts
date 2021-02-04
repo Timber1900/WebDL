@@ -12,3 +12,8 @@ try {
   fs.mkdir(join(OS.homedir(), 'AppData', 'Roaming', '.webdl'), () => {});
   fs.writeFileSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'path.json'), JSON.stringify({ path }));
 }
+
+export const setPath = (new_path: string) => {
+  path = new_path;
+  fs.writeFileSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'path.json'), JSON.stringify({ path: new_path }));
+};
