@@ -1,17 +1,90 @@
 {
-  "name": "webdl",
-  "version": "1.0.0",
-  "description": "",
-  "author": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "nw src/",
-    "change_icon": "\"C:/Program Files (x86)/Resource Hacker/ResourceHacker.exe\" -open \"./dist/src/win64/src.exe\" -save \"./dist/src/win64/Web-dl.exe\" -action addoverwrite -res \"../assets/icon.ico\" -mask ICONGROUP,IDR_MAINFRAME && cd ../assets/ && copy icon.ico \"../app/dist/src/win64/\" && cd ../app/dist/src/win64 && del /f src.exe && cd ../../../",
-    "prod": "nwbuild --platforms win64 --buildDir dist/ src/ && yarn change_icon && echo Done!"
+  "name": "test-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "eslint-config-nw-react-app": "^6.0.0",
+    "express": "^4.17.1",
+    "ffmpeg-static": "^4.2.7",
+    "nw-react-scripts": "4.0.1",
+    "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-simple-timefield": "^3.2.3",
+    "styled-components": "^5.2.1",
+    "typeface-roboto": "^1.1.13",
+    "web-vitals": "^0.2.4",
+    "youtube-dl-wrap": "^2.0.0",
+    "ytdl-core": "^4.4.5",
+    "ytpl": "^2.0.5",
+    "ytsr": "^3.2.4"
   },
   "devDependencies": {
-    "nw": "0.51.0-sdk",
-    "nw-builder": "^3.5.7"
+    "@types/chrome": "^0.0.129",
+    "@types/express": "^4.17.11",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/styled-components": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.14.2",
+    "@typescript-eslint/parser": "^4.14.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.19.0",
+    "eslint-config-marine": "^8.1.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-flowtype": "5.2.0",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-jsx-a11y": "6.3.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "7.20.3",
+    "eslint-plugin-react-hooks": "4.0.8",
+    "fd-slicer": "1.1.0",
+    "typescript": "^4.1.3",
+    "yauzl": "2.10.0"
   },
-  "license": "MIT"
+  "scripts": {
+    "start": "nw-react-scripts start",
+    "build": "nw-react-scripts build && yarn change_icon",
+    "prettier": "prettier --write **/*.{js,json,html,css,ts,tsx}",
+    "change_icon": "\"C:/Program Files (x86)/Resource Hacker/ResourceHacker.exe\" -open \"./build/test-app/win64/test-app.exe\" -save \"./build/test-app/win64/WebDL.exe\" -action addoverwrite -res \"../assets/icon.ico\" -mask ICONGROUP,IDR_MAINFRAME && cd ../assets/ && copy icon.ico \"../app/build/test-app/win64/\" && cd ../app/build/test-app/win64 && del /f test-app.exe && cd ../../../"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "main": "index.html",
+  "nwBuilder": {
+    "//": "https://github.com/nwjs-community/nw-builder",
+    "platforms": [
+      "win64"
+    ],
+    "version": "latest",
+    "flavor": "sdk",
+    "buildDir": "./build",
+    "cacheDir": "./cache"
+  },
+  "window": {
+    "title": "Web-dl: A web video downloader",
+    "toolbar": true,
+    "width": 750,
+    "height": 350,
+    "position": "center",
+    "icon": "public/icon.ico"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "useTabs": false,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "quoteProps": "as-needed",
+    "trailingComma": "all",
+    "endOfLine": "crlf"
+  }
 }

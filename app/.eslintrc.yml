@@ -1,0 +1,38 @@
+env:
+  browser: true
+  es2021: true
+extends:
+  - 'nw-react-app'
+  - 'prettier'
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  sourceType: module
+plugins:
+  - react
+  - '@typescript-eslint'
+  - 'prettier'
+rules:
+  indent:
+    - error
+    - 2
+    - SwitchCase: 1
+  linebreak-style:
+    - error
+    - windows
+  quotes:
+    - error
+    - single
+  semi:
+    - error
+    - always
+  prettier/prettier:
+    - 2
+    - printWidth: 120
+      useTabs: false
+      tabWidth: 2
+      singleQuote: true
+      quoteProps: 'as-needed'
+      trailingComma: 'all'
+      endOfLine: 'crlf'
