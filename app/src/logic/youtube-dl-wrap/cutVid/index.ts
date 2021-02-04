@@ -2,11 +2,10 @@
 import { spawn } from 'child_process';
 import { join } from 'path';
 import OS from 'os';
-// const ffmpeg = 'C:/ffmpeg/bin/ffmpeg.exe';
+// @ts-expect-error
+import ffmpeg from 'ffmpeg-static';
 
 export const cutAudio = async (start: number, end: number, path: string, title: string, i: number, ext: string) => {
-  // @ts-expect-error
-  const ffmpeg = nw.require('ffmpeg-static');
   return new Promise((resolve, reject) => {
     const duration = end - start;
     const secondffmpegprocess = spawn(
@@ -37,12 +36,10 @@ export const cutAudio = async (start: number, end: number, path: string, title: 
 };
 
 export const cutVid = async (start: number, end: number, path: string, title: string, i: number, ext: string) => {
-  // @ts-expect-error
-  const ffmpeg = nw.require('ffmpeg-static');
   return new Promise((resolve, reject) => {
     const duration = end - start;
     const secondffmpegprocess = spawn(
-      ffmpeg,
+      './ffmpeg.dll',
       [
         '-ss',
         start.toString(),

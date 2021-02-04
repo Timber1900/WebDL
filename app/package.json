@@ -45,6 +45,7 @@
   "scripts": {
     "start": "nw-react-scripts start",
     "build": "nw-react-scripts build && yarn change_icon",
+    "eject": "nw-react-scripts eject",
     "prettier": "prettier --write **/*.{js,json,html,css,ts,tsx}",
     "change_icon": "\"C:/Program Files (x86)/Resource Hacker/ResourceHacker.exe\" -open \"./build/test-app/win64/test-app.exe\" -save \"./build/test-app/win64/WebDL.exe\" -action addoverwrite -res \"../assets/icon.ico\" -mask ICONGROUP,IDR_MAINFRAME && cd ../assets/ && copy icon.ico \"../app/build/test-app/win64/\" && cd ../app/build/test-app/win64 && del /f test-app.exe && cd ../../../"
   },
