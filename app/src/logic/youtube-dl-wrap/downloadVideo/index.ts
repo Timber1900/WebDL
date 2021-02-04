@@ -69,6 +69,7 @@ export const downloadVideo = async (
         }
 
         Promise.all(promises).then((val) => {
+          console.log(val);
           fs.unlinkSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`));
           updateInfo(`Done downloading ${title}`);
           callback();

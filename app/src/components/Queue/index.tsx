@@ -60,7 +60,7 @@ const Queue: FC = () => {
         let ext: string = vid.ext === '-3' ? 'mkv' : vid.ext === '-2' ? 'mp4' : 'webm';
         downloadVideo(vid.id, callback, vid.title, vid.merge, format, ext, vid.clips, vid.duration);
       } else {
-        let ext: string = vid.ext === '2' ? 'mp3' : 'm4a';
+        let ext: string = vid.ext === '1' ? 'mp3' : 'm4a';
         downloadAudio(vid.id, callback, vid.title, ext, vid.clips, vid.duration);
       }
     }

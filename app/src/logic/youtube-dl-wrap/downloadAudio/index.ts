@@ -37,7 +37,7 @@ export const downloadAudio = async (
     .exec([
       url,
       '-f',
-      `bestaudio[ext=${ext}]`,
+      'bestaudio',
       '--extract-audio',
       '--audio-format',
       ext,
