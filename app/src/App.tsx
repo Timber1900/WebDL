@@ -7,6 +7,8 @@ import { exec, spawn } from 'child_process';
 import { getVersion, downloadFromGithub } from './logic/update';
 import { join } from 'path';
 import OS from 'os';
+import util from 'util';
+import { curInfo, updateInfo } from './components/InfoLabel';
 
 function App() {
   useEffect(() => {
@@ -24,15 +26,30 @@ function App() {
       const [{ tag_name }] = await getVersion();
       if (tag_name !== val) {
         alert('Newer version found, downloading');
-        await downloadFromGithub(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'WebDL.exe'));
-        setTimeout(() => {
-          spawn('cmd', ['/S', '/C', join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'WebDL.exe')], {
-            detached: true,
-            cwd: OS.homedir(),
-            env: process.env,
-          });
-          window.close();
-        }, 10000);
+        const promise = downloadFromGithub(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'WebDL.exe')).then(() => {
+          setTimeout(() => {
+            spawn('cmd', ['/S', '/C', join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'WebDL.exe')], {
+              detached: true,
+              cwd: OS.homedir(),
+              env: process.env,
+            });
+            window.close();
+          }, 10000);
+        });
+        const updateTest = async () => {
+          if (util.inspect(promise).includes('pending')) {
+            if (curInfo.includes('Newer version found, downloading')) {
+              const new_info =
+                curInfo.substring(curInfo.length - 3, curInfo.length) === '...'
+                  ? curInfo.substring(0, curInfo.length - 3)
+                  : `${curInfo}.`;
+              updateInfo(new_info);
+            }
+            setTimeout(updateTest, 333);
+          }
+        };
+
+        updateTest();
       }
     });
 
