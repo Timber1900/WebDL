@@ -3,8 +3,9 @@
 ## Todo:
 
 - [x] Add search youtube feature
-- [ ] Refactor code (css/js)
-- [ ] Move to youtube-dl-wrap
+- [x] Refactor code (css/js)
+- [x] Move to youtube-dl-wrap
+- [x] Move to React/Typescript
 
 ## Table of Contents
 
@@ -22,6 +23,7 @@
 Meet **WebDL**! This windows application + companion [chrome extension](https://chrome.google.com/webstore/detail/webpage-downloader/nfkaeignpggbjnhhijmggoeploenicdo) downloads a web video on user request, just press the extension button and do the rest on the app!
 
 ### Supported sites
+
 - Youtube
 - Twitch
 - Twitter

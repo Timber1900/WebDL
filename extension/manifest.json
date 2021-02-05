@@ -1,8 +1,8 @@
 {
-  "manifest_version": 2.2,
+  "manifest_version": 2,
   "name": "Webpage Downloader",
   "description": "It sends the webpage link to a local server for downloading, what more do you want",
-  "version": "2.0",
+  "version": "2.2",
   "background": {
     "scripts": ["background.js"]
   },
