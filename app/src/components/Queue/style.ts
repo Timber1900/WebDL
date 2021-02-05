@@ -50,5 +50,9 @@ export const ButtonsContainer = styled.div`
 
   > button {
     height: 8vh;
+
+    &:disabled {
+      background-color: var(--almost-black);
+    }
   }
 `;
