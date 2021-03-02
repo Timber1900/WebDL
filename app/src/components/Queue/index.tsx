@@ -26,7 +26,6 @@ const Queue: FC = () => {
   const downloadQueue = () => {
     updateQueue(outQueue);
 
-    setDisable(true);
     let skipped = 0;
     const callback = () => {
       const removedQueue = [...outQueue];
@@ -71,6 +70,7 @@ const Queue: FC = () => {
     if (outQueue.length > skipped) {
       const vid = outQueue[skipped];
       const format = vid.quality.get(vid.curQual);
+      setDisable(true);
       if (Math.sign(parseInt(vid.ext)) === -1) {
         let ext: string = vid.ext === '-3' ? 'mkv' : vid.ext === '-2' ? 'mp4' : 'webm';
         downloadVideo(vid.id, callback, vid.title, vid.merge, format, ext, vid.clips, vid.duration);

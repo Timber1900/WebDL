@@ -1,4 +1,3 @@
-import { youtubeDlWrap } from '../index';
 import { updateInfo } from '../../../components/InfoLabel';
 import { join } from 'path';
 import OS from 'os';
@@ -7,6 +6,8 @@ import fs from 'fs';
 import { updateProg, updateVel } from '../../../components/Progress';
 import { InnerProps } from '../../../components/Trim';
 import { cutVid } from '../cutVid';
+import { execStream } from '../execStream';
+import { spawn } from 'child_process';
 
 export const downloadVideo = async (
   url: string,
@@ -35,21 +36,43 @@ export const downloadVideo = async (
   const regex = /["*/:<>?\\|]/g;
   const fixedTitle: string = title.replace(regex, '');
 
-  const format = merge ? `${videoFormat}+bestaudio` : `${videoFormat}`;
+  const video = execStream([url, '-f', videoFormat]);
+  const audio = execStream([url, '-f', 'bestaudio']);
 
-  youtubeDlWrap
-    .exec([
-      url,
-      '-f',
-      format,
-      '--merge-output-format',
-      ext,
-      '--no-continue',
-      '-o',
+  // @ts-expect-error
+  const ffmpeg = nw.require('ffmpeg-static');
+
+  const ffmpegProcess = spawn(
+    ffmpeg,
+    [
+      '-loglevel',
+      '8',
+      '-hide_banner',
+      '-i',
+      'pipe:4',
+      '-i',
+      'pipe:5',
+      '-map',
+      '0:a',
+      '-map',
+      '1:v',
+      '-c:v',
+      'copy',
       clips.length
         ? join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`)
         : join(path, `${fixedTitle}.${ext}`),
-    ])
+    ],
+    {
+      windowsHide: true,
+      stdio: ['inherit', 'inherit', 'inherit', 'pipe', 'pipe', 'pipe'],
+    },
+  );
+  // @ts-expect-error
+  audio.pipe(ffmpegProcess.stdio[4]);
+  // @ts-expect-error
+  video.pipe(ffmpegProcess.stdio[5]);
+
+  video
     .on('progress', (progress: any) => {
       updateProg(progress.percent);
       updateVel(progress.currentSpeed);
@@ -64,12 +87,11 @@ export const downloadVideo = async (
         const promises = [];
         let i = 1;
         for (const clip of clips) {
-          promises.push(cutVid(clip[0], clip[1], path, title, i, ext));
+          promises.push(cutVid(clip[0], clip[1], path, fixedTitle, i, ext));
           i++;
         }
 
         Promise.all(promises).then((val) => {
-          console.log(val);
           fs.unlinkSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`));
           updateInfo(`Done downloading ${title}`);
           callback();

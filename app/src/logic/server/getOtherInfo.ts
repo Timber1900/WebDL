@@ -35,8 +35,6 @@ export const getOtherDiv = (info: any, i: number, url: string): Promise<Props | 
       sorted_map = new Map([...temp_sorted_map.entries()].map((a) => [a[0], a[1].format_id]));
     }
 
-    console.log(info);
-
     return Promise.resolve({
       id: url,
       thumbnail: info.thumbnails?.length ? info.thumbnails[0].url : '',

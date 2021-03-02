@@ -43,6 +43,8 @@ export const cutVid = async (start: number, end: number, path: string, title: st
     const secondffmpegprocess = spawn(
       ffmpeg,
       [
+        '-loglevel',
+        '8',
         '-ss',
         start.toString(),
         '-i',
@@ -55,10 +57,9 @@ export const cutVid = async (start: number, end: number, path: string, title: st
       ],
       {
         windowsHide: true,
-        stdio: ['inherit', 'inherit', 'inherit', 'pipe', 'pipe', 'pipe'],
       },
     );
-    secondffmpegprocess.on('close', function () {
+    secondffmpegprocess.on('close', function (code) {
       resolve('done');
     });
     secondffmpegprocess.on('error', function (err) {

@@ -6,7 +6,7 @@ import { addToQueue } from './addToQueue';
 
 const app = express();
 
-export let port: string;
+export let port: string = '3003';
 
 try {
   const data = fs.readFileSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'port.json')).toString();
@@ -23,6 +23,5 @@ app.use(express.json());
 app.post('/', (req, res) => {
   const { body } = req;
   res.send('Video received');
-  console.log(body);
   addToQueue(body.url);
 });

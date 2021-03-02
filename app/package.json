@@ -15,7 +15,7 @@
     "typeface-roboto": "^1.1.13",
     "web-vitals": "^0.2.4",
     "youtube-dl-wrap": "^2.0.0",
-    "ytdl-core": "^4.4.5",
+    "ytdl-core": "^4.5.0",
     "ytpl": "^2.0.5",
     "ytsr": "^3.2.4"
   },
@@ -43,7 +43,7 @@
     "yauzl": "2.10.0"
   },
   "scripts": {
-    "start": "nw-react-scripts start",
+    "start": "nw-react-scripts start --load-extension=./react-devtools",
     "build": "nw-react-scripts build && yarn change_icon",
     "eject": "nw-react-scripts eject",
     "prettier": "prettier --write **/*.{js,json,html,css,ts,tsx}",

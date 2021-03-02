@@ -16,7 +16,6 @@ const Trim: FC<Props> = (props: Props) => {
       <label>Quality</label>
       <select
         onChange={(e) => {
-          console.log(e.target.value);
           props.setQual(e.target.value);
         }}
       >

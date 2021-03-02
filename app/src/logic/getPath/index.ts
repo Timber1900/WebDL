@@ -2,7 +2,7 @@ import fs from 'fs';
 import { join } from 'path';
 import OS from 'os';
 
-export let path: string;
+export let path: string = '';
 
 try {
   const data = fs.readFileSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'path.json')).toString();

@@ -3,14 +3,15 @@ function buttonClicked() {
     chrome.tabs.get(queryInfo[0].id, (tab) => {
       console.log(tab.url);
       chrome.storage.sync.get(['PORT'], (result) => {
+        const test = { url: tab.url };
+        const otherTest = JSON.stringify(test);
+        console.log(otherTest);
         fetch(`http://localhost:${result.PORT}`, {
           method: 'POST',
-          mode: 'no-cors',
+          mode: 'cors',
           cache: 'no-cache',
-          headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-          },
-          body: JSON.stringify({ url: tab.url }),
+          headers: {'Content-Type': 'application/json'},
+          body: otherTest,
         })
           .then((res) => res.json())
           .then(console.log)
