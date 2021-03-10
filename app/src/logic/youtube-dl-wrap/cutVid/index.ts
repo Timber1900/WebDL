@@ -19,6 +19,7 @@ export const cutAudio = async (start: number, end: number, path: string, title: 
         duration.toString(),
         '-c:a',
         'aac',
+        '-y',
         join(path, `${title}-clip-${i}.${ext}`),
       ],
       {
@@ -53,6 +54,7 @@ export const cutVid = async (start: number, end: number, path: string, title: st
         duration.toString(),
         '-c',
         'copy',
+        '-y',
         join(path, `${title}-clip-${i}.${ext}`),
       ],
       {

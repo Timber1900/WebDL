@@ -42,6 +42,8 @@ export const downloadVideo = async (
   // @ts-expect-error
   const ffmpeg = nw.require('ffmpeg-static');
 
+  if (clips.length) await fs.unlink(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`), () => {});
+
   const ffmpegProcess = spawn(
     ffmpeg,
     [
@@ -58,6 +60,7 @@ export const downloadVideo = async (
       '1:v',
       '-c:v',
       'copy',
+      '-y',
       clips.length
         ? join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`)
         : join(path, `${fixedTitle}.${ext}`),
@@ -80,25 +83,25 @@ export const downloadVideo = async (
     .on('error', (err: any) => {
       console.error(`%c ${err}`, 'color: #F87D7A');
       callback();
-    })
-    .on('close', () => {
-      if (clips.length) {
-        updateInfo('Cutting video ...');
-        const promises = [];
-        let i = 1;
-        for (const clip of clips) {
-          promises.push(cutVid(clip[0], clip[1], path, fixedTitle, i, ext));
-          i++;
-        }
+    });
+  ffmpegProcess.on('close', () => {
+    if (clips.length) {
+      updateInfo('Cutting video ...');
+      const promises = [];
+      let i = 1;
+      for (const clip of clips) {
+        promises.push(cutVid(clip[0], clip[1], path, fixedTitle, i, ext));
+        i++;
+      }
 
-        Promise.all(promises).then((val) => {
-          fs.unlinkSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`));
-          updateInfo(`Done downloading ${title}`);
-          callback();
-        });
-      } else {
+      Promise.all(promises).then((val) => {
+        fs.unlink(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`), console.log);
         updateInfo(`Done downloading ${title}`);
         callback();
-      }
-    });
+      });
+    } else {
+      updateInfo(`Done downloading ${title}`);
+      callback();
+    }
+  });
 };

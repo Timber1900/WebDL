@@ -1,5 +1,5 @@
 {
-  "name": "test-app",
+  "name": "WebDL",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -44,10 +44,9 @@
   },
   "scripts": {
     "start": "nw-react-scripts start --load-extension=./react-devtools",
-    "build": "nw-react-scripts build && yarn change_icon",
+    "build": "nw-react-scripts build",
     "eject": "nw-react-scripts eject",
-    "prettier": "prettier --write **/*.{js,json,html,css,ts,tsx}",
-    "change_icon": "\"C:/Program Files (x86)/Resource Hacker/ResourceHacker.exe\" -open \"./build/test-app/win64/test-app.exe\" -save \"./build/test-app/win64/WebDL.exe\" -action addoverwrite -res \"../assets/icon.ico\" -mask ICONGROUP,IDR_MAINFRAME && cd ../assets/ && copy icon.ico \"../app/build/test-app/win64/\" && cd ../app/build/test-app/win64 && del /f test-app.exe && cd ../../../"
+    "prettier": "prettier --write **/*.{js,json,html,css,ts,tsx}"
   },
   "browserslist": {
     "production": [
@@ -70,7 +69,11 @@
     "version": "latest",
     "flavor": "sdk",
     "buildDir": "./build",
-    "cacheDir": "./cache"
+    "cacheDir": "./cache",
+    "winIco": "./public/favicon.ico",
+    "win": {
+      "icon": "./public/favicon.ico"
+    }
   },
   "window": {
     "title": "Web-dl: A web video downloader",
@@ -78,7 +81,7 @@
     "width": 750,
     "height": 350,
     "position": "center",
-    "icon": "public/icon.ico"
+    "icon": "favicon.ico"
   },
   "prettier": {
     "printWidth": 120,
