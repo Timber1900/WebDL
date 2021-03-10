@@ -70,18 +70,15 @@
     "flavor": "sdk",
     "buildDir": "./build",
     "cacheDir": "./cache",
-    "winIco": "./public/favicon.ico",
-    "win": {
-      "icon": "./public/favicon.ico"
-    }
+    "winIco": "./public/favicon.ico"
   },
   "window": {
+    "icon": "store48.png",
     "title": "Web-dl: A web video downloader",
     "toolbar": true,
     "width": 750,
     "height": 350,
-    "position": "center",
-    "icon": "./public/favicon.ico"
+    "position": "center"
   },
   "prettier": {
     "printWidth": 120,

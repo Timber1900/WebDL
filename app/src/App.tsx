@@ -12,6 +12,10 @@ import { curInfo, updateInfo } from './components/InfoLabel';
 
 function App() {
   useEffect(() => {
+    //@ts-expect-error
+    const tray = new nw.Tray({ title: 'WebDL', icon: '../public/webdl.png' });
+    console.log(tray);
+
     new Promise((resolve, reject) => {
       const ls = exec(
         'for /F "tokens=3" %A in (\'reg query "HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\WebDL" /v "Version"\') DO (Echo %A)',
