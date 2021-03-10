@@ -81,7 +81,7 @@
     "width": 750,
     "height": 350,
     "position": "center",
-    "icon": "favicon.ico"
+    "icon": "./public/favicon.ico"
   },
   "prettier": {
     "printWidth": 120,
