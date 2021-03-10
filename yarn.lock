@@ -213,17 +213,17 @@ escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-aqua@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-aqua/-/eslint-config-aqua-8.0.0.tgz#6cea9224d82e4cf1beb440af7e5cbd0a6f85255d"
-  integrity sha512-TKvuVmjsb9b31dAWDptI9vY2DlUGidhL2slX20GZtnWALRdoH8cjSOeLpDF2H+yU+wSVDL/Ni0oFWPaG8L8lWA==
+eslint-config-aqua@^8.1.2:
+  version "8.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-aqua/-/eslint-config-aqua-8.1.2.tgz#a598ffdae280919ee50a76b3c6eb8383b678074b"
+  integrity sha512-npPUb/C3pwYhDsLk94ALHO02JMV8hjbFjoVEGliXprGhNDE+8VuGRC8Fmiy3vYHX18/hheQfpWrOmG37UwTLZQ==
 
-eslint-config-marine@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-marine/-/eslint-config-marine-8.1.0.tgz#71c7002c34a8c2d4df038831f68615d32b18739e"
-  integrity sha512-BSYZe12AZoOi83Up2KhfmvVRzaqgMIgTC8q73/M8AvL/bsLxi3cz0hNKPx+NL9KHFeopGaaGiE3h0o/fXBdFCQ==
+eslint-config-marine@^8.3.2:
+  version "8.3.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-marine/-/eslint-config-marine-8.3.2.tgz#a714a3b1ac206a077cafbb5ae7dbee79e44ca9af"
+  integrity sha512-2SLm43NdkMcHuUEkiS6NmVkSeywsE0+Uwiu6BqQkTpKlOKKOKrAR7+M8oHaialE4JpXjhbHAob3o1psSpCfq1w==
   dependencies:
-    eslint-config-aqua "^8.0.0"
+    eslint-config-aqua "^8.1.2"
 
 eslint-config-prettier@^8.1.0:
   version "8.1.0"
