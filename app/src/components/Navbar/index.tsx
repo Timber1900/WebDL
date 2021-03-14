@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Container, OptionOuter, NavButton, NavLabel, NavSpan, BrowseInput } from './style';
 import { port } from '../../logic/server/server';
 import { path, setPath } from '../../logic/getPath';
+import { CheckUpdates } from '../../logic/update';
 
 const selectPort = () => {
   let temp_port: string | null = prompt('Select the default port', port);
@@ -37,6 +38,13 @@ const Navbar = () => {
   useEffect(() => {
     outExt = ext;
   }, [ext]);
+
+  const check = async () => {
+    window.localStorage.setItem('ytdl-lastcheck', '0');
+    window.localStorage.setItem('webdl-lastcheck', '0');
+
+    await CheckUpdates();
+  };
 
   return (
     <Container>
@@ -81,6 +89,10 @@ const Navbar = () => {
               <option value="a wav">wav</option>
             </optgroup>
           </select>
+        </NavSpan>
+        <NavSpan>
+          <NavLabel>Check for updates</NavLabel>
+          <NavButton onClick={check}>Check</NavButton>
         </NavSpan>
       </OptionOuter>
     </Container>

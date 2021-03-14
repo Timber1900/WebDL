@@ -6,6 +6,7 @@ import OS from 'os';
 import util from 'util';
 import { curInfo, updateInfo } from '../../components/InfoLabel';
 import { Status, Duration } from '../../Constants';
+import { downloadLatestRealease } from '../youtube-dl-wrap/downloadLatestRelease';
 
 export const getVersion = (page = 1, perPage = 1): any => {
   return new Promise((resolve, reject) => {
@@ -51,6 +52,7 @@ const downloadFile = (fileURL: string, filePath: string) => {
 };
 
 export const downloadInstaller = () => {
+  console.log('searching');
   return new Promise((res, rej) => {
     new Promise((resolve, reject) => {
       const ls = exec(
@@ -61,50 +63,61 @@ export const downloadInstaller = () => {
           resolve(data.toString().trim());
         }
       });
-    }).then(async (val) => {
-      let last_check: `${number}` | number =
-        (window.localStorage.getItem('webdl-lastcheck') as `${number}`) ?? Date.now() - Duration.DAY;
-      if (Date.now() - Number(last_check) >= Duration.DAY) {
-        window.localStorage.setItem('webdl-lastcheck', `${Date.now()}`);
-        const [{ tag_name }] = await getVersion();
-        if (tag_name !== val) {
-          alert('Newer version found, downloading');
-          const promise = downloadFromGithub(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'WebDL.exe'))
-            .then(() => {
-              // eslint-disable-next-line no-restricted-globals
-              if (confirm('Install newer version?')) {
-                spawn('cmd', ['/S', '/C', join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'WebDL.exe')], {
-                  detached: true,
-                  cwd: OS.homedir(),
-                  env: process.env,
-                });
-                window.close();
-              } else {
-                res(Status.PASS);
+    })
+      .then(async (val) => {
+        let last_check: `${number}` | number =
+          (window.localStorage.getItem('webdl-lastcheck') as `${number}`) ?? Date.now() - Duration.DAY;
+        console.log(last_check);
+        if (Date.now() - Number(last_check) >= Duration.DAY) {
+          window.localStorage.setItem('webdl-lastcheck', `${Date.now()}`);
+          const [{ tag_name }] = await getVersion();
+          console.log(tag_name);
+          if (tag_name !== val) {
+            alert('Newer version found, downloading');
+            const promise = downloadFromGithub(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'WebDL.exe'))
+              .then(() => {
+                // eslint-disable-next-line no-restricted-globals
+                if (confirm('Install newer version?')) {
+                  spawn('cmd', ['/S', '/C', join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'WebDL.exe')], {
+                    detached: true,
+                    cwd: OS.homedir(),
+                    env: process.env,
+                  });
+                  window.close();
+                } else {
+                  res(Status.PASS);
+                }
+              })
+              .catch((error) => {
+                rej({ code: Status.ERR, error });
+              });
+            const updateTest = async () => {
+              if (util.inspect(promise).includes('pending')) {
+                if (curInfo.includes('Newer version found, downloading')) {
+                  const new_info =
+                    curInfo.substring(curInfo.length - 3, curInfo.length) === '...'
+                      ? curInfo.substring(0, curInfo.length - 3)
+                      : `${curInfo}.`;
+                  updateInfo(new_info);
+                }
+                setTimeout(updateTest, 333);
               }
-            })
-            .catch((error) => {
-              rej({ code: Status.ERR, error });
-            });
-          const updateTest = async () => {
-            if (util.inspect(promise).includes('pending')) {
-              if (curInfo.includes('Newer version found, downloading')) {
-                const new_info =
-                  curInfo.substring(curInfo.length - 3, curInfo.length) === '...'
-                    ? curInfo.substring(0, curInfo.length - 3)
-                    : `${curInfo}.`;
-                updateInfo(new_info);
-              }
-              setTimeout(updateTest, 333);
-            }
-          };
-          updateTest();
+            };
+            updateTest();
+          } else {
+            res(Status.PASS);
+          }
         } else {
           res(Status.PASS);
         }
-      } else {
-        res(Status.PASS);
-      }
-    });
+      })
+      .catch((error) => {
+        rej({ code: Status.ERR, error });
+      });
   });
+};
+
+export const CheckUpdates = async () => {
+  await downloadLatestRealease();
+  await downloadInstaller();
 };
