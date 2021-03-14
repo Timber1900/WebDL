@@ -85,12 +85,12 @@ const Item: FC<Props> = (props: Props) => {
       const removedQueue = outQueue.filter((e) => e.id !== props.id);
       updateQueue(removedQueue);
     };
-    if (Math.sign(parseInt(ext)) === -1) {
-      let container: string = ext === '-3' ? 'mkv' : ext === '-2' ? 'mp4' : 'webm';
-      downloadVideo(id, callback, title, merge, format, container, clips, duration);
+    const [type, extension] = ext.split(' ');
+    console.log({ type, extension, ext });
+    if (type === 'v') {
+      downloadVideo(id, callback, title, merge, format, extension, clips, duration);
     } else {
-      let container: string = ext === '1' ? 'mp3' : 'm4a';
-      downloadAudio(id, callback, title, container, clips, duration);
+      downloadAudio(id, callback, title, extension, clips, duration);
     }
   };
 
@@ -143,17 +143,15 @@ const Item: FC<Props> = (props: Props) => {
               <label>Filetype:</label>
               <select defaultValue={ext} onChange={(e) => setExt(e.target.value)}>
                 <optgroup label="Video">
-                  <option value={-3}>mkv</option>
-                  <option value={-2}>mp4</option>
-                  <option value={-1} disabled={true}>
-                    webm
-                  </option>
+                  <option value="v mkv">mkv</option>
+                  <option value="v mp4">mp4</option>
+                  <option value="v webm">webm</option>
                 </optgroup>
                 <optgroup label="Audio">
-                  <option value={1} disabled={true}>
-                    mp3
-                  </option>
-                  <option value={2}>m4a</option>
+                  <option value="a mp3">mp3</option>
+                  <option value="a m4a">m4a</option>
+                  <option value="a ogg">ogg</option>
+                  <option value="a wav">wav</option>
                 </optgroup>
               </select>
             </Outer>

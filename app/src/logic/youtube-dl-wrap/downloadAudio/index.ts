@@ -1,4 +1,3 @@
-import { youtubeDlWrap } from '../index';
 import { updateInfo } from '../../../components/InfoLabel';
 import { join } from 'path';
 import OS from 'os';
@@ -7,6 +6,8 @@ import fs from 'fs';
 import { updateProg, updateVel } from '../../../components/Progress';
 import { InnerProps } from '../../../components/Trim';
 import { cutAudio } from '../cutVid';
+import { spawn } from 'child_process';
+import { execStream } from '../execStream';
 
 export const downloadAudio = async (
   url: string,
@@ -33,19 +34,35 @@ export const downloadAudio = async (
   const regex = /["*/:<>?\\|]/g;
   const fixedTitle: string = title.replace(regex, '');
 
-  youtubeDlWrap
-    .exec([
-      url,
-      '-f',
-      'bestaudio',
-      '--extract-audio',
-      '--audio-format',
-      ext,
-      '-o',
+  // @ts-expect-error
+  const ffmpeg = nw.require('ffmpeg-static');
+  const audio = execStream([url, '-f', 'bestaudio']);
+
+  console.log(ext);
+
+  const ffmpegProcess = spawn(
+    ffmpeg,
+    [
+      '-loglevel',
+      '8',
+      '-hide_banner',
+      '-i',
+      'pipe:4',
+      '-y',
       clips.length
         ? join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`)
         : join(path, `${fixedTitle}.${ext}`),
-    ])
+    ],
+    {
+      windowsHide: true,
+      stdio: ['inherit', 'inherit', 'inherit', 'pipe', 'pipe', 'pipe'],
+    },
+  );
+
+  // @ts-expect-error
+  audio.pipe(ffmpegProcess.stdio[4]);
+
+  audio
     .on('progress', (progress: any) => {
       updateProg(progress.percent);
       updateVel(progress.currentSpeed);
@@ -53,25 +70,28 @@ export const downloadAudio = async (
     .on('error', (err: any) => {
       console.error(`%c ${err}`, 'color: #F87D7A');
       callback();
-    })
-    .on('close', () => {
-      if (clips.length) {
-        updateInfo('Cutting video ...');
-        const promises = [];
-        let i = 1;
-        for (const clip of clips) {
-          promises.push(cutAudio(clip[0], clip[1], path, title, i, ext));
-          i++;
-        }
+    });
 
-        Promise.all(promises).then(() => {
-          fs.unlinkSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`));
-          updateInfo(`Done downloading ${title}`);
-          callback();
-        });
-      } else {
+  audio.on('error', console.log);
+
+  ffmpegProcess.on('close', () => {
+    if (clips.length) {
+      updateInfo('Cutting video ...');
+      const promises = [];
+      let i = 1;
+      for (const clip of clips) {
+        promises.push(cutAudio(clip[0], clip[1], path, title, i, ext));
+        i++;
+      }
+
+      Promise.all(promises).then(() => {
+        fs.unlinkSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`));
         updateInfo(`Done downloading ${title}`);
         callback();
-      }
-    });
+      });
+    } else {
+      updateInfo(`Done downloading ${title}`);
+      callback();
+    }
+  });
 };

@@ -17,8 +17,6 @@ export const cutAudio = async (start: number, end: number, path: string, title: 
         join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`),
         '-to',
         duration.toString(),
-        '-c:a',
-        'aac',
         '-y',
         join(path, `${title}-clip-${i}.${ext}`),
       ],

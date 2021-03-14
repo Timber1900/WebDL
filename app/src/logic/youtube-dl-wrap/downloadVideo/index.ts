@@ -44,6 +44,8 @@ export const downloadVideo = async (
 
   if (clips.length) await fs.unlink(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`), () => {});
 
+  console.log(ext);
+
   const ffmpegProcess = spawn(
     ffmpeg,
     [

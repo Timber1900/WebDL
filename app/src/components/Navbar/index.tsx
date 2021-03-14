@@ -1,8 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Container, OptionOuter, NavButton, NavLabel, NavSpan, BrowseInput } from './style';
-import fs from 'fs';
-import { join } from 'path';
-import OS from 'os';
 import { port } from '../../logic/server/server';
 import { path, setPath } from '../../logic/getPath';
 
@@ -11,7 +8,7 @@ const selectPort = () => {
   if (!(temp_port && /^[0-9]+$/.test(temp_port))) {
     alert('Port has to be a whole number');
   } else {
-    fs.writeFileSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'port.json'), JSON.stringify({ port }));
+    window.localStorage.setItem('port', temp_port);
     chrome.runtime.reload();
   }
 };
@@ -73,17 +70,15 @@ const Navbar = () => {
           <NavLabel>Filetype:</NavLabel>
           <select defaultValue={ext} onChange={(e) => setExt(e.target.value)}>
             <optgroup label="Video">
-              <option value={-3}>mkv</option>
-              <option value={-2}>mp4</option>
-              <option value={-1} disabled={true}>
-                webm
-              </option>
+              <option value="v mkv">mkv</option>
+              <option value="v mp4">mp4</option>
+              <option value="v webm">webm</option>
             </optgroup>
             <optgroup label="Audio">
-              <option value={1} disabled={true}>
-                mp3
-              </option>
-              <option value={2}>m4a</option>
+              <option value="a mp3">mp3</option>
+              <option value="a m4a">m4a</option>
+              <option value="a ogg">ogg</option>
+              <option value="a wav">wav</option>
             </optgroup>
           </select>
         </NavSpan>

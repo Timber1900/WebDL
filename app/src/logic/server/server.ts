@@ -1,23 +1,12 @@
 import express from 'express';
-import fs from 'fs';
-import { join } from 'path';
-import OS from 'os';
 import { addToQueue } from './addToQueue';
 
 const app = express();
 
-export let port: string = '3003';
+export let port: `${number}` = (window.localStorage.getItem('port') as `${number}`) ?? '3003';
+if (!window.localStorage.getItem('port')) window.localStorage.setItem('port', port);
 
-try {
-  const data = fs.readFileSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'port.json')).toString();
-  port = JSON.parse(data).port;
-} catch (error) {
-  port = '1234';
-  fs.mkdir(join(OS.homedir(), 'AppData', 'Roaming', '.webdl'), () => {});
-  fs.writeFileSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'port.json'), JSON.stringify({ port }));
-}
-
-app.listen(Number(port));
+app.listen(port);
 app.use(express.json());
 
 app.post('/', (req, res) => {

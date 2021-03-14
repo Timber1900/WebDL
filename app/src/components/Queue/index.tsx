@@ -71,12 +71,12 @@ const Queue: FC = () => {
       const vid = outQueue[skipped];
       const format = vid.quality.get(vid.curQual);
       setDisable(true);
-      if (Math.sign(parseInt(vid.ext)) === -1) {
-        let ext: string = vid.ext === '-3' ? 'mkv' : vid.ext === '-2' ? 'mp4' : 'webm';
-        downloadVideo(vid.id, callback, vid.title, vid.merge, format, ext, vid.clips, vid.duration);
+      const [type, extension] = vid.ext.split(' ');
+
+      if (type === 'v') {
+        downloadVideo(vid.id, callback, vid.title, vid.merge, format, extension, vid.clips, vid.duration);
       } else {
-        let ext: string = vid.ext === '1' ? 'mp3' : 'm4a';
-        downloadAudio(vid.id, callback, vid.title, ext, vid.clips, vid.duration);
+        downloadAudio(vid.id, callback, vid.title, extension, vid.clips, vid.duration);
       }
     }
   };
@@ -123,7 +123,6 @@ const Queue: FC = () => {
         </button>
         <button onClick={inputUrl}>Input url</button>
         <button onClick={search}>Search Youtube</button>
-        {/* <button onClick={() => addToQueue('PLKYU22RTU_BNQ-yXwT8rF94zBLGLy5iT-')}>Test</button> */}
       </ButtonsContainer>
     </Outer>
   );
