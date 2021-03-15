@@ -43,7 +43,7 @@ const Navbar = () => {
     window.localStorage.setItem('ytdl-lastcheck', '0');
     window.localStorage.setItem('webdl-lastcheck', '0');
 
-    await CheckUpdates();
+    console.log(await CheckUpdates());
   };
 
   return (
@@ -75,6 +75,10 @@ const Navbar = () => {
           <NavButton onClick={selectPort}>Change</NavButton>
         </NavSpan>
         <NavSpan>
+          <NavLabel>Check for updates</NavLabel>
+          <NavButton onClick={check}>Check</NavButton>
+        </NavSpan>
+        <NavSpan>
           <NavLabel>Filetype:</NavLabel>
           <select defaultValue={ext} onChange={(e) => setExt(e.target.value)}>
             <optgroup label="Video">
@@ -89,10 +93,6 @@ const Navbar = () => {
               <option value="a wav">wav</option>
             </optgroup>
           </select>
-        </NavSpan>
-        <NavSpan>
-          <NavLabel>Check for updates</NavLabel>
-          <NavButton onClick={check}>Check</NavButton>
         </NavSpan>
       </OptionOuter>
     </Container>

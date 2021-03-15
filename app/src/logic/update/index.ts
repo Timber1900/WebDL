@@ -83,7 +83,8 @@ export const downloadInstaller = () => {
                     cwd: OS.homedir(),
                     env: process.env,
                   });
-                  window.close();
+                  //@ts-expect-error
+                  nw.Window.get().close(true);
                 } else {
                   res(Status.PASS);
                 }
@@ -91,7 +92,7 @@ export const downloadInstaller = () => {
               .catch((error) => {
                 rej({ code: Status.ERR, error });
               });
-            const updateTest = async () => {
+            const InformUser = async () => {
               if (util.inspect(promise).includes('pending')) {
                 if (curInfo.includes('Newer version found, downloading')) {
                   const new_info =
@@ -100,10 +101,11 @@ export const downloadInstaller = () => {
                       : `${curInfo}.`;
                   updateInfo(new_info);
                 }
-                setTimeout(updateTest, 333);
+                setTimeout(InformUser, 333);
               }
             };
-            updateTest();
+            updateInfo('Newer version found, downloading');
+            InformUser();
           } else {
             res(Status.PASS);
           }
@@ -118,6 +120,11 @@ export const downloadInstaller = () => {
 };
 
 export const CheckUpdates = async () => {
-  await downloadLatestRealease();
-  await downloadInstaller();
+  const codes: any[] = [];
+  console.log(codes);
+  codes.push(await downloadLatestRealease());
+  console.log(codes);
+  codes.push(await downloadInstaller());
+  console.log(codes);
+  return codes;
 };
