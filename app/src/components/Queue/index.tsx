@@ -1,36 +1,25 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useContext, useState } from 'react';
 import { Outer, QueueContainer, ButtonsContainer } from './style';
-import Item, { Props } from './Item';
+import Item from './Item';
 import { ID } from '../../logic/id';
 import { downloadVideo } from '../../logic/youtube-dl-wrap/downloadVideo';
 import { downloadAudio } from '../../logic/youtube-dl-wrap/downloadAudio';
 import { addToQueue } from '../../logic/server/addToQueue';
-import { changeSearch, searchIsUp } from '../Search';
-
-export let updateQueue: React.Dispatch<React.SetStateAction<Props[]>>;
-export let outQueue: Array<Props>;
+import { InfoQueueContext } from '../../contexts/InfoQueueContext';
 
 const Queue: FC = () => {
-  const emptyQueue: Array<Props> = [];
-  const [queue, setQueue] = useState(emptyQueue);
   const [disable, setDisable] = useState(false);
-
-  useEffect(() => {
-    updateQueue = setQueue;
-  }, []);
-
-  useEffect(() => {
-    outQueue = queue;
-  }, [queue]);
+  const context = useContext(InfoQueueContext);
+  const { curQueue, updateQueue, updateSearch } = context;
 
   const downloadQueue = () => {
-    updateQueue(outQueue);
+    updateQueue(curQueue);
 
     let skipped = 0;
     const callback = () => {
-      const removedQueue = [...outQueue];
+      const removedQueue = [...curQueue];
       removedQueue.splice(skipped, 1);
-      setQueue(removedQueue);
+      updateQueue(removedQueue);
       let tryAgain = true;
       while (tryAgain) {
         if (removedQueue.length > skipped) {
@@ -44,13 +33,14 @@ const Queue: FC = () => {
 
       if (removedQueue.length > skipped) {
         const vid = removedQueue[skipped];
+        console.log(vid);
         const format = vid.quality.get(vid.curQual);
         if (Math.sign(parseInt(vid.ext)) === -1) {
           let ext: string = vid.ext === '-3' ? 'mkv' : vid.ext === '-2' ? 'mp4' : 'webm';
-          downloadVideo(vid.id, callback, vid.title, vid.merge, format, ext, vid.clips, vid.duration);
+          downloadVideo(vid.id, callback, vid.title, vid.merge, format, ext, vid.clips, vid.duration, context);
         } else {
           let ext: string = vid.ext === '1' ? 'mp3' : 'm4a';
-          downloadAudio(vid.id, callback, vid.title, ext, vid.clips, vid.duration);
+          downloadAudio(vid.id, callback, vid.title, ext, vid.clips, vid.duration, context);
         }
       } else {
         setDisable(false);
@@ -59,24 +49,24 @@ const Queue: FC = () => {
 
     let tryAgain = true;
     while (tryAgain) {
-      if (outQueue.length > skipped) {
-        const vid = outQueue[skipped];
+      if (curQueue.length > skipped) {
+        const vid = curQueue[skipped];
         if (vid.download) tryAgain = false;
         if (tryAgain) skipped++;
       } else {
         tryAgain = false;
       }
     }
-    if (outQueue.length > skipped) {
-      const vid = outQueue[skipped];
+    if (curQueue.length > skipped) {
+      const vid = curQueue[skipped];
+      console.log(vid);
       const format = vid.quality.get(vid.curQual);
       setDisable(true);
       const [type, extension] = vid.ext.split(' ');
-
       if (type === 'v') {
-        downloadVideo(vid.id, callback, vid.title, vid.merge, format, extension, vid.clips, vid.duration);
+        downloadVideo(vid.id, callback, vid.title, vid.merge, format, extension, vid.clips, vid.duration, context);
       } else {
-        downloadAudio(vid.id, callback, vid.title, extension, vid.clips, vid.duration);
+        downloadAudio(vid.id, callback, vid.title, extension, vid.clips, vid.duration, context);
       }
     }
   };
@@ -90,13 +80,13 @@ const Queue: FC = () => {
   };
 
   const search = () => {
-    changeSearch(!searchIsUp);
+    updateSearch(true);
   };
 
   return (
     <Outer>
       <QueueContainer>
-        {queue.map((val, i) => (
+        {curQueue.map((val, i) => (
           <Item
             title={val.title}
             thumbnail={val.thumbnail}
@@ -118,7 +108,7 @@ const Queue: FC = () => {
         <button onClick={downloadQueue} disabled={disable}>
           Download Videos
         </button>
-        <button onClick={() => setQueue([])} disabled={disable}>
+        <button onClick={() => updateQueue([])} disabled={disable}>
           Clear queue
         </button>
         <button onClick={inputUrl}>Input url</button>

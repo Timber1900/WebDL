@@ -4,9 +4,10 @@ import { exec, spawn } from 'child_process';
 import { join } from 'path';
 import OS from 'os';
 import util from 'util';
-import { curInfo, updateInfo } from '../../components/InfoLabel';
 import { Status, Duration } from '../../Constants';
 import { downloadLatestRealease } from '../youtube-dl-wrap/downloadLatestRelease';
+import { InfoQueueContextData } from '../../contexts/InfoQueueContext';
+import { outerContext } from '../../App';
 
 export const getVersion = (page = 1, perPage = 1): any => {
   return new Promise((resolve, reject) => {
@@ -51,8 +52,7 @@ const downloadFile = (fileURL: string, filePath: string) => {
   });
 };
 
-export const downloadInstaller = () => {
-  console.log('searching');
+export const downloadInstaller = ({ curInfo, updateInfo }: InfoQueueContextData) => {
   return new Promise((res, rej) => {
     new Promise((resolve, reject) => {
       const ls = exec(
@@ -124,7 +124,7 @@ export const CheckUpdates = async () => {
   console.log(codes);
   codes.push(await downloadLatestRealease());
   console.log(codes);
-  codes.push(await downloadInstaller());
+  codes.push(await downloadInstaller(outerContext));
   console.log(codes);
   return codes;
 };

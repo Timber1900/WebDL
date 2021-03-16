@@ -1,23 +1,13 @@
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useContext } from 'react';
+import { InfoQueueContext } from '../../contexts/InfoQueueContext';
 import { Container, ILabel } from './style';
 
-export let updateInfo: React.Dispatch<React.SetStateAction<string>>;
-export let curInfo: string;
-
 const InfoLabel: FC = () => {
-  const [info, setInfo] = useState('Waiting for download');
-
-  useEffect(() => {
-    updateInfo = setInfo;
-  }, []);
-
-  useEffect(() => {
-    curInfo = info;
-  }, [info]);
+  const { curInfo } = useContext(InfoQueueContext);
 
   return (
     <Container>
-      <ILabel>{info}</ILabel>
+      <ILabel>{curInfo}</ILabel>
     </Container>
   );
 };

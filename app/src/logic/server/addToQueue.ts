@@ -1,12 +1,10 @@
-import { outQueue, updateQueue } from '../../components/Queue';
-import { updateInfo, curInfo } from '../../components/InfoLabel';
 import ytpl from 'ytpl';
 import { youtubeDlWrap } from '../youtube-dl-wrap';
 import ytdl from 'ytdl-core';
 import { getOtherDiv } from './getOtherInfo';
 import { getYoutubeDiv } from './getYoutubeInfo';
 import util from 'util';
-
+import { outerContext } from '../../App';
 type info = {
   ytdl: boolean;
 };
@@ -39,6 +37,7 @@ async function getQueueDiv(url: string) {
 }
 
 export const addToQueue = async (url: string) => {
+  const { curInfo, curQueue, updateInfo, updateQueue } = outerContext;
   updateInfo('Fetching videos');
   const videos = await ytpl(url, { pages: Infinity }).catch(() => {});
   const urls = [];
@@ -58,7 +57,7 @@ export const addToQueue = async (url: string) => {
 
   promise.then((val: any) => {
     if (val) {
-      const prevQueue = [...outQueue];
+      const prevQueue = [...curQueue];
       for (const divs of val) {
         if (divs) {
           for (const div of divs) {
@@ -75,14 +74,16 @@ export const addToQueue = async (url: string) => {
 
   const updateTest = async () => {
     if (util.inspect(promise).includes('pending')) {
-      if (curInfo.includes('Fetching videos')) {
-        const new_info =
-          curInfo.substring(curInfo.length - 3, curInfo.length) === '...'
-            ? curInfo.substring(0, curInfo.length - 3)
-            : `${curInfo}.`;
-        updateInfo(new_info);
+      if (curInfo) {
+        if (curInfo.includes('Fetching videos')) {
+          const new_info =
+            curInfo.substring(curInfo.length - 3, curInfo.length) === '...'
+              ? curInfo.substring(0, curInfo.length - 3)
+              : `${curInfo}.`;
+          updateInfo(new_info);
+        }
+        setTimeout(updateTest, 333);
       }
-      setTimeout(updateTest, 333);
     }
   };
 

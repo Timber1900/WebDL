@@ -1,6 +1,6 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useContext, useState } from 'react';
+import { InfoQueueContext } from '../../contexts/InfoQueueContext';
 import { ID } from '../../logic/id';
-import { outQueue, updateQueue } from '../Queue';
 import {
   Container,
   InnerContainer,
@@ -48,7 +48,6 @@ export interface InnerProps {
 
 const Trim: FC<Props> = (prop: Props) => {
   const [show, setShow] = useState(false);
-
   const changeShow = () => setShow(!show);
 
   return (
@@ -61,6 +60,7 @@ const Trim: FC<Props> = (prop: Props) => {
 
 const TimeInput: FC<OtherProps> = (prop: OtherProps) => {
   const [innerClips, setInnerClips] = useState<InnerProps[]>(prop.clips);
+  const { curQueue, updateQueue } = useContext(InfoQueueContext);
 
   const addClip = () => {
     const temp = [...innerClips];
@@ -78,8 +78,8 @@ const TimeInput: FC<OtherProps> = (prop: OtherProps) => {
       i: prop.i,
       change: null,
     });
-    outQueue[prop.i].clips = temp;
-    updateQueue(outQueue);
+    curQueue[prop.i].clips = temp;
+    updateQueue(curQueue);
     setInnerClips(temp);
   };
 
@@ -119,31 +119,32 @@ const TimeInput: FC<OtherProps> = (prop: OtherProps) => {
 
 const TimeInputInner: FC<InnerProps> = (prop: InnerProps) => {
   const { h1, m1, s1, h2, m2, s2 } = prop;
+  const { curQueue, updateQueue } = useContext(InfoQueueContext);
 
   const changeStart = (value: string) => {
     const [hour, min, sec] = value.split(':');
-    outQueue[prop.i].clips[prop.index].h1 = hour;
-    outQueue[prop.i].clips[prop.index].m1 = min;
-    outQueue[prop.i].clips[prop.index].s1 = sec;
+    curQueue[prop.i].clips[prop.index].h1 = hour;
+    curQueue[prop.i].clips[prop.index].m1 = min;
+    curQueue[prop.i].clips[prop.index].s1 = sec;
     const total = parseInt(hour) * 3600 + parseInt(min) * 60 + parseInt(sec);
-    outQueue[prop.i].clips[prop.index].start = total;
-    prop.change(outQueue[prop.i].clips);
+    curQueue[prop.i].clips[prop.index].start = total;
+    prop.change(curQueue[prop.i].clips);
   };
 
   const changeEnd = (value: string) => {
     const [hour, min, sec] = value.split(':');
-    outQueue[prop.i].clips[prop.index].h2 = hour;
-    outQueue[prop.i].clips[prop.index].m2 = min;
-    outQueue[prop.i].clips[prop.index].s2 = sec;
+    curQueue[prop.i].clips[prop.index].h2 = hour;
+    curQueue[prop.i].clips[prop.index].m2 = min;
+    curQueue[prop.i].clips[prop.index].s2 = sec;
     const total = parseInt(hour) * 3600 + parseInt(min) * 60 + parseInt(sec);
-    outQueue[prop.i].clips[prop.index].end = total;
-    prop.change(outQueue[prop.i].clips);
+    curQueue[prop.i].clips[prop.index].end = total;
+    prop.change(curQueue[prop.i].clips);
   };
 
   const remove = () => {
-    const new_clips = outQueue[prop.i].clips.filter((e) => e.id !== prop.id);
-    outQueue[prop.i].clips = new_clips;
-    updateQueue(outQueue);
+    const new_clips = curQueue[prop.i].clips.filter((e) => e.id !== prop.id);
+    curQueue[prop.i].clips = new_clips;
+    updateQueue(curQueue);
     prop.change(new_clips);
   };
 

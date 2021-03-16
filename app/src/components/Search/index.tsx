@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, useRef } from 'react';
+import React, { FC, useEffect, useState, useRef, useContext } from 'react';
 import {
   Container,
   Input,
@@ -15,26 +15,20 @@ import {
 } from './style';
 import ytsr from 'ytsr';
 import { addToQueue } from '../../logic/server/addToQueue';
+import { InfoQueueContext } from '../../contexts/InfoQueueContext';
 
-export let changeSearch: React.Dispatch<React.SetStateAction<boolean>>;
-export let searchIsUp: boolean;
 let changeIframe: React.Dispatch<React.SetStateAction<string>>;
 
 const Search: FC = () => {
-  const [show, setShow] = useState(false);
   const [items, setItems] = useState<Props[]>([]);
   const [iframeUrl, setIframeUrl] = useState<string>('');
-  const [curSearch, setCurSearch] = useState<ytsr.Result | ytsr.ContinueResult>();
+  const [currSearch, setCurSearch] = useState<ytsr.Result | ytsr.ContinueResult>();
+  const { curSearch, updateSearch } = useContext(InfoQueueContext);
   const inputRef = useRef(null);
 
   useEffect(() => {
-    changeSearch = setShow;
     changeIframe = setIframeUrl;
   }, []);
-
-  useEffect(() => {
-    searchIsUp = show;
-  }, [show]);
 
   const setSearch = (search: ytsr.Result | ytsr.ContinueResult) => {
     setCurSearch(search);
@@ -61,18 +55,15 @@ const Search: FC = () => {
   };
 
   const nextPage = async () => {
-    if (curSearch?.continuation) {
-      const search = await await ytsr.continueReq(curSearch.continuation);
+    if (currSearch?.continuation) {
+      const search = await await ytsr.continueReq(currSearch.continuation);
       setCurSearch(search);
       setSearch(search);
     }
   };
 
   return (
-    <Container
-      // @ts-ignore: Object is possibly 'null'.
-      show={show}
-    >
+    <Container>
       <InputDiv>
         <Input
           ref={inputRef}
@@ -97,7 +88,8 @@ const Search: FC = () => {
       <ButtonsContainer>
         <button
           onClick={() => {
-            setShow(!show);
+            console.log(curSearch);
+            updateSearch(false);
           }}
         >
           Leave

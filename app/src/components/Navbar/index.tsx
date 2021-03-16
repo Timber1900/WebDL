@@ -19,7 +19,7 @@ export let outExt: string;
 const Navbar = () => {
   const inputRef = useRef(null);
   const [curPath, setCurPath] = useState(path);
-  const [ext, setExt] = useState('-3');
+  const [ext, setExt] = useState('v mkv');
 
   useEffect(() => {
     if (inputRef && inputRef.current) {
@@ -84,6 +84,7 @@ const Navbar = () => {
             <optgroup label="Video">
               <option value="v mkv">mkv</option>
               <option value="v mp4">mp4</option>
+              <option value="v avi">avi</option>
               <option value="v webm">webm</option>
             </optgroup>
             <optgroup label="Audio">

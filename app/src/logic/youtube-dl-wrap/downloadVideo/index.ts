@@ -1,4 +1,3 @@
-import { updateInfo } from '../../../components/InfoLabel';
 import { join } from 'path';
 import OS from 'os';
 import { path } from '../../getPath';
@@ -8,6 +7,7 @@ import { InnerProps } from '../../../components/Trim';
 import { cutVid } from '../cutVid';
 import { execStream } from '../execStream';
 import { spawn } from 'child_process';
+import { InfoQueueContextData } from '../../../contexts/InfoQueueContext';
 
 export const downloadVideo = async (
   url: string,
@@ -18,6 +18,7 @@ export const downloadVideo = async (
   ext: string,
   raw_clips: InnerProps[],
   length: number,
+  { updateInfo }: InfoQueueContextData,
 ) => {
   const clips: number[][] = [];
 

@@ -1,21 +1,18 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: ${(props) => {
-    // @ts-ignore: Object is possibly 'null'.
-    return props?.show ? 'flex' : 'none';
-  }};
+  display: flex;
   position: fixed;
   justify-content: flex-start;
   flex-direction: column;
 
-  left: 4vw;
-  right: 4vw;
-  top: 4vh;
-  bottom: 4vh;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   background-color: var(--black);
-  border-radius: 5px;
-  border: 2px solid var(--almost-black);
+  /* border-radius: 5px; */
+  /* border: 2px solid var(--almost-black); */
 `;
 
 export const InputDiv = styled.div`

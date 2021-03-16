@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useContext, useEffect, useRef, useState } from 'react';
 import {
   PlayItem,
   ImagePreview,
@@ -15,9 +15,9 @@ import Quality from '../../Quality';
 import KebabMenu from '../../KebabMenu';
 import { downloadVideo } from '../../../logic/youtube-dl-wrap/downloadVideo';
 import { downloadAudio } from '../../../logic/youtube-dl-wrap/downloadAudio';
-import { outQueue, updateQueue } from '../index';
 import { InnerProps } from '../../Trim';
 import { ID } from '../../../logic/id';
+import { InfoQueueContext } from '../../../contexts/InfoQueueContext';
 
 let changeTitle: React.Dispatch<React.SetStateAction<string>>;
 
@@ -65,32 +65,26 @@ const Item: FC<Props> = (props: Props) => {
   const [show, setShow] = useState(props.download);
   const [ext, setExt] = useState(props.ext);
   const refs: any = [titleLabel];
+  const context = useContext(InfoQueueContext);
+  const { curQueue, updateQueue } = context;
 
   useEffect(() => {
     changeTitle = setTitle;
   }, []);
 
-  useEffect(() => {
-    if (outQueue && outQueue[props.i]) outQueue[props.i].curQual = qual;
-  }, [qual, props]);
-
-  useEffect(() => {
-    if (outQueue && outQueue[props.i]) outQueue[props.i].ext = ext;
-  }, [ext, props]);
-
   const dv = () => {
     // @ts-ignore: Object is possibly 'null'.
     const format = props.quality.get(qual);
     const callback = () => {
-      const removedQueue = outQueue.filter((e) => e.id !== props.id);
+      const removedQueue = curQueue.filter((e) => e.id !== props.id);
       updateQueue(removedQueue);
     };
     const [type, extension] = ext.split(' ');
     console.log({ type, extension, ext });
     if (type === 'v') {
-      downloadVideo(id, callback, title, merge, format, extension, clips, duration);
+      downloadVideo(id, callback, title, merge, format, extension, clips, duration, context);
     } else {
-      downloadAudio(id, callback, title, extension, clips, duration);
+      downloadAudio(id, callback, title, extension, clips, duration, context);
     }
   };
 
@@ -98,7 +92,7 @@ const Item: FC<Props> = (props: Props) => {
     const res = refs.filter((val: any) => val.current === e.target || val === e.target);
     if (res.length) {
       setShow(!show);
-      outQueue[props.i].download = !show;
+      curQueue[props.i].download = !show;
     }
   };
 
@@ -145,6 +139,7 @@ const Item: FC<Props> = (props: Props) => {
                 <optgroup label="Video">
                   <option value="v mkv">mkv</option>
                   <option value="v mp4">mp4</option>
+                  <option value="v avi">avi</option>
                   <option value="v webm">webm</option>
                 </optgroup>
                 <optgroup label="Audio">
