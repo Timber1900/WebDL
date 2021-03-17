@@ -59,7 +59,6 @@ const Queue: FC = () => {
     }
     if (curQueue.length > skipped) {
       const vid = curQueue[skipped];
-      console.log(vid);
       const format = vid.quality.get(vid.curQual);
       setDisable(true);
       const [type, extension] = vid.ext.split(' ');

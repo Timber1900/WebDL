@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useRef, useState } from 'react';
+import React, { FC, useContext, useRef, useState } from 'react';
 import {
   PlayItem,
   ImagePreview,
@@ -19,30 +19,7 @@ import { InnerProps } from '../../Trim';
 import { ID } from '../../../logic/id';
 import { InfoQueueContext } from '../../../contexts/InfoQueueContext';
 
-let changeTitle: React.Dispatch<React.SetStateAction<string>>;
-
-const renameVideo = function (e: any) {
-  e.setAttribute('contenteditable', true);
-  e.focus();
-  const label = e;
-  function stopRenameEnter(event: any) {
-    if (event.target === label && event.key === 'Enter') {
-      label.innerHTML.replace(/\n/g, '');
-      label.setAttribute('contenteditable', false);
-      document.removeEventListener('keydown', stopRenameEnter);
-      changeTitle(label.innerHTML);
-    }
-  }
-  function stopRename() {
-    label.setAttribute('contenteditable', false);
-    label.removeEventListener('focusout', stopRename);
-    changeTitle(label.innerHTML);
-  }
-  document.addEventListener('keydown', stopRenameEnter);
-  e.addEventListener('focusout', stopRename);
-};
-
-export type Props = {
+export interface Props {
   i: number;
   id: string;
   thumbnail: string;
@@ -55,22 +32,52 @@ export type Props = {
   ext: string;
   duration: number;
   clips: InnerProps[];
-};
+}
 
 const Item: FC<Props> = (props: Props) => {
   const { id, merge, clips, i, duration } = props;
   const titleLabel = useRef(null);
-  const [title, setTitle] = useState(props.title);
+  const title = props.title;
   const [qual, setQual] = useState<string>(props.quality.entries().next().value[0]);
   const [show, setShow] = useState(props.download);
-  const [ext, setExt] = useState(props.ext);
+  const ext = props.ext;
   const refs: any = [titleLabel];
   const context = useContext(InfoQueueContext);
   const { curQueue, updateQueue } = context;
 
-  useEffect(() => {
-    changeTitle = setTitle;
-  }, []);
+  const renameVideo = function (e: any) {
+    const label = e;
+    label.setAttribute('contenteditable', true);
+    label.focus();
+
+    const changeTitle = (title: string) => {
+      const tempQueue = [...curQueue];
+      tempQueue[i].title = title;
+      updateQueue(tempQueue);
+    };
+
+    function stopRenameEnter(event: any) {
+      if (event.target === label && event.key === 'Enter') {
+        label.innerHTML.replace(/\n/g, '');
+        label.setAttribute('contenteditable', false);
+        document.removeEventListener('keydown', stopRenameEnter);
+        changeTitle(label.innerHTML);
+      }
+    }
+    function stopRename() {
+      label.setAttribute('contenteditable', false);
+      label.removeEventListener('focusout', stopRename);
+      changeTitle(label.innerHTML);
+    }
+    document.addEventListener('keydown', stopRenameEnter);
+    e.addEventListener('focusout', stopRename);
+  };
+
+  const changeExt = (ext: string) => {
+    const tempQueue = [...curQueue];
+    tempQueue[i].ext = ext;
+    updateQueue(tempQueue);
+  };
 
   const dv = () => {
     // @ts-ignore: Object is possibly 'null'.
@@ -135,7 +142,7 @@ const Item: FC<Props> = (props: Props) => {
             <Quality quality={props.quality} setQual={setQual} />
             <Outer>
               <label>Filetype:</label>
-              <select defaultValue={ext} onChange={(e) => setExt(e.target.value)}>
+              <select defaultValue={ext} onChange={(e) => changeExt(e.target.value)}>
                 <optgroup label="Video">
                   <option value="v mkv">mkv</option>
                   <option value="v mp4">mp4</option>

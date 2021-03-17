@@ -67,7 +67,6 @@ export const downloadInstaller = ({ curInfo, updateInfo }: InfoQueueContextData)
       .then(async (val) => {
         let last_check: `${number}` | number =
           (window.localStorage.getItem('webdl-lastcheck') as `${number}`) ?? Date.now() - Duration.DAY;
-        console.log(last_check);
         if (Date.now() - Number(last_check) >= Duration.DAY) {
           window.localStorage.setItem('webdl-lastcheck', `${Date.now()}`);
           const [{ tag_name }] = await getVersion();
@@ -121,10 +120,7 @@ export const downloadInstaller = ({ curInfo, updateInfo }: InfoQueueContextData)
 
 export const CheckUpdates = async () => {
   const codes: any[] = [];
-  console.log(codes);
   codes.push(await downloadLatestRealease());
-  console.log(codes);
   codes.push(await downloadInstaller(outerContext));
-  console.log(codes);
   return codes;
 };

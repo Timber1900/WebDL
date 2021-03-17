@@ -39,8 +39,6 @@ export const downloadAudio = async (
   const ffmpeg = nw.require('ffmpeg-static');
   const audio = execStream([url, '-f', 'bestaudio']);
 
-  console.log(ext);
-
   const ffmpegProcess = spawn(
     ffmpeg,
     [
