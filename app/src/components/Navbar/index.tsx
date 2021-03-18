@@ -75,7 +75,7 @@ const Navbar = () => {
           <NavButton onClick={selectPort}>Change</NavButton>
         </NavSpan>
         <NavSpan>
-          <NavLabel>Check for updates</NavLabel>
+          <NavLabel>Check for updates:</NavLabel>
           <NavButton onClick={check}>Check</NavButton>
         </NavSpan>
         <NavSpan>
