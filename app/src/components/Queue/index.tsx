@@ -16,10 +16,13 @@ const Queue: FC = () => {
     updateQueue(curQueue);
 
     let skipped = 0;
+    let currentQueue = curQueue;
+
     const callback = () => {
-      const removedQueue = [...curQueue];
+      const removedQueue = [...currentQueue];
       removedQueue.splice(skipped, 1);
       updateQueue(removedQueue);
+      currentQueue = removedQueue;
       let tryAgain = true;
       while (tryAgain) {
         if (removedQueue.length > skipped) {
@@ -57,6 +60,7 @@ const Queue: FC = () => {
         tryAgain = false;
       }
     }
+    console.log(skipped);
     if (curQueue.length > skipped) {
       const vid = curQueue[skipped];
       const format = vid.quality.get(vid.curQual);
@@ -112,7 +116,7 @@ const Queue: FC = () => {
         </button>
         <button onClick={inputUrl}>Input url</button>
         <button onClick={search}>Search Youtube</button>
-        <button
+        {/* <button
           onClick={() => {
             const test: string[] = [];
             for (const item of curQueue) {
@@ -124,7 +128,7 @@ const Queue: FC = () => {
           }}
         >
           Test
-        </button>
+        </button> */}
       </ButtonsContainer>
     </Outer>
   );
