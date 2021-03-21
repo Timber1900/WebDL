@@ -8,6 +8,7 @@ export const NavButton = styled.button`
 
 export const NavLabel = styled.label`
   display: block;
+  max-width: max(14vw, 45px);
 `;
 
 export const Container = styled.div`
