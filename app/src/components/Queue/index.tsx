@@ -116,6 +116,19 @@ const Queue: FC = () => {
         </button>
         <button onClick={inputUrl}>Input url</button>
         <button onClick={search}>Search Youtube</button>
+        {/* <button
+          onClick={() => {
+            const test: string[] = [];
+            for (const item of curQueue) {
+              test.push(item.id);
+            }
+            const buff = Buffer.from(JSON.stringify(test));
+            const clipboard = nw.Clipboard.get();
+            clipboard.set(buff.toString('base64'), 'text');
+          }}
+        >
+          Test
+        </button> */}
       </ButtonsContainer>
     </Outer>
   );
