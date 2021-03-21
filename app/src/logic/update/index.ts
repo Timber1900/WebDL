@@ -72,6 +72,7 @@ export const downloadInstaller = ({ curInfo, updateInfo }: InfoQueueContextData)
           const [{ tag_name }] = await getVersion();
           console.log(tag_name);
           if (tag_name !== val) {
+            let currentInfo = 'Newer version found, downloading';
             alert('Newer version found, downloading');
             const promise = downloadFromGithub(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'WebDL.exe'))
               .then(() => {
@@ -93,11 +94,12 @@ export const downloadInstaller = ({ curInfo, updateInfo }: InfoQueueContextData)
               });
             const InformUser = async () => {
               if (util.inspect(promise).includes('pending')) {
-                if (curInfo.includes('Newer version found, downloading')) {
+                if (currentInfo.includes('Newer version found, downloading')) {
                   const new_info =
-                    curInfo.substring(curInfo.length - 3, curInfo.length) === '...'
-                      ? curInfo.substring(0, curInfo.length - 3)
-                      : `${curInfo}.`;
+                    currentInfo.substring(currentInfo.length - 3, currentInfo.length) === '...'
+                      ? currentInfo.substring(0, currentInfo.length - 3)
+                      : `${currentInfo}.`;
+                  currentInfo = new_info;
                   updateInfo(new_info);
                 }
                 setTimeout(InformUser, 333);

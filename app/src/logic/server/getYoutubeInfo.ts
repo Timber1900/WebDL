@@ -1,4 +1,4 @@
-import { outExt } from '../../components/Navbar';
+import { outerContext } from '../../App';
 import { Props } from '../../components/Queue/Item';
 import ytdl from 'ytdl-core';
 
@@ -40,7 +40,7 @@ export const getYoutubeDiv = (info: ytdl.videoInfo, i: number, url: string): Pro
       i,
       download: true,
       merge: true,
-      ext: outExt,
+      ext: outerContext.curExt,
       duration: parseInt(info.videoDetails.lengthSeconds),
       clips: [],
     });

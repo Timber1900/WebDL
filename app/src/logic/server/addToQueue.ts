@@ -37,8 +37,9 @@ async function getQueueDiv(url: string) {
 }
 
 export const addToQueue = async (url: string) => {
-  const { curInfo, curQueue, updateInfo, updateQueue } = outerContext;
-  updateInfo('Fetching videos');
+  const { curQueue, updateInfo, updateQueue } = outerContext;
+  let currentInfo = 'Fetching videos';
+  updateInfo(currentInfo);
   const videos = await ytpl(url, { pages: Infinity }).catch(() => {});
   const urls = [];
   if (videos) {
@@ -54,6 +55,22 @@ export const addToQueue = async (url: string) => {
   }
 
   const promise = Promise.all(divs);
+
+  const InformUser = async () => {
+    if (util.inspect(promise).includes('pending')) {
+      if (currentInfo.includes('Fetching videos')) {
+        const new_info =
+          currentInfo.substring(currentInfo.length - 3, currentInfo.length) === '...'
+            ? currentInfo.substring(0, currentInfo.length - 3)
+            : `${currentInfo}.`;
+        currentInfo = new_info;
+        updateInfo(new_info);
+      }
+      setTimeout(InformUser, 333);
+    }
+  };
+
+  InformUser();
 
   promise.then((val: any) => {
     if (val) {
@@ -71,21 +88,4 @@ export const addToQueue = async (url: string) => {
     }
     updateInfo('Done fetching');
   });
-
-  const updateTest = async () => {
-    if (util.inspect(promise).includes('pending')) {
-      if (curInfo) {
-        if (curInfo.includes('Fetching videos')) {
-          const new_info =
-            curInfo.substring(curInfo.length - 3, curInfo.length) === '...'
-              ? curInfo.substring(0, curInfo.length - 3)
-              : `${curInfo}.`;
-          updateInfo(new_info);
-        }
-        setTimeout(updateTest, 333);
-      }
-    }
-  };
-
-  updateTest();
 };

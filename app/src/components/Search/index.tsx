@@ -16,31 +16,45 @@ import {
 import ytsr from 'ytsr';
 import { addToQueue } from '../../logic/server/addToQueue';
 import { InfoQueueContext } from '../../contexts/InfoQueueContext';
+import mergeImages from 'merge-images';
+import playlistImage from '../../../assets/playlist.png';
 
 let changeIframe: React.Dispatch<React.SetStateAction<string>>;
+let changeId: React.Dispatch<React.SetStateAction<string>>;
 
 const Search: FC = () => {
   const [items, setItems] = useState<Props[]>([]);
   const [iframeUrl, setIframeUrl] = useState<string>('');
   const [currSearch, setCurSearch] = useState<ytsr.Result | ytsr.ContinueResult>();
-  const { curSearch, updateSearch } = useContext(InfoQueueContext);
+  const [id, setId] = useState<string>('');
+  const { updateSearch } = useContext(InfoQueueContext);
   const inputRef = useRef(null);
 
   useEffect(() => {
     changeIframe = setIframeUrl;
+    changeId = setId;
   }, []);
 
   const setSearch = (search: ytsr.Result | ytsr.ContinueResult) => {
     setCurSearch(search);
-    const videos = search.items.filter((e) => e.type === 'video');
+    const videos = search.items.filter((e) => e.type === 'video' || e.type === 'playlist');
     const vids: Props[] = [];
     for (const vid of videos) {
       if (vid.type === 'video') {
         vids.push({
           thumbnail: vid.bestThumbnail.url ?? '',
           title: vid.title,
-          url: vid.url,
+          url: vid.id,
           id: vid.id,
+          type: vid.type,
+        });
+      } else if (vid.type === 'playlist') {
+        vids.push({
+          thumbnail: vid.firstVideo.thumbnails[vid.firstVideo.thumbnails.length - 1].url ?? '',
+          title: vid.title,
+          url: vid.firstVideo.id,
+          id: vid.playlistID,
+          type: vid.type,
         });
       }
     }
@@ -81,14 +95,13 @@ const Search: FC = () => {
         />
         <ResultsContainer>
           {items.map((e, i) => {
-            return <Item thumbnail={e.thumbnail} title={e.title} url={e.url} id={e.id} key={i} />;
+            return <Item thumbnail={e.thumbnail} title={e.title} url={e.url} id={e.id} type={e.type} key={i} />;
           })}
         </ResultsContainer>
       </SearchContainer>
       <ButtonsContainer>
         <button
           onClick={() => {
-            console.log(curSearch);
             updateSearch(false);
           }}
         >
@@ -96,7 +109,7 @@ const Search: FC = () => {
         </button>
         <button
           onClick={() => {
-            addToQueue(iframeUrl);
+            addToQueue(id);
           }}
         >
           Add to queue
@@ -107,18 +120,45 @@ const Search: FC = () => {
   );
 };
 
-type Props = {
+interface Props {
   title: string;
   url: string;
   thumbnail: string;
   id: string;
+  type: string;
+}
+
+const getImage = (url: string) => {
+  return mergeImages([
+    { src: url },
+    {
+      src: playlistImage,
+      opacity: 0.8,
+    },
+  ]);
 };
 
 const Item: FC<Props> = (props: Props) => {
+  const [url, setUrl] = useState(props.thumbnail);
+  useEffect(() => {
+    if (props.type === 'playlist') {
+      getImage(props.thumbnail).then((val) => {
+        setUrl(val);
+      });
+    } else {
+      setUrl(props.thumbnail);
+    }
+  }, [props]);
+
   return (
-    <ItemDiv onClick={() => changeIframe(`https://www.youtube.com/embed/${props.id}`)}>
+    <ItemDiv
+      onClick={() => {
+        changeIframe(`https://www.youtube.com/embed/${props.url}`);
+        changeId(props.id);
+      }}
+    >
       <ImagePreview>
-        <ItemThumbnail src={props.thumbnail} />
+        <ItemThumbnail src={url} />
       </ImagePreview>
       <ItemLabel>{props.title}</ItemLabel>
     </ItemDiv>

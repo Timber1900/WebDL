@@ -3,7 +3,7 @@
 export const setUpMinimize = () => {
   //@ts-expect-error
   let win = nw.Window.get();
-  let forceClose = false;
+  // let forceClose = false;
   const menu = new nw.Menu();
 
   const OpenApp = new nw.MenuItem({
@@ -24,7 +24,7 @@ export const setUpMinimize = () => {
   });
 
   CloseApp.on('click', () => {
-    forceClose = true;
+    // forceClose = true;
     win.close(true);
   });
 
@@ -42,6 +42,7 @@ export const setUpMinimize = () => {
   });
 
   tray.on('click', function (this: any) {
+    console.log('click');
     win.show();
   });
 
@@ -49,21 +50,21 @@ export const setUpMinimize = () => {
     this.hide();
   });
 
-  win.on('close', function (this: any) {
-    this.hide();
-    if (forceClose) {
-      win = null;
-    }
-  });
+  // win.on('close', function (this: any) {
+  //   this.hide();
+  //   if (forceClose) {
+  //     win = null;
+  //   }
+  // });
 
-  //@ts-expect-error
-  nw.Window.get().on('close', function (this: any) {
-    if (forceClose) {
-      this.hide();
-      if (win !== null) {
-        win.close(true);
-      }
-      this.close(true);
-    }
-  });
+  // //@ts-expect-error
+  // nw.Window.get().on('close', function (this: any) {
+  //   if (forceClose) {
+  //     this.hide();
+  //     if (win !== null) {
+  //       win.close(true);
+  //     }
+  //     this.close(true);
+  //   }
+  // });
 };
