@@ -6,6 +6,7 @@ import { CheckUpdates } from './logic/update';
 import { setUpMinimize } from './logic/tray';
 import { addToQueue } from './logic/server/addToQueue';
 import { InfoQueueContext, InfoQueueContextData } from './contexts/InfoQueueContext';
+import ytpl from 'ytpl';
 
 export let outerContext: InfoQueueContextData;
 
@@ -13,6 +14,8 @@ function App() {
   const context = useContext(InfoQueueContext);
 
   useEffect(() => {
+    //@ts-ignore
+    window.ytpl = ytpl;
     setUpMinimize();
     CheckUpdates();
     window.addEventListener('paste', (event: any) => {

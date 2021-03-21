@@ -1,4 +1,4 @@
-import { outExt } from '../../components/Navbar';
+import { outerContext } from '../../App';
 import { Props } from '../../components/Queue/Item';
 
 export const getOtherDiv = (info: any, i: number, url: string): Promise<Props | null> => {
@@ -45,7 +45,7 @@ export const getOtherDiv = (info: any, i: number, url: string): Promise<Props | 
       i,
       download: true,
       merge: false,
-      ext: outExt,
+      ext: outerContext.curExt,
       duration: info.duration ?? 0,
       clips: [],
     });

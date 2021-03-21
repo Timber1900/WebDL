@@ -3,4 +3,4 @@
 
 declare module '*.png';
 declare module 'youtube-dl-wrap';
-declare module 'register-protocol-handler-windows';
+declare module 'react-image-overlay';

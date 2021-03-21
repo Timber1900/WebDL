@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Container, OptionOuter, NavButton, NavLabel, NavSpan, BrowseInput } from './style';
 import { port } from '../../logic/server/server';
 import { path, setPath } from '../../logic/getPath';
 import { CheckUpdates } from '../../logic/update';
+import { InfoQueueContext } from '../../contexts/InfoQueueContext';
 
 const selectPort = () => {
   let temp_port: string | null = prompt('Select the default port', port);
@@ -14,12 +15,10 @@ const selectPort = () => {
   }
 };
 
-export let outExt: string;
-
 const Navbar = () => {
   const inputRef = useRef(null);
   const [curPath, setCurPath] = useState(path);
-  const [ext, setExt] = useState('v mkv');
+  const { curExt, updateExt } = useContext(InfoQueueContext);
 
   useEffect(() => {
     if (inputRef && inputRef.current) {
@@ -34,10 +33,6 @@ const Navbar = () => {
       inputRef.current.nwworkingdir = curPath;
     }
   }, [curPath]);
-
-  useEffect(() => {
-    outExt = ext;
-  }, [ext]);
 
   const check = async () => {
     window.localStorage.setItem('ytdl-lastcheck', '0');
@@ -80,7 +75,7 @@ const Navbar = () => {
         </NavSpan>
         <NavSpan>
           <NavLabel>Filetype:</NavLabel>
-          <select defaultValue={ext} onChange={(e) => setExt(e.target.value)}>
+          <select defaultValue={curExt} onChange={(e) => updateExt(e.target.value)}>
             <optgroup label="Video">
               <option value="v mkv">mkv</option>
               <option value="v mp4">mp4</option>
