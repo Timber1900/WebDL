@@ -6,6 +6,7 @@ import { downloadVideo } from '../../logic/youtube-dl-wrap/downloadVideo';
 import { downloadAudio } from '../../logic/youtube-dl-wrap/downloadAudio';
 import { addToQueue } from '../../logic/server/addToQueue';
 import { InfoQueueContext } from '../../contexts/InfoQueueContext';
+import { downloadOther } from '../../logic/youtube-dl-wrap/downloadOther';
 
 const Queue: FC = () => {
   const [disable, setDisable] = useState(false);
@@ -38,12 +39,15 @@ const Queue: FC = () => {
         const vid = removedQueue[skipped];
         console.log(vid);
         const format = vid.quality.get(vid.curQual);
-        if (Math.sign(parseInt(vid.ext)) === -1) {
-          let ext: string = vid.ext === '-3' ? 'mkv' : vid.ext === '-2' ? 'mp4' : 'webm';
-          downloadVideo(vid.id, callback, vid.title, vid.merge, format, ext, vid.clips, vid.duration, context);
+        const [type, extension] = vid.ext.split(' ');
+        if (vid.merge) {
+          if (type === 'v') {
+            downloadVideo(vid.id, callback, vid.title, format, extension, vid.clips, vid.duration, context);
+          } else {
+            downloadAudio(vid.id, callback, vid.title, extension, vid.clips, vid.duration, context);
+          }
         } else {
-          let ext: string = vid.ext === '1' ? 'mp3' : 'm4a';
-          downloadAudio(vid.id, callback, vid.title, ext, vid.clips, vid.duration, context);
+          downloadOther(vid.id, callback, vid.title, extension, vid.clips, vid.duration, format, context);
         }
       } else {
         setDisable(false);
@@ -66,10 +70,15 @@ const Queue: FC = () => {
       const format = vid.quality.get(vid.curQual);
       setDisable(true);
       const [type, extension] = vid.ext.split(' ');
-      if (type === 'v') {
-        downloadVideo(vid.id, callback, vid.title, vid.merge, format, extension, vid.clips, vid.duration, context);
+      if (vid.merge) {
+        if (type === 'v') {
+          downloadVideo(vid.id, callback, vid.title, format, extension, vid.clips, vid.duration, context);
+        } else {
+          downloadAudio(vid.id, callback, vid.title, extension, vid.clips, vid.duration, context);
+        }
       } else {
-        downloadAudio(vid.id, callback, vid.title, extension, vid.clips, vid.duration, context);
+        console.log('OTHER');
+        downloadOther(vid.id, callback, vid.title, extension, vid.clips, vid.duration, format, context);
       }
     }
   };
@@ -116,11 +125,7 @@ const Queue: FC = () => {
         </button>
         <button onClick={inputUrl}>Input url</button>
         <button onClick={search}>Search Youtube</button>
-<<<<<<< HEAD
-        <button
-=======
         {/* <button
->>>>>>> edfdd3351df8036d862ef8072da97113ef63e832
           onClick={() => {
             const test: string[] = [];
             for (const item of curQueue) {
@@ -132,11 +137,7 @@ const Queue: FC = () => {
           }}
         >
           Test
-<<<<<<< HEAD
-        </button>
-=======
         </button> */}
->>>>>>> edfdd3351df8036d862ef8072da97113ef63e832
       </ButtonsContainer>
     </Outer>
   );

@@ -18,6 +18,7 @@ import { downloadAudio } from '../../../logic/youtube-dl-wrap/downloadAudio';
 import { InnerProps } from '../../Trim';
 import { ID } from '../../../logic/id';
 import { InfoQueueContext } from '../../../contexts/InfoQueueContext';
+import { downloadOther } from '../../../logic/youtube-dl-wrap/downloadOther';
 
 export interface Props {
   i: number;
@@ -87,11 +88,15 @@ const Item: FC<Props> = (props: Props) => {
       updateQueue(removedQueue);
     };
     const [type, extension] = ext.split(' ');
-    console.log({ type, extension, ext });
-    if (type === 'v') {
-      downloadVideo(id, callback, title, merge, format, extension, clips, duration, context);
+    if (merge) {
+      if (type === 'v') {
+        downloadVideo(id, callback, title, format, extension, clips, duration, context);
+      } else {
+        downloadAudio(id, callback, title, extension, clips, duration, context);
+      }
     } else {
-      downloadAudio(id, callback, title, extension, clips, duration, context);
+      console.log('OTHER');
+      downloadOther(id, callback, title, extension, clips, duration, format, context);
     }
   };
 

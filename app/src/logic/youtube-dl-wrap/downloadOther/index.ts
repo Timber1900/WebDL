@@ -4,19 +4,19 @@ import { path } from '../../getPath';
 import fs from 'fs';
 import { updateProg, updateVel } from '../../../components/Progress';
 import { InnerProps } from '../../../components/Trim';
-import { cutVid } from '../cutVid';
-import { execStream } from '../execStream';
+import { cutAudio } from '../cutVid';
 import { spawn } from 'child_process';
+import { execStream } from '../execStream';
 import { InfoQueueContextData } from '../../../contexts/InfoQueueContext';
 
-export const downloadVideo = async (
+export const downloadOther = async (
   url: string,
   callback: any,
   title: string,
-  videoFormat: any,
   ext: string,
   raw_clips: InnerProps[],
   length: number,
+  videoFormat: any,
   { updateInfo }: InfoQueueContextData,
 ) => {
   const clips: number[][] = [];
@@ -36,15 +36,9 @@ export const downloadVideo = async (
   const regex = /["*/:<>?\\|]/g;
   const fixedTitle: string = title.replace(regex, '');
 
-  const video = execStream([url, '-f', videoFormat]);
-  const audio = execStream([url, '-f', 'bestaudio']);
-
   // @ts-expect-error
   const ffmpeg = nw.require('ffmpeg-static');
-
-  if (clips.length) await fs.unlink(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`), () => {});
-
-  console.log(ext);
+  const video = execStream([url, '-f', videoFormat]);
 
   const ffmpegProcess = spawn(
     ffmpeg,
@@ -54,14 +48,6 @@ export const downloadVideo = async (
       '-hide_banner',
       '-i',
       'pipe:4',
-      '-i',
-      'pipe:5',
-      '-map',
-      '0:a',
-      '-map',
-      '1:v',
-      '-c:v',
-      'copy',
       '-y',
       clips.length
         ? join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`)
@@ -72,10 +58,9 @@ export const downloadVideo = async (
       stdio: ['inherit', 'inherit', 'inherit', 'pipe', 'pipe', 'pipe'],
     },
   );
+
   // @ts-expect-error
-  audio.pipe(ffmpegProcess.stdio[4]);
-  // @ts-expect-error
-  video.pipe(ffmpegProcess.stdio[5]);
+  video.pipe(ffmpegProcess.stdio[4]);
 
   video
     .on('progress', (progress: any) => {
@@ -86,18 +71,21 @@ export const downloadVideo = async (
       console.error(`%c ${err}`, 'color: #F87D7A');
       callback();
     });
+
+  video.on('error', console.log);
+
   ffmpegProcess.on('close', () => {
     if (clips.length) {
       updateInfo('Cutting video ...');
       const promises = [];
       let i = 1;
       for (const clip of clips) {
-        promises.push(cutVid(clip[0], clip[1], path, fixedTitle, i, ext));
+        promises.push(cutAudio(clip[0], clip[1], path, title, i, ext));
         i++;
       }
 
-      Promise.all(promises).then((val) => {
-        fs.unlink(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`), console.log);
+      Promise.all(promises).then(() => {
+        fs.unlinkSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`));
         updateInfo(`Done downloading ${title}`);
         callback();
       });
