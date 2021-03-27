@@ -1,8 +1,8 @@
 import React from 'react';
-import Progress from '../Progress';
-import Navbar from '../Navbar';
-import Queue from '../Queue';
-import InfoLabel from '../InfoLabel';
+import Progress from 'components/Progress';
+import Navbar from 'components/Navbar';
+import Queue from 'components/Queue';
+import InfoLabel from 'components/InfoLabel';
 
 const Layout = () => {
   return (

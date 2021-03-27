@@ -1,6 +1,6 @@
-import { spawn } from 'child_process';
-import { youtubeDlWrap } from '../index';
 import YoutubeDlWrap from 'youtube-dl-wrap';
+import { youtubeDlWrap } from '../index';
+import { spawn } from 'child_process';
 
 export const execStream = (youtubeDlArguments: any[] = []) => {
   youtubeDlArguments = youtubeDlArguments.concat(['-o', '-']);

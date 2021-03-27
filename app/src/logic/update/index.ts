@@ -1,13 +1,13 @@
 import https from 'https';
 import fs from 'fs';
-import { exec, spawn } from 'child_process';
-import { join } from 'path';
 import OS from 'os';
 import util from 'util';
+import { exec, spawn } from 'child_process';
+import { join } from 'path';
 import { Status, Duration } from '../../Constants';
-import { downloadLatestRealease } from '../youtube-dl-wrap/downloadLatestRelease';
-import { InfoQueueContextData } from '../../contexts/InfoQueueContext';
 import { outerContext } from '../../App';
+import { downloadLatestRealease } from '../youtube-dl-wrap/downloadLatestRelease';
+import { InfoQueueContextData } from 'contexts/InfoQueueContext';
 
 export const getVersion = (page = 1, perPage = 1): any => {
   return new Promise((resolve, reject) => {
@@ -104,8 +104,8 @@ export const downloadInstaller = ({ curInfo, updateInfo }: InfoQueueContextData)
                 }
                 setTimeout(InformUser, 333);
               }
+              updateInfo('Newer version found, downloading');
             };
-            updateInfo('Newer version found, downloading');
             InformUser();
           } else {
             res(Status.PASS);

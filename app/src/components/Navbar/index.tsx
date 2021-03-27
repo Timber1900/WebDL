@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Container, OptionOuter, NavButton, NavLabel, NavSpan, BrowseInput } from './style';
-import { port } from '../../logic/server/server';
-import { path, setPath } from '../../logic/getPath';
-import { CheckUpdates } from '../../logic/update';
-import { InfoQueueContext } from '../../contexts/InfoQueueContext';
+import { port } from 'logic/server/server';
+import { path, setPath } from 'logic/getPath';
+import { CheckUpdates } from 'logic/update';
+import { InfoQueueContext } from 'contexts/InfoQueueContext';
 
 const selectPort = () => {
   let temp_port: string | null = prompt('Select the default port', port);

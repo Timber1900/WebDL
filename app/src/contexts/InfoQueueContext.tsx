@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState } from 'react';
-import { Props } from '../components/Queue/Item';
+import { Props } from 'components/Queue/Item';
 
 export interface InfoQueueContextData {
   curQueue: Array<Props>;

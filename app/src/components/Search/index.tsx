@@ -14,10 +14,10 @@ import {
   ImagePreview,
 } from './style';
 import ytsr from 'ytsr';
-import { addToQueue } from '../../logic/server/addToQueue';
-import { InfoQueueContext } from '../../contexts/InfoQueueContext';
-import mergeImages from 'merge-images';
+import { addToQueue } from 'logic/server/addToQueue';
+import { InfoQueueContext } from 'contexts/InfoQueueContext';
 import playlistImage from '../../../assets/playlist.png';
+import mergeImages from 'merge-images';
 
 let changeIframe: React.Dispatch<React.SetStateAction<string>>;
 let changeId: React.Dispatch<React.SetStateAction<string>>;

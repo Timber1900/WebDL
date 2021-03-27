@@ -1,7 +1,6 @@
-// import ffmpeg from 'ffmpeg-static';
+import OS from 'os';
 import { spawn } from 'child_process';
 import { join } from 'path';
-import OS from 'os';
 
 export const cutAudio = async (start: number, end: number, path: string, title: string, i: number, ext: string) => {
   // @ts-expect-error

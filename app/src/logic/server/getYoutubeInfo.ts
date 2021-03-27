@@ -1,6 +1,6 @@
-import { outerContext } from '../../App';
-import { Props } from '../../components/Queue/Item';
 import ytdl from 'ytdl-core';
+import { outerContext } from '../../App';
+import { Props } from 'components/Queue/Item';
 
 export const getYoutubeDiv = (info: ytdl.videoInfo, i: number, url: string): Promise<Props | null> => {
   if (info && info.formats.length > 0) {

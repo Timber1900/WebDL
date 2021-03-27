@@ -1,5 +1,5 @@
 import { FC, useContext } from 'react';
-import { InfoQueueContext } from '../../contexts/InfoQueueContext';
+import { InfoQueueContext } from 'contexts/InfoQueueContext';
 import { Container, ILabel } from './style';
 
 const InfoLabel: FC = () => {

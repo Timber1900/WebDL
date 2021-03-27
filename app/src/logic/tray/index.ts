@@ -1,9 +1,6 @@
-// @ts-check
-
 export const setUpMinimize = () => {
   //@ts-expect-error
   let win = nw.Window.get();
-  // let forceClose = false;
   const menu = new nw.Menu();
 
   const OpenApp = new nw.MenuItem({
@@ -49,22 +46,4 @@ export const setUpMinimize = () => {
   win.on('minimize', function (this: any) {
     this.hide();
   });
-
-  // win.on('close', function (this: any) {
-  //   this.hide();
-  //   if (forceClose) {
-  //     win = null;
-  //   }
-  // });
-
-  // //@ts-expect-error
-  // nw.Window.get().on('close', function (this: any) {
-  //   if (forceClose) {
-  //     this.hide();
-  //     if (win !== null) {
-  //       win.close(true);
-  //     }
-  //     this.close(true);
-  //   }
-  // });
 };

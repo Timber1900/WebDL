@@ -1,6 +1,6 @@
 import React, { FC, useContext, useState } from 'react';
-import { InfoQueueContext } from '../../contexts/InfoQueueContext';
-import { ID } from '../../logic/id';
+import { InfoQueueContext } from 'contexts/InfoQueueContext';
+import { ID } from 'logic/id';
 import {
   Container,
   InnerContainer,

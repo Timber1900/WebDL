@@ -1,4 +1,4 @@
-import React, { FC, useContext, useRef, useState } from 'react';
+import React, { FC, useContext, useEffect, useRef, useState } from 'react';
 import {
   PlayItem,
   ImagePreview,
@@ -9,16 +9,16 @@ import {
   DropdownContent,
   Separator,
 } from './style';
-import { Outer } from '../../Quality/style';
-import Trim from '../../Trim';
-import Quality from '../../Quality';
-import KebabMenu from '../../KebabMenu';
-import { downloadVideo } from '../../../logic/youtube-dl-wrap/downloadVideo';
-import { downloadAudio } from '../../../logic/youtube-dl-wrap/downloadAudio';
-import { InnerProps } from '../../Trim';
-import { ID } from '../../../logic/id';
-import { InfoQueueContext } from '../../../contexts/InfoQueueContext';
-import { downloadOther } from '../../../logic/youtube-dl-wrap/downloadOther';
+import { Outer } from 'components/Quality/style';
+import Trim from 'components/Trim';
+import Quality from 'components/Quality';
+import KebabMenu from 'components/KebabMenu';
+import { InnerProps } from 'components/Trim';
+import { downloadVideo } from 'logic/youtube-dl-wrap/downloadVideo';
+import { downloadAudio } from 'logic/youtube-dl-wrap/downloadAudio';
+import { ID } from 'logic/id';
+import { downloadOther } from 'logic/youtube-dl-wrap/downloadOther';
+import { InfoQueueContext } from 'contexts/InfoQueueContext';
 
 export interface Props {
   i: number;
@@ -33,6 +33,7 @@ export interface Props {
   ext: string;
   duration: number;
   clips: InnerProps[];
+  animate?: boolean;
 }
 
 const Item: FC<Props> = (props: Props) => {
@@ -45,6 +46,16 @@ const Item: FC<Props> = (props: Props) => {
   const refs: any = [titleLabel];
   const context = useContext(InfoQueueContext);
   const { curQueue, updateQueue } = context;
+  const refQueue = useRef(curQueue);
+  const refPropsI = useRef(props.i);
+
+  useEffect(() => {
+    if (refQueue.current[refPropsI.current].animate ?? true) {
+      setTimeout(() => {
+        refQueue.current[refPropsI.current].animate = false;
+      }, 1000);
+    }
+  }, []);
 
   const renameVideo = function (e: any) {
     const label = e;
@@ -119,7 +130,7 @@ const Item: FC<Props> = (props: Props) => {
   const s = sec.toString().length > 1 ? sec.toString() : sec.toString().length > 0 ? '0' + sec.toString() : '00';
 
   return (
-    <Container onClick={setActive} ref={(ref) => refs.push(ref)}>
+    <Container onClick={setActive} ref={(ref) => refs.push(ref)} animate={props.animate ?? true}>
       <PlayItem
         ref={(ref) => refs.push(ref)}
         // @ts-ignore: Object is possibly 'null'.

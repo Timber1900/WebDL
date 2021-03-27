@@ -1,5 +1,5 @@
 import { outerContext } from '../../App';
-import { Props } from '../../components/Queue/Item';
+import { Props } from 'components/Queue/Item';
 
 export const getOtherDiv = (info: any, i: number, url: string): Promise<Props | null> => {
   if (info && info.formats.length > 0) {

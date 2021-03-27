@@ -7,7 +7,7 @@ import { InnerProps } from '../../../components/Trim';
 import { cutAudio } from '../cutVid';
 import { spawn } from 'child_process';
 import { execStream } from '../execStream';
-import { InfoQueueContextData } from '../../../contexts/InfoQueueContext';
+import { InfoQueueContextData } from 'contexts/InfoQueueContext';
 
 export const downloadOther = async (
   url: string,

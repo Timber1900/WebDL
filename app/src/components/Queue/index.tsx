@@ -1,12 +1,12 @@
 import React, { FC, useContext, useState } from 'react';
 import { Outer, QueueContainer, ButtonsContainer } from './style';
 import Item from './Item';
-import { ID } from '../../logic/id';
-import { downloadVideo } from '../../logic/youtube-dl-wrap/downloadVideo';
-import { downloadAudio } from '../../logic/youtube-dl-wrap/downloadAudio';
-import { addToQueue } from '../../logic/server/addToQueue';
-import { InfoQueueContext } from '../../contexts/InfoQueueContext';
-import { downloadOther } from '../../logic/youtube-dl-wrap/downloadOther';
+import { ID } from 'logic/id';
+import { downloadVideo } from 'logic/youtube-dl-wrap/downloadVideo';
+import { downloadAudio } from 'logic/youtube-dl-wrap/downloadAudio';
+import { addToQueue } from 'logic/server/addToQueue';
+import { downloadOther } from 'logic/youtube-dl-wrap/downloadOther';
+import { InfoQueueContext } from 'contexts/InfoQueueContext';
 
 const Queue: FC = () => {
   const [disable, setDisable] = useState(false);
@@ -113,6 +113,7 @@ const Queue: FC = () => {
             ext={val.ext}
             duration={val.duration}
             clips={val.clips}
+            animate={val.animate}
           />
         ))}
       </QueueContainer>

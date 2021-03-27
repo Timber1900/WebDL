@@ -1,13 +1,13 @@
-import { join } from 'path';
-import OS from 'os';
-import { path } from '../../getPath';
 import fs from 'fs';
-import { updateProg, updateVel } from '../../../components/Progress';
-import { InnerProps } from '../../../components/Trim';
+import OS from 'os';
+import { join } from 'path';
+import { spawn } from 'child_process';
 import { cutVid } from '../cutVid';
 import { execStream } from '../execStream';
-import { spawn } from 'child_process';
-import { InfoQueueContextData } from '../../../contexts/InfoQueueContext';
+import { path } from 'logic/getPath';
+import { InnerProps } from 'components/Trim';
+import { updateProg, updateVel } from 'components/Progress';
+import { InfoQueueContextData } from 'contexts/InfoQueueContext';
 
 export const downloadVideo = async (
   url: string,

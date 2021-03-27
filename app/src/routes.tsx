@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-import Layout from './components/Layout';
-import Search from './components/Search';
-import { InfoQueueContext } from './contexts/InfoQueueContext';
+import Layout from 'components/Layout';
+import Search from 'components/Search';
+import { InfoQueueContext } from 'contexts/InfoQueueContext';
 
 export default function Routes() {
   const { curSearch } = useContext(InfoQueueContext);

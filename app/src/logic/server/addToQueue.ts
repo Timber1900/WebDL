@@ -1,9 +1,9 @@
 import ytpl from 'ytpl';
-import { youtubeDlWrap } from '../youtube-dl-wrap';
 import ytdl from 'ytdl-core';
+import util from 'util';
+import { youtubeDlWrap } from 'logic/youtube-dl-wrap';
 import { getOtherDiv } from './getOtherInfo';
 import { getYoutubeDiv } from './getYoutubeInfo';
-import util from 'util';
 import { outerContext } from '../../App';
 type info = {
   ytdl: boolean;

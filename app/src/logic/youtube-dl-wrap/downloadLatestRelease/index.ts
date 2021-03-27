@@ -1,7 +1,7 @@
 import YoutubeDlWrap from 'youtube-dl-wrap';
-import { join } from 'path';
 import OS from 'os';
 import fs from 'fs';
+import { join } from 'path';
 import { Duration, Status } from '../../../Constants';
 
 export const downloadLatestRealease = () => {
