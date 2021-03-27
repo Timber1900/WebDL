@@ -11,7 +11,7 @@ import { InfoQueueContext } from 'contexts/InfoQueueContext';
 const Queue: FC = () => {
   const [disable, setDisable] = useState(false);
   const context = useContext(InfoQueueContext);
-  const { curQueue, updateQueue, updateSearch } = context;
+  const { curQueue, updateQueue, updateSearch, curCustomExt } = context;
 
   const downloadQueue = () => {
     updateQueue(curQueue);
@@ -39,7 +39,18 @@ const Queue: FC = () => {
         const vid = removedQueue[skipped];
         console.log(vid);
         const format = vid.quality.get(vid.curQual);
-        const [type, extension] = vid.ext.split(' ');
+        let type, extension;
+        if (vid.ext === 'custom') {
+          if (curCustomExt || (curCustomExt ?? '').length > 2) {
+            [type, extension] = curCustomExt.split(' ');
+          } else {
+            // eslint-disable-next-line prettier/prettier
+            alert('You must define a custom extesion type in the navbar to be able to use the \'Other\' tag');
+            return;
+          }
+        } else {
+          [type, extension] = vid.ext.split(' ');
+        }
         if (vid.merge) {
           if (type === 'v') {
             downloadVideo(vid.id, callback, vid.title, format, extension, vid.clips, vid.duration, context);
@@ -69,7 +80,18 @@ const Queue: FC = () => {
       const vid = curQueue[skipped];
       const format = vid.quality.get(vid.curQual);
       setDisable(true);
-      const [type, extension] = vid.ext.split(' ');
+      let type, extension;
+      if (vid.ext === 'custom') {
+        if (curCustomExt || (curCustomExt ?? '').length > 2) {
+          [type, extension] = curCustomExt.split(' ');
+        } else {
+          // eslint-disable-next-line prettier/prettier
+          alert('You must define a custom extesion type in the navbar to be able to use the \'Other\' tag');
+          return;
+        }
+      } else {
+        [type, extension] = vid.ext.split(' ');
+      }
       if (vid.merge) {
         if (type === 'v') {
           downloadVideo(vid.id, callback, vid.title, format, extension, vid.clips, vid.duration, context);

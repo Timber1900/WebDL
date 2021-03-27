@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { Container, OptionOuter, NavButton, NavLabel, NavSpan, BrowseInput } from './style';
+import { Container, OptionOuter, NavButton, NavLabel, NavSpan, BrowseInput, NavInput, NavSpanTypeTwo } from './style';
 import { port } from 'logic/server/server';
 import { path, setPath } from 'logic/getPath';
 import { CheckUpdates } from 'logic/update';
@@ -18,7 +18,7 @@ const selectPort = () => {
 const Navbar = () => {
   const inputRef = useRef(null);
   const [curPath, setCurPath] = useState(path);
-  const { curExt, updateExt } = useContext(InfoQueueContext);
+  const { curExt, updateExt, curCustomExt, updateCurCustomExt } = useContext(InfoQueueContext);
 
   useEffect(() => {
     if (inputRef && inputRef.current) {
@@ -88,8 +88,39 @@ const Navbar = () => {
               <option value="a ogg">ogg</option>
               <option value="a wav">wav</option>
             </optgroup>
+            <option value="custom">Other...</option>
           </select>
         </NavSpan>
+        {(() => {
+          if (curExt === 'custom') {
+            return (
+              <NavSpanTypeTwo>
+                <NavLabel>Type:</NavLabel>
+                <select
+                  defaultValue={(curCustomExt ?? 'v').split(' ')[0]}
+                  onChange={(val: React.ChangeEvent<HTMLSelectElement>) => {
+                    const extension = val.target.parentNode.querySelector('input').value;
+                    const type = val.target.value;
+                    updateCurCustomExt(`${type} ${extension}`);
+                  }}
+                >
+                  <option value="v">Video</option>
+                  <option value="a">Audio</option>
+                </select>
+                <NavInput
+                  type="text"
+                  placeholder="ext..."
+                  defaultValue={(curCustomExt ?? 'v').split(' ')[1]}
+                  onChange={(val: React.ChangeEvent<HTMLInputElement>) => {
+                    const type = val.target.parentNode.querySelector('select').value;
+                    const extension = val.target.value;
+                    updateCurCustomExt(`${type} ${extension}`);
+                  }}
+                />
+              </NavSpanTypeTwo>
+            );
+          }
+        })()}
       </OptionOuter>
     </Container>
   );

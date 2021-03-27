@@ -78,7 +78,6 @@ export default createGlobalStyle`
     cursor: default;
     background-color: var(--dark-grey);
     box-sizing: border-box;
-    margin: 0em;
     font: 400 13.3333px Roboto;
     padding: 1px 6px;
     border-radius: 2px;

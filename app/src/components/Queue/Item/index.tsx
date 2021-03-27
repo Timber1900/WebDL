@@ -45,7 +45,7 @@ const Item: FC<Props> = (props: Props) => {
   const ext = props.ext;
   const refs: any = [titleLabel];
   const context = useContext(InfoQueueContext);
-  const { curQueue, updateQueue } = context;
+  const { curQueue, updateQueue, curCustomExt } = context;
   const refQueue = useRef(curQueue);
   const refPropsI = useRef(props.i);
 
@@ -98,7 +98,19 @@ const Item: FC<Props> = (props: Props) => {
       const removedQueue = curQueue.filter((e) => e.id !== props.id);
       updateQueue(removedQueue);
     };
-    const [type, extension] = ext.split(' ');
+    let type, extension;
+    if (ext === 'custom') {
+      if (curCustomExt || (curCustomExt ?? '').length > 2) {
+        [type, extension] = curCustomExt.split(' ');
+      } else {
+        // eslint-disable-next-line prettier/prettier
+        alert('You must define a custom extesion type in the navbar to be able to use the \'Other\' tag');
+        return;
+      }
+    } else {
+      [type, extension] = ext.split(' ');
+    }
+
     if (merge) {
       if (type === 'v') {
         downloadVideo(id, callback, title, format, extension, clips, duration, context);
@@ -171,6 +183,7 @@ const Item: FC<Props> = (props: Props) => {
                   <option value="a ogg">ogg</option>
                   <option value="a wav">wav</option>
                 </optgroup>
+                <option value="custom">Other</option>
               </select>
             </Outer>
           </DropdownContent>
