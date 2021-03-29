@@ -10,6 +10,7 @@
     "nw-react-scripts": "4.0.1",
     "prettier": "^2.2.1",
     "react": "^17.0.1",
+    "react-circular-progressbar": "^2.0.4",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-simple-timefield": "^3.2.3",

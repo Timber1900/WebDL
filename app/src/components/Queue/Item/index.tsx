@@ -8,6 +8,7 @@ import {
   Container,
   DropdownContent,
   Separator,
+  ProgressContainer,
 } from './style';
 import { Outer } from 'components/Quality/style';
 import Trim from 'components/Trim';
@@ -19,6 +20,8 @@ import { downloadAudio } from 'logic/youtube-dl-wrap/downloadAudio';
 import { ID } from 'logic/id';
 import { downloadOther } from 'logic/youtube-dl-wrap/downloadOther';
 import { InfoQueueContext } from 'contexts/InfoQueueContext';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 export interface Props {
   i: number;
@@ -45,7 +48,7 @@ const Item: FC<Props> = (props: Props) => {
   const ext = props.ext;
   const refs: any = [titleLabel];
   const context = useContext(InfoQueueContext);
-  const { curQueue, updateQueue, curCustomExt } = context;
+  const { curQueue, updateQueue, curCustomExt, curConcurrentDownload, curQueuePrg } = context;
   const refQueue = useRef(curQueue);
   const refPropsI = useRef(props.i);
 
@@ -113,7 +116,7 @@ const Item: FC<Props> = (props: Props) => {
 
     if (merge) {
       if (type === 'v') {
-        downloadVideo(id, callback, title, format, extension, clips, duration, context);
+        downloadVideo(id, callback, title, format, extension, clips, duration, context, props.i);
       } else {
         downloadAudio(id, callback, title, extension, clips, duration, context);
       }
@@ -160,6 +163,25 @@ const Item: FC<Props> = (props: Props) => {
         >
           {title}
         </NameContainer>
+        {(() => {
+          if (curConcurrentDownload > 1) {
+            return (
+              <ProgressContainer>
+                <CircularProgressbar
+                  value={curQueuePrg[props.i].progress}
+                  maxValue={100}
+                  text={''}
+                  styles={buildStyles({
+                    strokeLinecap: 'butt',
+                    backgroundColor: '#343A40',
+                    pathColor: '#48cae4',
+                    trailColor: '#343A40',
+                  })}
+                />
+              </ProgressContainer>
+            );
+          }
+        })()}
         <VideoOptions ref={(ref) => refs.push(ref)}>
           <KebabMenu />
           <DropdownContent>

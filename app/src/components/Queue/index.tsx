@@ -11,7 +11,7 @@ import { InfoQueueContext } from 'contexts/InfoQueueContext';
 const Queue: FC = () => {
   const [disable, setDisable] = useState(false);
   const context = useContext(InfoQueueContext);
-  const { curQueue, updateQueue, updateSearch, curCustomExt } = context;
+  const { curQueue, updateQueue, updateSearch, curCustomExt, curQueuePrg, updateQueuePrg } = context;
 
   const downloadQueue = () => {
     updateQueue(curQueue);
@@ -23,6 +23,10 @@ const Queue: FC = () => {
       const removedQueue = [...currentQueue];
       removedQueue.splice(skipped, 1);
       updateQueue(removedQueue);
+      const removedQueuePrg = [...curQueuePrg];
+      removedQueuePrg.splice(skipped, 1);
+      updateQueuePrg(removedQueuePrg);
+
       currentQueue = removedQueue;
       let tryAgain = true;
       while (tryAgain) {
@@ -53,7 +57,7 @@ const Queue: FC = () => {
         }
         if (vid.merge) {
           if (type === 'v') {
-            downloadVideo(vid.id, callback, vid.title, format, extension, vid.clips, vid.duration, context);
+            downloadVideo(vid.id, callback, vid.title, format, extension, vid.clips, vid.duration, context, vid.i);
           } else {
             downloadAudio(vid.id, callback, vid.title, extension, vid.clips, vid.duration, context);
           }
@@ -94,7 +98,7 @@ const Queue: FC = () => {
       }
       if (vid.merge) {
         if (type === 'v') {
-          downloadVideo(vid.id, callback, vid.title, format, extension, vid.clips, vid.duration, context);
+          downloadVideo(vid.id, callback, vid.title, format, extension, vid.clips, vid.duration, context, vid.i);
         } else {
           downloadAudio(vid.id, callback, vid.title, extension, vid.clips, vid.duration, context);
         }

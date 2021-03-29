@@ -2,13 +2,16 @@ import { createContext, ReactNode, useState } from 'react';
 import { Props } from 'components/Queue/Item';
 
 export interface InfoQueueContextData {
-  curQueue: Array<Props>;
+  curQueue: Props[];
+  curQueuePrg: progressProps[];
   curInfo: string;
   curSearch: boolean;
   curExt: string;
   curCustomExt: string | null;
   curConcurrentDownload: number;
-  updateQueue(newQueue: Array<Props>): void;
+  updateQueue(newQueue: Props[]): void;
+  updateQueuePrg(newPrg: progressProps[]): void;
+  updateQueuePrgIndividually(newPrg: number, index: number): void;
   updateInfo(newInfo: string): void;
   updateSearch(newSearch: boolean): void;
   updateExt(newExt: string): void;
@@ -20,10 +23,15 @@ interface InfoQueueProviderProps {
   children: ReactNode;
 }
 
+interface progressProps {
+  progress: number;
+}
+
 export const InfoQueueContext = createContext({} as InfoQueueContextData);
 
 export default function InfoQueueProvider({ children }: InfoQueueProviderProps) {
   const [queue, setQueue] = useState<Props[]>([]);
+  const [queuePrg, setQueuePrg] = useState<progressProps[]>([]);
   const [info, setInfo] = useState('Waiting for download');
   const [showSearch, setShowSearch] = useState(false);
   const [ext, setExt] = useState('v mkv');
@@ -32,6 +40,16 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
 
   function updateQueue(newQueue: Props[]) {
     setQueue(newQueue);
+  }
+
+  function updateQueuePrg(newPrg: progressProps[]) {
+    setQueuePrg(newPrg);
+  }
+
+  function updateQueuePrgIndividually(newPrg: number, index: number) {
+    const temp = [...queuePrg];
+    temp[index].progress = newPrg;
+    setQueuePrg(temp);
   }
 
   function updateInfo(newInfo: string) {
@@ -58,12 +76,15 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
     <InfoQueueContext.Provider
       value={{
         updateQueue,
+        updateQueuePrg,
+        updateQueuePrgIndividually,
         updateInfo,
         updateSearch,
         updateExt,
         updateCurCustomExt,
         updateConcurrentDownload,
         curQueue: queue,
+        curQueuePrg: queuePrg,
         curInfo: info,
         curSearch: showSearch,
         curExt: ext,

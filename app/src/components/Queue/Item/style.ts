@@ -57,6 +57,15 @@ export const Container = styled.span<ContainerProps>`
   }
 `;
 
+export const ProgressContainer = styled.span`
+  display: flex;
+  height: 30px;
+  width: 30px;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const PlayItem = styled.div`
   display: flex;
   border-radius: 2px;
