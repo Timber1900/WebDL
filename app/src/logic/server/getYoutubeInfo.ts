@@ -43,6 +43,7 @@ export const getYoutubeDiv = (info: ytdl.videoInfo, i: number, url: string): Pro
       ext: outerContext.curExt,
       duration: parseInt(info.videoDetails.lengthSeconds),
       clips: [],
+      show: true,
     });
   } else {
     return Promise.resolve(null);

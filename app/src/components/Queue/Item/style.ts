@@ -39,9 +39,12 @@ export const VideoOptions = styled.span`
 
 export interface ContainerProps {
   animate: boolean;
+  show: boolean;
 }
 
 export const Container = styled.span<ContainerProps>`
+  display: ${(props) => (props.show ? 'block' : 'none')};
+  visibility: ${(props) => (props.show ? 'block' : 'none')};
   position: relative;
   animation: ${(props) => (props.animate ? 'item-appear 1s ease' : 'none')};
   @keyframes item-appear {
@@ -59,9 +62,10 @@ export const Container = styled.span<ContainerProps>`
 
 export const ProgressContainer = styled.span`
   display: flex;
-  height: 30px;
-  width: 30px;
-  margin: 10px;
+  height: auto;
+  min-width: 30px;
+  max-width: 30px;
+  margin: 5px;
   align-items: center;
   justify-content: center;
 `;

@@ -159,7 +159,7 @@ const Navbar = () => {
                 <NavInput
                   type="number"
                   placeholder="1"
-                  defaultValue={curConcurrentDownload}
+                  defaultValue={curConcurrentDownload ?? ''}
                   min="1"
                   onChange={(val: React.ChangeEvent<HTMLInputElement>) => {
                     if (val.target.valueAsNumber < 1) val.target.value = '1';

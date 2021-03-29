@@ -19,7 +19,7 @@ import { downloadVideo } from 'logic/youtube-dl-wrap/downloadVideo';
 import { downloadAudio } from 'logic/youtube-dl-wrap/downloadAudio';
 import { ID } from 'logic/id';
 import { downloadOther } from 'logic/youtube-dl-wrap/downloadOther';
-import { InfoQueueContext } from 'contexts/InfoQueueContext';
+import { InfoQueueContext, progressProps } from 'contexts/InfoQueueContext';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
@@ -37,6 +37,7 @@ export interface Props {
   duration: number;
   clips: InnerProps[];
   animate?: boolean;
+  show: boolean;
 }
 
 const Item: FC<Props> = (props: Props) => {
@@ -48,7 +49,7 @@ const Item: FC<Props> = (props: Props) => {
   const ext = props.ext;
   const refs: any = [titleLabel];
   const context = useContext(InfoQueueContext);
-  const { curQueue, updateQueue, curCustomExt, curConcurrentDownload, curQueuePrg } = context;
+  const { curQueue, updateQueue, curCustomExt, curConcurrentDownload, curQueuePrg, updateQueuePrg } = context;
   const refQueue = useRef(curQueue);
   const refPropsI = useRef(props.i);
 
@@ -91,15 +92,20 @@ const Item: FC<Props> = (props: Props) => {
   const changeExt = (ext: string) => {
     const tempQueue = [...curQueue];
     tempQueue[i].ext = ext;
+    const tempPrg = new Array<progressProps>(tempQueue.length).fill({ progress: 0 });
     updateQueue(tempQueue);
+    updateQueuePrg(tempPrg);
   };
 
   const dv = () => {
     // @ts-ignore: Object is possibly 'null'.
     const format = props.quality.get(qual);
-    const callback = () => {
+    const callback = (queue_index: number) => {
+      console.log(queue_index);
       const removedQueue = curQueue.filter((e) => e.id !== props.id);
+      const tempPrg = new Array<progressProps>(removedQueue.length).fill({ progress: 0 });
       updateQueue(removedQueue);
+      updateQueuePrg(tempPrg);
     };
     let type, extension;
     if (ext === 'custom') {
@@ -116,13 +122,18 @@ const Item: FC<Props> = (props: Props) => {
 
     if (merge) {
       if (type === 'v') {
-        downloadVideo(id, callback, title, format, extension, clips, duration, context, props.i);
+        downloadVideo(id, title, format, extension, clips, duration, context, 0, i).then(({ queue_index }) => {
+          callback(queue_index);
+        });
       } else {
-        downloadAudio(id, callback, title, extension, clips, duration, context);
+        downloadAudio(id, title, extension, clips, duration, context, 0, i).then(({ queue_index }) => {
+          callback(queue_index);
+        });
       }
     } else {
-      console.log('OTHER');
-      downloadOther(id, callback, title, extension, clips, duration, format, context);
+      downloadOther(id, title, extension, clips, duration, format, context, 0, i).then(({ queue_index }) => {
+        callback(queue_index);
+      });
     }
   };
 
@@ -145,7 +156,7 @@ const Item: FC<Props> = (props: Props) => {
   const s = sec.toString().length > 1 ? sec.toString() : sec.toString().length > 0 ? '0' + sec.toString() : '00';
 
   return (
-    <Container onClick={setActive} ref={(ref) => refs.push(ref)} animate={props.animate ?? true}>
+    <Container onClick={setActive} ref={(ref) => refs.push(ref)} animate={props.animate ?? true} show={props.show}>
       <PlayItem
         ref={(ref) => refs.push(ref)}
         // @ts-ignore: Object is possibly 'null'.

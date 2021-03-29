@@ -23,7 +23,7 @@ interface InfoQueueProviderProps {
   children: ReactNode;
 }
 
-interface progressProps {
+export interface progressProps {
   progress: number;
 }
 

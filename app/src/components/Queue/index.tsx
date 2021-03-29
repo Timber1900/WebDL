@@ -1,89 +1,66 @@
 import React, { FC, useContext, useState } from 'react';
 import { Outer, QueueContainer, ButtonsContainer } from './style';
-import Item from './Item';
+import Item, { Props } from './Item';
 import { ID } from 'logic/id';
 import { downloadVideo } from 'logic/youtube-dl-wrap/downloadVideo';
 import { downloadAudio } from 'logic/youtube-dl-wrap/downloadAudio';
 import { addToQueue } from 'logic/server/addToQueue';
 import { downloadOther } from 'logic/youtube-dl-wrap/downloadOther';
-import { InfoQueueContext } from 'contexts/InfoQueueContext';
+import { InfoQueueContext, progressProps } from 'contexts/InfoQueueContext';
 
 const Queue: FC = () => {
   const [disable, setDisable] = useState(false);
   const context = useContext(InfoQueueContext);
-  const { curQueue, updateQueue, updateSearch, curCustomExt, curQueuePrg, updateQueuePrg } = context;
+  const { curQueue, updateQueue, updateSearch, curCustomExt, curConcurrentDownload, updateQueuePrg } = context;
 
   const downloadQueue = () => {
-    updateQueue(curQueue);
+    setDisable(true);
+    const download_queue: (Props | null)[] = [];
+    let cur_index = 0;
 
-    let skipped = 0;
-    let currentQueue = curQueue;
+    while (download_queue.length < curConcurrentDownload) {
+      if (cur_index >= curQueue.length) {
+        break;
+      } else if (curQueue[cur_index].download) {
+        curQueue[cur_index].i = cur_index;
+        download_queue.push(curQueue[cur_index]);
+      }
+      cur_index++;
+    }
 
-    const callback = () => {
-      const removedQueue = [...currentQueue];
-      removedQueue.splice(skipped, 1);
-      updateQueue(removedQueue);
-      const removedQueuePrg = [...curQueuePrg];
-      removedQueuePrg.splice(skipped, 1);
-      updateQueuePrg(removedQueuePrg);
+    const callback = (vid_index: number, queue_index: number) => {
+      const temp = [...curQueue];
+      temp[queue_index].show = false;
+      updateQueue(temp);
 
-      currentQueue = removedQueue;
-      let tryAgain = true;
-      while (tryAgain) {
-        if (removedQueue.length > skipped) {
-          const vid = removedQueue[skipped];
-          if (vid.download) tryAgain = false;
-          if (tryAgain) skipped++;
-        } else {
-          tryAgain = false;
+      let found = false;
+      while (!found) {
+        if (cur_index >= curQueue.length) {
+          download_queue[vid_index] = null;
+          break;
+        } else if (curQueue[cur_index].download && !download_queue.includes(curQueue[cur_index])) {
+          curQueue[cur_index].i = cur_index;
+          download_queue[vid_index] = curQueue[cur_index];
+          found = true;
         }
+        cur_index++;
       }
 
-      if (removedQueue.length > skipped) {
-        const vid = removedQueue[skipped];
-        console.log(vid);
-        const format = vid.quality.get(vid.curQual);
-        let type, extension;
-        if (vid.ext === 'custom') {
-          if (curCustomExt || (curCustomExt ?? '').length > 2) {
-            [type, extension] = curCustomExt.split(' ');
-          } else {
-            // eslint-disable-next-line prettier/prettier
-            alert('You must define a custom extesion type in the navbar to be able to use the \'Other\' tag');
-            return;
-          }
-        } else {
-          [type, extension] = vid.ext.split(' ');
-        }
-        if (vid.merge) {
-          if (type === 'v') {
-            downloadVideo(vid.id, callback, vid.title, format, extension, vid.clips, vid.duration, context, vid.i);
-          } else {
-            downloadAudio(vid.id, callback, vid.title, extension, vid.clips, vid.duration, context);
-          }
-        } else {
-          downloadOther(vid.id, callback, vid.title, extension, vid.clips, vid.duration, format, context);
-        }
-      } else {
+      if (found) download(vid_index);
+      if (download_queue.reduce((previousValue, currentValue) => previousValue && !currentValue, true)) {
+        let temp = [...curQueue];
+        temp[queue_index].show = false;
+        temp = temp.filter((val, i) => val.show);
+        const tempPrg = new Array<progressProps>(temp.length).fill({ progress: 0 });
+        updateQueue(temp);
+        updateQueuePrg(tempPrg);
         setDisable(false);
       }
     };
 
-    let tryAgain = true;
-    while (tryAgain) {
-      if (curQueue.length > skipped) {
-        const vid = curQueue[skipped];
-        if (vid.download) tryAgain = false;
-        if (tryAgain) skipped++;
-      } else {
-        tryAgain = false;
-      }
-    }
-    console.log(skipped);
-    if (curQueue.length > skipped) {
-      const vid = curQueue[skipped];
+    const download = (vid_index: number): void => {
+      const vid = download_queue[vid_index];
       const format = vid.quality.get(vid.curQual);
-      setDisable(true);
       let type, extension;
       if (vid.ext === 'custom') {
         if (curCustomExt || (curCustomExt ?? '').length > 2) {
@@ -98,14 +75,29 @@ const Queue: FC = () => {
       }
       if (vid.merge) {
         if (type === 'v') {
-          downloadVideo(vid.id, callback, vid.title, format, extension, vid.clips, vid.duration, context, vid.i);
+          downloadVideo(vid.id, vid.title, format, extension, vid.clips, vid.duration, context, vid_index, vid.i).then(
+            ({ vid_index, queue_index }) => {
+              callback(vid_index, queue_index);
+            },
+          );
         } else {
-          downloadAudio(vid.id, callback, vid.title, extension, vid.clips, vid.duration, context);
+          downloadAudio(vid.id, vid.title, extension, vid.clips, vid.duration, context, vid_index, vid.i).then(
+            ({ vid_index, queue_index }) => {
+              callback(vid_index, queue_index);
+            },
+          );
         }
       } else {
-        console.log('OTHER');
-        downloadOther(vid.id, callback, vid.title, extension, vid.clips, vid.duration, format, context);
+        downloadOther(vid.id, vid.title, extension, vid.clips, vid.duration, format, context, vid_index, vid.i).then(
+          ({ vid_index, queue_index }) => {
+            callback(vid_index, queue_index);
+          },
+        );
       }
+    };
+
+    for (let i = 0; i < download_queue.length; i++) {
+      download(i);
     }
   };
 
@@ -140,6 +132,7 @@ const Queue: FC = () => {
             duration={val.duration}
             clips={val.clips}
             animate={val.animate}
+            show={val.show}
           />
         ))}
       </QueueContainer>
