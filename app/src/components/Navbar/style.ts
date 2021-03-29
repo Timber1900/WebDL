@@ -8,7 +8,7 @@ export const NavButton = styled.button`
 
 export const NavLabel = styled.label`
   display: block;
-  max-width: max(14vw, 45px);
+  margin-right: auto;
 `;
 
 export const Container = styled.div`
@@ -70,6 +70,47 @@ export const NavSpanTypeTwo = styled.span`
   }
 `;
 
+interface Props {
+  open: boolean;
+}
+
+export const NavSpanTypeThree = styled.span<Props>`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1vh 2vh 1vh 2vh;
+  width: max(28vw, 90px);
+
+  > svg {
+    margin: 4px;
+    transition: 0.1s ease;
+    transform: ${(props) => (props.open ? 'scaleY(-1)' : 'scaleY(1)')};
+  }
+`;
+
+export const ExperimentalSpan = styled.span`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1vh 2vh 1vh 2vh;
+  width: max(28vw, 90px);
+  animation: item-appear 0.5s ease;
+
+  @keyframes item-appear {
+    from {
+      opacity: 0;
+      transform: translateY(-40%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+
 export const BrowseInput = styled.input`
   display: none;
 `;
@@ -88,4 +129,10 @@ export const NavInput = styled.input`
   border-radius: 2px;
   border: none;
   padding: 1px 6px;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;

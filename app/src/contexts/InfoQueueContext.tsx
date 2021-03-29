@@ -7,11 +7,13 @@ export interface InfoQueueContextData {
   curSearch: boolean;
   curExt: string;
   curCustomExt: string | null;
+  curConcurrentDownload: number;
   updateQueue(newQueue: Array<Props>): void;
   updateInfo(newInfo: string): void;
   updateSearch(newSearch: boolean): void;
   updateExt(newExt: string): void;
   updateCurCustomExt(newCustomExt: string): void;
+  updateConcurrentDownload(newCuncurrentDownload: number): void;
 }
 
 interface InfoQueueProviderProps {
@@ -26,6 +28,7 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
   const [showSearch, setShowSearch] = useState(false);
   const [ext, setExt] = useState('v mkv');
   const [customExt, setCustomExt] = useState(null);
+  const [concurrentDownloads, setConcurrentDownloads] = useState(1);
 
   function updateQueue(newQueue: Props[]) {
     setQueue(newQueue);
@@ -47,6 +50,10 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
     setCustomExt(newCustomExt);
   }
 
+  function updateConcurrentDownload(newCuncurrentDownload: number) {
+    setConcurrentDownloads(newCuncurrentDownload);
+  }
+
   return (
     <InfoQueueContext.Provider
       value={{
@@ -55,11 +62,13 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
         updateSearch,
         updateExt,
         updateCurCustomExt,
+        updateConcurrentDownload,
         curQueue: queue,
         curInfo: info,
         curSearch: showSearch,
         curExt: ext,
         curCustomExt: customExt,
+        curConcurrentDownload: concurrentDownloads,
       }}
     >
       {children}

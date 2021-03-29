@@ -1,9 +1,21 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { Container, OptionOuter, NavButton, NavLabel, NavSpan, BrowseInput, NavInput, NavSpanTypeTwo } from './style';
+import {
+  Container,
+  OptionOuter,
+  NavButton,
+  NavLabel,
+  NavSpan,
+  BrowseInput,
+  NavInput,
+  NavSpanTypeTwo,
+  NavSpanTypeThree,
+  ExperimentalSpan,
+} from './style';
 import { port } from 'logic/server/server';
 import { path, setPath } from 'logic/getPath';
 import { CheckUpdates } from 'logic/update';
 import { InfoQueueContext } from 'contexts/InfoQueueContext';
+import Pulldown from 'components/Pulldown';
 
 const selectPort = () => {
   let temp_port: string | null = prompt('Select the default port', port);
@@ -18,7 +30,15 @@ const selectPort = () => {
 const Navbar = () => {
   const inputRef = useRef(null);
   const [curPath, setCurPath] = useState(path);
-  const { curExt, updateExt, curCustomExt, updateCurCustomExt } = useContext(InfoQueueContext);
+  const {
+    curExt,
+    updateExt,
+    curCustomExt,
+    updateCurCustomExt,
+    curConcurrentDownload,
+    updateConcurrentDownload,
+  } = useContext(InfoQueueContext);
+  const [experimental, setExperimental] = useState(false);
 
   useEffect(() => {
     if (inputRef && inputRef.current) {
@@ -118,6 +138,35 @@ const Navbar = () => {
                   }}
                 />
               </NavSpanTypeTwo>
+            );
+          }
+        })()}
+        <NavSpanTypeThree
+          open={experimental}
+          onClick={() => {
+            console.log(experimental);
+            setExperimental(!experimental);
+          }}
+        >
+          <Pulldown />
+          <NavLabel>Experimental</NavLabel>
+        </NavSpanTypeThree>
+        {(() => {
+          if (experimental) {
+            return (
+              <ExperimentalSpan>
+                <NavLabel>Concurrent downloads:</NavLabel>
+                <NavInput
+                  type="number"
+                  placeholder="1"
+                  defaultValue={curConcurrentDownload}
+                  min="1"
+                  onChange={(val: React.ChangeEvent<HTMLInputElement>) => {
+                    if (val.target.valueAsNumber < 1) val.target.value = '1';
+                    updateConcurrentDownload(val.target.valueAsNumber);
+                  }}
+                />
+              </ExperimentalSpan>
             );
           }
         })()}
