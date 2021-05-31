@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, ReactNode, useState, useEffect } from 'react';
 import { Props } from 'components/Queue/Item';
 
 export interface InfoQueueContextData {
@@ -37,6 +37,14 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
   const [ext, setExt] = useState('v mkv');
   const [customExt, setCustomExt] = useState(null);
   const [concurrentDownloads, setConcurrentDownloads] = useState(1);
+
+  useEffect(() => {
+    queue.forEach((element) => {
+      for (const entry of element.quality.entries()) {
+        console.log(entry);
+      }
+    });
+  }, [queue]);
 
   function updateQueue(newQueue: Props[]) {
     setQueue(newQueue);
@@ -96,3 +104,13 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
     </InfoQueueContext.Provider>
   );
 }
+
+// const map = new Map();
+// map.set('2160p', 313);
+// map.set('1440p', 271);
+// map.set('1080p', 248);
+// map.set('720p', 247);
+// map.set('480p', 244);
+// map.set('360p', 243);
+// map.set('240p', 242);
+// map.set('144p', 278);

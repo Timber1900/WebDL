@@ -57,7 +57,6 @@ const Navbar = () => {
   const check = async () => {
     window.localStorage.setItem('ytdl-lastcheck', '0');
     window.localStorage.setItem('webdl-lastcheck', '0');
-
     console.log(await CheckUpdates());
   };
 
@@ -144,7 +143,6 @@ const Navbar = () => {
         <NavSpanTypeThree
           open={experimental}
           onClick={() => {
-            console.log(experimental);
             setExperimental(!experimental);
           }}
         >

@@ -10,6 +10,7 @@ import { InfoQueueContext, progressProps } from 'contexts/InfoQueueContext';
 
 const Queue: FC = () => {
   const [disable, setDisable] = useState(false);
+  const [stop, setStop] = useState(false);
   const context = useContext(InfoQueueContext);
   const { curQueue, updateQueue, updateSearch, curCustomExt, curConcurrentDownload, updateQueuePrg } = context;
 
@@ -46,7 +47,7 @@ const Queue: FC = () => {
         cur_index++;
       }
 
-      if (found) download(vid_index);
+      if (found && !stop) download(vid_index);
       if (download_queue.reduce((previousValue, currentValue) => previousValue && !currentValue, true)) {
         let temp = [...curQueue];
         temp[queue_index].show = false;
@@ -55,6 +56,7 @@ const Queue: FC = () => {
         updateQueue(temp);
         updateQueuePrg(tempPrg);
         setDisable(false);
+        setStop(false);
       }
     };
 
@@ -95,6 +97,11 @@ const Queue: FC = () => {
         );
       }
     };
+
+    if (download_queue.length === 0) {
+      setDisable(false);
+      return;
+    }
 
     for (let i = 0; i < download_queue.length; i++) {
       download(i);
@@ -139,6 +146,14 @@ const Queue: FC = () => {
       <ButtonsContainer>
         <button onClick={downloadQueue} disabled={disable}>
           Download Videos
+        </button>
+        <button
+          disabled={!disable}
+          onClick={() => {
+            setStop(true);
+          }}
+        >
+          Stop Downloading
         </button>
         <button onClick={() => updateQueue([])} disabled={disable}>
           Clear queue
