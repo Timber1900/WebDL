@@ -63,6 +63,7 @@ const Queue: FC = () => {
     const download = (vid_index: number): void => {
       const vid = download_queue[vid_index];
       const format = vid.quality.get(vid.curQual);
+
       let type, extension;
       if (vid.ext === 'custom') {
         if (curCustomExt || (curCustomExt ?? '').length > 2) {
@@ -147,14 +148,14 @@ const Queue: FC = () => {
         <button onClick={downloadQueue} disabled={disable}>
           Download Videos
         </button>
-        <button
+        {/* <button
           disabled={!disable}
           onClick={() => {
             setStop(true);
           }}
         >
           Stop Downloading
-        </button>
+        </button> */}
         <button onClick={() => updateQueue([])} disabled={disable}>
           Clear queue
         </button>

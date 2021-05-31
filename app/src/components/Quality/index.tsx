@@ -3,10 +3,11 @@ import { Outer } from './style';
 
 export type Props = {
   quality: Map<string, any>;
-  setQual: React.Dispatch<React.SetStateAction<string>>;
+  curQual: string;
+  setQual: (newQual: string) => void;
 };
 
-const Trim: FC<Props> = (props: Props) => {
+const Quality: FC<Props> = (props: Props) => {
   const options: any = [];
   props.quality.forEach((value, key) => {
     options.push(key);
@@ -18,6 +19,7 @@ const Trim: FC<Props> = (props: Props) => {
         onChange={(e) => {
           props.setQual(e.target.value);
         }}
+        defaultValue={props.curQual}
       >
         {options.map((val: string, i: number) => {
           return (
@@ -31,4 +33,4 @@ const Trim: FC<Props> = (props: Props) => {
   );
 };
 
-export default Trim;
+export default Quality;

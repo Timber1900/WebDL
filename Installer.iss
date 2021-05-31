@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "WebDL"
-#define MyAppVersion "v9.0"
+#define MyAppVersion "v9.1"
 #define MyAppPublisher "Timber1900"
 #define MyAppURL "https://www.hteixeira.me/"
 #define MyAppExeName "WebDL.exe"

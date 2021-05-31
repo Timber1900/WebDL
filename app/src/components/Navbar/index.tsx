@@ -30,14 +30,8 @@ const selectPort = () => {
 const Navbar = () => {
   const inputRef = useRef(null);
   const [curPath, setCurPath] = useState(path);
-  const {
-    curExt,
-    updateExt,
-    curCustomExt,
-    updateCurCustomExt,
-    curConcurrentDownload,
-    updateConcurrentDownload,
-  } = useContext(InfoQueueContext);
+  // eslint-disable-next-line prettier/prettier
+  const {curExt, updateExt, curCustomExt, updateCurCustomExt, curConcurrentDownload, updateConcurrentDownload } = useContext(InfoQueueContext);
   const [experimental, setExperimental] = useState(false);
 
   useEffect(() => {

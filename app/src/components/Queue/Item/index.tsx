@@ -44,7 +44,7 @@ const Item: FC<Props> = (props: Props) => {
   const { id, merge, clips, i, duration } = props;
   const titleLabel = useRef(null);
   const title = props.title;
-  const [qual, setQual] = useState<string>(props.quality.entries().next().value[0]);
+  const [qual, setQual] = useState<string>(props.quality.get(props.curQual));
   const [show, setShow] = useState(props.download);
   const ext = props.ext;
   const refs: any = [titleLabel];
@@ -60,6 +60,13 @@ const Item: FC<Props> = (props: Props) => {
       }, 1000);
     }
   }, []);
+
+  const updateQual = (newQual: string) => {
+    setQual(newQual);
+    const tempQueue = [...curQueue];
+    tempQueue[i].curQual = newQual;
+    updateQueue(tempQueue);
+  };
 
   const renameVideo = function (e: any) {
     const label = e;
@@ -101,7 +108,6 @@ const Item: FC<Props> = (props: Props) => {
     // @ts-ignore: Object is possibly 'null'.
     const format = props.quality.get(qual);
     const callback = (queue_index: number) => {
-      console.log(queue_index);
       const removedQueue = curQueue.filter((e) => e.id !== props.id);
       const tempPrg = new Array<progressProps>(removedQueue.length).fill({ progress: 0 });
       updateQueue(removedQueue);
@@ -200,7 +206,7 @@ const Item: FC<Props> = (props: Props) => {
             <Trim hh={h} mm={m} ss={s} clips={clips} i={i} key={ID()} />
             <label onClick={dv}>Download video</label>
             <Separator />
-            <Quality quality={props.quality} setQual={setQual} />
+            <Quality quality={props.quality} curQual={props.curQual} setQual={updateQual} />
             <Outer>
               <label>Filetype:</label>
               <select defaultValue={ext} onChange={(e) => changeExt(e.target.value)}>

@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState, useEffect } from 'react';
+import { createContext, ReactNode, useState } from 'react';
 import { Props } from 'components/Queue/Item';
 
 export interface InfoQueueContextData {
@@ -37,14 +37,6 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
   const [ext, setExt] = useState('v mkv');
   const [customExt, setCustomExt] = useState(null);
   const [concurrentDownloads, setConcurrentDownloads] = useState(1);
-
-  useEffect(() => {
-    queue.forEach((element) => {
-      for (const entry of element.quality.entries()) {
-        console.log(entry);
-      }
-    });
-  }, [queue]);
 
   function updateQueue(newQueue: Props[]) {
     setQueue(newQueue);
