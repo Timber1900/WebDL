@@ -19,6 +19,7 @@ export const downloadLatestRealease = () => {
           ) {
             alert('Downloading latest youtube-dl...');
             window.localStorage.setItem('ytdl-version', val[0].tag_name);
+            fs.mkdirSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl'));
             YoutubeDlWrap.downloadFromWebsite(
               join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'youtube-dl.exe'),
               'win32',
