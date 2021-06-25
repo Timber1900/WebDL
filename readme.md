@@ -2,10 +2,16 @@
 
 ## Todo:
 
-- [x] Add search youtube feature
-- [x] Refactor code (css/js)
-- [x] Move to youtube-dl-wrap
-- [x] Move to React/Typescript
+- [ ] Finish UI in Tailwind
+  - [ ] Make the search page
+  - [ ] Make the trim page
+  - [x] Make Item template
+  - [x] Make header / footer
+  - [ ] Make Settings
+    - [x] Make initial layout
+    - [ ] Populate Settings
+- [ ] Pass logic to tailwind version
+   
 
 ## Table of Contents
 
