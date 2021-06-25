@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       gridTemplateRows: {
        'pancake': 'auto 1fr auto',
+       'search': 'auto 1fr',
       },
       transitionProperty: {
         'width': 'width'
@@ -835,6 +836,8 @@ module.exports = {
       width: ['hover'],
       textColor: ['active'],
       scale: ['active'],
+      opacity: ['group-focus'],
+      backgroundColor: ['active']
     },
     accessibility: ['responsive', 'focus-within', 'focus'],
     alignContent: ['responsive'],

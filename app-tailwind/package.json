@@ -49,15 +49,13 @@
   "nwBuilder": {
     "//": "https://github.com/nwjs-community/nw-builder",
     "platforms": [
-      "osx64",
-      "win32",
       "win64"
     ],
     "version": "latest",
-    "flavor": "normal",
+    "flavor": "sdk",
     "buildDir": "./build",
     "cacheDir": "./cache",
-    "macIcns": "./src/logo.icns"
+    "winIco": "./public/favicon.ico"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
