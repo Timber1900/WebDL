@@ -7,10 +7,10 @@
   - [ ] Make the trim page
   - [x] Make Item template
   - [x] Make header / footer
-  - [ ] Make Settings
+  - [x] Make Settings
     - [x] Make initial layout
     - [x] Populate Settings
-    - [ ] Add functionality to settings
+    - [x] Add functionality to settings
 - [ ] Pass logic to tailwind version
   - [x] Add logic to add videos to queue
   - [ ] Add logic to download videos
