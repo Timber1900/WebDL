@@ -14,7 +14,7 @@
 - [ ] Pass logic to tailwind version
   - [x] Add logic to add videos to queue
   - [ ] Add logic to download videos
-  - [ ] Add logic to search for videos
+  - [x] Add logic to search for videos
    
 
 ## Table of Contents
