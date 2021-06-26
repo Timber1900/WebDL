@@ -12,6 +12,9 @@ module.exports = {
       },
       transitionProperty: {
         'width': 'width'
+      },
+      minWidth: {
+        '4': '1rem'
       }
     },
     screens: {

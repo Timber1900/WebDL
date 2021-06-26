@@ -21,7 +21,7 @@ export const downloadVideo = async (
   ext: string,
   raw_clips: InnerProps[],
   length: number,
-  { updateInfo, updateQueuePrgIndividually }: InfoQueueContextData,
+  { updateInfo, updateQueuePrgIndividually, updateQueueVelIndividually }: InfoQueueContextData,
   vid_index: number,
   queue_index: number,
 ) => {
@@ -43,14 +43,13 @@ export const downloadVideo = async (
     const regex = /["*/:<>?\\|]/g;
     const fixedTitle: string = title.replace(regex, '');
 
-    const video = execStream([url, '-f', videoFormat]);
+    const video = execStream([url, '-f', videoFormat.itag ?? videoFormat.format_id]);
     const audio = execStream([url, '-f', 'bestaudio']);
 
     const ffmpeg = nw.require('ffmpeg-static');
 
     if (clips.length) await fs.unlink(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`), () => {});
 
-    console.log(ext);
 
     const ffmpegProcess = spawn(
       ffmpeg,
@@ -78,6 +77,7 @@ export const downloadVideo = async (
         stdio: ['inherit', 'inherit', 'inherit', 'pipe', 'pipe', 'pipe'],
       },
     );
+
     // @ts-expect-error
     audio.pipe(ffmpegProcess.stdio[4]);
     // @ts-expect-error
@@ -87,13 +87,15 @@ export const downloadVideo = async (
       .on('progress', (progress: any) => {
         updateProg(progress.percent);
         updateQueuePrgIndividually(progress.percent, queue_index);
+        updateQueueVelIndividually(progress.currentSpeed, queue_index);
         updateVel(progress.currentSpeed);
       })
       .on('error', (err: any) => {
         console.error(`%c ${err}`, 'color: #F87D7A');
         res({ vid_index, queue_index });
       });
-    ffmpegProcess.on('close', () => {
+
+    ffmpegProcess.on('close', (data) => {
       if (clips.length) {
         updateInfo('Cutting video ...');
         const promises = [];
@@ -109,10 +111,10 @@ export const downloadVideo = async (
           res({ vid_index, queue_index });
         });
       } else {
-        console.log(`Done downloading ${title}`);
+        console.log(`Done downloading ${title}. Data: ${data}`);
         updateInfo(`Done downloading ${title}`);
         res({ vid_index, queue_index });
       }
-    });
+    })
   });
 };

@@ -5,6 +5,7 @@ type extTypes = "v mkv" | "v mp4" | "v avi" | "v webm" | "a mp3" | "a m4a" | "a 
 export interface InfoQueueContextData {
   curQueue: Props[];
   curQueuePrg: progressProps[];
+  curQueueVel: velProps[];
   curInfo: string;
   curSearch: boolean;
   curExt: extTypes;
@@ -13,6 +14,8 @@ export interface InfoQueueContextData {
   updateQueue(newQueue: Props[]): void;
   updateQueuePrg(newPrg: progressProps[]): void;
   updateQueuePrgIndividually(newPrg: number, index: number): void;
+  updateQueueVel(newVel: velProps[]): void;
+  updateQueueVelIndividually(newVel: string, index: number): void;
   updateInfo(newInfo: string): void;
   updateSearch(newSearch: boolean): void;
   updateExt(newExt: extTypes): void;
@@ -28,11 +31,16 @@ export interface progressProps {
   progress: number;
 }
 
+export interface velProps {
+  vel: string;
+}
+
 export const InfoQueueContext = createContext({} as InfoQueueContextData);
 
 export default function InfoQueueProvider({ children }: InfoQueueProviderProps) {
   const [queue, setQueue] = useState<Props[]>([]);
   const [queuePrg, setQueuePrg] = useState<progressProps[]>([]);
+  const [queueVel, setQueueVel] = useState<velProps[]>([]);
   const [info, setInfo] = useState('Waiting for download');
   const [showSearch, setShowSearch] = useState(false);
   const [ext, setExt] = useState<extTypes>('v mkv');
@@ -51,6 +59,16 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
     const temp = [...queuePrg];
     temp[index].progress = newPrg;
     setQueuePrg(temp);
+  }
+
+  function updateQueueVel(newVel: velProps[]) {
+    setQueueVel(newVel);
+  }
+
+  function updateQueueVelIndividually(newVel: string, index: number) {
+    const temp = [...queueVel];
+    temp[index].vel = newVel;
+    setQueueVel(temp);
   }
 
   function updateInfo(newInfo: string) {
@@ -78,7 +96,9 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
       value={{
         updateQueue,
         updateQueuePrg,
+        updateQueueVel,
         updateQueuePrgIndividually,
+        updateQueueVelIndividually,
         updateInfo,
         updateSearch,
         updateExt,
@@ -86,6 +106,7 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
         updateConcurrentDownload,
         curQueue: queue,
         curQueuePrg: queuePrg,
+        curQueueVel: queueVel,
         curInfo: info,
         curSearch: showSearch,
         curExt: ext,

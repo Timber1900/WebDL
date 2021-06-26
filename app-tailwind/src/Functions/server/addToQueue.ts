@@ -38,7 +38,7 @@ async function getQueueDiv(url: string) {
 }
 
 export const addToQueue = async (url: string) => {
-  const { curQueue, updateInfo, updateQueue, curQueuePrg, updateQueuePrg } = outerContext;
+  const { curQueue, updateInfo, updateQueue, curQueuePrg, updateQueuePrg, curQueueVel, updateQueueVel } = outerContext;
   let currentInfo = 'Fetching videos';
   updateInfo(currentInfo);
   const videos = await ytpl(url, { pages: Infinity }).catch(() => {});
@@ -82,12 +82,14 @@ export const addToQueue = async (url: string) => {
             if (div) {
               if (!prevQueue.find((val) => val.id === div.id)) prevQueue.push(div);
               curQueuePrg.push({ progress: 0 });
+              curQueueVel.push({ vel: '0.0MiB/s' });
             }
           }
         }
       }
       updateQueue(prevQueue);
       updateQueuePrg(curQueuePrg);
+      updateQueueVel(curQueueVel);
     }
     updateInfo('Done fetching');
   });

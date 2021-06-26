@@ -20,7 +20,7 @@ export const downloadAudio = async (
   ext: string,
   raw_clips: InnerProps[],
   length: number,
-  { updateInfo, updateQueuePrgIndividually }: InfoQueueContextData,
+  { updateInfo, updateQueuePrgIndividually, updateQueueVelIndividually }: InfoQueueContextData,
   vid_index: number,
   queue_index: number,
 ) => {
@@ -71,6 +71,7 @@ export const downloadAudio = async (
       .on('progress', (progress: any) => {
         updateProg(progress.percent);
         updateQueuePrgIndividually(progress.percent, queue_index);
+        updateQueueVelIndividually(progress.currentSpeed, queue_index);
         updateVel(progress.currentSpeed);
       })
       .on('error', (err: any) => {

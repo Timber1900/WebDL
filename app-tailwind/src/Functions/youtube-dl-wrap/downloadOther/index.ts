@@ -21,7 +21,7 @@ export const downloadOther = async (
   raw_clips: InnerProps[],
   length: number,
   videoFormat: any,
-  { updateInfo, updateQueuePrgIndividually }: InfoQueueContextData,
+  { updateInfo, updateQueuePrgIndividually, updateQueueVelIndividually }: InfoQueueContextData,
   vid_index: number,
   queue_index: number,
 ) => {
@@ -72,6 +72,7 @@ export const downloadOther = async (
       .on('progress', (progress: any) => {
         updateProg(progress.percent);
         updateQueuePrgIndividually(progress.percent, queue_index);
+        updateQueueVelIndividually(progress.currentSpeed, queue_index)
         updateVel(progress.currentSpeed);
       })
       .on('error', (err: any) => {

@@ -39,7 +39,6 @@ function App() {
     });
   }, [])
 
-
   useEffect(() => {
     outerContext = context;
   }, [context]);
