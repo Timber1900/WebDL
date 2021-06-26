@@ -12,7 +12,7 @@ interface SearchItemProps {
 
 const Search = ({className}: Props) => {
   const [val, setVal] = useState("");
-  const [items, setItems] = useState<SearchItemProps[]>([{title: 'I got to meet jschlatt and amourah', url: 'https://www.youtube.com/embed/ILxST69xTpg'}])
+  const items: SearchItemProps[] = [{title: 'I got to meet jschlatt and amourah', url: 'https://www.youtube.com/embed/ILxST69xTpg'}]
 
   return (
     <div className={`${className ?? ''} flex flex-col items-center justify-start absolute inset-x-12 inset-y-12 p-4 gap-4 bg-white dark:bg-gray-800 rounded-2xl shadow-lg text-black dark:text-white text-base font-medium`}>

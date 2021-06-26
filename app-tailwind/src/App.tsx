@@ -7,9 +7,18 @@ import { SettingsContext } from './Contexts/SettingsContext';
 import { useContext } from 'react';
 import { useEffect } from 'react';
 import { setDarkMode } from './Components/Settings';
+import { InfoQueueContext, InfoQueueContextData } from './Contexts/InfoQueueContext';
+import { setUpMinimize } from './Functions/tray';
+import { CheckUpdates } from './Functions/update';
+import { addToQueue } from './Functions/server/addToQueue';
+import './Functions/server/server';
+import ytpl from 'ytpl';
+
+export let outerContext: InfoQueueContextData;
 
 function App() {
   const {showSettings, changeShowSettings, changeShowSearch, showSearch} = useContext(SettingsContext);
+  const context = useContext(InfoQueueContext);
 
   const closeOpen = () => {
     if(showSettings) changeShowSettings();
@@ -18,7 +27,21 @@ function App() {
 
   useEffect(() => {
     setDarkMode();
-  })
+    //@ts-ignore
+    window.ytpl = ytpl;
+    setUpMinimize();
+    CheckUpdates();
+    window.addEventListener('paste', (event: any) => {
+      let paste = event.clipboardData.getData('text');
+      addToQueue(paste);
+      console.log("FUCK")
+    });
+  }, [])
+
+
+  useEffect(() => {
+    outerContext = context;
+  }, [context]);
 
   return (
     <div className="relative w-full h-full">
