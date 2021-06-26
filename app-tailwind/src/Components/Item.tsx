@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { useState } from 'react';
 import { CgRename, MdContentCut, CgSoftwareDownload, CgClose } from 'react-icons/all'
 import { Storage } from '../Constants';
@@ -39,6 +39,7 @@ export interface InnerProps {
 const Item = ({ duration, title, thumbnail, quality, curQual, i}: Props) => {
   const [qual, setQual] = useState(quality.get(curQual));
   const {curQueue, updateQueue, updateQueuePrg} = useContext(InfoQueueContext);
+  const titleLabel = useRef<HTMLSpanElement>(null);
 
   const seconds = duration % 60;
   const minutes = ((duration - seconds) / 60) % 60;
@@ -71,6 +72,38 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i}: Props) => {
     updateQueue(tempQueue);
   }
 
+  const renameVideo = function (e: HTMLSpanElement) {
+    const label = e;
+    label.setAttribute('contenteditable', 'true');
+    label.className = label.className.replace('truncate', '');
+    label.focus();
+
+    const changeTitle = (title: string) => {
+      const tempQueue = [...curQueue];
+      tempQueue[i].title = title;
+      updateQueue(tempQueue);
+    };
+
+    function stopRenameEnter(event: KeyboardEvent) {
+      if (event.target === label && event.key === 'Enter') {
+        label.innerHTML.replace(/\n/g, '');
+        document.removeEventListener('keydown', stopRenameEnter);
+        label.blur();
+      }
+    }
+
+    function stopRename() {
+      label.setAttribute('contenteditable', 'false');
+      label.removeEventListener('focusout', stopRename);
+      label.className = `${label.className} truncate`
+      label.scrollLeft = 0;
+      changeTitle(label.innerHTML);
+    }
+
+    document.addEventListener('keydown', stopRenameEnter);
+    e.addEventListener('focusout', stopRename);
+  };
+
   return(
     <div className="grid w-auto h-auto max-w-4xl grid-cols-5 gap-2 p-4 pr-0 m-4 bg-white rounded-md shadow-md max-h-56 min-h-48 dark:bg-gray-800 place-items-center">
       <div className="h-auto col-span-2 rounded-md shadow-sm max-h-56">
@@ -78,7 +111,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i}: Props) => {
       </div>
       <div className="grid w-full h-full grid-cols-10 col-span-3 grid-rows-3 gap-2">
         <span className="grid place-items-center col-span-9 col-start-1 row-span-1 row-start-1 w-full">
-          <span className="truncate text-center w-full">
+          <span className="truncate text-center w-full whitespace-nowrap overflow-hidden" ref={titleLabel}>
             {title}
           </span>
         </span>
@@ -123,7 +156,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i}: Props) => {
           </span>
         </div>
         <div className="grid grid-cols-1 col-span-1 col-start-10 grid-rows-4 row-span-3 row-start-1 gap-1 border-l border-gray-200 dark:border-gray-700 place-items-center">
-          <CgRename className="text-black transition-all transform scale-100 fill-current dark:active:text-gray-300 active:scale-95 active:text-gray-700 dark:text-white hover:text-gray-800 dark:hover:text-gray-200 hover:scale-125"/>
+          <CgRename className="text-black transition-all transform scale-100 fill-current dark:active:text-gray-300 active:scale-95 active:text-gray-700 dark:text-white hover:text-gray-800 dark:hover:text-gray-200 hover:scale-125" onClick={() => {if(titleLabel.current) renameVideo(titleLabel.current)}}/>
           <MdContentCut className="text-black transition-all transform scale-100 fill-current dark:active:text-gray-300 active:scale-95 active:text-gray-700 dark:text-white hover:text-gray-800 dark:hover:text-gray-200 hover:scale-125"/>
           <CgSoftwareDownload className="text-black transition-all transform scale-100 fill-current dark:active:text-gray-300 active:scale-95 active:text-gray-700 dark:text-white hover:text-gray-800 dark:hover:text-gray-200 hover:scale-125"/>
           <CgClose onClick={removeQueue} className="text-black transition-all transform scale-100 rotate-0 fill-current active:text-red-600 active:scale-95 dark:active:text-red-600 dark:text-white hover:text-red-500 dark:hover:text-red-500 hover:rotate-90 hover:scale-125"/>

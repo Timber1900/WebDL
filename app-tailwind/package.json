@@ -24,7 +24,8 @@
     "web-vitals": "^1.0.1",
     "youtube-dl-wrap": "^2.1.0",
     "ytdl-core": "^4.8.3",
-    "ytpl": "^2.2.1"
+    "ytpl": "^2.2.1",
+    "ytsr": "^3.5.0"
   },
   "scripts": {
     "start": "nw-react-scripts start --load-extension=./react-devtools",

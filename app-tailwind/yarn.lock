@@ -13139,6 +13139,13 @@ ytpl@^2.2.1:
   dependencies:
     miniget "^4.2.0"
 
+ytsr@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/ytsr/-/ytsr-3.5.0.tgz#116406e39e06211a19b1efddcdf56668442d26b2"
+  integrity sha512-e92xxZI8OxUCsbLtn0NfkuKuSDN4YZtG+ow64G3N4b+bkEWCjR0hEPye+iCBA07/02OXPmWHD88FPy1hq0izMQ==
+  dependencies:
+    miniget "^4.2.0"
+
 zip-stream@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/zip-stream/-/zip-stream-1.2.0.tgz#a8bc45f4c1b49699c6b90198baacaacdbcd4ba04"
