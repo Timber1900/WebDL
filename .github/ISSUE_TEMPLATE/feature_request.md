@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Request a new feature for Youtube Downloader
+about: Request a new feature for WebDL
 title: ''
 labels: 'Feature request'
 assignees: timber1900
