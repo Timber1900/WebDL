@@ -1841,6 +1841,14 @@
     "@types/connect" "*"
     "@types/node" "*"
 
+"@types/chrome@^0.0.145":
+  version "0.0.145"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.145.tgz#6c53ae0af5f25350b07bfd24cf459b5fe65cd9b8"
+  integrity sha512-vLvTMmfc8mvwOZzkmn2UwlWSNu0t0txBkyuIv8NgihRkvFCe6XJX65YZAgAP/RdBit3enhU2GTxCr+prn4uZmA==
+  dependencies:
+    "@types/filesystem" "*"
+    "@types/har-format" "*"
+
 "@types/connect@*":
   version "3.4.34"
   resolved "https://registry.yarnpkg.com/@types/connect/-/connect-3.4.34.tgz#170a40223a6d666006d93ca128af2beb1d9b1901"
@@ -1885,6 +1893,18 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/filesystem@*":
+  version "0.0.31"
+  resolved "https://registry.yarnpkg.com/@types/filesystem/-/filesystem-0.0.31.tgz#121a1ded274a2dc731d5e0d90163a920ad6a9ef1"
+  integrity sha512-9Dj1Gb7ZhknhJ8J1H/lTQrEorwIHWZlO9Tfi0WMrvyO1+2GUIUF8Sg4zrID77hj0ywArzQRJ1MwlT9H7c9QmEQ==
+  dependencies:
+    "@types/filewriter" "*"
+
+"@types/filewriter@*":
+  version "0.0.29"
+  resolved "https://registry.yarnpkg.com/@types/filewriter/-/filewriter-0.0.29.tgz#a48795ecadf957f6c0d10e0c34af86c098fa5bee"
+  integrity sha512-BsPXH/irW0ht0Ji6iw/jJaK8Lj3FJemon2gvEqHKpCdDCeemHa+rI3WBGq5z7cDMZgoLjY40oninGxqk+8NzNQ==
+
 "@types/glob@^7.1.1":
   version "7.1.3"
   resolved "https://registry.yarnpkg.com/@types/glob/-/glob-7.1.3.tgz#e6ba80f36b7daad2c685acd9266382e68985c183"
@@ -1899,6 +1919,11 @@
   integrity sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==
   dependencies:
     "@types/node" "*"
+
+"@types/har-format@*":
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/@types/har-format/-/har-format-1.2.6.tgz#471c83acdf6a2ea429620daee4c6dc1784a0e85f"
+  integrity sha512-TeZjp4COiAWPOeGx1tuFJETr/SBMx80lxqeqnCC36ZVn463f7ElCdA3X9RzDuo3BHjhN4apw41A5uoIw5FzgWA==
 
 "@types/html-minifier-terser@^5.0.0":
   version "5.1.1"
@@ -13098,10 +13123,10 @@ youtube-dl-wrap@^2.1.0:
   resolved "https://registry.yarnpkg.com/youtube-dl-wrap/-/youtube-dl-wrap-2.1.0.tgz#f2d998f8e910a0f6cea1d2e7fe2a11f4b6712c36"
   integrity sha512-uGWtC4J1IGKMER32sQCtXBCbrvCAF4+2oSYIdIV3/fSgOkwHPKZmAdHLnaS+iZoEuYI+SZcm5dwNgGskWaIT6Q==
 
-ytdl-core@^4.8.2:
-  version "4.8.2"
-  resolved "https://registry.yarnpkg.com/ytdl-core/-/ytdl-core-4.8.2.tgz#f034ad942c5d958f5987fc8ff0b0639664ae2fb7"
-  integrity sha512-O3n++YcgZawaXJwbPmnRDgfN6b4kU0DpNdkI9Na5yM3JAdfJmoq5UHc8v9Xjgjr1RilQUUh7mhDnRRPDtKr0Kg==
+ytdl-core@^4.8.3:
+  version "4.8.3"
+  resolved "https://registry.yarnpkg.com/ytdl-core/-/ytdl-core-4.8.3.tgz#21570d1834db13dec7828cf87bbf4c83c0fe68d7"
+  integrity sha512-cWCBeX4FCgjcKmuVK384MT582RIAakpUSeMF/NPVmhO8cWiG+LeQLnBordvLolb0iXYzfUvalgmycYAE5Sy6Xw==
   dependencies:
     m3u8stream "^0.8.3"
     miniget "^4.0.0"

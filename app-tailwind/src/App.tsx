@@ -11,7 +11,7 @@ import { InfoQueueContext, InfoQueueContextData } from './Contexts/InfoQueueCont
 import { setUpMinimize } from './Functions/tray';
 import { CheckUpdates } from './Functions/update';
 import { addToQueue } from './Functions/server/addToQueue';
-import './Functions/server/server';
+import { startServer } from './Functions/server/server';
 import ytpl from 'ytpl';
 
 export let outerContext: InfoQueueContextData;
@@ -27,6 +27,7 @@ function App() {
 
   useEffect(() => {
     setDarkMode();
+    startServer();
     //@ts-ignore
     window.ytpl = ytpl;
     setUpMinimize();
@@ -44,7 +45,7 @@ function App() {
   }, [context]);
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full subpixel-antialiased">
       <div className={`${(showSettings || showSearch) ? 'opacity-40' : 'opacity-0 pointer-events-none'} z-10 absolute inset-0 w-screen h-screen bg-black transition-opacity duration-200`} onClick={closeOpen}/>
       <div className="grid w-screen h-screen font-sans text-2xl font-extrabold text-black bg-white grid-rows-pancake dark:bg-gray-800 dark:text-white">
         <Header />

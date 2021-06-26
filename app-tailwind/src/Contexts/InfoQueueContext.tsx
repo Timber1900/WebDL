@@ -1,43 +1,13 @@
 import { createContext, ReactNode, useState } from 'react';
+import { Props } from '../Components/Item';
 
-interface Props {
-  i: number;
-  id: string;
-  thumbnail: string;
-  info: any;
-  quality: Map<string, any>;
-  curQual: string;
-  title: string;
-  download: boolean;
-  merge: boolean;
-  ext: string;
-  duration: number;
-  clips: InnerProps[];
-  animate?: boolean;
-  show: boolean;
-}
-
-interface InnerProps {
-  h1: string;
-  m1: string;
-  s1: string;
-  h2: string;
-  m2: string;
-  s2: string;
-  i: number;
-  start: number;
-  end: number;
-  id: string;
-  index: number;
-  change: any;
-}
-
+type extTypes = "v mkv" | "v mp4" | "v avi" | "v webm" | "a mp3" | "a m4a" | "a ogg" | "a wav" | "custom";
 export interface InfoQueueContextData {
   curQueue: Props[];
   curQueuePrg: progressProps[];
   curInfo: string;
   curSearch: boolean;
-  curExt: string;
+  curExt: extTypes;
   curCustomExt: string | null;
   curConcurrentDownload: number;
   updateQueue(newQueue: Props[]): void;
@@ -45,7 +15,7 @@ export interface InfoQueueContextData {
   updateQueuePrgIndividually(newPrg: number, index: number): void;
   updateInfo(newInfo: string): void;
   updateSearch(newSearch: boolean): void;
-  updateExt(newExt: string): void;
+  updateExt(newExt: extTypes): void;
   updateCurCustomExt(newCustomExt: string | null): void;
   updateConcurrentDownload(newCuncurrentDownload: number): void;
 }
@@ -65,7 +35,7 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
   const [queuePrg, setQueuePrg] = useState<progressProps[]>([]);
   const [info, setInfo] = useState('Waiting for download');
   const [showSearch, setShowSearch] = useState(false);
-  const [ext, setExt] = useState('v mkv');
+  const [ext, setExt] = useState<extTypes>('v mkv');
   const [customExt, setCustomExt] = useState<string | null>(null);
   const [concurrentDownloads, setConcurrentDownloads] = useState(1);
 
@@ -91,7 +61,7 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
     setShowSearch(newSearch);
   }
 
-  function updateExt(newExt: string) {
+  function updateExt(newExt: extTypes) {
     setExt(newExt);
   }
 

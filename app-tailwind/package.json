@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@types/chrome": "^0.0.145",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/nw.js": "^0.13.13",
@@ -22,7 +23,7 @@
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1",
     "youtube-dl-wrap": "^2.1.0",
-    "ytdl-core": "^4.8.2",
+    "ytdl-core": "^4.8.3",
     "ytpl": "^2.2.1"
   },
   "scripts": {
