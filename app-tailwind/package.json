@@ -20,6 +20,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
+    "react-simple-timefield": "^3.2.3",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1",
     "youtube-dl-wrap": "^2.1.0",
@@ -77,7 +78,7 @@
     "toolbar": true,
     "width": 800,
     "height": 800,
-    "min_width": 400,
+    "min_width": 600,
     "min_height": 400,
     "position": "center"
   }

@@ -7,7 +7,7 @@ import { downloadAudio } from '../Functions/youtube-dl-wrap/downloadAudio';
 import { downloadOther } from '../Functions/youtube-dl-wrap/downloadOther';
 import { downloadVideo } from '../Functions/youtube-dl-wrap/downloadVideo';
 import VerticalProgressBar from './VerticalProgressBar';
-
+import Trim from './Trim';
 export interface Props {
   i: number;
   id: string;
@@ -42,6 +42,7 @@ export interface InnerProps {
 
 const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, merge, clips}: Props) => {
   const [qual, setQual] = useState(quality.get(curQual));
+  const [trim, setTrim] = useState(false);
   const {curQueue, updateQueue, updateQueuePrg, updateQueueVel, curCustomExt, curConcurrentDownload, curQueuePrg, curQueueVel} = useContext(InfoQueueContext);
   const context = useContext(InfoQueueContext);
   const titleLabel = useRef<HTMLSpanElement>(null);
@@ -62,8 +63,8 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
     const format = quality.get(curQual);
     const callback = () => {
       const removedQueue = curQueue.filter((e) => e.id !== id);
-      const tempPrg = new Array<progressProps>(removedQueue.length).fill({ progress: 0 });
-      const tempVel = new Array<velProps>(removedQueue.length).fill({ vel: '0.0MiB/s' });
+      const tempPrg = Array.from({length: removedQueue.length}, ():progressProps => ({progress: 0}));
+      const tempVel = Array.from({length: removedQueue.length}, ():velProps => ({ vel: '0.0MiB/s' }));
       updateQueue(removedQueue);
       updateQueuePrg(tempPrg);
       updateQueueVel(tempVel);
@@ -150,74 +151,77 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
   };
 
   return(
-    <div className={`${show ? 'grid' : 'hidden'} w-auto h-auto max-w-4xl grid-cols-5 gap-2 p-4 pr-0 m-4 bg-white rounded-md shadow-md max-h-56 min-h-48 dark:bg-gray-800 place-items-center`}>
-      <div className="h-auto col-span-2 rounded-md shadow-sm max-h-56">
-        <img width="300" height="166" src={thumbnail} alt={title} className="rounded-md w-min"/>
-      </div>
-      <div className="grid w-full h-full grid-cols-10 col-span-3 grid-rows-3 gap-2">
-        <span className={`grid place-items-center ${curConcurrentDownload > 1 ? 'col-span-7' : 'col-span-9'} col-start-1 row-span-1 row-start-1 w-full`}>
-          <span className="truncate text-center w-full whitespace-nowrap overflow-hidden" ref={titleLabel}>
-            {title}
-          </span>
-        </span>
-        <div className={`grid grid-cols-2 ${curConcurrentDownload > 1 ? 'col-span-7' : 'col-span-9'} col-start-1 row-span-1 row-start-2 gap-2 place-items-center`}>
-          <span className="flex items-center justify-center w-full h-full gap-2 text-base font-medium flex-rows">
-            <label htmlFor='qual'>Quality: </label>
-            <select onChange={(e) => {updateQual(quality.get(e.target.value))}} defaultValue={curQual} id='qual' className="bg-gray-100 rounded-md shadow-sm w-max dark:bg-gray-700 focus:outline-none">
-            {options.map((val: string, i: number) => {
-              return (
-                <option value={val} key={i}>
-                  {val}
-                </option>
-              );
-            })}
-            </select>
-          </span>
-          <span className="flex items-center justify-center w-full h-full gap-2 text-base font-medium flex-rows">
-            <label htmlFor='qual'>Extension: </label>
-            <select defaultValue={ext} onChange={(e) => changeExt(e.target.value)} id='qual' className="bg-gray-100 rounded-md shadow-sm w-16 dark:bg-gray-700 focus:outline-none">
-              <optgroup label="Video">
-                <option value="v mkv">mkv</option>
-                <option value="v mp4">mp4</option>
-                <option value="v avi">avi</option>
-                <option value="v webm">webm</option>
-              </optgroup>
-              <optgroup label="Audio">
-                <option value="a mp3">mp3</option>
-                <option value="a m4a">m4a</option>
-                <option value="a ogg">ogg</option>
-                <option value="a wav">wav</option>
-              </optgroup>
-              <option value="custom">Other</option>
-            </select>
-          </span>
+    <>
+      {trim && <Trim closeTrim={() => setTrim(false)} hh={hours < 10 ? `0${hours}` : hours.toString()} mm={minutes < 10 ? `0${minutes}` : minutes.toString()} ss={seconds < 10 ? `0${seconds}` : seconds.toString()} clips={clips} i={i}/>}
+      <div className={`${show ? 'grid' : 'hidden'} w-auto h-auto max-w-4xl grid-cols-5 gap-2 p-4 pr-0 m-4 bg-white rounded-md shadow-md max-h-56 min-h-48 dark:bg-gray-800 place-items-center`}>
+        <div className="h-auto col-span-2 rounded-md shadow-sm max-h-56">
+          <img width="300" height="166" src={thumbnail} alt={title} className="rounded-md w-min"/>
         </div>
-        <div className={`grid grid-cols-2 ${curConcurrentDownload > 1 ? 'col-span-7' : 'col-span-9'} col-start-1 row-span-1 row-start-3 gap-2 place-items-center`}>
-          <span className="text-base font-medium">
-            <p>Duration: <code className="dark:bg-gray-700 bg-gray-100 px-1 py-0.5 rounded-lg">{hours > 0 ? `${hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}` : `${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`}</code></p>
+        <div className="grid w-full h-full grid-cols-10 col-span-3 grid-rows-3 gap-2">
+          <span className={`grid place-items-center ${curConcurrentDownload > 1 ? 'col-span-7' : 'col-span-9'} col-start-1 row-span-1 row-start-1 w-full`}>
+            <span className="w-full overflow-hidden text-center truncate whitespace-nowrap" ref={titleLabel}>
+              {title}
+            </span>
           </span>
-          <span className="text-base font-medium">
-            <p>Size: <code className="dark:bg-gray-700 bg-gray-100 px-1 py-0.5 rounded-lg">{(qual.filesize ?? qual.contentLength) ? `${((qual.filesize ?? qual.contentLength) / Storage.MEGABYTE).toFixed(2)} MiB` : 'Unknown'}</code></p>
-          </span>
-        </div>
-        <div className="grid grid-cols-1 col-span-1 col-start-10 grid-rows-4 row-span-3 row-start-1 gap-1 border-l border-gray-200 dark:border-gray-700 place-items-center">
-          <CgRename className="text-black transition-all transform scale-100 fill-current dark:active:text-gray-300 active:scale-95 active:text-gray-700 dark:text-white hover:text-gray-800 dark:hover:text-gray-200 hover:scale-125" onClick={() => {if(titleLabel.current) renameVideo(titleLabel.current)}}/>
-          <MdContentCut className="text-black transition-all transform scale-100 fill-current dark:active:text-gray-300 active:scale-95 active:text-gray-700 dark:text-white hover:text-gray-800 dark:hover:text-gray-200 hover:scale-125"/>
-          <CgSoftwareDownload onClick={dv} className="text-black transition-all transform scale-100 fill-current dark:active:text-gray-300 active:scale-95 active:text-gray-700 dark:text-white hover:text-gray-800 dark:hover:text-gray-200 hover:scale-125"/>
-          <CgClose onClick={removeQueue} className="text-black transition-all transform scale-100 rotate-0 fill-current active:text-red-600 active:scale-95 dark:active:text-red-600 dark:text-white hover:text-red-500 dark:hover:text-red-500 hover:rotate-90 hover:scale-125"/>
-        </div>
-        {(curConcurrentDownload > 1) &&
-        <div className='flex col-span-2 col-start-8 row-span-3 h-full w-full items-center justify-end text-base'>
-          <div className="flex flex-col items-center justify-start h-full text-right font-normal">
-            <div className="w-full mb-auto">{prg}%</div>
-            <div className="w-full">{vel.slice(0, -5)}</div>
-            <div className="w-full">{vel.substring(vel.length - 5, vel.length)}</div>
+          <div className={`grid grid-cols-2 ${curConcurrentDownload > 1 ? 'col-span-7' : 'col-span-9'} col-start-1 row-span-1 row-start-2 gap-2 place-items-center`}>
+            <span className="flex items-center justify-center w-full h-full gap-2 text-base font-medium flex-rows">
+              <label htmlFor='qual'>Quality: </label>
+              <select onChange={(e) => {updateQual(quality.get(e.target.value))}} defaultValue={curQual} id='qual' className="bg-gray-100 rounded-md shadow-sm w-max dark:bg-gray-700 focus:outline-none">
+              {options.map((val: string, i: number) => {
+                return (
+                  <option value={val} key={i}>
+                    {val}
+                  </option>
+                );
+              })}
+              </select>
+            </span>
+            <span className="flex items-center justify-center w-full h-full gap-2 text-base font-medium flex-rows">
+              <label htmlFor='qual'>Extension: </label>
+              <select defaultValue={ext} onChange={(e) => changeExt(e.target.value)} id='qual' className="w-16 bg-gray-100 rounded-md shadow-sm dark:bg-gray-700 focus:outline-none">
+                <optgroup label="Video">
+                  <option value="v mkv">mkv</option>
+                  <option value="v mp4">mp4</option>
+                  <option value="v avi">avi</option>
+                  <option value="v webm">webm</option>
+                </optgroup>
+                <optgroup label="Audio">
+                  <option value="a mp3">mp3</option>
+                  <option value="a m4a">m4a</option>
+                  <option value="a ogg">ogg</option>
+                  <option value="a wav">wav</option>
+                </optgroup>
+                <option value="custom">Other</option>
+              </select>
+            </span>
           </div>
-          <VerticalProgressBar id={`vprogress${i}`} value={prg / 100}/>
+          <div className={`grid grid-cols-2 ${curConcurrentDownload > 1 ? 'col-span-7' : 'col-span-9'} col-start-1 row-span-1 row-start-3 gap-2 place-items-center`}>
+            <span className="text-base font-medium">
+              <p>Duration: <code className="dark:bg-gray-700 bg-gray-100 px-1 py-0.5 rounded-lg">{hours > 0 ? `${hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}` : `${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`}</code></p>
+            </span>
+            <span className="text-base font-medium">
+              <p>Size: <code className="dark:bg-gray-700 bg-gray-100 px-1 py-0.5 rounded-lg">{(qual.filesize ?? qual.contentLength) ? `${((qual.filesize ?? qual.contentLength) / Storage.MEGABYTE).toFixed(2)} MiB` : 'Unknown'}</code></p>
+            </span>
+          </div>
+          <div className="grid grid-cols-1 col-span-1 col-start-10 grid-rows-4 row-span-3 row-start-1 gap-1 border-l border-gray-200 dark:border-gray-700 place-items-center">
+            <CgRename className="text-black transition-all transform scale-100 fill-current dark:active:text-gray-300 active:scale-95 active:text-gray-700 dark:text-white hover:text-gray-800 dark:hover:text-gray-200 hover:scale-125" onClick={() => {if(titleLabel.current) renameVideo(titleLabel.current)}}/>
+            <MdContentCut className="text-black transition-all transform scale-100 fill-current dark:active:text-gray-300 active:scale-95 active:text-gray-700 dark:text-white hover:text-gray-800 dark:hover:text-gray-200 hover:scale-125" onClick={() => setTrim(true)}/>
+            <CgSoftwareDownload onClick={dv} className="text-black transition-all transform scale-100 fill-current dark:active:text-gray-300 active:scale-95 active:text-gray-700 dark:text-white hover:text-gray-800 dark:hover:text-gray-200 hover:scale-125"/>
+            <CgClose onClick={removeQueue} className="text-black transition-all transform scale-100 rotate-0 fill-current active:text-red-600 active:scale-95 dark:active:text-red-600 dark:text-white hover:text-red-500 dark:hover:text-red-500 hover:rotate-90 hover:scale-125"/>
+          </div>
+          {(curConcurrentDownload > 1) &&
+          <div className='flex items-center justify-end w-full h-full col-span-2 col-start-8 row-span-3 text-base'>
+            <div className="flex flex-col items-center justify-start h-full font-normal text-right">
+              <div className="w-full mb-auto">{prg}%</div>
+              <div className="w-full">{vel.slice(0, -5)}</div>
+              <div className="w-full">{vel.substring(vel.length - 5, vel.length)}</div>
+            </div>
+            <VerticalProgressBar id={`vprogress${i}`} value={prg / 100}/>
+          </div>
+          }
         </div>
-        }
       </div>
-    </div>
+    </>
   )
 }
 
