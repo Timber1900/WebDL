@@ -1,5 +1,3 @@
-/// <reference types="react-scripts" />
-/// <reference types="nwjs-types" />
+/// <reference types="nw-react-scripts" />
 
-declare module '*.png';
 declare module 'youtube-dl-wrap';

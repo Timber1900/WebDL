@@ -1,21 +1,25 @@
 import { createContext, ReactNode, useState } from 'react';
-import { Props } from 'components/Queue/Item';
+import { Props } from '../Components/Item';
 
+type extTypes = "v mkv" | "v mp4" | "v avi" | "v webm" | "a mp3" | "a m4a" | "a ogg" | "a wav" | "custom";
 export interface InfoQueueContextData {
   curQueue: Props[];
   curQueuePrg: progressProps[];
+  curQueueVel: velProps[];
   curInfo: string;
   curSearch: boolean;
-  curExt: string;
+  curExt: extTypes;
   curCustomExt: string | null;
   curConcurrentDownload: number;
   updateQueue(newQueue: Props[]): void;
   updateQueuePrg(newPrg: progressProps[]): void;
   updateQueuePrgIndividually(newPrg: number, index: number): void;
+  updateQueueVel(newVel: velProps[]): void;
+  updateQueueVelIndividually(newVel: string, index: number): void;
   updateInfo(newInfo: string): void;
   updateSearch(newSearch: boolean): void;
-  updateExt(newExt: string): void;
-  updateCurCustomExt(newCustomExt: string): void;
+  updateExt(newExt: extTypes): void;
+  updateCurCustomExt(newCustomExt: string | null): void;
   updateConcurrentDownload(newCuncurrentDownload: number): void;
 }
 
@@ -27,15 +31,20 @@ export interface progressProps {
   progress: number;
 }
 
+export interface velProps {
+  vel: string;
+}
+
 export const InfoQueueContext = createContext({} as InfoQueueContextData);
 
 export default function InfoQueueProvider({ children }: InfoQueueProviderProps) {
   const [queue, setQueue] = useState<Props[]>([]);
   const [queuePrg, setQueuePrg] = useState<progressProps[]>([]);
+  const [queueVel, setQueueVel] = useState<velProps[]>([]);
   const [info, setInfo] = useState('Waiting for download');
   const [showSearch, setShowSearch] = useState(false);
-  const [ext, setExt] = useState('v mkv');
-  const [customExt, setCustomExt] = useState(null);
+  const [ext, setExt] = useState<extTypes>('v mkv');
+  const [customExt, setCustomExt] = useState<string | null>(null);
   const [concurrentDownloads, setConcurrentDownloads] = useState(1);
 
   function updateQueue(newQueue: Props[]) {
@@ -52,6 +61,16 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
     setQueuePrg(temp);
   }
 
+  function updateQueueVel(newVel: velProps[]) {
+    setQueueVel(newVel);
+  }
+
+  function updateQueueVelIndividually(newVel: string, index: number) {
+    const temp = [...queueVel];
+    temp[index].vel = newVel;
+    setQueueVel(temp);
+  }
+
   function updateInfo(newInfo: string) {
     setInfo(newInfo);
   }
@@ -60,11 +79,11 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
     setShowSearch(newSearch);
   }
 
-  function updateExt(newExt: string) {
+  function updateExt(newExt: extTypes) {
     setExt(newExt);
   }
 
-  function updateCurCustomExt(newCustomExt: string) {
+  function updateCurCustomExt(newCustomExt: string | null) {
     setCustomExt(newCustomExt);
   }
 
@@ -77,7 +96,9 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
       value={{
         updateQueue,
         updateQueuePrg,
+        updateQueueVel,
         updateQueuePrgIndividually,
+        updateQueueVelIndividually,
         updateInfo,
         updateSearch,
         updateExt,
@@ -85,6 +106,7 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
         updateConcurrentDownload,
         curQueue: queue,
         curQueuePrg: queuePrg,
+        curQueueVel: queueVel,
         curInfo: info,
         curSearch: showSearch,
         curExt: ext,
@@ -96,13 +118,3 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
     </InfoQueueContext.Provider>
   );
 }
-
-// const map = new Map();
-// map.set('2160p', 313);
-// map.set('1440p', 271);
-// map.set('1080p', 248);
-// map.set('720p', 247);
-// map.set('480p', 244);
-// map.set('360p', 243);
-// map.set('240p', 242);
-// map.set('144p', 278);
