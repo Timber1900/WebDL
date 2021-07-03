@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "WebDL"
-#define MyAppVersion "v9.1"
+#define MyAppVersion "v10"
 #define MyAppPublisher "Timber1900"
 #define MyAppURL "https://www.hteixeira.me/"
 #define MyAppExeName "WebDL.exe"
@@ -20,12 +20,12 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={autopf}\{#MyAppName}
 DisableProgramGroupPage=yes
-LicenseFile=D:\DeepStorage\Programming\GitHub repos\WebDL\LICENSE
+LicenseFile=D:\DeepStorage\Programming\GitHub_repos\WebDL\LICENSE
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
-OutputDir=D:\DeepStorage\Programming\GitHub repos\WebDL
+OutputDir=D:\DeepStorage\Programming\GitHub_repos\WebDL
 OutputBaseFilename=WebDL
-SetupIconFile=D:\DeepStorage\Programming\GitHub repos\WebDL\assets\webdl.ico
+SetupIconFile=D:\DeepStorage\Programming\GitHub_repos\WebDL\assets\webdl.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -37,29 +37,29 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\chromedriver.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\credits.html"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\d3dcompiler_47.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\ffmpeg.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\icudtl.dat"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\libEGL.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\libGLESv2.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\nacl_irt_x86_64.nexe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\node.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\notification_helper.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\nw.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\nw_100_percent.pak"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\nw_200_percent.pak"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\nw_elf.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\nwjc.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\payload.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\resources.pak"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\v8_context_snapshot.bin"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\webdl.ico"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\locales\*"; DestDir: "{app}\locales"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\pnacl\*"; DestDir: "{app}\pnacl"; Flags: ignoreversion
-Source: "D:\DeepStorage\Programming\GitHub repos\WebDL\app\build\WebDL\win64\swiftshader\*"; DestDir: "{app}\swiftshader"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\chromedriver.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\credits.html"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\d3dcompiler_47.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\ffmpeg.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\icudtl.dat"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\libEGL.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\libGLESv2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\nacl_irt_x86_64.nexe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\node.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\notification_helper.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\nw.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\nw_100_percent.pak"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\nw_200_percent.pak"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\nw_elf.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\nwjc.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\payload.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\resources.pak"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\v8_context_snapshot.bin"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\webdl.ico"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\locales\*"; DestDir: "{app}\locales"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\pnacl\*"; DestDir: "{app}\pnacl"; Flags: ignoreversion
+Source: "D:\DeepStorage\Programming\GitHub_repos\WebDL\app\build\WebDL\win64\swiftshader\*"; DestDir: "{app}\swiftshader"; Flags: ignoreversion
 
 [Registry]
 Root: HKLM; Subkey: "SOFTWARE\WOW6432Node\WebDL"; ValueType: string; ValueName: "Version"; ValueData: "{#MyAppVersion}"
