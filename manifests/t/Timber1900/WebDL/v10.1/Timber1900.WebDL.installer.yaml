@@ -2,12 +2,12 @@
 # yaml-language-server: $schema=https://aka.ms/winget-manifest.installer.1.0.0.schema.json
 
 PackageIdentifier: Timber1900.WebDL
-PackageVersion: v9.2
+PackageVersion: v10.1
 Installers:
-- Architecture: x86
+- Architecture: x64
   InstallerType: inno
-  InstallerUrl: https://github.com/Timber1900/WebDL/releases/download/v9.2/WebDL.exe
-  InstallerSha256: A74094D71D068EC0671EDBB20819257DE4F311747DB673E40FFF4512DBEF5BAB
+  InstallerUrl: https://github.com/Timber1900/WebDL/releases/download/v10.1/WebDL.exe
+  InstallerSha256: 2F1D91CAE0522A18794D0970DED9B79DF10FB191B6C45882206C694FC6498112
 ManifestType: installer
 ManifestVersion: 1.0.0
 
