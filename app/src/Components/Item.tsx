@@ -2,7 +2,7 @@ import { useContext, useRef } from 'react';
 import { useState } from 'react';
 import { CgRename, MdContentCut, CgSoftwareDownload, CgClose } from 'react-icons/all'
 import { Storage } from '../Constants';
-import { InfoQueueContext, progressProps, velProps } from '../Contexts/InfoQueueContext';
+import { InfoQueueContext, progressProps, velProps } from '../contexts/InfoQueueContext';
 import { downloadAudio } from '../Functions/youtube-dl-wrap/downloadAudio';
 import { downloadOther } from '../Functions/youtube-dl-wrap/downloadOther';
 import { downloadVideo } from '../Functions/youtube-dl-wrap/downloadVideo';

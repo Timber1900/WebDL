@@ -7,7 +7,7 @@ import { join } from 'path';
 import { Status, Duration } from '../../Constants';
 import { outerContext } from '../../App';
 import { downloadLatestRealease } from '../youtube-dl-wrap/downloadLatestRelease';
-import { InfoQueueContextData } from '../../Contexts/InfoQueueContext';
+import { InfoQueueContextData } from '../../contexts/InfoQueueContext';
 
 export const getVersion = (page = 1, perPage = 1): any => {
   return new Promise((resolve, reject) => {
