@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './style.css';
 import './scrollbar.css';
 import App from './App';
 import InfoQueueProvider from './contexts/InfoQueueContext';

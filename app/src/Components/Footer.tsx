@@ -122,12 +122,22 @@ const Footer = () => {
   };
 
   return(
-    <footer className="flex flex-row items-center justify-end w-full gap-4 p-2 text-xl font-bold truncate border-t border-gray-200 shadow-md dark:border-gray-700">
-      <span className="w-full text-center truncate">{curInfo}</span>
-      <CgClose onClick={clearQueue} className="ml-auto text-black transition-all duration-200 transform scale-125 rotate-0 fill-current hover:scale-150 active:scale-110 hover:rotate-90 hover:text-gray-900 dark:text-white dark:hover:text-gray-200 hover:text-red-500 dark:hover:text-red-500 active:text-red-600 dark:active:text-red-600"/>
-      <CgSoftwareDownload className="ml-auto text-black transition-all duration-200 transform scale-125 fill-current hover:scale-150 active:scale-110 hover:text-gray-900 dark:text-white dark:hover:text-gray-200" onClick={() => {if(!disable) downloadQueue()}}/>
-      <MdSearch onClick={changeShowSearch} className="ml-auto text-black transition-all duration-200 transform scale-125 fill-current hover:scale-150 active:scale-110 hover:text-gray-900 dark:text-white dark:hover:text-gray-200"/>
-      <MdSettings onClick={changeShowSettings} className="ml-auto text-black transition-all duration-200 transform scale-125 rotate-0 fill-current hover:scale-150 active:scale-110 hover:rotate-90 hover:text-gray-900 dark:text-white dark:hover:text-gray-200"/>
+    <footer className="flex flex-row items-center justify-end w-full gap-4 p-2 text-xl font-bold border-t border-gray-200 shadow-md whitespace-nowrap overflow-ellipsis dark:border-gray-700">
+      <span className="mx-auto text-center truncate w-max">{curInfo}</span>
+      <span className="flex items-center justify-center gap-2 w-[7.5rem]">
+        <button aria-label="Clear entire queue"  className="w-max h-max dark:after:content-[attr(aria-label)] after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] relative after:absolute after:text-xl after:bottom-[150%] after:bg-gray-300 dark:after:bg-gray-600 after:shadow-md after:w-max after:h-max after:-inset-x-36 after:mx-auto after:px-2 after:py-1 after:rounded-md after:text-base cursor-default after:opacity-0 after:scale-0 after:transform hover:after:opacity-100 hover:after:scale-100 after:origin-bottom after:transition-all after:delay-[0ms] hover:after:delay-1000">
+          <CgClose onClick={clearQueue} className="ml-auto text-black transition-all duration-200 transform scale-125 rotate-0 cursor-pointer fill-current hover:scale-150 active:scale-110 hover:rotate-90 hover:text-gray-900 dark:text-white dark:hover:text-gray-200 hover:text-red-500 dark:hover:text-red-500 active:text-red-600 dark:active:text-red-600"/>
+        </button>
+        <button aria-label="Download queue" className="w-max h-max dark:after:content-[attr(aria-label)] after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] relative after:absolute after:text-xl after:bottom-[150%] after:bg-gray-300 dark:after:bg-gray-600 after:shadow-md after:w-max after:h-max after:-inset-x-36 after:mx-auto after:px-2 after:py-1 after:rounded-md after:text-base cursor-default after:opacity-0 after:scale-0 after:transform hover:after:opacity-100 hover:after:scale-100 after:origin-bottom after:transition-all after:delay-[0ms] hover:after:delay-1000">
+          <CgSoftwareDownload className="text-black transition-all duration-200 transform scale-125 cursor-pointer fill-current hover:scale-150 active:scale-110 hover:text-gray-900 dark:text-white dark:hover:text-gray-200" onClick={() => {if(!disable) downloadQueue()}}/>
+        </button>
+        <button aria-label="Search YouTube" className="w-max h-max dark:after:content-[attr(aria-label)] after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] relative after:absolute after:text-xl after:bottom-[150%] after:bg-gray-300 dark:after:bg-gray-600 after:shadow-md after:w-max after:h-max after:-right-9 after:px-2 after:py-1 after:rounded-md after:text-base cursor-default after:opacity-0 after:scale-0 after:transform hover:after:opacity-100 hover:after:scale-100 after:origin-bottom after:transition-all after:delay-[0ms] hover:after:delay-1000">
+          <MdSearch onClick={changeShowSearch} className="text-black transition-all duration-200 transform scale-125 cursor-pointer fill-current hover:scale-150 active:scale-110 hover:text-gray-900 dark:text-white dark:hover:text-gray-200"/>
+        </button>
+        <button aria-label="Settings" className="w-max h-max dark:after:content-[attr(aria-label)] after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] relative after:absolute after:text-xl after:bottom-[150%] after:bg-gray-300 dark:after:bg-gray-600 after:shadow-md after:w-max after:h-max after:-right-2 after:px-2 after:py-1 after:rounded-md after:text-base cursor-default after:opacity-0 after:scale-0 after:transform hover:after:opacity-100 hover:after:scale-100 after:origin-bottom after:transition-all after:delay-[0ms] hover:after:delay-1000">
+          <MdSettings onClick={changeShowSettings} className="text-black transition-all duration-200 transform scale-125 rotate-0 fill-current hover:scale-150 active:scale-110 hover:rotate-90 hover:text-gray-900 dark:text-white dark:hover:text-gray-200"/>
+        </button>
+      </span>
     </footer>
   )
 }
