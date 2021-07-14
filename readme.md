@@ -2,9 +2,9 @@
 
 ## Todo:
 
-- [ ] Finish UI in Tailwind
+- [x] Finish UI in Tailwind
   - [x] Make the search page
-  - [ ] Make the trim page
+  - [x] Make the trim page
   - [x] Make Item template
   - [x] Make header / footer
   - [x] Make Settings
