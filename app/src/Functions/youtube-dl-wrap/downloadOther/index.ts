@@ -7,7 +7,7 @@ import { InnerProps } from '../../../Components/Item';
 import { cutAudio } from '../cutVid';
 import { spawn } from 'child_process';
 import { execStream } from '../execStream';
-import { InfoQueueContextData } from '../../../Contexts/InfoQueueContext';
+import { InfoQueueContextData } from '../../../contexts/InfoQueueContext';
 
 interface index_interface {
   vid_index: number;

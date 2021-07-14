@@ -1,7 +1,7 @@
 import ProgressBar from './ProgressBar';
 import { useEffect, useState } from 'react';
 import { useContext } from 'react';
-import { InfoQueueContext } from '../Contexts/InfoQueueContext';
+import { InfoQueueContext } from '../contexts/InfoQueueContext';
 
 export let updateProg: React.Dispatch<React.SetStateAction<number>>;
 export let updateVel: React.Dispatch<React.SetStateAction<string>>;

@@ -1,5 +1,5 @@
 import Item from './Item'
-import { InfoQueueContext } from '../Contexts/InfoQueueContext';
+import { InfoQueueContext } from '../contexts/InfoQueueContext';
 import { useContext } from 'react';
 
 const Main = () => {

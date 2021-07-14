@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import { InfoQueueContext } from '../Contexts/InfoQueueContext';
+import { InfoQueueContext } from '../contexts/InfoQueueContext';
 import { path, setPath } from '../Functions/getPath';
 import { port } from '../Functions/server/server';
 import { CheckUpdates } from '../Functions/update';

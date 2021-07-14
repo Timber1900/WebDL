@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import TimeField from 'react-simple-timefield';
-import { InfoQueueContext } from '../Contexts/InfoQueueContext';
+import { InfoQueueContext } from '../contexts/InfoQueueContext';
 import { InnerProps } from './Item';
 import { CgClose } from 'react-icons/cg'
 

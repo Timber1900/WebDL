@@ -7,7 +7,7 @@ import { execStream } from '../execStream';
 import { updateProg, updateVel } from '../../../Components/Header';
 import { path } from '../../../Functions/getPath';
 import { InnerProps } from '../../../Components/Item';
-import { InfoQueueContextData } from '../../../Contexts/InfoQueueContext';
+import { InfoQueueContextData } from '../../../contexts/InfoQueueContext';
 
 interface index_interface {
   vid_index: number;

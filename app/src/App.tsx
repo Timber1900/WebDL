@@ -3,11 +3,11 @@ import Main from './Components/Main';
 import Footer from './Components/Footer';
 import Settings from './Components/Settings';
 import Search from './Components/Search'
-import { SettingsContext } from './Contexts/SettingsContext';
+import { SettingsContext } from './contexts/SettingsContext';
 import { useContext } from 'react';
 import { useEffect } from 'react';
 import { setDarkMode } from './Components/Settings';
-import { InfoQueueContext, InfoQueueContextData } from './Contexts/InfoQueueContext';
+import { InfoQueueContext, InfoQueueContextData } from './contexts/InfoQueueContext';
 import { setUpMinimize } from './Functions/tray';
 import { CheckUpdates } from './Functions/update';
 import { addToQueue } from './Functions/server/addToQueue';
