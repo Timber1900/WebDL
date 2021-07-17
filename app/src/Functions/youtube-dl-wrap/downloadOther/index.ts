@@ -43,8 +43,10 @@ export const downloadOther = async (
     const regex = /["*/:<>?\\|]/g;
     const fixedTitle: string = title.replace(regex, '');
 
+    console.log(videoFormat)
+
     const ffmpeg = nw.require('ffmpeg-static');
-    const video = execStream([url, '-f', videoFormat]);
+    const video = execStream([url, '-f', videoFormat.format_id]);
 
     const ffmpegProcess = spawn(
       ffmpeg,

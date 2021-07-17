@@ -17,17 +17,9 @@ module.exports = {
       minWidth: {
         '4': '1rem'
       },
-      keyframes: {
-        dv: {
-          '0%': { transform: 'translateY(0%)' },
-          '50%': { transform: 'translateY(100%)' },
-          '50.01%': { transform: 'translateY(-100%)' },
-          '100%': { transform: 'translateY(0)' },
-        },
-      },
-      animation: {
-        download: 'dv 2s cubic-bezier(0.65, 0.05, 0.36, 1) infinite',
-       },
+      transitionTimingFunction: {
+        back: "cubic-bezier(0.18, 0.89, 0.32, 1.28)"
+      }
     },
   },
   variants: {
