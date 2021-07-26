@@ -4,7 +4,7 @@ import OS from 'os';
 import util from 'util';
 import { exec, spawn } from 'child_process';
 import { join } from 'path';
-import { Status, Duration } from '../../Constants';
+import { Status, Duration, downloadPath } from '../../Constants';
 import { outerContext } from '../../App';
 import { downloadLatestRealease } from '../youtube-dl-wrap/downloadLatestRelease';
 import { InfoQueueContextData } from '../../contexts/InfoQueueContext';
@@ -74,11 +74,12 @@ export const downloadInstaller = ({ curInfo, updateInfo }: InfoQueueContextData)
           if (tag_name !== val) {
             let currentInfo = 'Newer version found, downloading';
             alert('Newer version found, downloading');
-            const promise = downloadFromGithub(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'WebDL.exe'))
+            if (!fs.existsSync(downloadPath)) fs.mkdirSync(downloadPath);
+            const promise = downloadFromGithub(join(downloadPath, 'WebDL.exe'))
               .then(() => {
                 // eslint-disable-next-line no-restricted-globals
                 if (confirm('Install newer version?')) {
-                  spawn('cmd', ['/S', '/C', join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'WebDL.exe')], {
+                  spawn('cmd', ['/S', '/C', join(downloadPath, 'WebDL.exe')], {
                     detached: true,
                     cwd: OS.homedir(),
                     env: process.env,
@@ -122,6 +123,6 @@ export const downloadInstaller = ({ curInfo, updateInfo }: InfoQueueContextData)
 export const CheckUpdates = async () => {
   const codes: any[] = [];
   codes.push(await downloadLatestRealease());
-  codes.push(await downloadInstaller(outerContext));
+  if(process.platform === 'win32') codes.push(await downloadInstaller(outerContext));
   return codes;
 };

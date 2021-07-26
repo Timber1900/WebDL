@@ -210,16 +210,16 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
                 </span>
             </div>
           </span>
-          <p className="flex-grow w-full col-span-3 overflow-y-scroll text-sm text-base text-left sm:font-normal" dangerouslySetInnerHTML={{__html: linkify(innerInfo.videoDetails.description)}}></p>
+          <p className="flex-grow w-full col-span-3 overflow-y-scroll text-sm text-base text-left sm:font-normal" dangerouslySetInnerHTML={{__html: linkify(innerInfo.videoDetails.description ?? '')}}></p>
           <span className="flex flex-wrap w-full gap-2 overflow-y-scroll max-h-28">
             <h2 className="text-lg font-bold">Tags:</h2>
-            {innerInfo.videoDetails.keywords.map((val, i) =>
-              <code className="px-2 py-1 my-auto text-base font-semibold text-center bg-gray-200 rounded-md dark:bg-gray-700" key={i}>{val}</code>
+            {innerInfo.videoDetails.keywords?.map((val, i) =>
+              <code className="px-2 py-1 my-auto text-base font-semibold text-center bg-gray-200 rounded-md cursor-pointer dark:bg-gray-700" key={i} onClick={() => {require('nw.gui').Shell.openExternal(`https://www.youtube.com/results?search_query=${val.replace(" ", "+")}`)}}>{val}</code>
             )}
           </span>
         </div>
       }
-      <div className={`${show ? 'grid' : 'hidden'} w-auto h-auto max-w-4xl grid-cols-5 gap-2 p-4 pr-0 m-4 bg-white rounded-md shadow-md max-h-56 min-h-48 dark:bg-gray-800 place-items-center`}>
+      <div className={`${show ? 'grid' : 'hidden'} w-auto h-auto max-w-4xl grid-cols-5 gap-2 p-4 pr-0 m-4 bg-white rounded-md shadow-md max-h-56 min-h-48 dark:bg-gray-800 place-items-center animate-appear origin-top`}>
         <div className="h-auto col-span-2 rounded-md shadow-sm max-h-56 w-[300px] h-[166px] grid place-content-center">
           <img width="300" height="166" src={thumbnail} alt={title} className="rounded-md w-min"/>
         </div>

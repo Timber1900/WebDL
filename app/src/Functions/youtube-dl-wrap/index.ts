@@ -1,5 +1,5 @@
 import YoutubeDlWrap from 'youtube-dl-wrap';
 import { join } from 'path';
-import OS from 'os';
+import { downloadPath } from '../../Constants';
 
-export const youtubeDlWrap = new YoutubeDlWrap(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'youtube-dl.exe'));
+export const youtubeDlWrap = new YoutubeDlWrap(join(downloadPath, process.platform === 'win32' ? 'youtube-dl.exe' : 'youtube-dl'));

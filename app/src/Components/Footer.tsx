@@ -1,7 +1,7 @@
 import { InfoQueueContext, progressProps, velProps } from '../contexts/InfoQueueContext';
 import { useContext, useState } from 'react';
 import { MdSettings, MdSearch } from 'react-icons/md';
-import { CgSoftwareDownload, CgClose } from 'react-icons/cg'
+import { CgClose } from 'react-icons/cg'
 import { SettingsContext } from '../contexts/SettingsContext';
 import { downloadVideo } from '../Functions/youtube-dl-wrap/downloadVideo';
 import { downloadAudio } from '../Functions/youtube-dl-wrap/downloadAudio';

@@ -1,8 +1,3 @@
-import Header from './Components/Header';
-import Main from './Components/Main';
-import Footer from './Components/Footer';
-import Settings from './Components/Settings';
-import Search from './Components/Search'
 import { SettingsContext } from './contexts/SettingsContext';
 import { useContext } from 'react';
 import { useEffect } from 'react';
@@ -12,6 +7,11 @@ import { setUpMinimize } from './Functions/tray';
 import { CheckUpdates } from './Functions/update';
 import { addToQueue } from './Functions/server/addToQueue';
 import { startServer } from './Functions/server/server';
+import Header from './Components/Header';
+import Main from './Components/Main';
+import Footer from './Components/Footer';
+import Settings from './Components/Settings';
+import Search from './Components/Search'
 import ytpl from 'ytpl';
 
 export let outerContext: InfoQueueContextData;
@@ -30,12 +30,11 @@ function App() {
     startServer();
     //@ts-ignore
     window.ytpl = ytpl;
-    setUpMinimize();
+    if(process.platform === 'win32') setUpMinimize();
     CheckUpdates();
     window.addEventListener('paste', (event: any) => {
       let paste = event.clipboardData.getData('text');
       addToQueue(paste);
-      console.log("FUCK")
     });
   }, [])
 

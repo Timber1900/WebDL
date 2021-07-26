@@ -18,3 +18,23 @@
 *::-webkit-scrollbar-thumb:hover {
   background: rgba(75, 85, 99);
 }
+
+@keyframes translate {
+  from {
+    transform: translateY(10%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

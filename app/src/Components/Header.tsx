@@ -20,7 +20,7 @@ const Header = () => {
   useEffect(() => setCurD(curConcurrentDownload), [curConcurrentDownload])
 
   return(
-    <header className="flex flex-col items-center justify-start mx-4 shadow-md">
+    <header className="flex flex-col items-center justify-start px-4 shadow-md">
       <span className="flex flex-row items-center justify-center w-full">
         <ProgressBar id="progress" value={curD > 1 ? 0 :(prog / 100)}/>
       </span>

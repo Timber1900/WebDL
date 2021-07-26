@@ -85,10 +85,11 @@
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "5.1.4",
     "youtube-dl-wrap": "^2.1.0",
-    "ytdl-core": "^4.8.3",
+    "ytdl-core": "latest",
     "ytpl": "^2.2.1",
     "ytsr": "^3.5.0"
   },
+  "dom_storage_quota": 512,
   "scripts": {
     "start": "node scripts/start.js --load-extension=./react-devtools",
     "build": "node scripts/build.js",
@@ -117,7 +118,7 @@
   "nwBuilder": {
     "//": "https://github.com/nwjs-community/nw-builder",
     "platforms": [
-      "win64"
+      "linux64"
     ],
     "version": "latest",
     "flavor": "sdk",
@@ -194,5 +195,10 @@
     "presets": [
       "react-app"
     ]
+  },
+  "dependenciesMeta": {
+    "typescript@4.3.4": {
+      "unplugged": true
+    }
   }
 }

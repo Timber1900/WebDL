@@ -1,8 +1,7 @@
 import YoutubeDlWrap from 'youtube-dl-wrap';
-import OS from 'os';
 import fs from 'fs';
 import { join } from 'path';
-import { Duration, Status } from '../../../Constants';
+import { downloadPath, Duration, Status } from '../../../Constants';
 
 export const downloadLatestRealease = () => {
   return new Promise((res, rej) => {
@@ -15,16 +14,17 @@ export const downloadLatestRealease = () => {
           let cur_ver: string | null = window.localStorage.getItem('ytdl-version');
           if (
             cur_ver !== val[0].tag_name ||
-            !fs.existsSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'youtube-dl.exe'))
+            !fs.existsSync(join(downloadPath, 'youtube-dl.exe'))
           ) {
             alert('Downloading latest youtube-dl...');
             window.localStorage.setItem('ytdl-version', val[0].tag_name);
-            if(!fs.existsSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl'))) fs.mkdirSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl'));
+            if(!fs.existsSync(downloadPath)) fs.mkdirSync(downloadPath);
             YoutubeDlWrap.downloadFromWebsite(
-              join(OS.homedir(), 'AppData', 'Roaming', '.webdl', 'youtube-dl.exe'),
-              'win32',
+              join(downloadPath, process.platform === 'win32' ? 'youtube-dl.exe' : 'youtube-dl'),
+              process.platform,
             )
               .then(() => {
+                if(process.platform !== 'win32') fs.chmodSync(join(downloadPath, 'youtube-dl'), 0o755)
                 res(Status.SUCCESS);
                 alert('Done downloading latest youtube-dl!');
                 console.log('%c Done downloading latest version!', 'color: #6A8A35');

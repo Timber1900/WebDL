@@ -1,9 +1,11 @@
-import OS from 'os';
 import { spawn } from 'child_process';
+import { chmodSync } from 'fs';
 import { join } from 'path';
+import { downloadPath } from '../../../Constants';
 
 export const cutAudio = async (start: number, end: number, path: string, title: string, i: number, ext: string) => {
   const ffmpeg = nw.require('ffmpeg-static');
+  chmodSync(ffmpeg, 0o755)
   return new Promise((resolve, reject) => {
     const duration = end - start;
     const secondffmpegprocess = spawn(
@@ -12,7 +14,7 @@ export const cutAudio = async (start: number, end: number, path: string, title: 
         '-ss',
         start.toString(),
         '-i',
-        join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`),
+        join(downloadPath, `tempvideo.${ext}`),
         '-to',
         duration.toString(),
         '-y',
@@ -34,6 +36,7 @@ export const cutAudio = async (start: number, end: number, path: string, title: 
 
 export const cutVid = async (start: number, end: number, path: string, title: string, i: number, ext: string) => {
   const ffmpeg = nw.require('ffmpeg-static');
+  chmodSync(ffmpeg, 0o755)
   return new Promise((resolve, reject) => {
     const duration = end - start;
     const secondffmpegprocess = spawn(
@@ -44,7 +47,7 @@ export const cutVid = async (start: number, end: number, path: string, title: st
         '-ss',
         start.toString(),
         '-i',
-        join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`),
+        join(downloadPath, `tempvideo.${ext}`),
         '-to',
         duration.toString(),
         '-c',

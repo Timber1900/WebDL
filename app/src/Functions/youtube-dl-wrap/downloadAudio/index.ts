@@ -1,5 +1,4 @@
-import fs from 'fs';
-import OS from 'os';
+import fs, { chmodSync } from 'fs';
 import { join } from 'path';
 import { spawn } from 'child_process';
 import { cutAudio } from '../cutVid';
@@ -8,6 +7,7 @@ import { updateProg, updateVel } from '../../../Components/Header';
 import { path } from '../../../Functions/getPath';
 import { InnerProps } from '../../../Components/Item';
 import { InfoQueueContextData } from '../../../contexts/InfoQueueContext';
+import { downloadPath } from '../../../Constants';
 
 interface index_interface {
   vid_index: number;
@@ -43,6 +43,8 @@ export const downloadAudio = async (
     const fixedTitle: string = title.replace(regex, '');
 
     const ffmpeg = nw.require('ffmpeg-static');
+    chmodSync(ffmpeg, 0o755)
+
     const audio = execStream([url, '-f', 'bestaudio']);
 
     const ffmpegProcess = spawn(
@@ -55,7 +57,7 @@ export const downloadAudio = async (
         'pipe:4',
         '-y',
         clips.length
-          ? join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`)
+          ? join(downloadPath, `tempvideo.${ext}`)
           : join(path, `${fixedTitle}.${ext}`),
       ],
       {
@@ -92,7 +94,7 @@ export const downloadAudio = async (
         }
 
         Promise.all(promises).then(() => {
-          fs.unlinkSync(join(OS.homedir(), 'AppData', 'Roaming', '.webdl', `tempvideo.${ext}`));
+          fs.unlinkSync(join(downloadPath, `tempvideo.${ext}`));
           updateInfo(`Done downloading ${title}`);
           res({ vid_index, queue_index });
         });

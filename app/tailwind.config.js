@@ -19,7 +19,10 @@ module.exports = {
       },
       transitionTimingFunction: {
         back: "cubic-bezier(0.18, 0.89, 0.32, 1.28)"
-      }
+      },
+      animation: {
+        appear: 'translate 1s ease-in-out 1, opacity 2s linear 1',
+      },
     },
   },
   variants: {
