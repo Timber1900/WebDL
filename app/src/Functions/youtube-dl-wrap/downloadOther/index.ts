@@ -46,7 +46,7 @@ export const downloadOther = async (
     console.log(videoFormat)
 
     const ffmpeg = nw.require('ffmpeg-static');
-    chmodSync(ffmpeg, 0o755)
+    if(process.platform === 'linux') chmodSync(ffmpeg, 0o755)
 
     const video = execStream([url, '-f', videoFormat.format_id]);
 

@@ -5,7 +5,7 @@ import { downloadPath } from '../../../Constants';
 
 export const cutAudio = async (start: number, end: number, path: string, title: string, i: number, ext: string) => {
   const ffmpeg = nw.require('ffmpeg-static');
-  chmodSync(ffmpeg, 0o755)
+  if(process.platform === 'linux') chmodSync(ffmpeg, 0o755)
   return new Promise((resolve, reject) => {
     const duration = end - start;
     const secondffmpegprocess = spawn(
@@ -36,7 +36,7 @@ export const cutAudio = async (start: number, end: number, path: string, title: 
 
 export const cutVid = async (start: number, end: number, path: string, title: string, i: number, ext: string) => {
   const ffmpeg = nw.require('ffmpeg-static');
-  chmodSync(ffmpeg, 0o755)
+  if(process.platform === 'linux') chmodSync(ffmpeg, 0o755)
   return new Promise((resolve, reject) => {
     const duration = end - start;
     const secondffmpegprocess = spawn(

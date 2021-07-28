@@ -47,7 +47,7 @@ export const downloadVideo = async (
     const audio = execStream([url, '-f', 'bestaudio']);
 
     const ffmpeg = nw.require('ffmpeg-static');
-    chmodSync(ffmpeg, 0o755)
+    if(process.platform === 'linux') chmodSync(ffmpeg, 0o755)
 
     if (clips.length) await fs.unlink(join(downloadPath, `tempvideo.${ext}`), () => {});
 

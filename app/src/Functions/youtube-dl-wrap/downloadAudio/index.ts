@@ -43,7 +43,7 @@ export const downloadAudio = async (
     const fixedTitle: string = title.replace(regex, '');
 
     const ffmpeg = nw.require('ffmpeg-static');
-    chmodSync(ffmpeg, 0o755)
+    if(process.platform === 'linux') chmodSync(ffmpeg, 0o755)
 
     const audio = execStream([url, '-f', 'bestaudio']);
 

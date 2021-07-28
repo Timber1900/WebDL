@@ -1,5 +1,5 @@
 import YoutubeDlWrap from 'youtube-dl-wrap';
-import fs from 'fs';
+import fs, { chmodSync } from 'fs';
 import { join } from 'path';
 import { downloadPath, Duration, Status } from '../../../Constants';
 
@@ -24,7 +24,7 @@ export const downloadLatestRealease = () => {
               process.platform,
             )
               .then(() => {
-                if(process.platform !== 'win32') fs.chmodSync(join(downloadPath, 'youtube-dl'), 0o755)
+                if(process.platform === 'linux') chmodSync(join(downloadPath, 'youtube-dl'), 0o755)
                 res(Status.SUCCESS);
                 alert('Done downloading latest youtube-dl!');
                 console.log('%c Done downloading latest version!', 'color: #6A8A35');
