@@ -1,4 +1,4 @@
-import fs, { chmodSync } from 'fs';
+import fs from 'fs';
 import { join } from 'path';
 import { spawn } from 'child_process';
 import { cutVid } from '../cutVid';
@@ -7,7 +7,7 @@ import { path } from '../../../Functions/getPath';
 import { InnerProps } from '../../../Components/Item';
 import { updateProg, updateVel } from '../../../Components/Header';
 import { InfoQueueContextData } from '../../../contexts/InfoQueueContext';
-import { downloadPath } from '../../../Constants';
+import { downloadPath, ffmpeg } from '../../../Constants';
 
 interface index_interface {
   vid_index: number;
@@ -46,11 +46,9 @@ export const downloadVideo = async (
     const video = execStream([url, '-f', videoFormat.itag ?? videoFormat.format_id]);
     const audio = execStream([url, '-f', 'bestaudio']);
 
-    const ffmpeg = nw.require('ffmpeg-static');
-    if(process.platform === 'linux') chmodSync(ffmpeg, 0o755)
-
     if (clips.length) await fs.unlink(join(downloadPath, `tempvideo.${ext}`), () => {});
 
+    console.log(ffmpeg)
 
     const ffmpegProcess = spawn(
       ffmpeg,

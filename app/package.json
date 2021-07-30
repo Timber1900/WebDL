@@ -126,7 +126,8 @@
     "flavor": "sdk",
     "buildDir": "./build",
     "cacheDir": "./cache",
-    "winIco": "./public/favicon.ico"
+    "winIco": "./public/favicon.ico",
+    "macIcns": "./public/webdl.icns"
   },
   "devDependencies": {
     "@types/express": "^4.17.12",

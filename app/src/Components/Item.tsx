@@ -250,6 +250,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
                   <option value="v mp4">mp4</option>
                   <option value="v avi">avi</option>
                   <option value="v webm">webm</option>
+                  <option value="v mov">mov</option>
                 </optgroup>
                 <optgroup label="Audio">
                   <option value="a mp3">mp3</option>

@@ -1,13 +1,13 @@
 import { join } from 'path';
 import { path } from '../../getPath';
-import fs, { chmodSync } from 'fs';
+import fs from 'fs';
 import { updateProg, updateVel } from '../../../Components/Header';
 import { InnerProps } from '../../../Components/Item';
 import { cutAudio } from '../cutVid';
 import { spawn } from 'child_process';
 import { execStream } from '../execStream';
 import { InfoQueueContextData } from '../../../contexts/InfoQueueContext';
-import { downloadPath } from '../../../Constants';
+import { downloadPath, ffmpeg } from '../../../Constants';
 
 interface index_interface {
   vid_index: number;
@@ -44,9 +44,6 @@ export const downloadOther = async (
     const fixedTitle: string = title.replace(regex, '');
 
     console.log(videoFormat)
-
-    const ffmpeg = nw.require('ffmpeg-static');
-    if(process.platform === 'linux') chmodSync(ffmpeg, 0o755)
 
     const video = execStream([url, '-f', videoFormat.format_id]);
 

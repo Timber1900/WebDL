@@ -1,11 +1,9 @@
 import { spawn } from 'child_process';
-import { chmodSync } from 'fs';
 import { join } from 'path';
 import { downloadPath } from '../../../Constants';
-
+import { ffmpeg } from '../../../Constants'
 export const cutAudio = async (start: number, end: number, path: string, title: string, i: number, ext: string) => {
-  const ffmpeg = nw.require('ffmpeg-static');
-  if(process.platform === 'linux') chmodSync(ffmpeg, 0o755)
+
   return new Promise((resolve, reject) => {
     const duration = end - start;
     const secondffmpegprocess = spawn(
@@ -35,8 +33,6 @@ export const cutAudio = async (start: number, end: number, path: string, title: 
 };
 
 export const cutVid = async (start: number, end: number, path: string, title: string, i: number, ext: string) => {
-  const ffmpeg = nw.require('ffmpeg-static');
-  if(process.platform === 'linux') chmodSync(ffmpeg, 0o755)
   return new Promise((resolve, reject) => {
     const duration = end - start;
     const secondffmpegprocess = spawn(

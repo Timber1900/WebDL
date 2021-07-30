@@ -1,4 +1,4 @@
-import fs, { chmodSync } from 'fs';
+import fs from 'fs';
 import { join } from 'path';
 import { spawn } from 'child_process';
 import { cutAudio } from '../cutVid';
@@ -7,7 +7,7 @@ import { updateProg, updateVel } from '../../../Components/Header';
 import { path } from '../../../Functions/getPath';
 import { InnerProps } from '../../../Components/Item';
 import { InfoQueueContextData } from '../../../contexts/InfoQueueContext';
-import { downloadPath } from '../../../Constants';
+import { downloadPath, ffmpeg } from '../../../Constants';
 
 interface index_interface {
   vid_index: number;
@@ -41,9 +41,6 @@ export const downloadAudio = async (
 
     const regex = /["*/:<>?\\|]/g;
     const fixedTitle: string = title.replace(regex, '');
-
-    const ffmpeg = nw.require('ffmpeg-static');
-    if(process.platform === 'linux') chmodSync(ffmpeg, 0o755)
 
     const audio = execStream([url, '-f', 'bestaudio']);
 

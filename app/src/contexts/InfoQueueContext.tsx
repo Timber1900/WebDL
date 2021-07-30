@@ -5,7 +5,7 @@ import fs from 'fs';
 import { downloadPath } from '../Constants';
 
 
-type extTypes = "v mkv" | "v mp4" | "v avi" | "v webm" | "a mp3" | "a m4a" | "a ogg" | "a wav" | "custom";
+type extTypes = "v mkv" | "v mp4" | "v avi" | "v webm" | "v mov" | "a mp3" | "a m4a" | "a ogg" | "a wav" | "custom";
 export interface InfoQueueContextData {
   curQueue: Props[];
   curQueuePrg: progressProps[];
@@ -67,7 +67,7 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
   const [queueVel, setQueueVel] = useState<velProps[]>([]);
   const [info, setInfo] = useState('Waiting for download');
   const [showSearch, setShowSearch] = useState(false);
-  const [ext, setExt] = useState<extTypes>('v mkv');
+  const [ext, setExt] = useState<extTypes>(process.platform !== "darwin" ? 'v mkv' : 'v mov');
   const [customExt, setCustomExt] = useState<string | null>(null);
   const [concurrentDownloads, setConcurrentDownloads] = useState(1);
 

@@ -87,43 +87,44 @@ const Settings = ({className}: Props) => {
       <h1 className="text-xl font-bold">{"Appearence:"}</h1>
       <span>
         <label htmlFor='dark' className="mr-4">Dark mode: </label>
-        <select name='dark' id='dark' defaultValue={getDarkOption()} onChange={(e) => {setDarkOption(e.target.value as 'system' | 'dark' | 'light')}} className="px-2 py-1 bg-gray-100 rounded-md shadow-sm w-max dark:bg-gray-700 focus:outline-none hover:bg-gray-200  dark:hover:bg-gray-600 transition-colors">
+        <select name='dark' id='dark' defaultValue={getDarkOption()} onChange={(e) => {setDarkOption(e.target.value as 'system' | 'dark' | 'light')}} className="px-2 py-1 transition-colors bg-gray-100 rounded-md shadow-sm w-max dark:bg-gray-700 focus:outline-none hover:bg-gray-200 dark:hover:bg-gray-600">
           <option value='system'>Follow system</option>
           <option value='dark'>Dark</option>
           <option value='light'>Light</option>
         </select>
       </span>
-      <div className="h-0 border-b border-gray-200 dark:border-gray-700 w-full"/>
+      <div className="w-full h-0 border-b border-gray-200 dark:border-gray-700"/>
       <h1 className="text-xl font-bold">{"WebDL Specific:"}</h1>
       <span>
         <label htmlFor='browse' className="mr-4">Change save directory: </label>
-        <button id='browse' className="bg-gray-100 hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-600 dark:active:bg-gray-500  rounded-md shadow-sm w-max dark:bg-gray-700 focus:outline-none px-2 py-1 transition-colors" onClick={() => { inputRef.current?.click(); }}>
+        <button id='browse' className="px-2 py-1 transition-colors bg-gray-100 rounded-md shadow-sm hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-600 dark:active:bg-gray-500 w-max dark:bg-gray-700 focus:outline-none" onClick={() => { inputRef.current?.click(); }}>
           Browse
         </button>
         <input type='file' className="hidden" onChange={(e) => { setPath(e.target.value); setCurPath(e.target.value); }} ref={inputRef}/>
       </span>
       <span>
         <label htmlFor='port' className="mr-4">Change port: </label>
-        <button onClick={selectPort} id='port' className="bg-gray-100 hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-600 dark:active:bg-gray-500  rounded-md shadow-sm w-max dark:bg-gray-700 focus:outline-none px-2 py-1 transition-colors">
+        <button onClick={selectPort} id='port' className="px-2 py-1 transition-colors bg-gray-100 rounded-md shadow-sm hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-600 dark:active:bg-gray-500 w-max dark:bg-gray-700 focus:outline-none">
           Change
         </button>
       </span>
       <span>
         <label htmlFor='update' className="mr-4">Check for updates: </label>
-        <button onClick={check} id='update' className="bg-gray-100 hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-600 dark:active:bg-gray-500  rounded-md shadow-sm w-max dark:bg-gray-700 focus:outline-none px-2 py-1 transition-colors">
+        <button onClick={check} id='update' className="px-2 py-1 transition-colors bg-gray-100 rounded-md shadow-sm hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-600 dark:active:bg-gray-500 w-max dark:bg-gray-700 focus:outline-none">
           Check
         </button>
       </span>
-      <div className="h-0 border-b border-gray-200 dark:border-gray-700 w-full"/>
+      <div className="w-full h-0 border-b border-gray-200 dark:border-gray-700"/>
       <h1 className="text-xl font-bold">{"Video options:"}</h1>
       <span>
         <label htmlFor='file' className="mr-4">Filetype: </label>
-        <select name='file' id='file' defaultValue={curExt} onChange={(e) => {updateExt(e.target.value as extTypes)}} className="px-2 py-1 bg-gray-100 rounded-md shadow-sm w-max dark:bg-gray-700 focus:outline-none hover:bg-gray-200  dark:hover:bg-gray-600 transition-colors">
+        <select name='file' id='file' defaultValue={curExt} onChange={(e) => {updateExt(e.target.value as extTypes)}} className="px-2 py-1 transition-colors bg-gray-100 rounded-md shadow-sm w-max dark:bg-gray-700 focus:outline-none hover:bg-gray-200 dark:hover:bg-gray-600">
           <optgroup label="Video">
             <option value="v mkv">mkv</option>
             <option value="v mp4">mp4</option>
             <option value="v avi">avi</option>
             <option value="v webm">webm</option>
+            <option value="v mov">mov</option>
           </optgroup>
           <optgroup label="Audio">
             <option value="a mp3">mp3</option>
@@ -135,9 +136,9 @@ const Settings = ({className}: Props) => {
         </select>
       </span>
       {(curExt === "custom") &&
-        <span className="flex flex-row flex-wrap justify-start items-center">
+        <span className="flex flex-row flex-wrap items-center justify-start">
           <label htmlFor='customExt' className="mr-4">Type: </label>
-          <select name='vid' id='vid' className="px-2 py-1 bg-gray-100 rounded-md shadow-sm w-max dark:bg-gray-700 focus:outline-none hover:bg-gray-200  dark:hover:bg-gray-600 transition-colors" defaultValue={(curCustomExt ?? 'v').split(' ')[0]}
+          <select name='vid' id='vid' className="px-2 py-1 transition-colors bg-gray-100 rounded-md shadow-sm w-max dark:bg-gray-700 focus:outline-none hover:bg-gray-200 dark:hover:bg-gray-600" defaultValue={(curCustomExt ?? 'v').split(' ')[0]}
                   onChange={(val: React.ChangeEvent<HTMLSelectElement>) => {
                     const extension = val.target.parentNode?.querySelector('input')?.value;
                     const type = val.target.value;
@@ -146,18 +147,18 @@ const Settings = ({className}: Props) => {
             <option value='v'>Video</option>
             <option value='a'>Audio</option>
           </select>
-          <input defaultValue={(curCustomExt ?? 'v').split(' ')[1]} placeholder="mkv" type="text" maxLength={5} max={5} id='customExt' className="mx-4 sm:my-0 my-2 bg-gray-100 hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-600 dark:active:bg-gray-500 rounded-md shadow-sm w-20 dark:bg-gray-700 focus:outline-none px-2 py-1 transition-colors" onChange={(val: React.ChangeEvent<HTMLInputElement>) => {
+          <input defaultValue={(curCustomExt ?? 'v').split(' ')[1]} placeholder="mkv" type="text" maxLength={5} max={5} id='customExt' className="w-20 px-2 py-1 mx-4 my-2 transition-colors bg-gray-100 rounded-md shadow-sm sm:my-0 hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-600 dark:active:bg-gray-500 dark:bg-gray-700 focus:outline-none" onChange={(val: React.ChangeEvent<HTMLInputElement>) => {
                     const type = val.target.parentNode?.querySelector('select')?.value;
                     const extension = val.target.value;
                     updateCurCustomExt(`${type} ${extension}`);
                   }}/>
         </span>
       }
-      <div className="h-0 border-b border-gray-200 dark:border-gray-700 w-full"/>
+      <div className="w-full h-0 border-b border-gray-200 dark:border-gray-700"/>
       <h1 className="text-xl font-bold">{"Experimental:"}</h1>
       <span>
         <label htmlFor='update' className="mr-4">Concurrent downloads: </label>
-        <input placeholder="1" type="number" min={1} defaultValue={curConcurrentDownload ?? 1} max={32} id='customExt' className="mx-1 bg-gray-100 hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-600 dark:active:bg-gray-500  rounded-md shadow-sm w-max dark:bg-gray-700 focus:outline-none px-2 py-1 transition-colors appearance-none"
+        <input placeholder="1" type="number" min={1} defaultValue={curConcurrentDownload ?? 1} max={32} id='customExt' className="px-2 py-1 mx-1 transition-colors bg-gray-100 rounded-md shadow-sm appearance-none hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-600 dark:active:bg-gray-500 w-max dark:bg-gray-700 focus:outline-none"
         onChange={(val: React.ChangeEvent<HTMLInputElement>) => {
                     if (val.target.valueAsNumber < 1) val.target.value = '1';
                     updateConcurrentDownload(val.target.valueAsNumber);

@@ -13,6 +13,8 @@ import Footer from './Components/Footer';
 import Settings from './Components/Settings';
 import Search from './Components/Search'
 import ytpl from 'ytpl';
+import { chmodSync } from 'fs';
+import { ffmpeg } from './Constants';
 
 export let outerContext: InfoQueueContextData;
 
@@ -31,11 +33,16 @@ function App() {
     //@ts-ignore
     window.ytpl = ytpl;
     if(process.platform === 'win32') setUpMinimize();
+    if(process.platform === 'linux' || process.platform === 'darwin') {
+      chmodSync(ffmpeg, 0o755)
+    }
     CheckUpdates();
     window.addEventListener('paste', (event: any) => {
       let paste = event.clipboardData.getData('text');
       addToQueue(paste);
     });
+
+
   }, [])
 
   useEffect(() => {
