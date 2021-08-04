@@ -45,6 +45,7 @@ build/Release
 
 # Dependency directories
 node_modules/
+!app/public/node_modules
 jspm_packages/
 
 # TypeScript v1 declaration files
@@ -124,3 +125,6 @@ WebDL-SetupFiles/
 *.pem
 *.ai
 .vscode/
+
+# Yarn berry cache
+.yarn/
