@@ -41,6 +41,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^3.9.2",
     "eslint-webpack-plugin": "^2.5.2",
+    "execa": "^5.1.1",
     "express": "^4.17.1",
     "ffmpeg-static": "^4.4.0",
     "file-loader": "6.1.1",
