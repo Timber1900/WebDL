@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { InfoQueueContext } from '../contexts/InfoQueueContext';
 import { path, setPath } from '../Functions/getPath';
 import { port } from '../Functions/server/server';
-import { CheckUpdates } from '../Functions/update';
+import { CheckUpdates, getCurrentVersion } from '../Functions/update';
 
 interface Props {
   className?: string;
@@ -59,6 +59,7 @@ type extTypes = "v mkv" | "v mp4" | "v avi" | "v webm" | "a mp3" | "a m4a" | "a 
 const Settings = ({className}: Props) => {
   // const [customExt, setCustomExt] = useState("");
   const [curPath, setCurPath] = useState(path);
+  const curVersion = useState(window.localStorage.getItem("curVer") ?? "Unknown");
   const {curExt, updateExt, curCustomExt, updateCurCustomExt, curConcurrentDownload, updateConcurrentDownload } = useContext(InfoQueueContext);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -163,6 +164,12 @@ const Settings = ({className}: Props) => {
                     if (val.target.valueAsNumber < 1) val.target.value = '1';
                     updateConcurrentDownload(val.target.valueAsNumber);
                   }}/>
+      </span>
+      <div className="w-full h-0 border-b border-gray-200 dark:border-gray-700"/>
+      <h1 className="text-xl font-bold">{"About:"}</h1>
+      <span className="flex flex-row gap-4">
+        <h4>Version: </h4>
+        <p className="text-base font-medium text-gray-700 dark:text-gray-400">{curVersion}</p>
       </span>
     </div>
   )
