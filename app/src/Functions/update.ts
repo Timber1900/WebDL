@@ -4,19 +4,19 @@ import OS from 'os';
 import util from 'util';
 import { exec, spawn } from 'child_process';
 import { join } from 'path';
-import { Status, Duration, downloadPath } from '../Constants';
+import { Status, Duration, downloadPath, GithubRelease } from '../Constants';
 import { outerContext } from '../App';
 import { downloadLatestRealease } from './youtube-dl-wrap/downloadLatestRelease';
 import { InfoQueueContextData } from '../contexts/InfoQueueContext';
 
-export const getVersion = (page = 1, perPage = 1): any => {
+export const getVersion = (page = 1, perPage = 5): Promise<GithubRelease[]> => {
   return new Promise((resolve, reject) => {
     const apiURL = `https://api.github.com/repos/Timber1900/WebDL/releases?page=${page}&per_page=${perPage}`;
-    https.get(apiURL, { headers: { 'User-Agent': 'node' } }, (response) => {
+    https.get(apiURL, { headers: { 'User-Agent': 'node' } }, (response: any) => {
       let resonseString = '';
       response.setEncoding('utf8');
-      response.on('data', (body) => (resonseString += body));
-      response.on('error', (e) => reject(e));
+      response.on('data', (body: any) => (resonseString += body));
+      response.on('error', (e: any) => reject(e));
       response.on('end', () => (response.statusCode === 200 ? resolve(JSON.parse(resonseString)) : reject(response)));
     });
   });
@@ -24,7 +24,7 @@ export const getVersion = (page = 1, perPage = 1): any => {
 
 export const downloadFromGithub = async (filePath: string) => {
   const fileName = 'WebDL.exe';
-  const version = (await getVersion())[0].tag_name;
+  const version = (await getVersion()).filter(value => !value.prerelease)[0].tag_name;
   const fileURL = `https://github.com/Timber1900/WebDL/releases/download/${version}/${fileName}`;
 
   return await downloadFile(fileURL, filePath);
@@ -36,8 +36,8 @@ const downloadFile = (fileURL: string | null, filePath: string) => {
     while (fileURL) {
       const url = fileURL;
       let response: any = await new Promise((resolveRequest, rejectRequest) =>
-        https.get(url, (httpResponse) => {
-          httpResponse.on('error', (e) => reject(e));
+        https.get(url, (httpResponse: any) => {
+          httpResponse.on('error', (e: any) => reject(e));
           resolveRequest(httpResponse);
         }),
       );
@@ -52,24 +52,31 @@ const downloadFile = (fileURL: string | null, filePath: string) => {
   });
 };
 
+export const getCurrentVersion = (): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const ls = exec(
+      'for /F "tokens=3" %A in (\'reg query "HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\WebDL" /v "Version"\') DO (Echo %A)',
+    );
+    ls.stdout?.on('data', (data: any) => {
+      if (data.toString().charAt(0) === 'v') {
+        const version = data.toString().trim();
+        window.localStorage.setItem("curVer", version)
+        resolve(version);
+      }
+    });
+    ls.stderr?.on('data', console.error)
+  })
+}
+
 export const downloadInstaller = ({ curInfo, updateInfo }: InfoQueueContextData) => {
   return new Promise((res, rej) => {
-    new Promise((resolve, reject) => {
-      const ls = exec(
-        'for /F "tokens=3" %A in (\'reg query "HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\WebDL" /v "Version"\') DO (Echo %A)',
-      );
-      ls.stdout?.on('data', (data: any) => {
-        if (data.toString().charAt(0) === 'v') {
-          resolve(data.toString().trim());
-        }
-      });
-    })
+    getCurrentVersion()
       .then(async (val) => {
         let last_check: `${number}` | number =
           (window.localStorage.getItem('webdl-lastcheck') as `${number}`) ?? Date.now() - Duration.DAY;
         if (Date.now() - Number(last_check) >= Duration.DAY) {
           window.localStorage.setItem('webdl-lastcheck', `${Date.now()}`);
-          const [{ tag_name }] = await getVersion();
+          const tag_name = (await getVersion()).filter(value => !value.prerelease)[0].tag_name;
           console.log(tag_name);
           if (tag_name !== val) {
             let currentInfo = 'Newer version found, downloading';

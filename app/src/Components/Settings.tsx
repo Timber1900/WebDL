@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { InfoQueueContext } from '../contexts/InfoQueueContext';
 import { path, setPath } from '../Functions/getPath';
 import { port } from '../Functions/server/server';
-import { CheckUpdates } from '../Functions/update';
+import { CheckUpdates, getCurrentVersion } from '../Functions/update';
 
 interface Props {
   className?: string;
@@ -59,8 +59,14 @@ type extTypes = "v mkv" | "v mp4" | "v avi" | "v webm" | "a mp3" | "a m4a" | "a 
 const Settings = ({className}: Props) => {
   // const [customExt, setCustomExt] = useState("");
   const [curPath, setCurPath] = useState(path);
+  const [curVersion, setCurrentVersion] = useState(window.localStorage.getItem("curVer") ?? "Unknown");
   const {curExt, updateExt, curCustomExt, updateCurCustomExt, curConcurrentDownload, updateConcurrentDownload } = useContext(InfoQueueContext);
   const inputRef = useRef<HTMLInputElement | null>(null);
+
+  const refreshVersion = async () => {
+    await getCurrentVersion();
+    setCurrentVersion(window.localStorage.getItem("curVer") ?? "Unknown");
+  }
 
   useEffect(() => {
     if (inputRef && inputRef.current) {
@@ -163,6 +169,20 @@ const Settings = ({className}: Props) => {
                     if (val.target.valueAsNumber < 1) val.target.value = '1';
                     updateConcurrentDownload(val.target.valueAsNumber);
                   }}/>
+      </span>
+      <div className="w-full h-0 border-b border-gray-200 dark:border-gray-700"/>
+      <h1 className="text-xl font-bold">{"About:"}</h1>
+      <span className="flex flex-row w-full gap-4">
+        <h4>Version: </h4>
+        <p className="text-base font-medium text-gray-700 dark:text-gray-400">{curVersion}</p>
+        <div className="grid ml-auto transition-transform duration-300 ease-in-out transform scale-100 rotate-0 place-content-center hover:rotate-180 active:scale-90" onClick={refreshVersion}>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18px" height="18px" viewBox="0 0 12 10" className="h-full stroke-current text-dark dark:text-white w-max">
+            <polyline fill="none" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="2" points="0.5,1 0.5,4 3.5,4 "/>
+            <polyline fill="none" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="2" points="11.5,9 11.5,6 8.5,6 "/>
+            <path fill="none" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="2" d="M10.24,3.5C9.42,1.16,6.84-0.07,4.5,0.76C3.87,0.98,3.29,1.35,2.82,1.82L0.5,4 M11.5,6L9.18,8.18
+              c-1.76,1.76-4.61,1.76-6.36,0C2.34,7.71,1.98,7.13,1.75,6.5"/>
+          </svg>
+        </div>
       </span>
     </div>
   )
