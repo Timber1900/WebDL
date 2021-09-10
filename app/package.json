@@ -1,0 +1,116 @@
+{
+  "name": "WebDL",
+  "productName": "WebDL",
+  "version": "11.0.0",
+  "description": "A web video downloader",
+  "main": ".webpack/main",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint --ext .ts,.tsx ."
+  },
+  "keywords": [],
+  "author": {
+    "name": "Timber1900",
+    "email": "timber.gamer@gmail.com"
+  },
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "./src/icons/webdl.ico"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "WebDL"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ],
+      "plugins": [
+        [
+          "@electron-forge/plugin-webpack",
+          {
+            "mainConfig": "./webpack.main.config.js",
+            "renderer": {
+              "config": "./webpack.renderer.config.js",
+              "entryPoints": [
+                {
+                  "html": "./src/index.html",
+                  "js": "./src/renderer.ts",
+                  "preload": {
+                    "js": "./src/preload.ts"
+                  },
+                  "name": "main_window"
+                }
+              ]
+            }
+          }
+        ]
+      ]
+    }
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.60",
+    "@electron-forge/maker-deb": "^6.0.0-beta.60",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.60",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.60",
+    "@electron-forge/maker-zip": "^6.0.0-beta.60",
+    "@electron-forge/plugin-webpack": "6.0.0-beta.60",
+    "@types/chrome": "^0.0.157",
+    "@types/execa": "^2.0.0",
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
+    "@vercel/webpack-asset-relocator-loader": "1.7.0",
+    "autoprefixer": "^10.3.4",
+    "css-loader": "^6.0.0",
+    "electron": "14.0.0",
+    "eslint": "^7.6.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.20.0",
+    "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^6.0.1",
+    "node-loader": "^2.0.0",
+    "postcss": "^8.3.6",
+    "postcss-loader": "^6.1.1",
+    "react-refresh": "^0.10.0",
+    "style-loader": "^3.0.0",
+    "tailwindcss": "^2.2.11",
+    "ts-loader": "^9.2.2",
+    "typescript": "^4.4.2",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "execa": "^5.1.1",
+    "express": "^4.17.1",
+    "ffmpeg-static": "^4.4.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "react-simple-timefield": "^3.2.3",
+    "youtube-dl-wrap": "^2.1.0",
+    "ytdl-core": "^4.9.1",
+    "ytpl": "^2.2.3",
+    "ytsr": "^3.5.3"
+  }
+}
