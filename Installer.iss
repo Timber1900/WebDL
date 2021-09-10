@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "WebDL"
-#define MyAppVersion "10.3"
+#define MyAppVersion "v11.0_alpha"
 #define MyAppPublisher "Timber1900"
 #define MyAppURL "https://www.hteixeira.me/"
 #define MyAppExeName "WebDL.exe"
@@ -38,29 +38,26 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "app\build\WebDL\win64\chromedriver.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\credits.html"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\d3dcompiler_47.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\ffmpeg.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\icudtl.dat"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\libEGL.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\libGLESv2.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\nacl_irt_x86_64.nexe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\node.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\notification_helper.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\nw.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\nw_100_percent.pak"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\nw_200_percent.pak"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\nw_elf.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\nwjc.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\payload.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\resources.pak"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\v8_context_snapshot.bin"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\webdl.ico"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\locales\*"; DestDir: "{app}\locales"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\pnacl\*"; DestDir: "{app}\pnacl"; Flags: ignoreversion
-Source: "app\build\WebDL\win64\swiftshader\*"; DestDir: "{app}\swiftshader"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\chrome_100_percent.pak"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\chrome_200_percent.pak"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\d3dcompiler_47.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\ffmpeg.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\icudtl.dat"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\libEGL.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\libGLESv2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\LICENSE"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\LICENSES.chromium.html"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\resources.pak"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\snapshot_blob.bin"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\v8_context_snapshot.bin"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\version"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\vk_swiftshader_icd.json"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\vk_swiftshader.dll"; DestDir: "{app}"; Flags: ignoreversionSource: "app\out\WebDL-win32-x64\vulkan-1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\webdl.ico"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\locales\*"; DestDir: "{app}\locales"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\resources\app\*"; DestDir: "{app}\resources\app"; Flags: ignoreversion recursesubdirs
+Source: "app\out\WebDL-win32-x64\swiftshader\*"; DestDir: "{app}\swiftshader"; Flags: ignoreversion
 
 [Registry]
 Root: HKLM; Subkey: "SOFTWARE\WOW6432Node\WebDL"; ValueType: string; ValueName: "Version"; ValueData: "{#MyAppVersion}"
@@ -68,8 +65,9 @@ Root: HKLM; Subkey: "SOFTWARE\WOW6432Node\WebDL"; ValueType: string; ValueName: 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
+Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\webdl.ico"
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon; IconFilename: "{app}\webdl.ico"
+
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
