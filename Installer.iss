@@ -52,7 +52,8 @@ Source: "app\out\WebDL-win32-x64\snapshot_blob.bin"; DestDir: "{app}"; Flags: ig
 Source: "app\out\WebDL-win32-x64\v8_context_snapshot.bin"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\out\WebDL-win32-x64\version"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\out\WebDL-win32-x64\vk_swiftshader_icd.json"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\out\WebDL-win32-x64\vk_swiftshader.dll"; DestDir: "{app}"; Flags: ignoreversionSource: "app\out\WebDL-win32-x64\vulkan-1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\vk_swiftshader.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\out\WebDL-win32-x64\vulkan-1.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\out\WebDL-win32-x64\webdl.ico"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\out\WebDL-win32-x64\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\out\WebDL-win32-x64\locales\*"; DestDir: "{app}\locales"; Flags: ignoreversion

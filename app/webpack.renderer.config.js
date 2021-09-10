@@ -25,7 +25,7 @@ module.exports = {
   module: {
     rules,
   },
-  target: "node",
+  target: 'node',
   plugins: plugins,
   output: {
     publicPath: './../',

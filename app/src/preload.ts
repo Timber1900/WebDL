@@ -1,2 +1,2 @@
 //@ts-ignore
-window.ffmpeg = require('ffmpeg-static');
+window.ffmpeg = require('ffmpeg-static-electron').path;
