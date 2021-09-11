@@ -2,12 +2,11 @@ import { outerContext } from '../../App';
 import { Props } from '../../Components/Item';
 
 export const getOtherDiv = (info: any, i: number, url: string): Promise<Props | null> => {
-  console.log("HELLO")
   if (info && info.formats.length > 0) {
-    let formats = new Map();
+    const formats = new Map();
     for (const format of info.formats) {
       if ((format.ext === 'mp4' || format.ext === 'webm') && (format.vcodec ?? 'none') !== 'none' && (format.acodec ?? 'none') === 'none') {
-        console.log(format)
+        console.log(format);
         if (formats.has(format.format_note)) {
           formats.set(
             format.format_note,
@@ -18,7 +17,7 @@ export const getOtherDiv = (info: any, i: number, url: string): Promise<Props | 
         }
       }
     }
-    console.log(formats)
+    console.log(formats);
     let sorted_map = new Map();
     if (formats.size === 0) {
       sorted_map = new Map();
@@ -27,19 +26,16 @@ export const getOtherDiv = (info: any, i: number, url: string): Promise<Props | 
           sorted_map.set(format.height.toString(), format);
         }
       }
-      console.log(sorted_map)
+      console.log(sorted_map);
     } else {
       sorted_map = new Map(
-        //@ts-ignore
-        [...formats.entries()].sort(
+        Array.from(formats).sort(
           (a, b) =>
             -(a[1].height === b[1].height
               ? parseInt(a[1].fps) - parseInt(b[1].fps)
               : parseInt(a[1].height) - parseInt(b[1].height)),
         ),
       );
-      //@ts-ignore
-      // sorted_map = new Map([...temp_sorted_map.entries()].map((a) => [a[0], a[1].format_id]));
     }
 
     return Promise.resolve({

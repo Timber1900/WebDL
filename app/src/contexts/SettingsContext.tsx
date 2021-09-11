@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createContext, ReactNode, useState } from 'react';
 
 export interface SettingsContextData {
@@ -21,13 +22,13 @@ export default function SettingsProvider({ children }: SettingsProviderProps) {
     const tempSettings = !settings;
     setSettings(tempSettings);
     return(tempSettings);
-  }
+  };
 
   const changeShowSearch = () => {
     const tempSearch = !search;
     setSearch(tempSearch);
     return(tempSearch);
-  }
+  };
 
   return (
     <SettingsContext.Provider

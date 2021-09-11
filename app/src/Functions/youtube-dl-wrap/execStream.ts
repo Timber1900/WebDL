@@ -11,7 +11,7 @@ export const execStream = (youtubeDlArguments: any[] = []): internal.Readable =>
 
   let stderrData = '';
   youtubeDlProcess.stderr?.on('data', (data) => {
-    let stringData = data.toString();
+    const stringData = data.toString();
     // console.log(`%c ${data.toString()}`, 'color: #0099FF');
     YoutubeDlWrap.emitYoutubeDlEvents(stringData, youtubeDlProcess.stdout);
     stderrData += stringData;

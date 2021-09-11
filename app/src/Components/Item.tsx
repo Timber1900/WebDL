@@ -1,6 +1,7 @@
+import * as React from 'react';
 import { useContext, useRef } from 'react';
 import { useState } from 'react';
-import { CgClose } from 'react-icons/all'
+import { CgClose } from 'react-icons/all';
 import { Storage, InfoVideo } from '../Constants';
 import { InfoQueueContext, progressProps, velProps } from '../contexts/InfoQueueContext';
 import { downloadAudio } from '../Functions/youtube-dl-wrap/downloadAudio';
@@ -118,7 +119,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
     const tempQueue = [...curQueue];
     tempQueue.splice(i, 1);
     updateQueue(tempQueue);
-  }
+  };
 
   const renameVideo = function (e: HTMLSpanElement) {
     const label = e;
@@ -143,7 +144,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
     function stopRename() {
       label.setAttribute('contenteditable', 'false');
       label.removeEventListener('focusout', stopRename);
-      label.className = `${label.className} truncate`
+      label.className = `${label.className} truncate`;
       label.scrollLeft = 0;
       changeTitle(label.innerHTML);
     }
@@ -156,14 +157,14 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
     text = text.replace(/(?:\r\n|\r|\n)/g, '<br>');
     const urlRegex =/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|])/ig;
     return text.replace(urlRegex, function(url: string) {
-      return `<a onclick="require('nw.gui').Shell.openExternal('${url}')" class="text-indigo-400 hover:text-indigo-500 active:text-indigo-600 transition-colors cursor-pointer" >${url}</a>`;
+      return `<a onclick="window.require('electron').shell.openExternal('${url}')" class="text-indigo-400 hover:text-indigo-500 active:text-indigo-600 transition-colors cursor-pointer" >${url}</a>`;
     });
   }
 
   return(
     <>
       {trim && <Trim closeTrim={() => setTrim(false)} hh={hours < 10 ? `0${hours}` : hours.toString()} mm={minutes < 10 ? `0${minutes}` : minutes.toString()} ss={seconds < 10 ? `0${seconds}` : seconds.toString()} clips={clips} i={i}/>}
-      <div className={`absolute inset-0 z-10 bg-black ${showInfo ? 'opacity-40 pointer-events-auto': 'opacity-0 pointer-events-none'}  transition-opacity duration-200`} onClick={() => {setInfo(false)}}></div>
+      <div className={`absolute inset-0 z-10 bg-black ${showInfo ? 'opacity-40 pointer-events-auto': 'opacity-0 pointer-events-none'}  transition-opacity duration-200`} onClick={() => {setInfo(false);}}></div>
       {(showInfo && merge) &&
         <div className="absolute z-20 flex flex-col items-center justify-start gap-4 p-8 bg-white rounded-lg shadow-lg inset-x-0 mx-auto min-w-[576px] w-max max-w-[636px] inset-y-12 dark:bg-gray-800">
           <h1 className="text-2xl text-center">{innerInfo.videoDetails.title}</h1>
@@ -171,50 +172,51 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
             <img className="col-span-2 col-start-1 row-span-2 my-auto rounded-lg shadow-md max-h-32" src={innerInfo.videoDetails.thumbnails[innerInfo.videoDetails.thumbnails.length - 1].url} alt='Video Thumbnail'/>
             <div className="flex flex-col col-span-3 row-span-2 gap-2 my-auto">
               <span className='flex flex-row items-center justify-start gap-2'>
-                <img src={innerInfo.videoDetails.author.thumbnails[innerInfo.videoDetails.author.thumbnails.length -1].url} alt='Channel logo' className="cursor-pointer rounded-full h-[50px] m-[5px]" onClick={() => {require('nw.gui').Shell.openExternal(innerInfo.videoDetails.author.channel_url)}}/>
+                <img src={innerInfo.videoDetails.author.thumbnails[innerInfo.videoDetails.author.thumbnails.length -1].url} alt='Channel logo' className="cursor-pointer rounded-full h-[50px] m-[5px]" onClick={() => {window.require('electron').shell.openExternal(innerInfo.videoDetails.author.channel_url);}}/>
                 <div className="flex flex-col items-start justify-center col-span-2 my-auto">
-                  <p className='flex flex-row items-center justify-start gap-1 mt-auto text-base font-semibold text-left cursor-pointer' onClick={() => {require('nw.gui').Shell.openExternal(innerInfo.videoDetails.author.channel_url)}}>{innerInfo.videoDetails.author.name}
-                  {innerInfo.videoDetails.author.verified &&
-                  <div aria-label="Verified" className="after:content-[attr(aria-label)] dark:after:content-[attr(aria-label)] dark:hover:after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] relative after:absolute after:bottom-[130%] after:-inset-x-24 after:mx-auto after:px-1 after:py-.5 after:w-max after:bg-gray-200 dark:after:bg-gray-600 after:rounded-md after:opacity-0 after:scale-0 hover:after:opacity-100 hover:after:scale-100 after:origin-bottom after:transition-all">
-                  <svg className="text-gray-400 fill-current dark:text-gray-500" version="1.1" x="0px" y="0px" height="13px" viewBox="0 0 20 20">
-                    <path style={{'fillRule': 'evenodd','clipRule':'evenodd'}} d="M10,0C4.48,0,0,4.48,0,10s4.48,10,10,10s10-4.48,10-10S15.52,0,10,0z M7.92,15.93l-4.95-4.95l2.05-2.05
-                      l2.9,2.9l7.35-7.35l2.05,2.05L7.92,15.93z"/>
-                    </svg>
-                  </div>
-                  }
-                  </p>
+                  <span className='flex flex-row items-center justify-start gap-1 mt-auto text-base font-semibold text-left cursor-pointer' onClick={() => {window.require('electron').shell.openExternal(innerInfo.videoDetails.author.channel_url);}}>
+                    {innerInfo.videoDetails.author.name}
+                    {innerInfo.videoDetails.author.verified &&
+                    <div aria-label="Verified" className="after:content-[attr(aria-label)] dark:after:content-[attr(aria-label)] dark:hover:after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] relative after:absolute after:bottom-[130%] after:-inset-x-24 after:mx-auto after:px-1 after:py-.5 after:w-max after:bg-gray-200 dark:after:bg-gray-600 after:rounded-md after:opacity-0 after:scale-0 hover:after:opacity-100 hover:after:scale-100 after:origin-bottom after:transition-all">
+                      <svg className="text-gray-400 fill-current dark:text-gray-500" version="1.1" x="0px" y="0px" height="13px" viewBox="0 0 20 20">
+                        <path style={{'fillRule': 'evenodd','clipRule':'evenodd'}} d="M10,0C4.48,0,0,4.48,0,10s4.48,10,10,10s10-4.48,10-10S15.52,0,10,0z M7.92,15.93l-4.95-4.95l2.05-2.05
+                        l2.9,2.9l7.35-7.35l2.05,2.05L7.92,15.93z"/>
+                      </svg>
+                    </div>
+                      }
+                  </span>
                   <p className='text-sm font-normal text-left text-gray-400 dark:text-gray-500'>{(innerInfo.videoDetails.author.subscriber_count ?? 0).toLocaleString()} subscribers</p>
                 </div>
               </span>
               <span className='flex flex-row items-center justify-start gap-2 mx-4 text-sm font-semibold text-gray-500 divide-x divide-gray-500'>
                 <span className="flex flex-row gap-4">
                   <span className="flex flex-row items-center justify-center gap-2">
-                  <svg className="text-gray-500 fill-current dark:text-gray-400" version="1.1" x="0px" y="0px" width="22px" height="20px" viewBox="0 0 22 20">
-                    <path d="M0,20h4V8H0V20z M22,9c0-1.1-0.9-2-2-2h-6.31l0.95-4.57l0.03-0.32c0-0.41-0.17-0.79-0.44-1.06L13.17,0L6.59,6.59
+                    <svg className="text-gray-500 fill-current dark:text-gray-400" version="1.1" x="0px" y="0px" width="22px" height="20px" viewBox="0 0 22 20">
+                      <path d="M0,20h4V8H0V20z M22,9c0-1.1-0.9-2-2-2h-6.31l0.95-4.57l0.03-0.32c0-0.41-0.17-0.79-0.44-1.06L13.17,0L6.59,6.59
                       C6.22,6.95,6,7.45,6,8v10c0,1.1,0.9,2,2,2h9c0.83,0,1.54-0.5,1.84-1.22l3.02-7.05C21.95,11.5,22,11.26,22,11V9.09l-0.01-0.01L22,9z
                       "/>
-                  </svg>
-                  {innerInfo.videoDetails.likes.toLocaleString()}
-                </span>
+                    </svg>
+                    {innerInfo.videoDetails.likes.toLocaleString()}
+                  </span>
                   <span className="flex flex-row items-center justify-center gap-2">
-                  <svg className="text-gray-500 fill-current dark:text-gray-400" version="1.1" x="0px" y="0px" width="22px" height="20px" viewBox="0 0 22 20">
-                    <path d="M14,0H5C4.17,0,3.46,0.5,3.16,1.22L0.14,8.27C0.05,8.5,0,8.74,0,9v1.91l0.01,0.01L0,11c0,1.1,0.9,2,2,2h6.31l-0.95,4.57
+                    <svg className="text-gray-500 fill-current dark:text-gray-400" version="1.1" x="0px" y="0px" width="22px" height="20px" viewBox="0 0 22 20">
+                      <path d="M14,0H5C4.17,0,3.46,0.5,3.16,1.22L0.14,8.27C0.05,8.5,0,8.74,0,9v1.91l0.01,0.01L0,11c0,1.1,0.9,2,2,2h6.31l-0.95,4.57
                       l-0.03,0.32c0,0.41,0.17,0.79,0.44,1.06L8.83,20l6.59-6.59C15.78,13.05,16,12.55,16,12V2C16,0.9,15.1,0,14,0z M18,0v12h4V0H18z"/>
-                  </svg>
-                  {innerInfo.videoDetails.dislikes.toLocaleString()}
-                </span>
-                </span>
-                  <span className="pl-2">
-                    {parseInt(innerInfo.videoDetails.viewCount).toLocaleString()} views
+                    </svg>
+                    {innerInfo.videoDetails.dislikes.toLocaleString()}
                   </span>
                 </span>
+                <span className="pl-2">
+                  {parseInt(innerInfo.videoDetails.viewCount).toLocaleString()} views
+                </span>
+              </span>
             </div>
           </span>
           <p className="flex-grow w-full col-span-3 overflow-y-scroll text-sm text-base text-left sm:font-normal" dangerouslySetInnerHTML={{__html: linkify(innerInfo.videoDetails.description ?? '')}}></p>
           <span className="flex flex-wrap w-full gap-2 overflow-y-scroll max-h-28">
             <h2 className="text-lg font-bold">Tags:</h2>
             {innerInfo.videoDetails.keywords?.map((val, i) =>
-              <code className="px-2 py-1 my-auto text-base font-semibold text-center bg-gray-200 rounded-md cursor-pointer dark:bg-gray-700" key={i} onClick={() => {require('nw.gui').Shell.openExternal(`https://www.youtube.com/results?search_query=${val.replace(" ", "+")}`)}}>{val}</code>
+              <code className="px-2 py-1 my-auto text-base font-semibold text-center bg-gray-200 rounded-md cursor-pointer dark:bg-gray-700" key={i} onClick={() => {window.require('electron').shell.openExternal(`https://www.youtube.com/results?search_query=${val.replace(' ', '+')}`);}}>{val}</code>
             )}
           </span>
         </div>
@@ -232,14 +234,14 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
           <div className={`grid grid-cols-2 ${curConcurrentDownload > 1 ? 'col-span-7' : 'col-span-9'} col-start-1 row-span-1 row-start-2 gap-2 place-items-center`}>
             <span className="flex items-center justify-center w-full h-full gap-2 text-base font-medium flex-rows">
               <label htmlFor='qual'>Quality: </label>
-              <select onChange={(e) => { updateQual(quality.get(e.target.value)) }} defaultValue={curQual} id='qual' className="bg-gray-100 rounded-md shadow-sm w-max dark:bg-gray-700 focus:outline-none">
-              {options.map((val: string, i: number) => {
-                return (
-                  <option value={val} key={i}>
-                    {val}
-                  </option>
-                );
-              })}
+              <select onChange={(e) => { updateQual(quality.get(e.target.value)); }} defaultValue={curQual} id='qual' className="bg-gray-100 rounded-md shadow-sm w-max dark:bg-gray-700 focus:outline-none">
+                {options.map((val: string, i: number) => {
+                  return (
+                    <option value={val} key={i}>
+                      {val}
+                    </option>
+                  );
+                })}
               </select>
             </span>
             <span className="flex items-center justify-center w-full h-full gap-2 text-base font-medium flex-rows">
@@ -272,7 +274,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
           </div>
           <div className="grid grid-cols-1 col-span-1 col-start-10 grid-rows-5 row-span-3 row-start-1 gap-1 border-l border-gray-200 dark:border-gray-700 place-items-center">
             <button aria-label="Rename video" className="after:content-[attr(aria-label)] dark:after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] dark:hover:after:content-[attr(aria-label)] relative after:absolute after:text-base after:inset-y-0 after:right-[130%] after:w-max after:bg-gray-300 dark:after:bg-gray-600 after:shadow-md after:opacity-0 after:scale-0 after:transform hover:after:opacity-100 hover:after:scale-100 after:origin-right after:transition-all after:delay-[0ms] hover:after:delay-1000 after:px-2 after:py-1 after:rounded-md after:text-center after:h-max after:grid after:place-content-center">
-              <svg className="text-black transition-all transform scale-100 fill-[none] stroke-current group dark:active:text-gray-300 active:scale-95 active:text-gray-700 dark:text-white hover:text-gray-800 dark:hover:text-gray-200 hover:scale-125 w-[24px] h-[24px] stroke-[40px]" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="-10 0 475.2 303.46" onClick={() => {if(titleLabel.current) renameVideo(titleLabel.current)}}>
+              <svg className="text-black transition-all transform scale-100 fill-[none] stroke-current group dark:active:text-gray-300 active:scale-95 active:text-gray-700 dark:text-white hover:text-gray-800 dark:hover:text-gray-200 hover:scale-125 w-[24px] h-[24px] stroke-[40px]" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="-10 0 475.2 303.46" onClick={() => {if(titleLabel.current) renameVideo(titleLabel.current);}}>
                 <path d="M378.5,248.03H66.69c-31.31,0-56.69-25.38-56.69-56.69V92.13c0-31.31,25.38-56.69,56.69-56.69H378.5 c31.31,0,56.69,25.38,56.69,56.69v99.21C435.2,222.65,409.81,248.03,378.5,248.03z" />
                 <path d="M378.5,248.03H66.69c-31.31,0-56.69-25.38-56.69-56.69V92.13c0-31.31,25.38-56.69,56.69-56.69H378.5 c31.31,0,56.69,25.38,56.69,56.69v99.21C435.2,222.65,409.81,248.03,378.5,248.03z" />
                 <line className="translate-x-[calc(30%-20px)] group-hover:translate-x-[calc(65%-20px)] transition-all ease-out" strokeLinecap="round" y1="-20" y2="303.46" />
@@ -341,7 +343,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Item;

@@ -81,11 +81,70 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 20);
+/******/ 	return __webpack_require__(__webpack_require__.s = 23);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return ElementTypeClass; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return ElementTypeContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return ElementTypeFunction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return ElementTypeForwardRef; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return ElementTypeHostComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return ElementTypeMemo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return ElementTypeOtherOrUnknown; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return ElementTypeProfiler; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return ElementTypeRoot; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return ElementTypeSuspense; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return ElementTypeSuspenseList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ComponentFilterElementType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentFilterDisplayName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return ComponentFilterLocation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return ComponentFilterHOC; });
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+// WARNING
+// The values below are referenced by ComponentFilters (which are saved via localStorage).
+// Do not change them or it will break previously saved user customizations.
+// If new element types are added, use new numbers rather than re-ordering existing ones.
+//
+// Changing these types is also a backwards breaking change for the standalone shell,
+// since the frontend and backend must share the same values-
+// and the backend is embedded in certain environments (like React Native).
+const ElementTypeClass = 1;
+const ElementTypeContext = 2;
+const ElementTypeFunction = 5;
+const ElementTypeForwardRef = 6;
+const ElementTypeHostComponent = 7;
+const ElementTypeMemo = 8;
+const ElementTypeOtherOrUnknown = 9;
+const ElementTypeProfiler = 10;
+const ElementTypeRoot = 11;
+const ElementTypeSuspense = 12;
+const ElementTypeSuspenseList = 13; // Different types of elements displayed in the Elements tree.
+// These types may be used to visually distinguish types,
+// or to enable/disable certain functionality.
+
+// WARNING
+// The values below are referenced by ComponentFilters (which are saved via localStorage).
+// Do not change them or it will break previously saved user customizations.
+// If new filter types are added, use new numbers rather than re-ordering existing ones.
+const ComponentFilterElementType = 1;
+const ComponentFilterDisplayName = 2;
+const ComponentFilterLocation = 3;
+const ComponentFilterHOC = 4;
+
+/***/ }),
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -105,13 +164,13 @@ __webpack_require__.d(__webpack_exports__, "d", function() { return /* binding *
 __webpack_require__.d(__webpack_exports__, "g", function() { return /* binding */ getDisplayNameForReactElement; });
 __webpack_require__.d(__webpack_exports__, "b", function() { return /* binding */ formatDataForPreview; });
 
-// UNUSED EXPORTS: alphaSortKeys, utfDecodeString, getSavedComponentFilters, saveComponentFilters, getAppendComponentStack, setAppendComponentStack, getBreakOnConsoleErrors, setBreakOnConsoleErrors, getShowInlineWarningsAndErrors, setShowInlineWarningsAndErrors, separateDisplayNameAndHOCs, shallowDiffers
+// UNUSED EXPORTS: alphaSortKeys, utfDecodeString, getSavedComponentFilters, saveComponentFilters, getAppendComponentStack, setAppendComponentStack, getBreakOnConsoleErrors, setBreakOnConsoleErrors, getHideConsoleLogsInStrictMode, sethideConsoleLogsInStrictMode, getShowInlineWarningsAndErrors, setShowInlineWarningsAndErrors, separateDisplayNameAndHOCs, shallowDiffers
 
-// EXTERNAL MODULE: /Users/bvaughn/Documents/git/react.devtools/node_modules/lru-cache/index.js
-var lru_cache = __webpack_require__(17);
+// EXTERNAL MODULE: /Users/luna/code/react/node_modules/lru-cache/index.js
+var lru_cache = __webpack_require__(20);
 var lru_cache_default = /*#__PURE__*/__webpack_require__.n(lru_cache);
 
-// EXTERNAL MODULE: /Users/bvaughn/Documents/git/react.devtools/build/node_modules/react-is/index.js
+// EXTERNAL MODULE: /Users/luna/code/react/build/node_modules/react-is/index.js
 var react_is = __webpack_require__(6);
 
 // CONCATENATED MODULE: ../shared/ReactSymbols.js
@@ -188,7 +247,7 @@ function getIteratorFn(maybeIterable) {
 var constants = __webpack_require__(2);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/types.js
-var types = __webpack_require__(1);
+var types = __webpack_require__(0);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/storage.js
 var storage = __webpack_require__(5);
@@ -314,7 +373,7 @@ function printOperationsArray(operations) {
     const operation = operations[i];
 
     switch (operation) {
-      case constants["h" /* TREE_OPERATION_ADD */]:
+      case constants["i" /* TREE_OPERATION_ADD */]:
         {
           const id = operations[i + 1];
           const type = operations[i + 2];
@@ -341,7 +400,7 @@ function printOperationsArray(operations) {
           break;
         }
 
-      case constants["i" /* TREE_OPERATION_REMOVE */]:
+      case constants["j" /* TREE_OPERATION_REMOVE */]:
         {
           const removeLength = operations[i + 1];
           i += 2;
@@ -355,14 +414,14 @@ function printOperationsArray(operations) {
           break;
         }
 
-      case constants["j" /* TREE_OPERATION_REMOVE_ROOT */]:
+      case constants["k" /* TREE_OPERATION_REMOVE_ROOT */]:
         {
           i += 1;
           logs.push(`Remove root ${rootID}`);
           break;
         }
 
-      case constants["k" /* TREE_OPERATION_REORDER_CHILDREN */]:
+      case constants["l" /* TREE_OPERATION_REORDER_CHILDREN */]:
         {
           const id = operations[i + 1];
           const numChildren = operations[i + 2];
@@ -373,14 +432,14 @@ function printOperationsArray(operations) {
           break;
         }
 
-      case constants["m" /* TREE_OPERATION_UPDATE_TREE_BASE_DURATION */]:
+      case constants["n" /* TREE_OPERATION_UPDATE_TREE_BASE_DURATION */]:
         // Base duration updates are only sent while profiling is in progress.
         // We can ignore them at this point.
         // The profiler UI uses them lazily in order to generate the tree.
         i += 3;
         break;
 
-      case constants["l" /* TREE_OPERATION_UPDATE_ERRORS_OR_WARNINGS */]:
+      case constants["m" /* TREE_OPERATION_UPDATE_ERRORS_OR_WARNINGS */]:
         const id = operations[i + 1];
         const numErrors = operations[i + 2];
         const numWarnings = operations[i + 3];
@@ -418,7 +477,7 @@ function saveComponentFilters(componentFilters) {
 }
 function getAppendComponentStack() {
   try {
-    const raw = Object(storage["a" /* localStorageGetItem */])(constants["c" /* LOCAL_STORAGE_SHOULD_PATCH_CONSOLE_KEY */]);
+    const raw = Object(storage["a" /* localStorageGetItem */])(constants["d" /* LOCAL_STORAGE_SHOULD_PATCH_CONSOLE_KEY */]);
 
     if (raw != null) {
       return JSON.parse(raw);
@@ -428,11 +487,11 @@ function getAppendComponentStack() {
   return true;
 }
 function setAppendComponentStack(value) {
-  Object(storage["b" /* localStorageSetItem */])(constants["c" /* LOCAL_STORAGE_SHOULD_PATCH_CONSOLE_KEY */], JSON.stringify(value));
+  Object(storage["b" /* localStorageSetItem */])(constants["d" /* LOCAL_STORAGE_SHOULD_PATCH_CONSOLE_KEY */], JSON.stringify(value));
 }
 function getBreakOnConsoleErrors() {
   try {
-    const raw = Object(storage["a" /* localStorageGetItem */])(constants["b" /* LOCAL_STORAGE_SHOULD_BREAK_ON_CONSOLE_ERRORS */]);
+    const raw = Object(storage["a" /* localStorageGetItem */])(constants["c" /* LOCAL_STORAGE_SHOULD_BREAK_ON_CONSOLE_ERRORS */]);
 
     if (raw != null) {
       return JSON.parse(raw);
@@ -442,11 +501,25 @@ function getBreakOnConsoleErrors() {
   return false;
 }
 function setBreakOnConsoleErrors(value) {
-  Object(storage["b" /* localStorageSetItem */])(constants["b" /* LOCAL_STORAGE_SHOULD_BREAK_ON_CONSOLE_ERRORS */], JSON.stringify(value));
+  Object(storage["b" /* localStorageSetItem */])(constants["c" /* LOCAL_STORAGE_SHOULD_BREAK_ON_CONSOLE_ERRORS */], JSON.stringify(value));
+}
+function getHideConsoleLogsInStrictMode() {
+  try {
+    const raw = Object(storage["a" /* localStorageGetItem */])(constants["b" /* LOCAL_STORAGE_HIDE_CONSOLE_LOGS_IN_STRICT_MODE */]);
+
+    if (raw != null) {
+      return JSON.parse(raw);
+    }
+  } catch (error) {}
+
+  return false;
+}
+function sethideConsoleLogsInStrictMode(value) {
+  Object(storage["b" /* localStorageSetItem */])(constants["b" /* LOCAL_STORAGE_HIDE_CONSOLE_LOGS_IN_STRICT_MODE */], JSON.stringify(value));
 }
 function getShowInlineWarningsAndErrors() {
   try {
-    const raw = Object(storage["a" /* localStorageGetItem */])(constants["d" /* LOCAL_STORAGE_SHOW_INLINE_WARNINGS_AND_ERRORS_KEY */]);
+    const raw = Object(storage["a" /* localStorageGetItem */])(constants["e" /* LOCAL_STORAGE_SHOW_INLINE_WARNINGS_AND_ERRORS_KEY */]);
 
     if (raw != null) {
       return JSON.parse(raw);
@@ -456,7 +529,7 @@ function getShowInlineWarningsAndErrors() {
   return true;
 }
 function setShowInlineWarningsAndErrors(value) {
-  Object(storage["b" /* localStorageSetItem */])(constants["d" /* LOCAL_STORAGE_SHOW_INLINE_WARNINGS_AND_ERRORS_KEY */], JSON.stringify(value));
+  Object(storage["b" /* localStorageSetItem */])(constants["e" /* LOCAL_STORAGE_SHOW_INLINE_WARNINGS_AND_ERRORS_KEY */], JSON.stringify(value));
 }
 function separateDisplayNameAndHOCs(displayName, type) {
   if (displayName === null) {
@@ -938,89 +1011,33 @@ function formatDataForPreview(data, showFormattedValue) {
 }
 
 /***/ }),
-/* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return ElementTypeClass; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return ElementTypeContext; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return ElementTypeFunction; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return ElementTypeForwardRef; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return ElementTypeHostComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return ElementTypeMemo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return ElementTypeOtherOrUnknown; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return ElementTypeProfiler; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return ElementTypeRoot; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return ElementTypeSuspense; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return ElementTypeSuspenseList; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ComponentFilterElementType; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentFilterDisplayName; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return ComponentFilterLocation; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return ComponentFilterHOC; });
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-// WARNING
-// The values below are referenced by ComponentFilters (which are saved via localStorage).
-// Do not change them or it will break previously saved user customizations.
-// If new element types are added, use new numbers rather than re-ordering existing ones.
-//
-// Changing these types is also a backwards breaking change for the standalone shell,
-// since the frontend and backend must share the same values-
-// and the backend is embedded in certain environments (like React Native).
-const ElementTypeClass = 1;
-const ElementTypeContext = 2;
-const ElementTypeFunction = 5;
-const ElementTypeForwardRef = 6;
-const ElementTypeHostComponent = 7;
-const ElementTypeMemo = 8;
-const ElementTypeOtherOrUnknown = 9;
-const ElementTypeProfiler = 10;
-const ElementTypeRoot = 11;
-const ElementTypeSuspense = 12;
-const ElementTypeSuspenseList = 13; // Different types of elements displayed in the Elements tree.
-// These types may be used to visually distinguish types,
-// or to enable/disable certain functionality.
-
-// WARNING
-// The values below are referenced by ComponentFilters (which are saved via localStorage).
-// Do not change them or it will break previously saved user customizations.
-// If new filter types are added, use new numbers rather than re-ordering existing ones.
-const ComponentFilterElementType = 1;
-const ComponentFilterDisplayName = 2;
-const ComponentFilterLocation = 3;
-const ComponentFilterHOC = 4;
-
-/***/ }),
 /* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return __DEBUG__; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return TREE_OPERATION_ADD; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return TREE_OPERATION_REMOVE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return TREE_OPERATION_REORDER_CHILDREN; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return TREE_OPERATION_UPDATE_TREE_BASE_DURATION; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return TREE_OPERATION_UPDATE_ERRORS_OR_WARNINGS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return TREE_OPERATION_REMOVE_ROOT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return __DEBUG__; });
+/* unused harmony export __PERFORMANCE_PROFILE__ */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return TREE_OPERATION_ADD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return TREE_OPERATION_REMOVE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return TREE_OPERATION_REORDER_CHILDREN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return TREE_OPERATION_UPDATE_TREE_BASE_DURATION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return TREE_OPERATION_UPDATE_ERRORS_OR_WARNINGS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return TREE_OPERATION_REMOVE_ROOT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LOCAL_STORAGE_FILTER_PREFERENCES_KEY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return SESSION_STORAGE_LAST_SELECTION_KEY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return SESSION_STORAGE_LAST_SELECTION_KEY; });
 /* unused harmony export LOCAL_STORAGE_PARSE_HOOK_NAMES_KEY */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return SESSION_STORAGE_RECORD_CHANGE_DESCRIPTIONS_KEY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return SESSION_STORAGE_RELOAD_AND_PROFILE_KEY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return LOCAL_STORAGE_SHOULD_BREAK_ON_CONSOLE_ERRORS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return LOCAL_STORAGE_SHOULD_PATCH_CONSOLE_KEY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return LOCAL_STORAGE_SHOW_INLINE_WARNINGS_AND_ERRORS_KEY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return SESSION_STORAGE_RECORD_CHANGE_DESCRIPTIONS_KEY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return SESSION_STORAGE_RELOAD_AND_PROFILE_KEY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return LOCAL_STORAGE_SHOULD_BREAK_ON_CONSOLE_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return LOCAL_STORAGE_SHOULD_PATCH_CONSOLE_KEY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return LOCAL_STORAGE_SHOW_INLINE_WARNINGS_AND_ERRORS_KEY; });
 /* unused harmony export LOCAL_STORAGE_TRACE_UPDATES_ENABLED_KEY */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return LOCAL_STORAGE_HIDE_CONSOLE_LOGS_IN_STRICT_MODE; });
 /* unused harmony export PROFILER_EXPORT_VERSION */
 /* unused harmony export CHANGE_LOG_URL */
 /* unused harmony export UNSUPPORTED_VERSION_URL */
 /* unused harmony export REACT_DEVTOOLS_WORKPLACE_URL */
+/* unused harmony export THEME_STYLES */
 /* unused harmony export COMFORTABLE_LINE_HEIGHT */
 /* unused harmony export COMPACT_LINE_HEIGHT */
 /**
@@ -1032,7 +1049,9 @@ const ComponentFilterHOC = 4;
  * 
  */
 // Flip this flag to true to enable verbose console debug logging.
-const __DEBUG__ = false;
+const __DEBUG__ = false; // Flip this flag to true to enable performance.mark() and performance.measure() timings.
+
+const __PERFORMANCE_PROFILE__ = false;
 const TREE_OPERATION_ADD = 1;
 const TREE_OPERATION_REMOVE = 2;
 const TREE_OPERATION_REORDER_CHILDREN = 3;
@@ -1048,38 +1067,314 @@ const LOCAL_STORAGE_SHOULD_BREAK_ON_CONSOLE_ERRORS = 'React::DevTools::breakOnCo
 const LOCAL_STORAGE_SHOULD_PATCH_CONSOLE_KEY = 'React::DevTools::appendComponentStack';
 const LOCAL_STORAGE_SHOW_INLINE_WARNINGS_AND_ERRORS_KEY = 'React::DevTools::showInlineWarningsAndErrors';
 const LOCAL_STORAGE_TRACE_UPDATES_ENABLED_KEY = 'React::DevTools::traceUpdatesEnabled';
+const LOCAL_STORAGE_HIDE_CONSOLE_LOGS_IN_STRICT_MODE = 'React::DevTools::hideConsoleLogsInStrictMode';
 const PROFILER_EXPORT_VERSION = 5;
 const CHANGE_LOG_URL = 'https://github.com/facebook/react/blob/main/packages/react-devtools/CHANGELOG.md';
 const UNSUPPORTED_VERSION_URL = 'https://reactjs.org/blog/2019/08/15/new-react-devtools.html#how-do-i-get-the-old-version-back';
-const REACT_DEVTOOLS_WORKPLACE_URL = 'https://fburl.com/react-devtools-workplace-group'; // HACK
+const REACT_DEVTOOLS_WORKPLACE_URL = 'https://fburl.com/react-devtools-workplace-group';
+const THEME_STYLES = {
+  light: {
+    '--color-attribute-name': '#ef6632',
+    '--color-attribute-name-not-editable': '#23272f',
+    '--color-attribute-name-inverted': 'rgba(255, 255, 255, 0.7)',
+    '--color-attribute-value': '#1a1aa6',
+    '--color-attribute-value-inverted': '#ffffff',
+    '--color-attribute-editable-value': '#1a1aa6',
+    '--color-background': '#ffffff',
+    '--color-background-hover': 'rgba(0, 136, 250, 0.1)',
+    '--color-background-inactive': '#e5e5e5',
+    '--color-background-invalid': '#fff0f0',
+    '--color-background-selected': '#0088fa',
+    '--color-button-background': '#ffffff',
+    '--color-button-background-focus': '#ededed',
+    '--color-button': '#5f6673',
+    '--color-button-disabled': '#cfd1d5',
+    '--color-button-active': '#0088fa',
+    '--color-button-focus': '#23272f',
+    '--color-button-hover': '#23272f',
+    '--color-border': '#eeeeee',
+    '--color-commit-did-not-render-fill': '#cfd1d5',
+    '--color-commit-did-not-render-fill-text': '#000000',
+    '--color-commit-did-not-render-pattern': '#cfd1d5',
+    '--color-commit-did-not-render-pattern-text': '#333333',
+    '--color-commit-gradient-0': '#37afa9',
+    '--color-commit-gradient-1': '#63b19e',
+    '--color-commit-gradient-2': '#80b393',
+    '--color-commit-gradient-3': '#97b488',
+    '--color-commit-gradient-4': '#abb67d',
+    '--color-commit-gradient-5': '#beb771',
+    '--color-commit-gradient-6': '#cfb965',
+    '--color-commit-gradient-7': '#dfba57',
+    '--color-commit-gradient-8': '#efbb49',
+    '--color-commit-gradient-9': '#febc38',
+    '--color-commit-gradient-text': '#000000',
+    '--color-component-name': '#6a51b2',
+    '--color-component-name-inverted': '#ffffff',
+    '--color-component-badge-background': 'rgba(0, 0, 0, 0.1)',
+    '--color-component-badge-background-inverted': 'rgba(255, 255, 255, 0.25)',
+    '--color-component-badge-count': '#777d88',
+    '--color-component-badge-count-inverted': 'rgba(255, 255, 255, 0.7)',
+    '--color-console-error-badge-text': '#ffffff',
+    '--color-console-error-background': '#fff0f0',
+    '--color-console-error-border': '#ffd6d6',
+    '--color-console-error-icon': '#eb3941',
+    '--color-console-error-text': '#fe2e31',
+    '--color-console-warning-badge-text': '#000000',
+    '--color-console-warning-background': '#fffbe5',
+    '--color-console-warning-border': '#fff5c1',
+    '--color-console-warning-icon': '#f4bd00',
+    '--color-console-warning-text': '#64460c',
+    '--color-context-background': 'rgba(0,0,0,.9)',
+    '--color-context-background-hover': 'rgba(255, 255, 255, 0.1)',
+    '--color-context-background-selected': '#178fb9',
+    '--color-context-border': '#3d424a',
+    '--color-context-text': '#ffffff',
+    '--color-context-text-selected': '#ffffff',
+    '--color-dim': '#777d88',
+    '--color-dimmer': '#cfd1d5',
+    '--color-dimmest': '#eff0f1',
+    '--color-error-background': 'hsl(0, 100%, 97%)',
+    '--color-error-border': 'hsl(0, 100%, 92%)',
+    '--color-error-text': '#ff0000',
+    '--color-expand-collapse-toggle': '#777d88',
+    '--color-link': '#0000ff',
+    '--color-modal-background': 'rgba(255, 255, 255, 0.75)',
+    '--color-bridge-version-npm-background': '#eff0f1',
+    '--color-bridge-version-npm-text': '#000000',
+    '--color-bridge-version-number': '#0088fa',
+    '--color-primitive-hook-badge-background': '#e5e5e5',
+    '--color-primitive-hook-badge-text': '#5f6673',
+    '--color-record-active': '#fc3a4b',
+    '--color-record-hover': '#3578e5',
+    '--color-record-inactive': '#0088fa',
+    '--color-resize-bar': '#eeeeee',
+    '--color-resize-bar-active': '#dcdcdc',
+    '--color-resize-bar-border': '#d1d1d1',
+    '--color-resize-bar-dot': '#333333',
+    '--color-scheduling-profiler-native-event': '#ccc',
+    '--color-scheduling-profiler-native-event-hover': '#aaa',
+    '--color-scheduling-profiler-network-primary': '#fcf3dc',
+    '--color-scheduling-profiler-network-primary-hover': '#f0e7d1',
+    '--color-scheduling-profiler-network-secondary': '#efc457',
+    '--color-scheduling-profiler-network-secondary-hover': '#e3ba52',
+    '--color-scheduling-profiler-priority-background': '#f6f6f6',
+    '--color-scheduling-profiler-priority-border': '#eeeeee',
+    '--color-scheduling-profiler-user-timing': '#c9cacd',
+    '--color-scheduling-profiler-user-timing-hover': '#93959a',
+    '--color-scheduling-profiler-react-idle': '#d3e5f6',
+    '--color-scheduling-profiler-react-idle-hover': '#c3d9ef',
+    '--color-scheduling-profiler-react-render': '#9fc3f3',
+    '--color-scheduling-profiler-react-render-hover': '#83afe9',
+    '--color-scheduling-profiler-react-render-text': '#11365e',
+    '--color-scheduling-profiler-react-commit': '#c88ff0',
+    '--color-scheduling-profiler-react-commit-hover': '#b281d6',
+    '--color-scheduling-profiler-react-commit-text': '#3e2c4a',
+    '--color-scheduling-profiler-react-layout-effects': '#b281d6',
+    '--color-scheduling-profiler-react-layout-effects-hover': '#9d71bd',
+    '--color-scheduling-profiler-react-layout-effects-text': '#3e2c4a',
+    '--color-scheduling-profiler-react-passive-effects': '#b281d6',
+    '--color-scheduling-profiler-react-passive-effects-hover': '#9d71bd',
+    '--color-scheduling-profiler-react-passive-effects-text': '#3e2c4a',
+    '--color-scheduling-profiler-react-schedule': '#9fc3f3',
+    '--color-scheduling-profiler-react-schedule-hover': '#2683E2',
+    '--color-scheduling-profiler-react-suspense-rejected': '#f1cc14',
+    '--color-scheduling-profiler-react-suspense-rejected-hover': '#ffdf37',
+    '--color-scheduling-profiler-react-suspense-resolved': '#a6e59f',
+    '--color-scheduling-profiler-react-suspense-resolved-hover': '#89d281',
+    '--color-scheduling-profiler-react-suspense-unresolved': '#c9cacd',
+    '--color-scheduling-profiler-react-suspense-unresolved-hover': '#93959a',
+    '--color-scheduling-profiler-text-color': '#000000',
+    '--color-scheduling-profiler-text-dim-color': '#ccc',
+    '--color-scheduling-profiler-react-work-border': '#ffffff',
+    '--color-search-match': 'yellow',
+    '--color-search-match-current': '#f7923b',
+    '--color-selected-tree-highlight-active': 'rgba(0, 136, 250, 0.1)',
+    '--color-selected-tree-highlight-inactive': 'rgba(0, 0, 0, 0.05)',
+    '--color-scroll-caret': 'rgba(150, 150, 150, 0.5)',
+    '--color-tab-selected-border': '#0088fa',
+    '--color-text': '#000000',
+    '--color-text-invalid': '#ff0000',
+    '--color-text-selected': '#ffffff',
+    '--color-toggle-background-invalid': '#fc3a4b',
+    '--color-toggle-background-on': '#0088fa',
+    '--color-toggle-background-off': '#cfd1d5',
+    '--color-toggle-text': '#ffffff',
+    '--color-warning-background': '#fb3655',
+    '--color-warning-background-hover': '#f82042',
+    '--color-warning-text-color': '#ffffff',
+    '--color-warning-text-color-inverted': '#fd4d69',
+    // The styles below should be kept in sync with 'root.css'
+    // They are repeated there because they're used by e.g. tooltips or context menus
+    // which get rendered outside of the DOM subtree (where normal theme/styles are written).
+    '--color-scroll-thumb': '#c2c2c2',
+    '--color-scroll-track': '#fafafa',
+    '--color-tooltip-background': 'rgba(0, 0, 0, 0.9)',
+    '--color-tooltip-text': '#ffffff'
+  },
+  dark: {
+    '--color-attribute-name': '#9d87d2',
+    '--color-attribute-name-not-editable': '#ededed',
+    '--color-attribute-name-inverted': '#282828',
+    '--color-attribute-value': '#cedae0',
+    '--color-attribute-value-inverted': '#ffffff',
+    '--color-attribute-editable-value': 'yellow',
+    '--color-background': '#282c34',
+    '--color-background-hover': 'rgba(255, 255, 255, 0.1)',
+    '--color-background-inactive': '#3d424a',
+    '--color-background-invalid': '#5c0000',
+    '--color-background-selected': '#178fb9',
+    '--color-button-background': '#282c34',
+    '--color-button-background-focus': '#3d424a',
+    '--color-button': '#afb3b9',
+    '--color-button-active': '#61dafb',
+    '--color-button-disabled': '#4f5766',
+    '--color-button-focus': '#a2e9fc',
+    '--color-button-hover': '#ededed',
+    '--color-border': '#3d424a',
+    '--color-commit-did-not-render-fill': '#777d88',
+    '--color-commit-did-not-render-fill-text': '#000000',
+    '--color-commit-did-not-render-pattern': '#666c77',
+    '--color-commit-did-not-render-pattern-text': '#ffffff',
+    '--color-commit-gradient-0': '#37afa9',
+    '--color-commit-gradient-1': '#63b19e',
+    '--color-commit-gradient-2': '#80b393',
+    '--color-commit-gradient-3': '#97b488',
+    '--color-commit-gradient-4': '#abb67d',
+    '--color-commit-gradient-5': '#beb771',
+    '--color-commit-gradient-6': '#cfb965',
+    '--color-commit-gradient-7': '#dfba57',
+    '--color-commit-gradient-8': '#efbb49',
+    '--color-commit-gradient-9': '#febc38',
+    '--color-commit-gradient-text': '#000000',
+    '--color-component-name': '#61dafb',
+    '--color-component-name-inverted': '#282828',
+    '--color-component-badge-background': 'rgba(255, 255, 255, 0.25)',
+    '--color-component-badge-background-inverted': 'rgba(0, 0, 0, 0.25)',
+    '--color-component-badge-count': '#8f949d',
+    '--color-component-badge-count-inverted': 'rgba(255, 255, 255, 0.7)',
+    '--color-console-error-badge-text': '#000000',
+    '--color-console-error-background': '#290000',
+    '--color-console-error-border': '#5c0000',
+    '--color-console-error-icon': '#eb3941',
+    '--color-console-error-text': '#fc7f7f',
+    '--color-console-warning-badge-text': '#000000',
+    '--color-console-warning-background': '#332b00',
+    '--color-console-warning-border': '#665500',
+    '--color-console-warning-icon': '#f4bd00',
+    '--color-console-warning-text': '#f5f2ed',
+    '--color-context-background': 'rgba(255,255,255,.95)',
+    '--color-context-background-hover': 'rgba(0, 136, 250, 0.1)',
+    '--color-context-background-selected': '#0088fa',
+    '--color-context-border': '#eeeeee',
+    '--color-context-text': '#000000',
+    '--color-context-text-selected': '#ffffff',
+    '--color-dim': '#8f949d',
+    '--color-dimmer': '#777d88',
+    '--color-dimmest': '#4f5766',
+    '--color-error-background': '#200',
+    '--color-error-border': '#900',
+    '--color-error-text': '#f55',
+    '--color-expand-collapse-toggle': '#8f949d',
+    '--color-link': '#61dafb',
+    '--color-modal-background': 'rgba(0, 0, 0, 0.75)',
+    '--color-bridge-version-npm-background': 'rgba(0, 0, 0, 0.25)',
+    '--color-bridge-version-npm-text': '#ffffff',
+    '--color-bridge-version-number': 'yellow',
+    '--color-primitive-hook-badge-background': 'rgba(0, 0, 0, 0.25)',
+    '--color-primitive-hook-badge-text': 'rgba(255, 255, 255, 0.7)',
+    '--color-record-active': '#fc3a4b',
+    '--color-record-hover': '#a2e9fc',
+    '--color-record-inactive': '#61dafb',
+    '--color-resize-bar': '#282c34',
+    '--color-resize-bar-active': '#31363f',
+    '--color-resize-bar-border': '#3d424a',
+    '--color-resize-bar-dot': '#cfd1d5',
+    '--color-scheduling-profiler-native-event': '#b2b2b2',
+    '--color-scheduling-profiler-native-event-hover': '#949494',
+    '--color-scheduling-profiler-network-primary': '#fcf3dc',
+    '--color-scheduling-profiler-network-primary-hover': '#e3dbc5',
+    '--color-scheduling-profiler-network-secondary': '#efc457',
+    '--color-scheduling-profiler-network-secondary-hover': '#d6af4d',
+    '--color-scheduling-profiler-priority-background': '#1d2129',
+    '--color-scheduling-profiler-priority-border': '#282c34',
+    '--color-scheduling-profiler-user-timing': '#c9cacd',
+    '--color-scheduling-profiler-user-timing-hover': '#93959a',
+    '--color-scheduling-profiler-react-idle': '#3d485b',
+    '--color-scheduling-profiler-react-idle-hover': '#465269',
+    '--color-scheduling-profiler-react-render': '#2683E2',
+    '--color-scheduling-profiler-react-render-hover': '#1a76d4',
+    '--color-scheduling-profiler-react-render-text': '#11365e',
+    '--color-scheduling-profiler-react-commit': '#731fad',
+    '--color-scheduling-profiler-react-commit-hover': '#611b94',
+    '--color-scheduling-profiler-react-commit-text': '#e5c1ff',
+    '--color-scheduling-profiler-react-layout-effects': '#611b94',
+    '--color-scheduling-profiler-react-layout-effects-hover': '#51167a',
+    '--color-scheduling-profiler-react-layout-effects-text': '#e5c1ff',
+    '--color-scheduling-profiler-react-passive-effects': '#611b94',
+    '--color-scheduling-profiler-react-passive-effects-hover': '#51167a',
+    '--color-scheduling-profiler-react-passive-effects-text': '#e5c1ff',
+    '--color-scheduling-profiler-react-schedule': '#2683E2',
+    '--color-scheduling-profiler-react-schedule-hover': '#1a76d4',
+    '--color-scheduling-profiler-react-suspense-rejected': '#f1cc14',
+    '--color-scheduling-profiler-react-suspense-rejected-hover': '#e4c00f',
+    '--color-scheduling-profiler-react-suspense-resolved': '#a6e59f',
+    '--color-scheduling-profiler-react-suspense-resolved-hover': '#89d281',
+    '--color-scheduling-profiler-react-suspense-unresolved': '#c9cacd',
+    '--color-scheduling-profiler-react-suspense-unresolved-hover': '#93959a',
+    '--color-scheduling-profiler-text-color': '#282c34',
+    '--color-scheduling-profiler-text-dim-color': '#555b66',
+    '--color-scheduling-profiler-react-work-border': '#ffffff',
+    '--color-search-match': 'yellow',
+    '--color-search-match-current': '#f7923b',
+    '--color-selected-tree-highlight-active': 'rgba(23, 143, 185, 0.15)',
+    '--color-selected-tree-highlight-inactive': 'rgba(255, 255, 255, 0.05)',
+    '--color-scroll-caret': '#4f5766',
+    '--color-shadow': 'rgba(0, 0, 0, 0.5)',
+    '--color-tab-selected-border': '#178fb9',
+    '--color-text': '#ffffff',
+    '--color-text-invalid': '#ff8080',
+    '--color-text-selected': '#ffffff',
+    '--color-toggle-background-invalid': '#fc3a4b',
+    '--color-toggle-background-on': '#178fb9',
+    '--color-toggle-background-off': '#777d88',
+    '--color-toggle-text': '#ffffff',
+    '--color-warning-background': '#ee1638',
+    '--color-warning-background-hover': '#da1030',
+    '--color-warning-text-color': '#ffffff',
+    '--color-warning-text-color-inverted': '#ee1638',
+    // The styles below should be kept in sync with 'root.css'
+    // They are repeated there because they're used by e.g. tooltips or context menus
+    // which get rendered outside of the DOM subtree (where normal theme/styles are written).
+    '--color-scroll-thumb': '#afb3b9',
+    '--color-scroll-track': '#313640',
+    '--color-tooltip-background': 'rgba(255, 255, 255, 0.95)',
+    '--color-tooltip-text': '#000000'
+  },
+  compact: {
+    '--font-size-monospace-small': '9px',
+    '--font-size-monospace-normal': '11px',
+    '--font-size-monospace-large': '15px',
+    '--font-size-sans-small': '10px',
+    '--font-size-sans-normal': '12px',
+    '--font-size-sans-large': '14px',
+    '--line-height-data': '18px'
+  },
+  comfortable: {
+    '--font-size-monospace-small': '10px',
+    '--font-size-monospace-normal': '13px',
+    '--font-size-monospace-large': '17px',
+    '--font-size-sans-small': '12px',
+    '--font-size-sans-normal': '14px',
+    '--font-size-sans-large': '16px',
+    '--line-height-data': '22px'
+  }
+}; // HACK
 //
-// Extracting during build time avoids a temporarily invalid state for the inline target.
 // Sometimes the inline target is rendered before root styles are applied,
 // which would result in e.g. NaN itemSize being passed to react-window list.
-//
 
-let COMFORTABLE_LINE_HEIGHT;
-let COMPACT_LINE_HEIGHT;
-
-try {
-  // $FlowFixMe
-  const rawStyleString = __webpack_require__(22).default;
-
-  const extractVar = varName => {
-    const regExp = new RegExp(`${varName}: ([0-9]+)`);
-    const match = rawStyleString.match(regExp);
-    return parseInt(match[1], 10);
-  };
-
-  COMFORTABLE_LINE_HEIGHT = extractVar('comfortable-line-height-data');
-  COMPACT_LINE_HEIGHT = extractVar('compact-line-height-data');
-} catch (error) {
-  // We can't use the Webpack loader syntax in the context of Jest,
-  // so tests need some reasonably meaningful fallback value.
-  COMFORTABLE_LINE_HEIGHT = 15;
-  COMPACT_LINE_HEIGHT = 10;
-}
-
+const COMFORTABLE_LINE_HEIGHT = parseInt(THEME_STYLES.comfortable['--line-height-data'], 10);
+const COMPACT_LINE_HEIGHT = parseInt(THEME_STYLES.compact['--line-height-data'], 10);
 
 
 /***/ }),
@@ -1181,7 +1476,7 @@ const SUSPENSE_LIST_SYMBOL_STRING = 'Symbol(react.suspense_list)';
 /* unused harmony export serializeToString */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return format; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return isSynchronousXHRSupported; });
-/* harmony import */ var clipboard_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(18);
+/* harmony import */ var clipboard_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(19);
 /* harmony import */ var clipboard_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(clipboard_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _hydration__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
 /* harmony import */ var shared_isArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
@@ -1324,6 +1619,7 @@ function serializeToString(data) {
 } // based on https://github.com/tmpfs/format-util/blob/0e62d430efb0a1c51448709abd3e2406c14d8401/format.js#L1
 // based on https://developer.mozilla.org/en-US/docs/Web/API/console#Using_string_substitutions
 // Implements s, d, i and f placeholders
+// NOTE: KEEP IN SYNC with src/hook.js
 
 function format(maybeMessage, ...inputArgs) {
   const args = inputArgs.slice(); // Symbols cannot be concatenated with Strings.
@@ -1553,7 +1849,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return dehydrate; });
 /* unused harmony export fillInPath */
 /* unused harmony export hydrate */
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -1961,636 +2257,6 @@ function isArray(a) {
 
 /***/ }),
 /* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, "b", function() { return /* binding */ registerRenderer; });
-__webpack_require__.d(__webpack_exports__, "a", function() { return /* binding */ patch; });
-__webpack_require__.d(__webpack_exports__, "c", function() { return /* binding */ unpatch; });
-
-// UNUSED EXPORTS: isStringComponentStack, dangerous_setTargetConsoleForTesting
-
-// EXTERNAL MODULE: ../react-devtools-shared/src/backend/renderer.js + 2 modules
-var backend_renderer = __webpack_require__(14);
-
-// EXTERNAL MODULE: ../react-devtools-shared/src/backend/ReactSymbols.js
-var ReactSymbols = __webpack_require__(3);
-
-// CONCATENATED MODULE: ../react-devtools-shared/src/backend/DevToolsConsolePatching.js
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-// This is a DevTools fork of shared/ConsolePatchingDev.
-// The shared console patching code is DEV-only.
-// We can't use it since DevTools only ships production builds.
-// Helpers to patch console.logs to avoid logging during side-effect free
-// replaying on render function. This currently only patches the object
-// lazily which won't cover if the log function was extracted eagerly.
-// We could also eagerly patch the method.
-let disabledDepth = 0;
-let prevLog;
-let prevInfo;
-let prevWarn;
-let prevError;
-let prevGroup;
-let prevGroupCollapsed;
-let prevGroupEnd;
-
-function disabledLog() {}
-
-disabledLog.__reactDisabledLog = true;
-function disableLogs() {
-  if (disabledDepth === 0) {
-    /* eslint-disable react-internal/no-production-logging */
-    prevLog = console.log;
-    prevInfo = console.info;
-    prevWarn = console.warn;
-    prevError = console.error;
-    prevGroup = console.group;
-    prevGroupCollapsed = console.groupCollapsed;
-    prevGroupEnd = console.groupEnd; // https://github.com/facebook/react/issues/19099
-
-    const props = {
-      configurable: true,
-      enumerable: true,
-      value: disabledLog,
-      writable: true
-    }; // $FlowFixMe Flow thinks console is immutable.
-
-    Object.defineProperties(console, {
-      info: props,
-      log: props,
-      warn: props,
-      error: props,
-      group: props,
-      groupCollapsed: props,
-      groupEnd: props
-    });
-    /* eslint-enable react-internal/no-production-logging */
-  }
-
-  disabledDepth++;
-}
-function reenableLogs() {
-  disabledDepth--;
-
-  if (disabledDepth === 0) {
-    /* eslint-disable react-internal/no-production-logging */
-    const props = {
-      configurable: true,
-      enumerable: true,
-      writable: true
-    }; // $FlowFixMe Flow thinks console is immutable.
-
-    Object.defineProperties(console, {
-      log: { ...props,
-        value: prevLog
-      },
-      info: { ...props,
-        value: prevInfo
-      },
-      warn: { ...props,
-        value: prevWarn
-      },
-      error: { ...props,
-        value: prevError
-      },
-      group: { ...props,
-        value: prevGroup
-      },
-      groupCollapsed: { ...props,
-        value: prevGroupCollapsed
-      },
-      groupEnd: { ...props,
-        value: prevGroupEnd
-      }
-    });
-    /* eslint-enable react-internal/no-production-logging */
-  }
-
-  if (disabledDepth < 0) {
-    console.error('disabledDepth fell below zero. ' + 'This is a bug in React. Please file an issue.');
-  }
-}
-// CONCATENATED MODULE: ../react-devtools-shared/src/backend/DevToolsComponentStackFrame.js
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-// This is a DevTools fork of ReactComponentStackFrame.
-// This fork enables DevTools to use the same "native" component stack format,
-// while still maintaining support for multiple renderer versions
-// (which use different values for ReactTypeOfWork).
- // The shared console patching code is DEV-only.
-// We can't use it since DevTools only ships production builds.
-
-
-let prefix;
-function describeBuiltInComponentFrame(name, source, ownerFn) {
-  if (prefix === undefined) {
-    // Extract the VM specific prefix used by each line.
-    try {
-      throw Error();
-    } catch (x) {
-      const match = x.stack.trim().match(/\n( *(at )?)/);
-      prefix = match && match[1] || '';
-    }
-  } // We use the prefix to ensure our stacks line up with native stack frames.
-
-
-  return '\n' + prefix + name;
-}
-let reentry = false;
-let componentFrameCache;
-
-if (true) {
-  const PossiblyWeakMap = typeof WeakMap === 'function' ? WeakMap : Map;
-  componentFrameCache = new PossiblyWeakMap();
-}
-
-function describeNativeComponentFrame(fn, construct, currentDispatcherRef) {
-  // If something asked for a stack inside a fake render, it should get ignored.
-  if (!fn || reentry) {
-    return '';
-  }
-
-  if (true) {
-    const frame = componentFrameCache.get(fn);
-
-    if (frame !== undefined) {
-      return frame;
-    }
-  }
-
-  let control;
-  const previousPrepareStackTrace = Error.prepareStackTrace; // $FlowFixMe It does accept undefined.
-
-  Error.prepareStackTrace = undefined;
-  reentry = true; // Override the dispatcher so effects scheduled by this shallow render are thrown away.
-  //
-  // Note that unlike the code this was forked from (in ReactComponentStackFrame)
-  // DevTools should override the dispatcher even when DevTools is compiled in production mode,
-  // because the app itself may be in development mode and log errors/warnings.
-
-  const previousDispatcher = currentDispatcherRef.current;
-  currentDispatcherRef.current = null;
-  disableLogs();
-
-  try {
-    // This should throw.
-    if (construct) {
-      // Something should be setting the props in the constructor.
-      const Fake = function () {
-        throw Error();
-      }; // $FlowFixMe
-
-
-      Object.defineProperty(Fake.prototype, 'props', {
-        set: function () {
-          // We use a throwing setter instead of frozen or non-writable props
-          // because that won't throw in a non-strict mode function.
-          throw Error();
-        }
-      });
-
-      if (typeof Reflect === 'object' && Reflect.construct) {
-        // We construct a different control for this case to include any extra
-        // frames added by the construct call.
-        try {
-          Reflect.construct(Fake, []);
-        } catch (x) {
-          control = x;
-        }
-
-        Reflect.construct(fn, [], Fake);
-      } else {
-        try {
-          Fake.call();
-        } catch (x) {
-          control = x;
-        }
-
-        fn.call(Fake.prototype);
-      }
-    } else {
-      try {
-        throw Error();
-      } catch (x) {
-        control = x;
-      }
-
-      fn();
-    }
-  } catch (sample) {
-    // This is inlined manually because closure doesn't do it for us.
-    if (sample && control && typeof sample.stack === 'string') {
-      // This extracts the first frame from the sample that isn't also in the control.
-      // Skipping one frame that we assume is the frame that calls the two.
-      const sampleLines = sample.stack.split('\n');
-      const controlLines = control.stack.split('\n');
-      let s = sampleLines.length - 1;
-      let c = controlLines.length - 1;
-
-      while (s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c]) {
-        // We expect at least one stack frame to be shared.
-        // Typically this will be the root most one. However, stack frames may be
-        // cut off due to maximum stack limits. In this case, one maybe cut off
-        // earlier than the other. We assume that the sample is longer or the same
-        // and there for cut off earlier. So we should find the root most frame in
-        // the sample somewhere in the control.
-        c--;
-      }
-
-      for (; s >= 1 && c >= 0; s--, c--) {
-        // Next we find the first one that isn't the same which should be the
-        // frame that called our sample function and the control.
-        if (sampleLines[s] !== controlLines[c]) {
-          // In V8, the first line is describing the message but other VMs don't.
-          // If we're about to return the first line, and the control is also on the same
-          // line, that's a pretty good indicator that our sample threw at same line as
-          // the control. I.e. before we entered the sample frame. So we ignore this result.
-          // This can happen if you passed a class to function component, or non-function.
-          if (s !== 1 || c !== 1) {
-            do {
-              s--;
-              c--; // We may still have similar intermediate frames from the construct call.
-              // The next one that isn't the same should be our match though.
-
-              if (c < 0 || sampleLines[s] !== controlLines[c]) {
-                // V8 adds a "new" prefix for native classes. Let's remove it to make it prettier.
-                const frame = '\n' + sampleLines[s].replace(' at new ', ' at ');
-
-                if (true) {
-                  if (typeof fn === 'function') {
-                    componentFrameCache.set(fn, frame);
-                  }
-                } // Return the line we found.
-
-
-                return frame;
-              }
-            } while (s >= 1 && c >= 0);
-          }
-
-          break;
-        }
-      }
-    }
-  } finally {
-    reentry = false;
-    Error.prepareStackTrace = previousPrepareStackTrace;
-    currentDispatcherRef.current = previousDispatcher;
-    reenableLogs();
-  } // Fallback to just using the name if we couldn't make it throw.
-
-
-  const name = fn ? fn.displayName || fn.name : '';
-  const syntheticFrame = name ? describeBuiltInComponentFrame(name) : '';
-
-  if (true) {
-    if (typeof fn === 'function') {
-      componentFrameCache.set(fn, syntheticFrame);
-    }
-  }
-
-  return syntheticFrame;
-}
-function describeClassComponentFrame(ctor, source, ownerFn, currentDispatcherRef) {
-  return describeNativeComponentFrame(ctor, true, currentDispatcherRef);
-}
-function describeFunctionComponentFrame(fn, source, ownerFn, currentDispatcherRef) {
-  return describeNativeComponentFrame(fn, false, currentDispatcherRef);
-}
-
-function shouldConstruct(Component) {
-  const prototype = Component.prototype;
-  return !!(prototype && prototype.isReactComponent);
-}
-
-function describeUnknownElementTypeFrameInDEV(type, source, ownerFn, currentDispatcherRef) {
-  if (false) {}
-
-  if (type == null) {
-    return '';
-  }
-
-  if (typeof type === 'function') {
-    return describeNativeComponentFrame(type, shouldConstruct(type), currentDispatcherRef);
-  }
-
-  if (typeof type === 'string') {
-    return describeBuiltInComponentFrame(type, source, ownerFn);
-  }
-
-  switch (type) {
-    case ReactSymbols["v" /* SUSPENSE_NUMBER */]:
-    case ReactSymbols["w" /* SUSPENSE_SYMBOL_STRING */]:
-      return describeBuiltInComponentFrame('Suspense', source, ownerFn);
-
-    case ReactSymbols["t" /* SUSPENSE_LIST_NUMBER */]:
-    case ReactSymbols["u" /* SUSPENSE_LIST_SYMBOL_STRING */]:
-      return describeBuiltInComponentFrame('SuspenseList', source, ownerFn);
-  }
-
-  if (typeof type === 'object') {
-    switch (type.$$typeof) {
-      case ReactSymbols["f" /* FORWARD_REF_NUMBER */]:
-      case ReactSymbols["g" /* FORWARD_REF_SYMBOL_STRING */]:
-        return describeFunctionComponentFrame(type.render, source, ownerFn, currentDispatcherRef);
-
-      case ReactSymbols["j" /* MEMO_NUMBER */]:
-      case ReactSymbols["k" /* MEMO_SYMBOL_STRING */]:
-        // Memo may contain any component type so we recursively resolve it.
-        return describeUnknownElementTypeFrameInDEV(type.type, source, ownerFn, currentDispatcherRef);
-
-      case ReactSymbols["h" /* LAZY_NUMBER */]:
-      case ReactSymbols["i" /* LAZY_SYMBOL_STRING */]:
-        {
-          const lazyComponent = type;
-          const payload = lazyComponent._payload;
-          const init = lazyComponent._init;
-
-          try {
-            // Lazy may contain any component type so we recursively resolve it.
-            return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn, currentDispatcherRef);
-          } catch (x) {}
-        }
-    }
-  }
-
-  return '';
-}
-// CONCATENATED MODULE: ../react-devtools-shared/src/backend/DevToolsFiberComponentStack.js
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-// This is a DevTools fork of ReactFiberComponentStack.
-// This fork enables DevTools to use the same "native" component stack format,
-// while still maintaining support for multiple renderer versions
-// (which use different values for ReactTypeOfWork).
-
-
-function describeFiber(workTagMap, workInProgress, currentDispatcherRef) {
-  const {
-    HostComponent,
-    LazyComponent,
-    SuspenseComponent,
-    SuspenseListComponent,
-    FunctionComponent,
-    IndeterminateComponent,
-    SimpleMemoComponent,
-    ForwardRef,
-    ClassComponent
-  } = workTagMap;
-  const owner =  true ? workInProgress._debugOwner ? workInProgress._debugOwner.type : null : undefined;
-  const source =  true ? workInProgress._debugSource : undefined;
-
-  switch (workInProgress.tag) {
-    case HostComponent:
-      return describeBuiltInComponentFrame(workInProgress.type, source, owner);
-
-    case LazyComponent:
-      return describeBuiltInComponentFrame('Lazy', source, owner);
-
-    case SuspenseComponent:
-      return describeBuiltInComponentFrame('Suspense', source, owner);
-
-    case SuspenseListComponent:
-      return describeBuiltInComponentFrame('SuspenseList', source, owner);
-
-    case FunctionComponent:
-    case IndeterminateComponent:
-    case SimpleMemoComponent:
-      return describeFunctionComponentFrame(workInProgress.type, source, owner, currentDispatcherRef);
-
-    case ForwardRef:
-      return describeFunctionComponentFrame(workInProgress.type.render, source, owner, currentDispatcherRef);
-
-    case ClassComponent:
-      return describeClassComponentFrame(workInProgress.type, source, owner, currentDispatcherRef);
-
-    default:
-      return '';
-  }
-}
-
-function getStackByFiberInDevAndProd(workTagMap, workInProgress, currentDispatcherRef) {
-  try {
-    let info = '';
-    let node = workInProgress;
-
-    do {
-      info += describeFiber(workTagMap, node, currentDispatcherRef);
-      node = node.return;
-    } while (node);
-
-    return info;
-  } catch (x) {
-    return '\nError generating stack: ' + x.message + '\n' + x.stack;
-  }
-}
-// CONCATENATED MODULE: ../react-devtools-shared/src/backend/console.js
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-
-
-const APPEND_STACK_TO_METHODS = ['error', 'trace', 'warn']; // React's custom built component stack strings match "\s{4}in"
-// Chrome's prefix matches "\s{4}at"
-
-const PREFIX_REGEX = /\s{4}(in|at)\s{1}/; // Firefox and Safari have no prefix ("")
-// but we can fallback to looking for location info (e.g. "foo.js:12:345")
-
-const ROW_COLUMN_NUMBER_REGEX = /:\d+:\d+(\n|$)/;
-function isStringComponentStack(text) {
-  return PREFIX_REGEX.test(text) || ROW_COLUMN_NUMBER_REGEX.test(text);
-}
-const injectedRenderers = new Map();
-let targetConsole = console;
-let targetConsoleMethods = {};
-
-for (const method in console) {
-  targetConsoleMethods[method] = console[method];
-}
-
-let unpatchFn = null; // Enables e.g. Jest tests to inject a mock console object.
-
-function dangerous_setTargetConsoleForTesting(targetConsoleForTesting) {
-  targetConsole = targetConsoleForTesting;
-  targetConsoleMethods = {};
-
-  for (const method in targetConsole) {
-    targetConsoleMethods[method] = console[method];
-  }
-} // v16 renderers should use this method to inject internals necessary to generate a component stack.
-// These internals will be used if the console is patched.
-// Injecting them separately allows the console to easily be patched or un-patched later (at runtime).
-
-function registerRenderer(renderer, onErrorOrWarning) {
-  const {
-    currentDispatcherRef,
-    getCurrentFiber,
-    findFiberByHostInstance,
-    version
-  } = renderer; // Ignore React v15 and older because they don't expose a component stack anyway.
-
-  if (typeof findFiberByHostInstance !== 'function') {
-    return;
-  } // currentDispatcherRef gets injected for v16.8+ to support hooks inspection.
-  // getCurrentFiber gets injected for v16.9+.
-
-
-  if (currentDispatcherRef != null && typeof getCurrentFiber === 'function') {
-    const {
-      ReactTypeOfWork
-    } = Object(backend_renderer["b" /* getInternalReactConstants */])(version);
-    injectedRenderers.set(renderer, {
-      currentDispatcherRef,
-      getCurrentFiber,
-      workTagMap: ReactTypeOfWork,
-      onErrorOrWarning
-    });
-  }
-}
-const consoleSettingsRef = {
-  appendComponentStack: false,
-  breakOnConsoleErrors: false,
-  showInlineWarningsAndErrors: false
-}; // Patches console methods to append component stack for the current fiber.
-// Call unpatch() to remove the injected behavior.
-
-function patch({
-  appendComponentStack,
-  breakOnConsoleErrors,
-  showInlineWarningsAndErrors
-}) {
-  // Settings may change after we've patched the console.
-  // Using a shared ref allows the patch function to read the latest values.
-  consoleSettingsRef.appendComponentStack = appendComponentStack;
-  consoleSettingsRef.breakOnConsoleErrors = breakOnConsoleErrors;
-  consoleSettingsRef.showInlineWarningsAndErrors = showInlineWarningsAndErrors;
-
-  if (unpatchFn !== null) {
-    // Don't patch twice.
-    return;
-  }
-
-  const originalConsoleMethods = {};
-
-  unpatchFn = () => {
-    for (const method in originalConsoleMethods) {
-      try {
-        // $FlowFixMe property error|warn is not writable.
-        targetConsole[method] = originalConsoleMethods[method];
-      } catch (error) {}
-    }
-  };
-
-  APPEND_STACK_TO_METHODS.forEach(method => {
-    try {
-      const originalMethod = originalConsoleMethods[method] = targetConsole[method];
-
-      const overrideMethod = (...args) => {
-        let shouldAppendWarningStack = false;
-
-        if (consoleSettingsRef.appendComponentStack) {
-          const lastArg = args.length > 0 ? args[args.length - 1] : null;
-          const alreadyHasComponentStack = typeof lastArg === 'string' && isStringComponentStack(lastArg); // If we are ever called with a string that already has a component stack,
-          // e.g. a React error/warning, don't append a second stack.
-
-          shouldAppendWarningStack = !alreadyHasComponentStack;
-        }
-
-        const shouldShowInlineWarningsAndErrors = consoleSettingsRef.showInlineWarningsAndErrors && (method === 'error' || method === 'warn');
-
-        if (shouldAppendWarningStack || shouldShowInlineWarningsAndErrors) {
-          // Search for the first renderer that has a current Fiber.
-          // We don't handle the edge case of stacks for more than one (e.g. interleaved renderers?)
-          // eslint-disable-next-line no-for-of-loops/no-for-of-loops
-          for (const {
-            currentDispatcherRef,
-            getCurrentFiber,
-            onErrorOrWarning,
-            workTagMap
-          } of injectedRenderers.values()) {
-            const current = getCurrentFiber();
-
-            if (current != null) {
-              try {
-                if (shouldShowInlineWarningsAndErrors) {
-                  // patch() is called by two places: (1) the hook and (2) the renderer backend.
-                  // The backend is what implements a message queue, so it's the only one that injects onErrorOrWarning.
-                  if (typeof onErrorOrWarning === 'function') {
-                    onErrorOrWarning(current, method, // Copy args before we mutate them (e.g. adding the component stack)
-                    args.slice());
-                  }
-                }
-
-                if (shouldAppendWarningStack) {
-                  const componentStack = getStackByFiberInDevAndProd(workTagMap, current, currentDispatcherRef);
-
-                  if (componentStack !== '') {
-                    args.push(componentStack);
-                  }
-                }
-              } catch (error) {// Don't let a DevTools or React internal error interfere with logging.
-              } finally {
-                break;
-              }
-            }
-          }
-        }
-
-        if (consoleSettingsRef.breakOnConsoleErrors) {
-          // --- Welcome to debugging with React DevTools ---
-          // This debugger statement means that you've enabled the "break on warnings" feature.
-          // Use the browser's Call Stack panel to step out of this override function-
-          // to where the original warning or error was logged.
-          // eslint-disable-next-line no-debugger
-          debugger;
-        }
-
-        originalMethod(...args);
-      };
-
-      overrideMethod.__REACT_DEVTOOLS_ORIGINAL_METHOD__ = originalMethod;
-      originalMethod.__REACT_DEVTOOLS_OVERRIDE_METHOD__ = overrideMethod; // $FlowFixMe property error|warn is not writable.
-
-      targetConsole[method] = overrideMethod;
-    } catch (error) {}
-  });
-} // Removed component stack patch from console methods.
-
-function unpatch() {
-  if (unpatchFn !== null) {
-    unpatchFn();
-    unpatchFn = null;
-  }
-}
-
-/***/ }),
-/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {exports = module.exports = SemVer;
@@ -4142,10 +3808,299 @@ function coerce(version, options) {
 
   return parse(match[2] + '.' + (match[3] || '0') + '.' + (match[4] || '0'), options);
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(23)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(27)))
+
+/***/ }),
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {/* unused harmony export isStringComponentStack */
+/* unused harmony export dangerous_setTargetConsoleForTesting */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return registerRenderer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return patch; });
+/* unused harmony export unpatch */
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
+/* harmony import */ var _renderer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(15);
+/* harmony import */ var _DevToolsFiberComponentStack__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(22);
+/* harmony import */ var react_devtools_feature_flags__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(12);
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+
+
+
+
+const OVERRIDE_CONSOLE_METHODS = ['error', 'trace', 'warn', 'log'];
+const DIMMED_NODE_CONSOLE_COLOR = '\x1b[2m%s\x1b[0m'; // React's custom built component stack strings match "\s{4}in"
+// Chrome's prefix matches "\s{4}at"
+
+const PREFIX_REGEX = /\s{4}(in|at)\s{1}/; // Firefox and Safari have no prefix ("")
+// but we can fallback to looking for location info (e.g. "foo.js:12:345")
+
+const ROW_COLUMN_NUMBER_REGEX = /:\d+:\d+(\n|$)/;
+function isStringComponentStack(text) {
+  return PREFIX_REGEX.test(text) || ROW_COLUMN_NUMBER_REGEX.test(text);
+}
+const injectedRenderers = new Map();
+let targetConsole = console;
+let targetConsoleMethods = {};
+
+for (const method in console) {
+  targetConsoleMethods[method] = console[method];
+}
+
+let unpatchFn = null;
+let isNode = false;
+
+try {
+  isNode = undefined === global;
+} catch (error) {} // Enables e.g. Jest tests to inject a mock console object.
+
+
+function dangerous_setTargetConsoleForTesting(targetConsoleForTesting) {
+  targetConsole = targetConsoleForTesting;
+  targetConsoleMethods = {};
+
+  for (const method in targetConsole) {
+    targetConsoleMethods[method] = console[method];
+  }
+} // v16 renderers should use this method to inject internals necessary to generate a component stack.
+// These internals will be used if the console is patched.
+// Injecting them separately allows the console to easily be patched or un-patched later (at runtime).
+
+function registerRenderer(renderer, onErrorOrWarning) {
+  const {
+    currentDispatcherRef,
+    getCurrentFiber,
+    getIsStrictMode,
+    findFiberByHostInstance,
+    version
+  } = renderer; // Ignore React v15 and older because they don't expose a component stack anyway.
+
+  if (typeof findFiberByHostInstance !== 'function') {
+    return;
+  } // currentDispatcherRef gets injected for v16.8+ to support hooks inspection.
+  // getCurrentFiber gets injected for v16.9+.
+
+
+  if (currentDispatcherRef != null && typeof getCurrentFiber === 'function') {
+    const {
+      ReactTypeOfWork
+    } = Object(_renderer__WEBPACK_IMPORTED_MODULE_1__[/* getInternalReactConstants */ "b"])(version);
+    injectedRenderers.set(renderer, {
+      currentDispatcherRef,
+      getCurrentFiber,
+      getIsStrictMode,
+      workTagMap: ReactTypeOfWork,
+      onErrorOrWarning
+    });
+  }
+}
+const consoleSettingsRef = {
+  appendComponentStack: false,
+  breakOnConsoleErrors: false,
+  showInlineWarningsAndErrors: false,
+  hideConsoleLogsInStrictMode: false
+}; // Patches console methods to append component stack for the current fiber.
+// Call unpatch() to remove the injected behavior.
+// NOTE: KEEP IN SYNC with src/hook.js:patchConsoleForInitialRenderInExtension
+
+function patch({
+  appendComponentStack,
+  breakOnConsoleErrors,
+  showInlineWarningsAndErrors,
+  hideConsoleLogsInStrictMode,
+  browserTheme
+}) {
+  // Settings may change after we've patched the console.
+  // Using a shared ref allows the patch function to read the latest values.
+  consoleSettingsRef.appendComponentStack = appendComponentStack;
+  consoleSettingsRef.breakOnConsoleErrors = breakOnConsoleErrors;
+  consoleSettingsRef.showInlineWarningsAndErrors = showInlineWarningsAndErrors;
+  consoleSettingsRef.hideConsoleLogsInStrictMode = hideConsoleLogsInStrictMode;
+
+  if (unpatchFn !== null) {
+    // Don't patch twice.
+    return;
+  }
+
+  const originalConsoleMethods = {};
+
+  unpatchFn = () => {
+    for (const method in originalConsoleMethods) {
+      try {
+        // $FlowFixMe property error|warn is not writable.
+        targetConsole[method] = originalConsoleMethods[method];
+      } catch (error) {}
+    }
+  };
+
+  OVERRIDE_CONSOLE_METHODS.forEach(method => {
+    try {
+      const originalMethod = originalConsoleMethods[method] = targetConsole[method].__REACT_DEVTOOLS_ORIGINAL_METHOD__ ? targetConsole[method].__REACT_DEVTOOLS_ORIGINAL_METHOD__ : targetConsole[method];
+
+      const overrideMethod = (...args) => {
+        let shouldAppendWarningStack = false;
+
+        if (method !== 'log') {
+          if (consoleSettingsRef.appendComponentStack) {
+            const lastArg = args.length > 0 ? args[args.length - 1] : null;
+            const alreadyHasComponentStack = typeof lastArg === 'string' && isStringComponentStack(lastArg); // If we are ever called with a string that already has a component stack,
+            // e.g. a React error/warning, don't append a second stack.
+
+            shouldAppendWarningStack = !alreadyHasComponentStack;
+          }
+        }
+
+        const shouldShowInlineWarningsAndErrors = consoleSettingsRef.showInlineWarningsAndErrors && (method === 'error' || method === 'warn');
+        let isInStrictMode = false; // Search for the first renderer that has a current Fiber.
+        // We don't handle the edge case of stacks for more than one (e.g. interleaved renderers?)
+        // eslint-disable-next-line no-for-of-loops/no-for-of-loops
+
+        for (const {
+          currentDispatcherRef,
+          getCurrentFiber,
+          onErrorOrWarning,
+          workTagMap,
+          getIsStrictMode
+        } of injectedRenderers.values()) {
+          const current = getCurrentFiber();
+
+          if (current != null) {
+            try {
+              if (typeof getIsStrictMode === 'function' && getIsStrictMode()) {
+                isInStrictMode = true;
+              }
+
+              if (shouldShowInlineWarningsAndErrors) {
+                // patch() is called by two places: (1) the hook and (2) the renderer backend.
+                // The backend is what implements a message queue, so it's the only one that injects onErrorOrWarning.
+                if (typeof onErrorOrWarning === 'function') {
+                  onErrorOrWarning(current, method, // Copy args before we mutate them (e.g. adding the component stack)
+                  args.slice());
+                }
+              }
+
+              if (shouldAppendWarningStack) {
+                const componentStack = Object(_DevToolsFiberComponentStack__WEBPACK_IMPORTED_MODULE_2__[/* getStackByFiberInDevAndProd */ "a"])(workTagMap, current, currentDispatcherRef);
+
+                if (componentStack !== '') {
+                  args.push(componentStack);
+                }
+              }
+            } catch (error) {
+              // Don't let a DevTools or React internal error interfere with logging.
+              setTimeout(() => {
+                throw error;
+              }, 0);
+            } finally {
+              break;
+            }
+          }
+        }
+
+        if (consoleSettingsRef.breakOnConsoleErrors) {
+          // --- Welcome to debugging with React DevTools ---
+          // This debugger statement means that you've enabled the "break on warnings" feature.
+          // Use the browser's Call Stack panel to step out of this override function-
+          // to where the original warning or error was logged.
+          // eslint-disable-next-line no-debugger
+          debugger;
+        }
+
+        if (react_devtools_feature_flags__WEBPACK_IMPORTED_MODULE_3__[/* consoleManagedByDevToolsDuringStrictMode */ "a"] && isInStrictMode) {
+          if (!consoleSettingsRef.hideConsoleLogsInStrictMode) {
+            // Dim the text color of the double logs if we're not
+            // hiding them.
+            if (isNode) {
+              originalMethod(DIMMED_NODE_CONSOLE_COLOR, Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* format */ "f"])(...args));
+            } else {
+              let color;
+
+              switch (method) {
+                case 'warn':
+                  color = browserTheme === 'light' ? "rgba(250, 180, 50, 0.75)" : "rgba(250, 180, 50, 0.5)";
+                  break;
+
+                case 'error':
+                  color = browserTheme === 'light' ? "rgba(250, 123, 130, 0.75)" : "rgba(250, 123, 130, 0.5)";
+                  break;
+
+                case 'log':
+                default:
+                  color = browserTheme === 'light' ? "rgba(125, 125, 125, 0.75)" : "rgba(125, 125, 125, 0.5)";
+                  break;
+              }
+
+              if (color) {
+                originalMethod(`%c${Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* format */ "f"])(...args)}`, `color: ${color}`);
+              } else {
+                throw Error('Console color is not defined');
+              }
+            }
+          }
+        } else {
+          originalMethod(...args);
+        }
+      };
+
+      overrideMethod.__REACT_DEVTOOLS_ORIGINAL_METHOD__ = originalMethod;
+      originalMethod.__REACT_DEVTOOLS_OVERRIDE_METHOD__ = overrideMethod; // $FlowFixMe property error|warn is not writable.
+
+      targetConsole[method] = overrideMethod;
+    } catch (error) {}
+  });
+} // Removed component stack patch from console methods.
+
+function unpatch() {
+  if (unpatchFn !== null) {
+    unpatchFn();
+    unpatchFn = null;
+  }
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(18)))
 
 /***/ }),
 /* 12 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return enableProfilerChangedHookIndices; });
+/* unused harmony export isInternalFacebookBuild */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return consoleManagedByDevToolsDuringStrictMode; });
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+
+/************************************************************************
+ * This file is forked between different DevTools implementations.
+ * It should never be imported directly!
+ * It should always be imported from "react-devtools-feature-flags".
+ ************************************************************************/
+const enableProfilerChangedHookIndices = true;
+const isInternalFacebookBuild = false;
+const consoleManagedByDevToolsDuringStrictMode = true;
+/************************************************************************
+ * Do not edit the code below.
+ * It ensures this fork exports the same types as the default flags file.
+ ************************************************************************/
+
+// eslint-disable-next-line no-unused-expressions
+null;
+
+/***/ }),
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4231,7 +4186,7 @@ class EventEmitter {
 }
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -4686,10 +4641,10 @@ function toNumber(value) {
 }
 
 module.exports = throttle;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(21)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(18)))
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4699,13 +4654,13 @@ __webpack_require__.d(__webpack_exports__, "b", function() { return /* binding *
 __webpack_require__.d(__webpack_exports__, "a", function() { return /* binding */ attach; });
 
 // EXTERNAL MODULE: ../react-devtools-shared/node_modules/semver/semver.js
-var semver = __webpack_require__(11);
+var semver = __webpack_require__(10);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/types.js
-var types = __webpack_require__(1);
+var types = __webpack_require__(0);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/utils.js + 1 modules
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/storage.js
 var storage = __webpack_require__(5);
@@ -4716,39 +4671,18 @@ var backend_utils = __webpack_require__(4);
 // EXTERNAL MODULE: ../react-devtools-shared/src/constants.js
 var constants = __webpack_require__(2);
 
-// EXTERNAL MODULE: /Users/bvaughn/Documents/git/react.devtools/build/node_modules/react-debug-tools/index.js
-var react_debug_tools = __webpack_require__(19);
+// EXTERNAL MODULE: /Users/luna/code/react/build/node_modules/react-debug-tools/index.js
+var react_debug_tools = __webpack_require__(21);
 
-// EXTERNAL MODULE: ../react-devtools-shared/src/backend/console.js + 3 modules
-var backend_console = __webpack_require__(10);
+// EXTERNAL MODULE: ../react-devtools-shared/src/backend/console.js
+var backend_console = __webpack_require__(11);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/backend/ReactSymbols.js
 var ReactSymbols = __webpack_require__(3);
 
-// CONCATENATED MODULE: ../react-devtools-shared/src/config/DevToolsFeatureFlags.extension-oss.js
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
+// EXTERNAL MODULE: ../react-devtools-shared/src/config/DevToolsFeatureFlags.extension-oss.js
+var DevToolsFeatureFlags_extension_oss = __webpack_require__(12);
 
-/************************************************************************
- * This file is forked between different DevTools implementations.
- * It should never be imported directly!
- * It should always be imported from "react-devtools-feature-flags".
- ************************************************************************/
-const enableProfilerChangedHookIndices = false;
-const isInternalFacebookBuild = false;
-/************************************************************************
- * Do not edit the code below.
- * It ensures this fork exports the same types as the default flags file.
- ************************************************************************/
-
-// eslint-disable-next-line no-unused-expressions
-null;
 // CONCATENATED MODULE: ../shared/objectIs.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -5381,7 +5315,7 @@ function attach(hook, rendererID, renderer, global) {
 
     const message = Object(backend_utils["f" /* format */])(...args);
 
-    if (constants["n" /* __DEBUG__ */]) {
+    if (constants["o" /* __DEBUG__ */]) {
       debug('onErrorOrWarning', fiber, null, `${type}: "${message}"`);
     } // Mark this Fiber as needed its warning/error count updated during the next flush.
 
@@ -5420,18 +5354,19 @@ function attach(hook, rendererID, renderer, global) {
     const appendComponentStack = window.__REACT_DEVTOOLS_APPEND_COMPONENT_STACK__ !== false;
     const breakOnConsoleErrors = window.__REACT_DEVTOOLS_BREAK_ON_CONSOLE_ERRORS__ === true;
     const showInlineWarningsAndErrors = window.__REACT_DEVTOOLS_SHOW_INLINE_WARNINGS_AND_ERRORS__ !== false;
-
-    if (appendComponentStack || breakOnConsoleErrors || showInlineWarningsAndErrors) {
-      Object(backend_console["a" /* patch */])({
-        appendComponentStack,
-        breakOnConsoleErrors,
-        showInlineWarningsAndErrors
-      });
-    }
+    const hideConsoleLogsInStrictMode = window.__REACT_DEVTOOLS_HIDE_CONSOLE_LOGS_IN_STRICT_MODE__ === true;
+    const browserTheme = window.__REACT_DEVTOOLS_BROWSER_THEME__;
+    Object(backend_console["a" /* patch */])({
+      appendComponentStack,
+      breakOnConsoleErrors,
+      showInlineWarningsAndErrors,
+      hideConsoleLogsInStrictMode,
+      browserTheme
+    });
   }
 
   const debug = (name, fiber, parentFiber, extraString = '') => {
-    if (constants["n" /* __DEBUG__ */]) {
+    if (constants["o" /* __DEBUG__ */]) {
       const displayName = fiber.tag + ':' + (getDisplayNameForFiber(fiber) || 'null');
       const maybeID = getFiberIDUnsafe(fiber) || '<no id>';
       const parentDisplayName = parentFiber ? parentFiber.tag + ':' + (getDisplayNameForFiber(parentFiber) || 'null') : '';
@@ -5520,7 +5455,7 @@ function attach(hook, rendererID, renderer, global) {
       // 1. It avoids sending unnecessary bridge traffic to clear a root.
       // 2. It preserves Fiber IDs when remounting (below) which in turn ID to error/warning mapping.
 
-      pushOperation(constants["j" /* TREE_OPERATION_REMOVE_ROOT */]);
+      pushOperation(constants["k" /* TREE_OPERATION_REMOVE_ROOT */]);
       flushPendingEvents(root);
       currentRootID = -1;
     });
@@ -5755,7 +5690,7 @@ function attach(hook, rendererID, renderer, global) {
       }
     }
 
-    if (constants["n" /* __DEBUG__ */]) {
+    if (constants["o" /* __DEBUG__ */]) {
       if (didGenerateID) {
         debug('getOrGenerateFiberID()', fiber, fiber.return, 'Generated a new UID');
       }
@@ -5796,7 +5731,7 @@ function attach(hook, rendererID, renderer, global) {
 
 
   function untrackFiberID(fiber) {
-    if (constants["n" /* __DEBUG__ */]) {
+    if (constants["o" /* __DEBUG__ */]) {
       debug('untrackFiberID()', fiber, fiber.return, 'schedule after delay');
     } // Untrack Fibers after a slight delay in order to support a Fast Refresh edge case:
     // 1. Component type is updated and Fast Refresh schedules an update+remount.
@@ -5883,7 +5818,7 @@ function attach(hook, rendererID, renderer, global) {
             state: getChangedKeys(prevFiber.memoizedState, nextFiber.memoizedState)
           }; // Only traverse the hooks list once, depending on what info we're returning.
 
-          if (enableProfilerChangedHookIndices) {
+          if (DevToolsFeatureFlags_extension_oss["b" /* enableProfilerChangedHookIndices */]) {
             const indices = getChangedHooksIndices(prevFiber.memoizedState, nextFiber.memoizedState);
             data.hooks = indices;
             data.didHooksChange = indices !== null && indices.length > 0;
@@ -5901,6 +5836,7 @@ function attach(hook, rendererID, renderer, global) {
 
   function updateContextsForFiber(fiber) {
     switch (getElementTypeForFiber(fiber)) {
+      case types["h" /* ElementTypeFunction */]:
       case types["e" /* ElementTypeClass */]:
         if (idToContextsMap !== null) {
           const id = getFiberIDThrows(fiber);
@@ -5922,11 +5858,12 @@ function attach(hook, rendererID, renderer, global) {
   const NO_CONTEXT = {};
 
   function getContextsForFiber(fiber) {
+    let legacyContext = NO_CONTEXT;
+    let modernContext = NO_CONTEXT;
+
     switch (getElementTypeForFiber(fiber)) {
       case types["e" /* ElementTypeClass */]:
         const instance = fiber.stateNode;
-        let legacyContext = NO_CONTEXT;
-        let modernContext = NO_CONTEXT;
 
         if (instance != null) {
           if (instance.constructor && instance.constructor.contextType != null) {
@@ -5938,6 +5875,15 @@ function attach(hook, rendererID, renderer, global) {
               legacyContext = NO_CONTEXT;
             }
           }
+        }
+
+        return [legacyContext, modernContext];
+
+      case types["h" /* ElementTypeFunction */]:
+        const dependencies = fiber.dependencies;
+
+        if (dependencies && dependencies.firstContext) {
+          modernContext = dependencies.firstContext;
         }
 
         return [legacyContext, modernContext];
@@ -5961,31 +5907,52 @@ function attach(hook, rendererID, renderer, global) {
   }
 
   function getContextChangedKeys(fiber) {
-    switch (getElementTypeForFiber(fiber)) {
-      case types["e" /* ElementTypeClass */]:
-        if (idToContextsMap !== null) {
-          const id = getFiberIDThrows(fiber);
-          const prevContexts = idToContextsMap.has(id) ? idToContextsMap.get(id) : null;
-          const nextContexts = getContextsForFiber(fiber);
+    if (idToContextsMap !== null) {
+      const id = getFiberIDThrows(fiber);
+      const prevContexts = idToContextsMap.has(id) ? idToContextsMap.get(id) : null;
+      const nextContexts = getContextsForFiber(fiber);
 
-          if (prevContexts == null || nextContexts == null) {
-            return null;
+      if (prevContexts == null || nextContexts == null) {
+        return null;
+      }
+
+      const [prevLegacyContext, prevModernContext] = prevContexts;
+      const [nextLegacyContext, nextModernContext] = nextContexts;
+
+      switch (getElementTypeForFiber(fiber)) {
+        case types["e" /* ElementTypeClass */]:
+          if (prevContexts && nextContexts) {
+            if (nextLegacyContext !== NO_CONTEXT) {
+              return getChangedKeys(prevLegacyContext, nextLegacyContext);
+            } else if (nextModernContext !== NO_CONTEXT) {
+              return prevModernContext !== nextModernContext;
+            }
           }
 
-          const [prevLegacyContext, prevModernContext] = prevContexts;
-          const [nextLegacyContext, nextModernContext] = nextContexts;
+          break;
 
-          if (nextLegacyContext !== NO_CONTEXT) {
-            return getChangedKeys(prevLegacyContext, nextLegacyContext);
-          } else if (nextModernContext !== NO_CONTEXT) {
-            return prevModernContext !== nextModernContext;
+        case types["h" /* ElementTypeFunction */]:
+          if (nextModernContext !== NO_CONTEXT) {
+            let prevContext = prevModernContext;
+            let nextContext = nextModernContext;
+
+            while (prevContext && nextContext) {
+              if (!shared_objectIs(prevContext.memoizedValue, nextContext.memoizedValue)) {
+                return true;
+              }
+
+              prevContext = prevContext.next;
+              nextContext = nextContext.next;
+            }
+
+            return false;
           }
-        }
 
-        break;
+          break;
 
-      default:
-        break;
+        default:
+          break;
+      }
     }
 
     return null;
@@ -6051,7 +6018,7 @@ function attach(hook, rendererID, renderer, global) {
   }
 
   function getChangedHooksIndices(prev, next) {
-    if (enableProfilerChangedHookIndices) {
+    if (DevToolsFeatureFlags_extension_oss["b" /* enableProfilerChangedHookIndices */]) {
       if (prev == null || next == null) {
         return null;
       }
@@ -6250,7 +6217,7 @@ function attach(hook, rendererID, renderer, global) {
       } else {
         const errorCount = mergeMapsAndGetCountHelper(fiber, fiberID, pendingFiberToErrorsMap, fiberIDToErrorsMap);
         const warningCount = mergeMapsAndGetCountHelper(fiber, fiberID, pendingFiberToWarningsMap, fiberIDToWarningsMap);
-        pushOperation(constants["l" /* TREE_OPERATION_UPDATE_ERRORS_OR_WARNINGS */]);
+        pushOperation(constants["m" /* TREE_OPERATION_UPDATE_ERRORS_OR_WARNINGS */]);
         pushOperation(fiberID);
         pushOperation(errorCount);
         pushOperation(warningCount);
@@ -6314,7 +6281,7 @@ function attach(hook, rendererID, renderer, global) {
 
     if (numUnmountIDs > 0) {
       // All unmounts except roots are batched in a single message.
-      operations[i++] = constants["i" /* TREE_OPERATION_REMOVE */]; // The first number is how many unmounted IDs we're gonna send.
+      operations[i++] = constants["j" /* TREE_OPERATION_REMOVE */]; // The first number is how many unmounted IDs we're gonna send.
 
       operations[i++] = numUnmountIDs; // Fill in the real unmounts in the reverse order.
       // They were inserted parents-first by React, but we want children-first.
@@ -6382,7 +6349,7 @@ function attach(hook, rendererID, renderer, global) {
     const isRoot = fiber.tag === HostRoot;
     const id = getOrGenerateFiberID(fiber);
 
-    if (constants["n" /* __DEBUG__ */]) {
+    if (constants["o" /* __DEBUG__ */]) {
       debug('recordMount()', fiber, parentFiber);
     }
 
@@ -6390,7 +6357,7 @@ function attach(hook, rendererID, renderer, global) {
     const isProfilingSupported = fiber.hasOwnProperty('treeBaseDuration');
 
     if (isRoot) {
-      pushOperation(constants["h" /* TREE_OPERATION_ADD */]);
+      pushOperation(constants["i" /* TREE_OPERATION_ADD */]);
       pushOperation(id);
       pushOperation(types["m" /* ElementTypeRoot */]);
       pushOperation(isProfilingSupported ? 1 : 0);
@@ -6422,7 +6389,7 @@ function attach(hook, rendererID, renderer, global) {
 
       const keyString = key === null ? null : '' + key;
       const keyStringID = getStringID(keyString);
-      pushOperation(constants["h" /* TREE_OPERATION_ADD */]);
+      pushOperation(constants["i" /* TREE_OPERATION_ADD */]);
       pushOperation(id);
       pushOperation(elementType);
       pushOperation(parentID);
@@ -6438,7 +6405,7 @@ function attach(hook, rendererID, renderer, global) {
   }
 
   function recordUnmount(fiber, isSimulated) {
-    if (constants["n" /* __DEBUG__ */]) {
+    if (constants["o" /* __DEBUG__ */]) {
       debug('recordUnmount()', fiber, null, isSimulated ? 'unmount is simulated' : '');
     }
 
@@ -6503,7 +6470,7 @@ function attach(hook, rendererID, renderer, global) {
       // Generate an ID even for filtered Fibers, in case it's needed later (e.g. for Profiling).
       getOrGenerateFiberID(fiber);
 
-      if (constants["n" /* __DEBUG__ */]) {
+      if (constants["o" /* __DEBUG__ */]) {
         debug('mountFiberRecursively()', fiber, parentFiber);
       } // If we have the tree selection from previous reload, try to match this Fiber.
       // Also remember whether to do the same for siblings.
@@ -6575,7 +6542,7 @@ function attach(hook, rendererID, renderer, global) {
 
 
   function unmountFiberChildrenRecursively(fiber) {
-    if (constants["n" /* __DEBUG__ */]) {
+    if (constants["o" /* __DEBUG__ */]) {
       debug('unmountFiberChildrenRecursively()', fiber);
     } // We might meet a nested Suspense on our way.
 
@@ -6621,7 +6588,7 @@ function attach(hook, rendererID, renderer, global) {
         // Tree base duration updates are included in the operations typed array.
         // So we have to convert them from milliseconds to microseconds so we can send them as ints.
         const convertedTreeBaseDuration = Math.floor((treeBaseDuration || 0) * 1000);
-        pushOperation(constants["m" /* TREE_OPERATION_UPDATE_TREE_BASE_DURATION */]);
+        pushOperation(constants["n" /* TREE_OPERATION_UPDATE_TREE_BASE_DURATION */]);
         pushOperation(id);
         pushOperation(convertedTreeBaseDuration);
       }
@@ -6667,7 +6634,7 @@ function attach(hook, rendererID, renderer, global) {
   }
 
   function recordResetChildren(fiber, childSet) {
-    if (constants["n" /* __DEBUG__ */]) {
+    if (constants["o" /* __DEBUG__ */]) {
       debug('recordResetChildren()', childSet, fiber);
     } // The frontend only really cares about the displayName, key, and children.
     // The first two don't really change, so we are only concerned with the order of children here.
@@ -6691,7 +6658,7 @@ function attach(hook, rendererID, renderer, global) {
       return;
     }
 
-    pushOperation(constants["k" /* TREE_OPERATION_REORDER_CHILDREN */]);
+    pushOperation(constants["l" /* TREE_OPERATION_REORDER_CHILDREN */]);
     pushOperation(getFiberIDThrows(fiber));
     pushOperation(numChildren);
 
@@ -6731,7 +6698,7 @@ function attach(hook, rendererID, renderer, global) {
   function updateFiberRecursively(nextFiber, prevFiber, parentFiber, traceNearestHostComponentUpdate) {
     const id = getOrGenerateFiberID(nextFiber);
 
-    if (constants["n" /* __DEBUG__ */]) {
+    if (constants["o" /* __DEBUG__ */]) {
       debug('updateFiberRecursively()', nextFiber, parentFiber);
     }
 
@@ -6745,7 +6712,7 @@ function attach(hook, rendererID, renderer, global) {
           traceNearestHostComponentUpdate = false;
         }
       } else {
-        if (elementType === types["h" /* ElementTypeFunction */] || elementType === types["e" /* ElementTypeClass */] || elementType === types["f" /* ElementTypeContext */]) {
+        if (elementType === types["h" /* ElementTypeFunction */] || elementType === types["e" /* ElementTypeClass */] || elementType === types["f" /* ElementTypeContext */] || elementType === types["j" /* ElementTypeMemo */] || elementType === types["g" /* ElementTypeForwardRef */]) {
           // Otherwise if this is a traced ancestor, flag for the nearest host descendant(s).
           traceNearestHostComponentUpdate = didFiberRender(prevFiber, nextFiber);
         }
@@ -8289,8 +8256,8 @@ function attach(hook, rendererID, renderer, global) {
   } // Automatically start profiling so that we don't miss timing info from initial "mount".
 
 
-  if (Object(storage["c" /* sessionStorageGetItem */])(constants["g" /* SESSION_STORAGE_RELOAD_AND_PROFILE_KEY */]) === 'true') {
-    startProfiling(Object(storage["c" /* sessionStorageGetItem */])(constants["f" /* SESSION_STORAGE_RECORD_CHANGE_DESCRIPTIONS_KEY */]) === 'true');
+  if (Object(storage["c" /* sessionStorageGetItem */])(constants["h" /* SESSION_STORAGE_RELOAD_AND_PROFILE_KEY */]) === 'true') {
+    startProfiling(Object(storage["c" /* sessionStorageGetItem */])(constants["g" /* SESSION_STORAGE_RECORD_CHANGE_DESCRIPTIONS_KEY */]) === 'true');
   } // React will switch between these implementations depending on whether
   // we have any manually suspended/errored-out Fibers or not.
 
@@ -8700,7 +8667,7 @@ function attach(hook, rendererID, renderer, global) {
 }
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8711,10 +8678,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, "default", function() { return /* binding */ agent_Agent; });
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/events.js
-var events = __webpack_require__(12);
+var events = __webpack_require__(13);
 
-// EXTERNAL MODULE: /Users/bvaughn/Documents/git/react.devtools/node_modules/lodash.throttle/index.js
-var lodash_throttle = __webpack_require__(13);
+// EXTERNAL MODULE: /Users/luna/code/react/node_modules/lodash.throttle/index.js
+var lodash_throttle = __webpack_require__(14);
 var lodash_throttle_default = /*#__PURE__*/__webpack_require__.n(lodash_throttle);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/constants.js
@@ -8723,7 +8690,7 @@ var constants = __webpack_require__(2);
 // EXTERNAL MODULE: ../react-devtools-shared/src/storage.js
 var storage = __webpack_require__(5);
 
-// CONCATENATED MODULE: /Users/bvaughn/Documents/git/react.devtools/node_modules/memoize-one/esm/index.js
+// CONCATENATED MODULE: /Users/luna/code/react/node_modules/memoize-one/esm/index.js
 var simpleIsEqual = function simpleIsEqual(a, b) {
   return a === b;
 };
@@ -8757,7 +8724,7 @@ var simpleIsEqual = function simpleIsEqual(a, b) {
 
   return result;
 });
-// EXTERNAL MODULE: /Users/bvaughn/Documents/git/react.devtools/node_modules/object-assign/index.js
+// EXTERNAL MODULE: /Users/luna/code/react/node_modules/object-assign/index.js
 var object_assign = __webpack_require__(7);
 var object_assign_default = /*#__PURE__*/__webpack_require__.n(object_assign);
 
@@ -9563,11 +9530,11 @@ function measureNode(node) {
   const currentWindow = window.__REACT_DEVTOOLS_TARGET_WINDOW__ || window;
   return getNestedBoundingClientRect(node, currentWindow);
 }
-// EXTERNAL MODULE: ../react-devtools-shared/src/backend/console.js + 3 modules
-var backend_console = __webpack_require__(10);
+// EXTERNAL MODULE: ../react-devtools-shared/src/backend/console.js
+var backend_console = __webpack_require__(11);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/bridge.js
-var src_bridge = __webpack_require__(16);
+var src_bridge = __webpack_require__(17);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/backend/utils.js
 var utils = __webpack_require__(4);
@@ -9594,7 +9561,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 const debug = (methodName, ...args) => {
-  if (constants["n" /* __DEBUG__ */]) {
+  if (constants["o" /* __DEBUG__ */]) {
     console.log(`%cAgent %c${methodName}`, 'color: purple; font-weight: bold;', 'font-weight: bold;', ...args);
   }
 };
@@ -9891,8 +9858,8 @@ class agent_Agent extends events["a" /* default */] {
     });
 
     _defineProperty(this, "reloadAndProfile", recordChangeDescriptions => {
-      Object(storage["e" /* sessionStorageSetItem */])(constants["g" /* SESSION_STORAGE_RELOAD_AND_PROFILE_KEY */], 'true');
-      Object(storage["e" /* sessionStorageSetItem */])(constants["f" /* SESSION_STORAGE_RECORD_CHANGE_DESCRIPTIONS_KEY */], recordChangeDescriptions ? 'true' : 'false'); // This code path should only be hit if the shell has explicitly told the Store that it supports profiling.
+      Object(storage["e" /* sessionStorageSetItem */])(constants["h" /* SESSION_STORAGE_RELOAD_AND_PROFILE_KEY */], 'true');
+      Object(storage["e" /* sessionStorageSetItem */])(constants["g" /* SESSION_STORAGE_RECORD_CHANGE_DESCRIPTIONS_KEY */], recordChangeDescriptions ? 'true' : 'false'); // This code path should only be hit if the shell has explicitly told the Store that it supports profiling.
       // In that case, the shell must also listen for this specific message to know when it needs to reload the app.
       // The agent can't do this in a way that is renderer agnostic.
 
@@ -9983,21 +9950,21 @@ class agent_Agent extends events["a" /* default */] {
     _defineProperty(this, "updateConsolePatchSettings", ({
       appendComponentStack,
       breakOnConsoleErrors,
-      showInlineWarningsAndErrors
+      showInlineWarningsAndErrors,
+      hideConsoleLogsInStrictMode,
+      browserTheme
     }) => {
       // If the frontend preference has change,
       // or in the case of React Native- if the backend is just finding out the preference-
-      // then install or uninstall the console overrides.
+      // then reinstall the console overrides.
       // It's safe to call these methods multiple times, so we don't need to worry about that.
-      if (appendComponentStack || breakOnConsoleErrors || showInlineWarningsAndErrors) {
-        Object(backend_console["a" /* patch */])({
-          appendComponentStack,
-          breakOnConsoleErrors,
-          showInlineWarningsAndErrors
-        });
-      } else {
-        Object(backend_console["c" /* unpatch */])();
-      }
+      Object(backend_console["a" /* patch */])({
+        appendComponentStack,
+        breakOnConsoleErrors,
+        showInlineWarningsAndErrors,
+        hideConsoleLogsInStrictMode,
+        browserTheme
+      });
     });
 
     _defineProperty(this, "updateComponentFilters", componentFilters => {
@@ -10039,7 +10006,7 @@ class agent_Agent extends events["a" /* default */] {
     });
 
     _defineProperty(this, "onFastRefreshScheduled", () => {
-      if (constants["n" /* __DEBUG__ */]) {
+      if (constants["o" /* __DEBUG__ */]) {
         debug('onFastRefreshScheduled');
       }
 
@@ -10047,7 +10014,7 @@ class agent_Agent extends events["a" /* default */] {
     });
 
     _defineProperty(this, "onHookOperations", operations => {
-      if (constants["n" /* __DEBUG__ */]) {
+      if (constants["o" /* __DEBUG__ */]) {
         debug('onHookOperations', `(${operations.length}) [${operations.join(', ')}]`);
       } // TODO:
       // The chrome.runtime does not currently support transferables; it forces JSON serialization.
@@ -10116,23 +10083,23 @@ class agent_Agent extends events["a" /* default */] {
       const path = renderer != null ? renderer.getPathForElement(id) : null;
 
       if (path !== null) {
-        Object(storage["e" /* sessionStorageSetItem */])(constants["e" /* SESSION_STORAGE_LAST_SELECTION_KEY */], JSON.stringify({
+        Object(storage["e" /* sessionStorageSetItem */])(constants["f" /* SESSION_STORAGE_LAST_SELECTION_KEY */], JSON.stringify({
           rendererID,
           path
         }));
       } else {
-        Object(storage["d" /* sessionStorageRemoveItem */])(constants["e" /* SESSION_STORAGE_LAST_SELECTION_KEY */]);
+        Object(storage["d" /* sessionStorageRemoveItem */])(constants["f" /* SESSION_STORAGE_LAST_SELECTION_KEY */]);
       }
     }, 1000));
 
-    if (Object(storage["c" /* sessionStorageGetItem */])(constants["g" /* SESSION_STORAGE_RELOAD_AND_PROFILE_KEY */]) === 'true') {
-      this._recordChangeDescriptions = Object(storage["c" /* sessionStorageGetItem */])(constants["f" /* SESSION_STORAGE_RECORD_CHANGE_DESCRIPTIONS_KEY */]) === 'true';
+    if (Object(storage["c" /* sessionStorageGetItem */])(constants["h" /* SESSION_STORAGE_RELOAD_AND_PROFILE_KEY */]) === 'true') {
+      this._recordChangeDescriptions = Object(storage["c" /* sessionStorageGetItem */])(constants["g" /* SESSION_STORAGE_RECORD_CHANGE_DESCRIPTIONS_KEY */]) === 'true';
       this._isProfiling = true;
-      Object(storage["d" /* sessionStorageRemoveItem */])(constants["f" /* SESSION_STORAGE_RECORD_CHANGE_DESCRIPTIONS_KEY */]);
-      Object(storage["d" /* sessionStorageRemoveItem */])(constants["g" /* SESSION_STORAGE_RELOAD_AND_PROFILE_KEY */]);
+      Object(storage["d" /* sessionStorageRemoveItem */])(constants["g" /* SESSION_STORAGE_RECORD_CHANGE_DESCRIPTIONS_KEY */]);
+      Object(storage["d" /* sessionStorageRemoveItem */])(constants["h" /* SESSION_STORAGE_RELOAD_AND_PROFILE_KEY */]);
     }
 
-    const persistedSelectionString = Object(storage["c" /* sessionStorageGetItem */])(constants["e" /* SESSION_STORAGE_LAST_SELECTION_KEY */]);
+    const persistedSelectionString = Object(storage["c" /* sessionStorageGetItem */])(constants["f" /* SESSION_STORAGE_LAST_SELECTION_KEY */]);
 
     if (persistedSelectionString != null) {
       this._persistedSelection = JSON.parse(persistedSelectionString);
@@ -10261,14 +10228,14 @@ class agent_Agent extends events["a" /* default */] {
 }
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BRIDGE_PROTOCOL", function() { return BRIDGE_PROTOCOL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "currentBridgeProtocol", function() { return currentBridgeProtocol; });
-/* harmony import */ var _events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(12);
+/* harmony import */ var _events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /**
@@ -10475,7 +10442,344 @@ class Bridge extends _events__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"] {
 /* harmony default export */ __webpack_exports__["default"] = (Bridge);
 
 /***/ }),
-/* 17 */
+/* 18 */
+/***/ (function(module, exports) {
+
+var g; // This works in non-strict mode
+
+g = function () {
+  return this;
+}();
+
+try {
+  // This works if eval is allowed (see CSP)
+  g = g || new Function("return this")();
+} catch (e) {
+  // This works if the window reference is available
+  if (typeof window === "object") g = window;
+} // g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+
+module.exports = g;
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+//  Import support https://stackoverflow.com/questions/13673346/supporting-both-commonjs-and-amd
+(function (name, definition) {
+  if (true) {
+    module.exports = definition();
+  } else {}
+})("clipboard", function () {
+  if (typeof document === 'undefined' || !document.addEventListener) {
+    return null;
+  }
+
+  var clipboard = {};
+
+  clipboard.copy = function () {
+    var _intercept = false;
+    var _data = null; // Map from data type (e.g. "text/html") to value.
+
+    var _bogusSelection = false;
+
+    function cleanup() {
+      _intercept = false;
+      _data = null;
+
+      if (_bogusSelection) {
+        window.getSelection().removeAllRanges();
+      }
+
+      _bogusSelection = false;
+    }
+
+    document.addEventListener("copy", function (e) {
+      if (_intercept) {
+        for (var key in _data) {
+          e.clipboardData.setData(key, _data[key]);
+        }
+
+        e.preventDefault();
+      }
+    }); // Workaround for Safari: https://bugs.webkit.org/show_bug.cgi?id=156529
+
+    function bogusSelect() {
+      var sel = document.getSelection(); // If "nothing" is selected...
+
+      if (!document.queryCommandEnabled("copy") && sel.isCollapsed) {
+        // ... temporarily select the entire body.
+        //
+        // We select the entire body because:
+        // - it's guaranteed to exist,
+        // - it works (unlike, say, document.head, or phantom element that is
+        //   not inserted into the DOM),
+        // - it doesn't seem to flicker (due to the synchronous copy event), and
+        // - it avoids modifying the DOM (can trigger mutation observers).
+        //
+        // Because we can't do proper feature detection (we already checked
+        // document.queryCommandEnabled("copy") , which actually gives a false
+        // negative for Blink when nothing is selected) and UA sniffing is not
+        // reliable (a lot of UA strings contain "Safari"), this will also
+        // happen for some browsers other than Safari. :-()
+        var range = document.createRange();
+        range.selectNodeContents(document.body);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        _bogusSelection = true;
+      }
+    }
+
+    ;
+    return function (data) {
+      return new Promise(function (resolve, reject) {
+        _intercept = true;
+
+        if (typeof data === "string") {
+          _data = {
+            "text/plain": data
+          };
+        } else if (data instanceof Node) {
+          _data = {
+            "text/html": new XMLSerializer().serializeToString(data)
+          };
+        } else if (data instanceof Object) {
+          _data = data;
+        } else {
+          reject("Invalid data type. Must be string, DOM node, or an object mapping MIME types to strings.");
+        }
+
+        function triggerCopy(tryBogusSelect) {
+          try {
+            if (document.execCommand("copy")) {
+              // document.execCommand is synchronous: http://www.w3.org/TR/2015/WD-clipboard-apis-20150421/#integration-with-rich-text-editing-apis
+              // So we can call resolve() back here.
+              cleanup();
+              resolve();
+            } else {
+              if (!tryBogusSelect) {
+                bogusSelect();
+                triggerCopy(true);
+              } else {
+                cleanup();
+                throw new Error("Unable to copy. Perhaps it's not available in your browser?");
+              }
+            }
+          } catch (e) {
+            cleanup();
+            reject(e);
+          }
+        }
+
+        triggerCopy(false);
+      });
+    };
+  }();
+
+  clipboard.paste = function () {
+    var _intercept = false;
+
+    var _resolve;
+
+    var _dataType;
+
+    document.addEventListener("paste", function (e) {
+      if (_intercept) {
+        _intercept = false;
+        e.preventDefault();
+        var resolve = _resolve;
+        _resolve = null;
+        resolve(e.clipboardData.getData(_dataType));
+      }
+    });
+    return function (dataType) {
+      return new Promise(function (resolve, reject) {
+        _intercept = true;
+        _resolve = resolve;
+        _dataType = dataType || "text/plain";
+
+        try {
+          if (!document.execCommand("paste")) {
+            _intercept = false;
+            reject(new Error("Unable to paste. Pasting only works in Internet Explorer at the moment."));
+          }
+        } catch (e) {
+          _intercept = false;
+          reject(new Error(e));
+        }
+      });
+    };
+  }(); // Handle IE behaviour.
+
+
+  if (typeof ClipboardEvent === "undefined" && typeof window.clipboardData !== "undefined" && typeof window.clipboardData.setData !== "undefined") {
+    /*! promise-polyfill 2.0.1 */
+    (function (a) {
+      function b(a, b) {
+        return function () {
+          a.apply(b, arguments);
+        };
+      }
+
+      function c(a) {
+        if ("object" != typeof this) throw new TypeError("Promises must be constructed via new");
+        if ("function" != typeof a) throw new TypeError("not a function");
+        this._state = null, this._value = null, this._deferreds = [], i(a, b(e, this), b(f, this));
+      }
+
+      function d(a) {
+        var b = this;
+        return null === this._state ? void this._deferreds.push(a) : void j(function () {
+          var c = b._state ? a.onFulfilled : a.onRejected;
+          if (null === c) return void (b._state ? a.resolve : a.reject)(b._value);
+          var d;
+
+          try {
+            d = c(b._value);
+          } catch (e) {
+            return void a.reject(e);
+          }
+
+          a.resolve(d);
+        });
+      }
+
+      function e(a) {
+        try {
+          if (a === this) throw new TypeError("A promise cannot be resolved with itself.");
+
+          if (a && ("object" == typeof a || "function" == typeof a)) {
+            var c = a.then;
+            if ("function" == typeof c) return void i(b(c, a), b(e, this), b(f, this));
+          }
+
+          this._state = !0, this._value = a, g.call(this);
+        } catch (d) {
+          f.call(this, d);
+        }
+      }
+
+      function f(a) {
+        this._state = !1, this._value = a, g.call(this);
+      }
+
+      function g() {
+        for (var a = 0, b = this._deferreds.length; b > a; a++) d.call(this, this._deferreds[a]);
+
+        this._deferreds = null;
+      }
+
+      function h(a, b, c, d) {
+        this.onFulfilled = "function" == typeof a ? a : null, this.onRejected = "function" == typeof b ? b : null, this.resolve = c, this.reject = d;
+      }
+
+      function i(a, b, c) {
+        var d = !1;
+
+        try {
+          a(function (a) {
+            d || (d = !0, b(a));
+          }, function (a) {
+            d || (d = !0, c(a));
+          });
+        } catch (e) {
+          if (d) return;
+          d = !0, c(e);
+        }
+      }
+
+      var j = c.immediateFn || "function" == typeof setImmediate && setImmediate || function (a) {
+        setTimeout(a, 1);
+      },
+          k = Array.isArray || function (a) {
+        return "[object Array]" === Object.prototype.toString.call(a);
+      };
+
+      c.prototype["catch"] = function (a) {
+        return this.then(null, a);
+      }, c.prototype.then = function (a, b) {
+        var e = this;
+        return new c(function (c, f) {
+          d.call(e, new h(a, b, c, f));
+        });
+      }, c.all = function () {
+        var a = Array.prototype.slice.call(1 === arguments.length && k(arguments[0]) ? arguments[0] : arguments);
+        return new c(function (b, c) {
+          function d(f, g) {
+            try {
+              if (g && ("object" == typeof g || "function" == typeof g)) {
+                var h = g.then;
+                if ("function" == typeof h) return void h.call(g, function (a) {
+                  d(f, a);
+                }, c);
+              }
+
+              a[f] = g, 0 === --e && b(a);
+            } catch (i) {
+              c(i);
+            }
+          }
+
+          if (0 === a.length) return b([]);
+
+          for (var e = a.length, f = 0; f < a.length; f++) d(f, a[f]);
+        });
+      }, c.resolve = function (a) {
+        return a && "object" == typeof a && a.constructor === c ? a : new c(function (b) {
+          b(a);
+        });
+      }, c.reject = function (a) {
+        return new c(function (b, c) {
+          c(a);
+        });
+      }, c.race = function (a) {
+        return new c(function (b, c) {
+          for (var d = 0, e = a.length; e > d; d++) a[d].then(b, c);
+        });
+      },  true && module.exports ? module.exports = c : a.Promise || (a.Promise = c);
+    })(this);
+
+    clipboard.copy = function (data) {
+      return new Promise(function (resolve, reject) {
+        // IE supports string and URL types: https://msdn.microsoft.com/en-us/library/ms536744(v=vs.85).aspx
+        // We only support the string type for now.
+        if (typeof data !== "string" && !("text/plain" in data)) {
+          throw new Error("You must provide a text/plain type.");
+        }
+
+        var strData = typeof data === "string" ? data : data["text/plain"];
+        var copySucceeded = window.clipboardData.setData("Text", strData);
+
+        if (copySucceeded) {
+          resolve();
+        } else {
+          reject(new Error("Copying was rejected."));
+        }
+      });
+    };
+
+    clipboard.paste = function () {
+      return new Promise(function (resolve, reject) {
+        var strData = window.clipboardData.getData("Text");
+
+        if (strData) {
+          resolve(strData);
+        } else {
+          // The user rejected the paste request.
+          reject(new Error("Pasting was rejected."));
+        }
+      });
+    };
+  }
+
+  return clipboard;
+});
+
+/***/ }),
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10801,332 +11105,458 @@ const forEachStep = (self, fn, node, thisp) => {
 module.exports = LRUCache;
 
 /***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-//  Import support https://stackoverflow.com/questions/13673346/supporting-both-commonjs-and-amd
-(function (name, definition) {
-  if (true) {
-    module.exports = definition();
-  } else {}
-})("clipboard", function () {
-  if (typeof document === 'undefined' || !document.addEventListener) {
-    return null;
-  }
-
-  var clipboard = {};
-
-  clipboard.copy = function () {
-    var _intercept = false;
-    var _data = null; // Map from data type (e.g. "text/html") to value.
-
-    var _bogusSelection = false;
-
-    function cleanup() {
-      _intercept = false;
-      _data = null;
-
-      if (_bogusSelection) {
-        window.getSelection().removeAllRanges();
-      }
-
-      _bogusSelection = false;
-    }
-
-    document.addEventListener("copy", function (e) {
-      if (_intercept) {
-        for (var key in _data) {
-          e.clipboardData.setData(key, _data[key]);
-        }
-
-        e.preventDefault();
-      }
-    }); // Workaround for Safari: https://bugs.webkit.org/show_bug.cgi?id=156529
-
-    function bogusSelect() {
-      var sel = document.getSelection(); // If "nothing" is selected...
-
-      if (!document.queryCommandEnabled("copy") && sel.isCollapsed) {
-        // ... temporarily select the entire body.
-        //
-        // We select the entire body because:
-        // - it's guaranteed to exist,
-        // - it works (unlike, say, document.head, or phantom element that is
-        //   not inserted into the DOM),
-        // - it doesn't seem to flicker (due to the synchronous copy event), and
-        // - it avoids modifying the DOM (can trigger mutation observers).
-        //
-        // Because we can't do proper feature detection (we already checked
-        // document.queryCommandEnabled("copy") , which actually gives a false
-        // negative for Blink when nothing is selected) and UA sniffing is not
-        // reliable (a lot of UA strings contain "Safari"), this will also
-        // happen for some browsers other than Safari. :-()
-        var range = document.createRange();
-        range.selectNodeContents(document.body);
-        sel.removeAllRanges();
-        sel.addRange(range);
-        _bogusSelection = true;
-      }
-    }
-
-    ;
-    return function (data) {
-      return new Promise(function (resolve, reject) {
-        _intercept = true;
-
-        if (typeof data === "string") {
-          _data = {
-            "text/plain": data
-          };
-        } else if (data instanceof Node) {
-          _data = {
-            "text/html": new XMLSerializer().serializeToString(data)
-          };
-        } else if (data instanceof Object) {
-          _data = data;
-        } else {
-          reject("Invalid data type. Must be string, DOM node, or an object mapping MIME types to strings.");
-        }
-
-        function triggerCopy(tryBogusSelect) {
-          try {
-            if (document.execCommand("copy")) {
-              // document.execCommand is synchronous: http://www.w3.org/TR/2015/WD-clipboard-apis-20150421/#integration-with-rich-text-editing-apis
-              // So we can call resolve() back here.
-              cleanup();
-              resolve();
-            } else {
-              if (!tryBogusSelect) {
-                bogusSelect();
-                triggerCopy(true);
-              } else {
-                cleanup();
-                throw new Error("Unable to copy. Perhaps it's not available in your browser?");
-              }
-            }
-          } catch (e) {
-            cleanup();
-            reject(e);
-          }
-        }
-
-        triggerCopy(false);
-      });
-    };
-  }();
-
-  clipboard.paste = function () {
-    var _intercept = false;
-
-    var _resolve;
-
-    var _dataType;
-
-    document.addEventListener("paste", function (e) {
-      if (_intercept) {
-        _intercept = false;
-        e.preventDefault();
-        var resolve = _resolve;
-        _resolve = null;
-        resolve(e.clipboardData.getData(_dataType));
-      }
-    });
-    return function (dataType) {
-      return new Promise(function (resolve, reject) {
-        _intercept = true;
-        _resolve = resolve;
-        _dataType = dataType || "text/plain";
-
-        try {
-          if (!document.execCommand("paste")) {
-            _intercept = false;
-            reject(new Error("Unable to paste. Pasting only works in Internet Explorer at the moment."));
-          }
-        } catch (e) {
-          _intercept = false;
-          reject(new Error(e));
-        }
-      });
-    };
-  }(); // Handle IE behaviour.
-
-
-  if (typeof ClipboardEvent === "undefined" && typeof window.clipboardData !== "undefined" && typeof window.clipboardData.setData !== "undefined") {
-    /*! promise-polyfill 2.0.1 */
-    (function (a) {
-      function b(a, b) {
-        return function () {
-          a.apply(b, arguments);
-        };
-      }
-
-      function c(a) {
-        if ("object" != typeof this) throw new TypeError("Promises must be constructed via new");
-        if ("function" != typeof a) throw new TypeError("not a function");
-        this._state = null, this._value = null, this._deferreds = [], i(a, b(e, this), b(f, this));
-      }
-
-      function d(a) {
-        var b = this;
-        return null === this._state ? void this._deferreds.push(a) : void j(function () {
-          var c = b._state ? a.onFulfilled : a.onRejected;
-          if (null === c) return void (b._state ? a.resolve : a.reject)(b._value);
-          var d;
-
-          try {
-            d = c(b._value);
-          } catch (e) {
-            return void a.reject(e);
-          }
-
-          a.resolve(d);
-        });
-      }
-
-      function e(a) {
-        try {
-          if (a === this) throw new TypeError("A promise cannot be resolved with itself.");
-
-          if (a && ("object" == typeof a || "function" == typeof a)) {
-            var c = a.then;
-            if ("function" == typeof c) return void i(b(c, a), b(e, this), b(f, this));
-          }
-
-          this._state = !0, this._value = a, g.call(this);
-        } catch (d) {
-          f.call(this, d);
-        }
-      }
-
-      function f(a) {
-        this._state = !1, this._value = a, g.call(this);
-      }
-
-      function g() {
-        for (var a = 0, b = this._deferreds.length; b > a; a++) d.call(this, this._deferreds[a]);
-
-        this._deferreds = null;
-      }
-
-      function h(a, b, c, d) {
-        this.onFulfilled = "function" == typeof a ? a : null, this.onRejected = "function" == typeof b ? b : null, this.resolve = c, this.reject = d;
-      }
-
-      function i(a, b, c) {
-        var d = !1;
-
-        try {
-          a(function (a) {
-            d || (d = !0, b(a));
-          }, function (a) {
-            d || (d = !0, c(a));
-          });
-        } catch (e) {
-          if (d) return;
-          d = !0, c(e);
-        }
-      }
-
-      var j = c.immediateFn || "function" == typeof setImmediate && setImmediate || function (a) {
-        setTimeout(a, 1);
-      },
-          k = Array.isArray || function (a) {
-        return "[object Array]" === Object.prototype.toString.call(a);
-      };
-
-      c.prototype["catch"] = function (a) {
-        return this.then(null, a);
-      }, c.prototype.then = function (a, b) {
-        var e = this;
-        return new c(function (c, f) {
-          d.call(e, new h(a, b, c, f));
-        });
-      }, c.all = function () {
-        var a = Array.prototype.slice.call(1 === arguments.length && k(arguments[0]) ? arguments[0] : arguments);
-        return new c(function (b, c) {
-          function d(f, g) {
-            try {
-              if (g && ("object" == typeof g || "function" == typeof g)) {
-                var h = g.then;
-                if ("function" == typeof h) return void h.call(g, function (a) {
-                  d(f, a);
-                }, c);
-              }
-
-              a[f] = g, 0 === --e && b(a);
-            } catch (i) {
-              c(i);
-            }
-          }
-
-          if (0 === a.length) return b([]);
-
-          for (var e = a.length, f = 0; f < a.length; f++) d(f, a[f]);
-        });
-      }, c.resolve = function (a) {
-        return a && "object" == typeof a && a.constructor === c ? a : new c(function (b) {
-          b(a);
-        });
-      }, c.reject = function (a) {
-        return new c(function (b, c) {
-          c(a);
-        });
-      }, c.race = function (a) {
-        return new c(function (b, c) {
-          for (var d = 0, e = a.length; e > d; d++) a[d].then(b, c);
-        });
-      },  true && module.exports ? module.exports = c : a.Promise || (a.Promise = c);
-    })(this);
-
-    clipboard.copy = function (data) {
-      return new Promise(function (resolve, reject) {
-        // IE supports string and URL types: https://msdn.microsoft.com/en-us/library/ms536744(v=vs.85).aspx
-        // We only support the string type for now.
-        if (typeof data !== "string" && !("text/plain" in data)) {
-          throw new Error("You must provide a text/plain type.");
-        }
-
-        var strData = typeof data === "string" ? data : data["text/plain"];
-        var copySucceeded = window.clipboardData.setData("Text", strData);
-
-        if (copySucceeded) {
-          resolve();
-        } else {
-          reject(new Error("Copying was rejected."));
-        }
-      });
-    };
-
-    clipboard.paste = function () {
-      return new Promise(function (resolve, reject) {
-        var strData = window.clipboardData.getData("Text");
-
-        if (strData) {
-          resolve(strData);
-        } else {
-          // The user rejected the paste request.
-          reject(new Error("Pasting was rejected."));
-        }
-      });
-    };
-  }
-
-  return clipboard;
-});
-
-/***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 if (true) {
-  module.exports = __webpack_require__(27);
+  module.exports = __webpack_require__(28);
 } else {}
 
 /***/ }),
-/* 20 */
+/* 22 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, "a", function() { return /* binding */ getStackByFiberInDevAndProd; });
+
+// EXTERNAL MODULE: ../react-devtools-shared/src/backend/ReactSymbols.js
+var ReactSymbols = __webpack_require__(3);
+
+// CONCATENATED MODULE: ../react-devtools-shared/src/backend/DevToolsConsolePatching.js
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+// This is a DevTools fork of shared/ConsolePatchingDev.
+// The shared console patching code is DEV-only.
+// We can't use it since DevTools only ships production builds.
+// Helpers to patch console.logs to avoid logging during side-effect free
+// replaying on render function. This currently only patches the object
+// lazily which won't cover if the log function was extracted eagerly.
+// We could also eagerly patch the method.
+let disabledDepth = 0;
+let prevLog;
+let prevInfo;
+let prevWarn;
+let prevError;
+let prevGroup;
+let prevGroupCollapsed;
+let prevGroupEnd;
+
+function disabledLog() {}
+
+disabledLog.__reactDisabledLog = true;
+function disableLogs() {
+  if (disabledDepth === 0) {
+    /* eslint-disable react-internal/no-production-logging */
+    prevLog = console.log;
+    prevInfo = console.info;
+    prevWarn = console.warn;
+    prevError = console.error;
+    prevGroup = console.group;
+    prevGroupCollapsed = console.groupCollapsed;
+    prevGroupEnd = console.groupEnd; // https://github.com/facebook/react/issues/19099
+
+    const props = {
+      configurable: true,
+      enumerable: true,
+      value: disabledLog,
+      writable: true
+    }; // $FlowFixMe Flow thinks console is immutable.
+
+    Object.defineProperties(console, {
+      info: props,
+      log: props,
+      warn: props,
+      error: props,
+      group: props,
+      groupCollapsed: props,
+      groupEnd: props
+    });
+    /* eslint-enable react-internal/no-production-logging */
+  }
+
+  disabledDepth++;
+}
+function reenableLogs() {
+  disabledDepth--;
+
+  if (disabledDepth === 0) {
+    /* eslint-disable react-internal/no-production-logging */
+    const props = {
+      configurable: true,
+      enumerable: true,
+      writable: true
+    }; // $FlowFixMe Flow thinks console is immutable.
+
+    Object.defineProperties(console, {
+      log: { ...props,
+        value: prevLog
+      },
+      info: { ...props,
+        value: prevInfo
+      },
+      warn: { ...props,
+        value: prevWarn
+      },
+      error: { ...props,
+        value: prevError
+      },
+      group: { ...props,
+        value: prevGroup
+      },
+      groupCollapsed: { ...props,
+        value: prevGroupCollapsed
+      },
+      groupEnd: { ...props,
+        value: prevGroupEnd
+      }
+    });
+    /* eslint-enable react-internal/no-production-logging */
+  }
+
+  if (disabledDepth < 0) {
+    console.error('disabledDepth fell below zero. ' + 'This is a bug in React. Please file an issue.');
+  }
+}
+// CONCATENATED MODULE: ../react-devtools-shared/src/backend/DevToolsComponentStackFrame.js
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+// This is a DevTools fork of ReactComponentStackFrame.
+// This fork enables DevTools to use the same "native" component stack format,
+// while still maintaining support for multiple renderer versions
+// (which use different values for ReactTypeOfWork).
+ // The shared console patching code is DEV-only.
+// We can't use it since DevTools only ships production builds.
+
+
+let prefix;
+function describeBuiltInComponentFrame(name, source, ownerFn) {
+  if (prefix === undefined) {
+    // Extract the VM specific prefix used by each line.
+    try {
+      throw Error();
+    } catch (x) {
+      const match = x.stack.trim().match(/\n( *(at )?)/);
+      prefix = match && match[1] || '';
+    }
+  } // We use the prefix to ensure our stacks line up with native stack frames.
+
+
+  return '\n' + prefix + name;
+}
+let reentry = false;
+let componentFrameCache;
+
+if (true) {
+  const PossiblyWeakMap = typeof WeakMap === 'function' ? WeakMap : Map;
+  componentFrameCache = new PossiblyWeakMap();
+}
+
+function describeNativeComponentFrame(fn, construct, currentDispatcherRef) {
+  // If something asked for a stack inside a fake render, it should get ignored.
+  if (!fn || reentry) {
+    return '';
+  }
+
+  if (true) {
+    const frame = componentFrameCache.get(fn);
+
+    if (frame !== undefined) {
+      return frame;
+    }
+  }
+
+  let control;
+  const previousPrepareStackTrace = Error.prepareStackTrace; // $FlowFixMe It does accept undefined.
+
+  Error.prepareStackTrace = undefined;
+  reentry = true; // Override the dispatcher so effects scheduled by this shallow render are thrown away.
+  //
+  // Note that unlike the code this was forked from (in ReactComponentStackFrame)
+  // DevTools should override the dispatcher even when DevTools is compiled in production mode,
+  // because the app itself may be in development mode and log errors/warnings.
+
+  const previousDispatcher = currentDispatcherRef.current;
+  currentDispatcherRef.current = null;
+  disableLogs();
+
+  try {
+    // This should throw.
+    if (construct) {
+      // Something should be setting the props in the constructor.
+      const Fake = function () {
+        throw Error();
+      }; // $FlowFixMe
+
+
+      Object.defineProperty(Fake.prototype, 'props', {
+        set: function () {
+          // We use a throwing setter instead of frozen or non-writable props
+          // because that won't throw in a non-strict mode function.
+          throw Error();
+        }
+      });
+
+      if (typeof Reflect === 'object' && Reflect.construct) {
+        // We construct a different control for this case to include any extra
+        // frames added by the construct call.
+        try {
+          Reflect.construct(Fake, []);
+        } catch (x) {
+          control = x;
+        }
+
+        Reflect.construct(fn, [], Fake);
+      } else {
+        try {
+          Fake.call();
+        } catch (x) {
+          control = x;
+        }
+
+        fn.call(Fake.prototype);
+      }
+    } else {
+      try {
+        throw Error();
+      } catch (x) {
+        control = x;
+      }
+
+      fn();
+    }
+  } catch (sample) {
+    // This is inlined manually because closure doesn't do it for us.
+    if (sample && control && typeof sample.stack === 'string') {
+      // This extracts the first frame from the sample that isn't also in the control.
+      // Skipping one frame that we assume is the frame that calls the two.
+      const sampleLines = sample.stack.split('\n');
+      const controlLines = control.stack.split('\n');
+      let s = sampleLines.length - 1;
+      let c = controlLines.length - 1;
+
+      while (s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c]) {
+        // We expect at least one stack frame to be shared.
+        // Typically this will be the root most one. However, stack frames may be
+        // cut off due to maximum stack limits. In this case, one maybe cut off
+        // earlier than the other. We assume that the sample is longer or the same
+        // and there for cut off earlier. So we should find the root most frame in
+        // the sample somewhere in the control.
+        c--;
+      }
+
+      for (; s >= 1 && c >= 0; s--, c--) {
+        // Next we find the first one that isn't the same which should be the
+        // frame that called our sample function and the control.
+        if (sampleLines[s] !== controlLines[c]) {
+          // In V8, the first line is describing the message but other VMs don't.
+          // If we're about to return the first line, and the control is also on the same
+          // line, that's a pretty good indicator that our sample threw at same line as
+          // the control. I.e. before we entered the sample frame. So we ignore this result.
+          // This can happen if you passed a class to function component, or non-function.
+          if (s !== 1 || c !== 1) {
+            do {
+              s--;
+              c--; // We may still have similar intermediate frames from the construct call.
+              // The next one that isn't the same should be our match though.
+
+              if (c < 0 || sampleLines[s] !== controlLines[c]) {
+                // V8 adds a "new" prefix for native classes. Let's remove it to make it prettier.
+                const frame = '\n' + sampleLines[s].replace(' at new ', ' at ');
+
+                if (true) {
+                  if (typeof fn === 'function') {
+                    componentFrameCache.set(fn, frame);
+                  }
+                } // Return the line we found.
+
+
+                return frame;
+              }
+            } while (s >= 1 && c >= 0);
+          }
+
+          break;
+        }
+      }
+    }
+  } finally {
+    reentry = false;
+    Error.prepareStackTrace = previousPrepareStackTrace;
+    currentDispatcherRef.current = previousDispatcher;
+    reenableLogs();
+  } // Fallback to just using the name if we couldn't make it throw.
+
+
+  const name = fn ? fn.displayName || fn.name : '';
+  const syntheticFrame = name ? describeBuiltInComponentFrame(name) : '';
+
+  if (true) {
+    if (typeof fn === 'function') {
+      componentFrameCache.set(fn, syntheticFrame);
+    }
+  }
+
+  return syntheticFrame;
+}
+function describeClassComponentFrame(ctor, source, ownerFn, currentDispatcherRef) {
+  return describeNativeComponentFrame(ctor, true, currentDispatcherRef);
+}
+function describeFunctionComponentFrame(fn, source, ownerFn, currentDispatcherRef) {
+  return describeNativeComponentFrame(fn, false, currentDispatcherRef);
+}
+
+function shouldConstruct(Component) {
+  const prototype = Component.prototype;
+  return !!(prototype && prototype.isReactComponent);
+}
+
+function describeUnknownElementTypeFrameInDEV(type, source, ownerFn, currentDispatcherRef) {
+  if (false) {}
+
+  if (type == null) {
+    return '';
+  }
+
+  if (typeof type === 'function') {
+    return describeNativeComponentFrame(type, shouldConstruct(type), currentDispatcherRef);
+  }
+
+  if (typeof type === 'string') {
+    return describeBuiltInComponentFrame(type, source, ownerFn);
+  }
+
+  switch (type) {
+    case ReactSymbols["v" /* SUSPENSE_NUMBER */]:
+    case ReactSymbols["w" /* SUSPENSE_SYMBOL_STRING */]:
+      return describeBuiltInComponentFrame('Suspense', source, ownerFn);
+
+    case ReactSymbols["t" /* SUSPENSE_LIST_NUMBER */]:
+    case ReactSymbols["u" /* SUSPENSE_LIST_SYMBOL_STRING */]:
+      return describeBuiltInComponentFrame('SuspenseList', source, ownerFn);
+  }
+
+  if (typeof type === 'object') {
+    switch (type.$$typeof) {
+      case ReactSymbols["f" /* FORWARD_REF_NUMBER */]:
+      case ReactSymbols["g" /* FORWARD_REF_SYMBOL_STRING */]:
+        return describeFunctionComponentFrame(type.render, source, ownerFn, currentDispatcherRef);
+
+      case ReactSymbols["j" /* MEMO_NUMBER */]:
+      case ReactSymbols["k" /* MEMO_SYMBOL_STRING */]:
+        // Memo may contain any component type so we recursively resolve it.
+        return describeUnknownElementTypeFrameInDEV(type.type, source, ownerFn, currentDispatcherRef);
+
+      case ReactSymbols["h" /* LAZY_NUMBER */]:
+      case ReactSymbols["i" /* LAZY_SYMBOL_STRING */]:
+        {
+          const lazyComponent = type;
+          const payload = lazyComponent._payload;
+          const init = lazyComponent._init;
+
+          try {
+            // Lazy may contain any component type so we recursively resolve it.
+            return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn, currentDispatcherRef);
+          } catch (x) {}
+        }
+    }
+  }
+
+  return '';
+}
+// CONCATENATED MODULE: ../react-devtools-shared/src/backend/DevToolsFiberComponentStack.js
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+// This is a DevTools fork of ReactFiberComponentStack.
+// This fork enables DevTools to use the same "native" component stack format,
+// while still maintaining support for multiple renderer versions
+// (which use different values for ReactTypeOfWork).
+
+
+function describeFiber(workTagMap, workInProgress, currentDispatcherRef) {
+  const {
+    HostComponent,
+    LazyComponent,
+    SuspenseComponent,
+    SuspenseListComponent,
+    FunctionComponent,
+    IndeterminateComponent,
+    SimpleMemoComponent,
+    ForwardRef,
+    ClassComponent
+  } = workTagMap;
+  const owner =  true ? workInProgress._debugOwner ? workInProgress._debugOwner.type : null : undefined;
+  const source =  true ? workInProgress._debugSource : undefined;
+
+  switch (workInProgress.tag) {
+    case HostComponent:
+      return describeBuiltInComponentFrame(workInProgress.type, source, owner);
+
+    case LazyComponent:
+      return describeBuiltInComponentFrame('Lazy', source, owner);
+
+    case SuspenseComponent:
+      return describeBuiltInComponentFrame('Suspense', source, owner);
+
+    case SuspenseListComponent:
+      return describeBuiltInComponentFrame('SuspenseList', source, owner);
+
+    case FunctionComponent:
+    case IndeterminateComponent:
+    case SimpleMemoComponent:
+      return describeFunctionComponentFrame(workInProgress.type, source, owner, currentDispatcherRef);
+
+    case ForwardRef:
+      return describeFunctionComponentFrame(workInProgress.type.render, source, owner, currentDispatcherRef);
+
+    case ClassComponent:
+      return describeClassComponentFrame(workInProgress.type, source, owner, currentDispatcherRef);
+
+    default:
+      return '';
+  }
+}
+
+function getStackByFiberInDevAndProd(workTagMap, workInProgress, currentDispatcherRef) {
+  try {
+    let info = '';
+    let node = workInProgress;
+
+    do {
+      info += describeFiber(workTagMap, node, currentDispatcherRef);
+      node = node.return;
+    } while (node);
+
+    return info;
+  } catch (x) {
+    return '\nError generating stack: ' + x.message + '\n' + x.stack;
+  }
+}
+
+/***/ }),
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11152,15 +11582,15 @@ function setup(hook) {
     return;
   }
 
-  const Agent = __webpack_require__(15).default;
+  const Agent = __webpack_require__(16).default;
 
-  const Bridge = __webpack_require__(16).default;
+  const Bridge = __webpack_require__(17).default;
 
   const {
     initBackend
-  } = __webpack_require__(32);
+  } = __webpack_require__(33);
 
-  const setupNativeStyleEditor = __webpack_require__(33).default;
+  const setupNativeStyleEditor = __webpack_require__(34).default;
 
   const bridge = new Bridge({
     listen(fn) {
@@ -11204,250 +11634,6 @@ function setup(hook) {
     setupNativeStyleEditor(bridge, agent, hook.resolveRNStyle, hook.nativeStyleEditorValidAttributes);
   }
 }
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports) {
-
-var g; // This works in non-strict mode
-
-g = function () {
-  return this;
-}();
-
-try {
-  // This works if eval is allowed (see CSP)
-  g = g || new Function("return this")();
-} catch (e) {
-  // This works if the window reference is available
-  if (typeof window === "object") g = window;
-} // g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-
-module.exports = g;
-
-/***/ }),
-/* 22 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (":root {\n  /**\n   * IMPORTANT: When new theme variables are added below– also add them to SettingsContext updateThemeVariables()\n   */\n\n  /* Light theme */\n  --light-color-attribute-name: #ef6632;\n  --light-color-attribute-name-not-editable: #23272f;\n  --light-color-attribute-name-inverted: rgba(255, 255, 255, 0.7);\n  --light-color-attribute-value: #1a1aa6;\n  --light-color-attribute-value-inverted: #ffffff;\n  --light-color-attribute-editable-value: #1a1aa6;\n  --light-color-background: #ffffff;\n  --light-color-background-hover: rgba(0, 136, 250, 0.1);\n  --light-color-background-inactive: #e5e5e5;\n  --light-color-background-invalid: #fff0f0;\n  --light-color-background-selected: #0088fa;\n  --light-color-button-background: #ffffff;\n  --light-color-button-background-focus: #ededed;\n  --light-color-button: #5f6673;\n  --light-color-button-disabled: #cfd1d5;\n  --light-color-button-active: #0088fa;\n  --light-color-button-focus: #23272f;\n  --light-color-button-hover: #23272f;\n  --light-color-border: #eeeeee;\n  --light-color-commit-did-not-render-fill: #cfd1d5;\n  --light-color-commit-did-not-render-fill-text: #000000;\n  --light-color-commit-did-not-render-pattern: #cfd1d5;\n  --light-color-commit-did-not-render-pattern-text: #333333;\n  --light-color-commit-gradient-0: #37afa9;\n  --light-color-commit-gradient-1: #63b19e;\n  --light-color-commit-gradient-2: #80b393;\n  --light-color-commit-gradient-3: #97b488;\n  --light-color-commit-gradient-4: #abb67d;\n  --light-color-commit-gradient-5: #beb771;\n  --light-color-commit-gradient-6: #cfb965;\n  --light-color-commit-gradient-7: #dfba57;\n  --light-color-commit-gradient-8: #efbb49;\n  --light-color-commit-gradient-9: #febc38;\n  --light-color-commit-gradient-text: #000000;\n  --light-color-component-name: #6a51b2;\n  --light-color-component-name-inverted: #ffffff;\n  --light-color-component-badge-background: rgba(0, 0, 0, 0.1);\n  --light-color-component-badge-background-inverted: rgba(255, 255, 255, 0.25);\n  --light-color-component-badge-count: #777d88;\n  --light-color-component-badge-count-inverted: rgba(255, 255, 255, 0.7);\n  --light-color-console-error-badge-text: #ffffff;\n  --light-color-console-error-background: #fff0f0;\n  --light-color-console-error-border: #ffd6d6;\n  --light-color-console-error-icon: #eb3941;\n  --light-color-console-error-text: #fe2e31;\n  --light-color-console-warning-badge-text: #000000;\n  --light-color-console-warning-background: #fffbe5;\n  --light-color-console-warning-border: #fff5c1;\n  --light-color-console-warning-icon: #f4bd00;\n  --light-color-console-warning-text: #64460c;\n  --light-color-context-background: rgba(0,0,0,.9);\n  --light-color-context-background-hover: rgba(255, 255, 255, 0.1);\n  --light-color-context-background-selected: #178fb9;\n  --light-color-context-border: #3d424a;\n  --light-color-context-text: #ffffff;\n  --light-color-context-text-selected: #ffffff;\n  --light-color-dim: #777d88;\n  --light-color-dimmer: #cfd1d5;\n  --light-color-dimmest: #eff0f1;\n  --light-color-error-background: hsl(0, 100%, 97%);\n  --light-color-error-border: hsl(0, 100%, 92%);\n  --light-color-error-text: #ff0000;\n  --light-color-expand-collapse-toggle: #777d88;\n  --light-color-link: #0000ff;\n  --light-color-modal-background: rgba(255, 255, 255, 0.75);\n  --light-color-bridge-version-npm-background: #eff0f1;\n  --light-color-bridge-version-npm-text: #000000;\n  --light-color-bridge-version-number: #0088fa;\n  --light-color-primitive-hook-badge-background: #e5e5e5;\n  --light-color-primitive-hook-badge-text: #5f6673;\n  --light-color-record-active: #fc3a4b;\n  --light-color-record-hover: #3578e5;\n  --light-color-record-inactive: #0088fa;\n  --light-color-scroll-thumb: #c2c2c2;\n  --light-color-scroll-track: #fafafa;\n  --light-color-search-match: yellow;\n  --light-color-search-match-current: #f7923b;\n  --light-color-selected-tree-highlight-active: rgba(0, 136, 250, 0.1);\n  --light-color-selected-tree-highlight-inactive: rgba(0, 0, 0, 0.05);\n  --light-color-shadow: rgba(0, 0, 0, 0.25);\n  --light-color-tab-selected-border: #0088fa;\n  --light-color-text: #000000;\n  --light-color-text-invalid: #ff0000;\n  --light-color-text-selected: #ffffff;\n  --light-color-toggle-background-invalid: #fc3a4b;\n  --light-color-toggle-background-on: #0088fa;\n  --light-color-toggle-background-off: #cfd1d5;\n  --light-color-toggle-text: #ffffff;\n  --light-color-tooltip-background: rgba(0, 0, 0, 0.9);\n  --light-color-tooltip-text: #ffffff;\n\n  /* Dark theme */\n  --dark-color-attribute-name: #9d87d2;\n  --dark-color-attribute-name-not-editable: #ededed;\n  --dark-color-attribute-name-inverted: #282828;\n  --dark-color-attribute-value: #cedae0;\n  --dark-color-attribute-value-inverted: #ffffff;\n  --dark-color-attribute-editable-value: yellow;\n  --dark-color-background: #282c34;\n  --dark-color-background-hover: rgba(255, 255, 255, 0.1);\n  --dark-color-background-inactive: #3d424a;\n  --dark-color-background-invalid: #5c0000;\n  --dark-color-background-selected: #178fb9;\n  --dark-color-button-background: #282c34;\n  --dark-color-button-background-focus: #3d424a;\n  --dark-color-button: #afb3b9;\n  --dark-color-button-active: #61dafb;\n  --dark-color-button-disabled: #4f5766;\n  --dark-color-button-focus: #a2e9fc;\n  --dark-color-button-hover: #ededed;\n  --dark-color-border: #3d424a;\n  --dark-color-commit-did-not-render-fill: #777d88;\n  --dark-color-commit-did-not-render-fill-text: #000000;\n  --dark-color-commit-did-not-render-pattern: #666c77;\n  --dark-color-commit-did-not-render-pattern-text: #ffffff;\n  --dark-color-commit-gradient-0: #37afa9;\n  --dark-color-commit-gradient-1: #63b19e;\n  --dark-color-commit-gradient-2: #80b393;\n  --dark-color-commit-gradient-3: #97b488;\n  --dark-color-commit-gradient-4: #abb67d;\n  --dark-color-commit-gradient-5: #beb771;\n  --dark-color-commit-gradient-6: #cfb965;\n  --dark-color-commit-gradient-7: #dfba57;\n  --dark-color-commit-gradient-8: #efbb49;\n  --dark-color-commit-gradient-9: #febc38;\n  --dark-color-commit-gradient-text: #000000;\n  --dark-color-component-name: #61dafb;\n  --dark-color-component-name-inverted: #282828;\n  --dark-color-component-badge-background: rgba(255, 255, 255, 0.25);\n  --dark-color-component-badge-background-inverted: rgba(0, 0, 0, 0.25);\n  --dark-color-component-badge-count: #8f949d;\n  --dark-color-component-badge-count-inverted: rgba(255, 255, 255, 0.7);\n  --dark-color-console-error-badge-text: #000000;\n  --dark-color-console-error-background: #290000;\n  --dark-color-console-error-border: #5c0000;\n  --dark-color-console-error-icon: #eb3941;\n  --dark-color-console-error-text: #fc7f7f;\n  --dark-color-console-warning-badge-text: #000000;\n  --dark-color-console-warning-background: #332b00;\n  --dark-color-console-warning-border: #665500;\n  --dark-color-console-warning-icon: #f4bd00;\n  --dark-color-console-warning-text: #f5f2ed;\n  --dark-color-context-background: rgba(255,255,255,.9);\n  --dark-color-context-background-hover: rgba(0, 136, 250, 0.1);\n  --dark-color-context-background-selected: #0088fa;\n  --dark-color-context-border: #eeeeee;\n  --dark-color-context-text: #000000;\n  --dark-color-context-text-selected: #ffffff;\n  --dark-color-dim: #8f949d;\n  --dark-color-dimmer: #777d88;\n  --dark-color-dimmest: #4f5766;\n  --dark-color-error-background: #200;\n  --dark-color-error-border: #900;\n  --dark-color-error-text: #f55;\n  --dark-color-expand-collapse-toggle: #8f949d;\n  --dark-color-link: #61dafb;\n  --dark-color-modal-background: rgba(0, 0, 0, 0.75);\n  --dark-color-bridge-version-npm-background: rgba(0, 0, 0, 0.25);\n  --dark-color-bridge-version-npm-text: #ffffff;\n  --dark-color-bridge-version-number: yellow;\n  --dark-color-primitive-hook-badge-background: rgba(0, 0, 0, 0.25);\n  --dark-color-primitive-hook-badge-text: rgba(255, 255, 255, 0.7);\n  --dark-color-record-active: #fc3a4b;\n  --dark-color-record-hover: #a2e9fc;\n  --dark-color-record-inactive: #61dafb;\n  --dark-color-scroll-thumb: #afb3b9;\n  --dark-color-scroll-track: #313640;\n  --dark-color-search-match: yellow;\n  --dark-color-search-match-current: #f7923b;\n  --dark-color-selected-tree-highlight-active: rgba(23, 143, 185, 0.15);\n  --dark-color-selected-tree-highlight-inactive: rgba(255, 255, 255, 0.05);\n  --dark-color-shadow: rgba(0, 0, 0, 0.5);\n  --dark-color-tab-selected-border: #178fb9;\n  --dark-color-text: #ffffff;\n  --dark-color-text-invalid: #ff8080;\n  --dark-color-text-selected: #ffffff;\n  --dark-color-toggle-background-invalid: #fc3a4b;\n  --dark-color-toggle-background-on: #178fb9;\n  --dark-color-toggle-background-off: #777d88;\n  --dark-color-toggle-text: #ffffff;\n  --dark-color-tooltip-background: rgba(255, 255, 255, 0.9);\n  --dark-color-tooltip-text: #000000;\n\n  /* Font smoothing */\n  --light-font-smoothing: auto;\n  --dark-font-smoothing: antialiased;\n  --font-smoothing: auto;\n\n  /* Compact density */\n  --compact-font-size-monospace-small: 9px;\n  --compact-font-size-monospace-normal: 11px;\n  --compact-font-size-monospace-large: 15px;\n  --compact-font-size-sans-small: 10px;\n  --compact-font-size-sans-normal: 12px;\n  --compact-font-size-sans-large: 14px;\n  --compact-line-height-data: 18px;\n  --compact-root-font-size: 16px;\n\n  /* Comfortable density */\n  --comfortable-font-size-monospace-small: 10px;\n  --comfortable-font-size-monospace-normal: 13px;\n  --comfortable-font-size-monospace-large: 17px;\n  --comfortable-font-size-sans-small: 12px;\n  --comfortable-font-size-sans-normal: 14px;\n  --comfortable-font-size-sans-large: 16px;\n  --comfortable-line-height-data: 22px;\n  --comfortable-root-font-size: 20px;\n\n  /* GitHub.com system fonts */\n  --font-family-monospace: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo,\n    Courier, monospace;\n  --font-family-sans: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,\n    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;\n}\n");
-
-/***/ }),
-/* 23 */
-/***/ (function(module, exports) {
-
-// shim for using process in browser
-var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-  throw new Error('setTimeout has not been defined');
-}
-
-function defaultClearTimeout() {
-  throw new Error('clearTimeout has not been defined');
-}
-
-(function () {
-  try {
-    if (typeof setTimeout === 'function') {
-      cachedSetTimeout = setTimeout;
-    } else {
-      cachedSetTimeout = defaultSetTimout;
-    }
-  } catch (e) {
-    cachedSetTimeout = defaultSetTimout;
-  }
-
-  try {
-    if (typeof clearTimeout === 'function') {
-      cachedClearTimeout = clearTimeout;
-    } else {
-      cachedClearTimeout = defaultClearTimeout;
-    }
-  } catch (e) {
-    cachedClearTimeout = defaultClearTimeout;
-  }
-})();
-
-function runTimeout(fun) {
-  if (cachedSetTimeout === setTimeout) {
-    //normal enviroments in sane situations
-    return setTimeout(fun, 0);
-  } // if setTimeout wasn't available but was latter defined
-
-
-  if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-    cachedSetTimeout = setTimeout;
-    return setTimeout(fun, 0);
-  }
-
-  try {
-    // when when somebody has screwed with setTimeout but no I.E. maddness
-    return cachedSetTimeout(fun, 0);
-  } catch (e) {
-    try {
-      // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-      return cachedSetTimeout.call(null, fun, 0);
-    } catch (e) {
-      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-      return cachedSetTimeout.call(this, fun, 0);
-    }
-  }
-}
-
-function runClearTimeout(marker) {
-  if (cachedClearTimeout === clearTimeout) {
-    //normal enviroments in sane situations
-    return clearTimeout(marker);
-  } // if clearTimeout wasn't available but was latter defined
-
-
-  if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-    cachedClearTimeout = clearTimeout;
-    return clearTimeout(marker);
-  }
-
-  try {
-    // when when somebody has screwed with setTimeout but no I.E. maddness
-    return cachedClearTimeout(marker);
-  } catch (e) {
-    try {
-      // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-      return cachedClearTimeout.call(null, marker);
-    } catch (e) {
-      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-      // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-      return cachedClearTimeout.call(this, marker);
-    }
-  }
-}
-
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-  if (!draining || !currentQueue) {
-    return;
-  }
-
-  draining = false;
-
-  if (currentQueue.length) {
-    queue = currentQueue.concat(queue);
-  } else {
-    queueIndex = -1;
-  }
-
-  if (queue.length) {
-    drainQueue();
-  }
-}
-
-function drainQueue() {
-  if (draining) {
-    return;
-  }
-
-  var timeout = runTimeout(cleanUpNextTick);
-  draining = true;
-  var len = queue.length;
-
-  while (len) {
-    currentQueue = queue;
-    queue = [];
-
-    while (++queueIndex < len) {
-      if (currentQueue) {
-        currentQueue[queueIndex].run();
-      }
-    }
-
-    queueIndex = -1;
-    len = queue.length;
-  }
-
-  currentQueue = null;
-  draining = false;
-  runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-  var args = new Array(arguments.length - 1);
-
-  if (arguments.length > 1) {
-    for (var i = 1; i < arguments.length; i++) {
-      args[i - 1] = arguments[i];
-    }
-  }
-
-  queue.push(new Item(fun, args));
-
-  if (queue.length === 1 && !draining) {
-    runTimeout(drainQueue);
-  }
-}; // v8 likes predictible objects
-
-
-function Item(fun, array) {
-  this.fun = fun;
-  this.array = array;
-}
-
-Item.prototype.run = function () {
-  this.fun.apply(null, this.array);
-};
-
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) {
-  return [];
-};
-
-process.binding = function (name) {
-  throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () {
-  return '/';
-};
-
-process.chdir = function (dir) {
-  throw new Error('process.chdir is not supported');
-};
-
-process.umask = function () {
-  return 0;
-};
 
 /***/ }),
 /* 24 */
@@ -12131,6 +12317,219 @@ exports.typeOf = y;
 
 /***/ }),
 /* 27 */
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+  throw new Error('setTimeout has not been defined');
+}
+
+function defaultClearTimeout() {
+  throw new Error('clearTimeout has not been defined');
+}
+
+(function () {
+  try {
+    if (typeof setTimeout === 'function') {
+      cachedSetTimeout = setTimeout;
+    } else {
+      cachedSetTimeout = defaultSetTimout;
+    }
+  } catch (e) {
+    cachedSetTimeout = defaultSetTimout;
+  }
+
+  try {
+    if (typeof clearTimeout === 'function') {
+      cachedClearTimeout = clearTimeout;
+    } else {
+      cachedClearTimeout = defaultClearTimeout;
+    }
+  } catch (e) {
+    cachedClearTimeout = defaultClearTimeout;
+  }
+})();
+
+function runTimeout(fun) {
+  if (cachedSetTimeout === setTimeout) {
+    //normal enviroments in sane situations
+    return setTimeout(fun, 0);
+  } // if setTimeout wasn't available but was latter defined
+
+
+  if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+    cachedSetTimeout = setTimeout;
+    return setTimeout(fun, 0);
+  }
+
+  try {
+    // when when somebody has screwed with setTimeout but no I.E. maddness
+    return cachedSetTimeout(fun, 0);
+  } catch (e) {
+    try {
+      // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+      return cachedSetTimeout.call(null, fun, 0);
+    } catch (e) {
+      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+      return cachedSetTimeout.call(this, fun, 0);
+    }
+  }
+}
+
+function runClearTimeout(marker) {
+  if (cachedClearTimeout === clearTimeout) {
+    //normal enviroments in sane situations
+    return clearTimeout(marker);
+  } // if clearTimeout wasn't available but was latter defined
+
+
+  if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+    cachedClearTimeout = clearTimeout;
+    return clearTimeout(marker);
+  }
+
+  try {
+    // when when somebody has screwed with setTimeout but no I.E. maddness
+    return cachedClearTimeout(marker);
+  } catch (e) {
+    try {
+      // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+      return cachedClearTimeout.call(null, marker);
+    } catch (e) {
+      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+      // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+      return cachedClearTimeout.call(this, marker);
+    }
+  }
+}
+
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+  if (!draining || !currentQueue) {
+    return;
+  }
+
+  draining = false;
+
+  if (currentQueue.length) {
+    queue = currentQueue.concat(queue);
+  } else {
+    queueIndex = -1;
+  }
+
+  if (queue.length) {
+    drainQueue();
+  }
+}
+
+function drainQueue() {
+  if (draining) {
+    return;
+  }
+
+  var timeout = runTimeout(cleanUpNextTick);
+  draining = true;
+  var len = queue.length;
+
+  while (len) {
+    currentQueue = queue;
+    queue = [];
+
+    while (++queueIndex < len) {
+      if (currentQueue) {
+        currentQueue[queueIndex].run();
+      }
+    }
+
+    queueIndex = -1;
+    len = queue.length;
+  }
+
+  currentQueue = null;
+  draining = false;
+  runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+  var args = new Array(arguments.length - 1);
+
+  if (arguments.length > 1) {
+    for (var i = 1; i < arguments.length; i++) {
+      args[i - 1] = arguments[i];
+    }
+  }
+
+  queue.push(new Item(fun, args));
+
+  if (queue.length === 1 && !draining) {
+    runTimeout(drainQueue);
+  }
+}; // v8 likes predictible objects
+
+
+function Item(fun, array) {
+  this.fun = fun;
+  this.array = array;
+}
+
+Item.prototype.run = function () {
+  this.fun.apply(null, this.array);
+};
+
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) {
+  return [];
+};
+
+process.binding = function (name) {
+  throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () {
+  return '/';
+};
+
+process.chdir = function (dir) {
+  throw new Error('process.chdir is not supported');
+};
+
+process.umask = function () {
+  return 0;
+};
+
+/***/ }),
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12145,7 +12544,7 @@ exports.typeOf = y;
 
 
 var k = __webpack_require__(7),
-    p = __webpack_require__(28);
+    p = __webpack_require__(29);
 
 function r(a) {
   for (var b = "https://reactjs.org/docs/error-decoder.html?invariant=" + a, e = 1; e < arguments.length; e++) b += "&args[]=" + encodeURIComponent(arguments[e]);
@@ -12153,7 +12552,7 @@ function r(a) {
   return "Minified React error #" + a + "; visit " + b + " for the full message or use the non-minified dev environment for full errors and additional helpful warnings.";
 }
 
-var w = __webpack_require__(30).__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED,
+var w = __webpack_require__(31).__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED,
     x = 60128;
 
 if ("function" === typeof Symbol && Symbol.for) {
@@ -12552,7 +12951,7 @@ exports.inspectHooksOfFiber = function (a, b) {
 };
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
@@ -12561,7 +12960,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   /* istanbul ignore next */
 
   if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(29)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(30)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -12740,7 +13139,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 });
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
@@ -12893,18 +13292,18 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 });
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 if (true) {
-  module.exports = __webpack_require__(31);
+  module.exports = __webpack_require__(32);
 } else {}
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13354,10 +13753,10 @@ exports.useTransition = function () {
   return S.current.useTransition();
 };
 
-exports.version = "18.0.0-experimental-d0ec28381-20210716";
+exports.version = "18.0.0-experimental-3385b377f-20210901";
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13368,16 +13767,16 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, "initBackend", function() { return /* binding */ initBackend; });
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/backend/agent.js + 7 modules
-var backend_agent = __webpack_require__(15);
+var backend_agent = __webpack_require__(16);
 
-// EXTERNAL MODULE: ../react-devtools-shared/src/backend/renderer.js + 2 modules
-var backend_renderer = __webpack_require__(14);
+// EXTERNAL MODULE: ../react-devtools-shared/src/backend/renderer.js + 1 modules
+var backend_renderer = __webpack_require__(15);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/types.js
-var types = __webpack_require__(1);
+var types = __webpack_require__(0);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/utils.js + 1 modules
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(1);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/backend/utils.js
 var backend_utils = __webpack_require__(4);
@@ -13751,14 +14150,14 @@ function attach(hook, rendererID, renderer, global) {
   function recordMount(internalInstance, id, parentID) {
     const isRoot = parentID === 0;
 
-    if (constants["n" /* __DEBUG__ */]) {
+    if (constants["o" /* __DEBUG__ */]) {
       console.log('%crecordMount()', 'color: green; font-weight: bold;', id, getData(internalInstance).displayName);
     }
 
     if (isRoot) {
       // TODO Is this right? For all versions?
       const hasOwnerMetadata = internalInstance._currentElement != null && internalInstance._currentElement._owner != null;
-      pushOperation(constants["h" /* TREE_OPERATION_ADD */]);
+      pushOperation(constants["i" /* TREE_OPERATION_ADD */]);
       pushOperation(id);
       pushOperation(types["m" /* ElementTypeRoot */]);
       pushOperation(0); // isProfilingSupported?
@@ -13773,7 +14172,7 @@ function attach(hook, rendererID, renderer, global) {
       const ownerID = internalInstance._currentElement != null && internalInstance._currentElement._owner != null ? getID(internalInstance._currentElement._owner) : 0;
       const displayNameStringID = getStringID(displayName);
       const keyStringID = getStringID(key);
-      pushOperation(constants["h" /* TREE_OPERATION_ADD */]);
+      pushOperation(constants["i" /* TREE_OPERATION_ADD */]);
       pushOperation(id);
       pushOperation(type);
       pushOperation(parentID);
@@ -13784,7 +14183,7 @@ function attach(hook, rendererID, renderer, global) {
   }
 
   function recordReorder(internalInstance, id, nextChildren) {
-    pushOperation(constants["k" /* TREE_OPERATION_REORDER_CHILDREN */]);
+    pushOperation(constants["l" /* TREE_OPERATION_REORDER_CHILDREN */]);
     pushOperation(id);
     const nextChildIDs = nextChildren.map(getID);
     pushOperation(nextChildIDs.length);
@@ -13800,7 +14199,7 @@ function attach(hook, rendererID, renderer, global) {
   }
 
   function crawlAndRecordInitialMounts(id, parentID, rootID) {
-    if (constants["n" /* __DEBUG__ */]) {
+    if (constants["o" /* __DEBUG__ */]) {
       console.group('crawlAndRecordInitialMounts() id:', id);
     }
 
@@ -13812,7 +14211,7 @@ function attach(hook, rendererID, renderer, global) {
       getChildren(internalInstance).forEach(child => crawlAndRecordInitialMounts(getID(child), id, rootID));
     }
 
-    if (constants["n" /* __DEBUG__ */]) {
+    if (constants["o" /* __DEBUG__ */]) {
       console.groupEnd();
     }
   }
@@ -13872,7 +14271,7 @@ function attach(hook, rendererID, renderer, global) {
 
     if (numUnmountIDs > 0) {
       // All unmounts except roots are batched in a single message.
-      operations[i++] = constants["i" /* TREE_OPERATION_REMOVE */]; // The first number is how many unmounted IDs we're gonna send.
+      operations[i++] = constants["j" /* TREE_OPERATION_REMOVE */]; // The first number is how many unmounted IDs we're gonna send.
 
       operations[i++] = numUnmountIDs; // Fill in the unmounts
 
@@ -13894,7 +14293,7 @@ function attach(hook, rendererID, renderer, global) {
 
     i += pendingOperations.length;
 
-    if (constants["n" /* __DEBUG__ */]) {
+    if (constants["o" /* __DEBUG__ */]) {
       Object(utils["j" /* printOperationsArray */])(operations);
     } // If we've already connected to the frontend, just pass the operations through.
 
@@ -14540,7 +14939,7 @@ function initBackend(hook, agent, global) {
 }
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14551,7 +14950,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, "default", function() { return /* binding */ setupNativeStyleEditor; });
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/backend/agent.js + 7 modules
-var backend_agent = __webpack_require__(15);
+var backend_agent = __webpack_require__(16);
 
 // CONCATENATED MODULE: ../react-devtools-shared/src/backend/NativeStyleEditor/resolveBoxStyle.js
 /**

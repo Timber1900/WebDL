@@ -14,12 +14,12 @@ async function getQueueDiv(url: string) {
   try {
     const type: info = { ytdl: true };
     let info: any = await ytdl.getInfo(url).catch((err) => {
-      console.log(`%c ${err}`, 'color: #F87D7A');
+      console.log(`%c ${err}`, 'color: #7D7AF8');
       type.ytdl = false;
     });
     const divs: any = [];
     if (type.ytdl) {
-      divs.push(getYoutubeDiv(info, 1, url));
+      divs.push(getYoutubeDiv(info, 1));
     } else {
       info = await youtubeDlWrap.getVideoInfo(url).catch(console.error);
       const infos = [].concat(info);
@@ -41,7 +41,7 @@ export const addToQueue = async (url: string) => {
   const { curQueue, updateInfo, updateQueue, curQueuePrg, updateQueuePrg, curQueueVel, updateQueueVel } = outerContext;
   let currentInfo = 'Fetching videos';
   updateInfo(currentInfo);
-  const videos = await ytpl(url, { pages: Infinity }).catch(() => {});
+  const videos = await ytpl(url, { pages: Infinity }).catch(() => {return;});
   const urls = [];
   if (videos) {
     for (const vid of videos.items) {

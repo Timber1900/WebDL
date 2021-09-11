@@ -77,16 +77,16 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/build/";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 257);
+/******/ 	return __webpack_require__(__webpack_require__.s = 109);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 257:
+/***/ 109:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -208,14 +208,32 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   }
 });
 chrome.runtime.onMessage.addListener((request, sender) => {
-  if (sender.tab) {
-    // This is sent from the hook content script.
+  var _request$payload, _ports$id;
+
+  const tab = sender.tab;
+
+  if (tab) {
+    const id = tab.id; // This is sent from the hook content script.
     // It tells us a renderer has attached.
+
     if (request.hasDetectedReact) {
       // We use browserAction instead of pageAction because this lets us
       // display a custom default popup when React is *not* detected.
       // It is specified in the manifest.
-      setIconAndPopup(request.reactBuildType, sender.tab.id);
+      setIconAndPopup(request.reactBuildType, id);
+    } else {
+      switch ((_request$payload = request.payload) === null || _request$payload === void 0 ? void 0 : _request$payload.type) {
+        case 'fetch-file-with-cache-complete':
+        case 'fetch-file-with-cache-error':
+          // Forward the result of fetch-in-page requests back to the extension.
+          const devtools = (_ports$id = ports[id]) === null || _ports$id === void 0 ? void 0 : _ports$id.devtools;
+
+          if (devtools) {
+            devtools.postMessage(request);
+          }
+
+          break;
+      }
     }
   }
 });

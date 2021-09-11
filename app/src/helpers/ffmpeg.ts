@@ -1,8 +1,10 @@
-import {} from 'child_process'
 import execa from 'execa';
 import { join } from 'path';
 import internal from 'stream';
-import { downloadPath, ffmpeg } from '../Constants';
+import { downloadPath } from '../Constants';
+
+//@ts-ignore
+const ffmpeg = window.ffmpeg;
 
 interface ffmpeg_options {
   loglevel?: string,
@@ -30,20 +32,20 @@ export default class FFMPEG_Helper {
       'copy',
       '-y',
       output_file
-    ]
+    ];
     this.loglevel = loglevel ?? '8';
     this.output_file = output_file;
   }
 
   public merge_video(audio: internal.Readable, video: internal.Readable, close_function: () => void) {
-    const ffmpeg_process = execa(ffmpeg, this.video_args, {windowsHide: true, stdio: ['inherit', 'inherit', 'inherit', 'pipe', 'pipe', 'pipe']})
+    const ffmpeg_process = execa(ffmpeg, this.video_args, {windowsHide: true, stdio: ['inherit', 'inherit', 'inherit', 'pipe', 'pipe', 'pipe']});
 
-    //@ts-expect-error
+    //@ts-ignore
     audio.pipe(ffmpeg_process.stdio[4]);
-    //@ts-expect-error
+    //@ts-ignore
     video.pipe(ffmpeg_process.stdio[5]);
 
-    ffmpeg_process.then(close_function)
+    ffmpeg_process.then(close_function);
   }
 
   public convert_video(audio: internal.Readable, close_function: () => void) {
@@ -57,9 +59,9 @@ export default class FFMPEG_Helper {
         '-y',
         this.output_file
       ], {windowsHide: true, stdio: ['inherit', 'inherit', 'inherit', 'pipe', 'pipe', 'pipe'] }
-    )
+    );
 
-    // @ts-expect-error
+    //@ts-ignore
     audio.pipe(ffmpeg_process.stdio[4]);
     ffmpeg_process.then(close_function);
   }
@@ -82,9 +84,9 @@ export default class FFMPEG_Helper {
         join(path, `${title}-clip-${i}.${ext}`),
       ], {
         windowsHide: true,
-      },)
-      ffmpeg_process.then((data) => resolve(data))
-      ffmpeg_process.catch((error) => reject(error))
+      },);
+      ffmpeg_process.then((data) => resolve(data));
+      ffmpeg_process.catch((error) => reject(error));
     });
   }
 }

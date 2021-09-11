@@ -2,9 +2,9 @@ import ytdl from 'ytdl-core';
 import { outerContext } from '../../App';
 import { Props } from '../../Components/Item';
 
-export const getYoutubeDiv = (info: ytdl.videoInfo, i: number, url: string): Promise<Props | null> => {
+export const getYoutubeDiv = (info: ytdl.videoInfo, i: number): Promise<Props | null> => {
   if (info && info.formats.length > 0) {
-    let formats = new Map<string, ytdl.videoFormat>();
+    const formats = new Map<string, ytdl.videoFormat>();
     for (const format of info.formats) {
       if ((format.container === 'mp4' || format.container === 'webm') && format.hasVideo && !format.hasAudio) {
         if (formats.has(format.qualityLabel)) {
@@ -19,18 +19,14 @@ export const getYoutubeDiv = (info: ytdl.videoInfo, i: number, url: string): Pro
         }
       }
     }
-    const sorted_map = new Map(
-      //@ts-ignore
-      [...formats.entries()].sort(
+    const sorted_map = new Map<string, any>(
+      Array.from(formats).sort(
         (a, b) =>
           -(a[1].height === b[1].height
             ? (a[1].fps ?? 30) - (b[1].fps ?? 30)
             : (a[1].height ?? 0) - (b[1].height ?? 0)),
       ),
     );
-
-    //@ts-ignore
-    // const sorted_map = new Map([...temp_sorted_map.entries()].map((a) => [a[0], a[1].itag]));
 
     return Promise.resolve({
       id: info.videoDetails.videoId,

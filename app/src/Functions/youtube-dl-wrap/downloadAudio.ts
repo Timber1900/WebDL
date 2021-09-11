@@ -23,7 +23,8 @@ export const downloadAudio = async (
   vid_index: number,
   queue_index: number,
 ) => {
-  return new Promise<index_interface>(async (res, rej) => {
+  // eslint-disable-next-line no-async-promise-executor
+  return new Promise<index_interface>(async (res) => {
     const clips: number[][] = [];
 
     for (const c of raw_clips) {
@@ -41,7 +42,7 @@ export const downloadAudio = async (
     const regex = /["*/:<>?\\|]/g;
     const fixedTitle: string = title.replace(regex, '');
 
-    const ffmpeg_helper = new FFMPEG_Helper({loglevel: '8', output_file: clips.length ? join(downloadPath, `tempvideo.${ext}`): join(path, `${fixedTitle}.${ext}`)})
+    const ffmpeg_helper = new FFMPEG_Helper({loglevel: '8', output_file: clips.length ? join(downloadPath, `tempvideo.${ext}`): join(path, `${fixedTitle}.${ext}`)});
 
     const close_function = () => {
       if (clips.length) {
@@ -61,10 +62,10 @@ export const downloadAudio = async (
         updateInfo(`Done downloading ${title}`);
         res({ vid_index, queue_index });
       }
-    }
+    };
 
     const audio = execStream([url, '-f', 'bestaudio']);
-    ffmpeg_helper.convert_video(audio, close_function)
+    ffmpeg_helper.convert_video(audio, close_function);
 
     audio
       .on('progress', (progress: any) => {

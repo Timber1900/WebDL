@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createContext, ReactNode, useEffect, useState } from 'react';
 import { Props } from '../Components/Item';
 import {join} from 'path';
@@ -5,7 +6,7 @@ import fs from 'fs';
 import { downloadPath } from '../Constants';
 
 
-type extTypes = "v mkv" | "v mp4" | "v avi" | "v webm" | "v mov" | "a mp3" | "a m4a" | "a ogg" | "a wav" | "custom";
+type extTypes = 'v mkv' | 'v mp4' | 'v avi' | 'v webm' | 'v mov' | 'a mp3' | 'a m4a' | 'a ogg' | 'a wav' | 'custom';
 export interface InfoQueueContextData {
   curQueue: Props[];
   curQueuePrg: progressProps[];
@@ -67,28 +68,28 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
   const [queueVel, setQueueVel] = useState<velProps[]>([]);
   const [info, setInfo] = useState('Waiting for download');
   const [showSearch, setShowSearch] = useState(false);
-  const [ext, setExt] = useState<extTypes>(process.platform !== "darwin" ? 'v mkv' : 'v mov');
+  const [ext, setExt] = useState<extTypes>(process.platform !== 'darwin' ? 'v mkv' : 'v mov');
   const [customExt, setCustomExt] = useState<string | null>(null);
   const [concurrentDownloads, setConcurrentDownloads] = useState(1);
 
   useEffect(() => {
     let startQueue: Props[] = [];
 
-    if(fs.existsSync(join(downloadPath, 'queue.webdl'))) startQueue = JSON.parse(fs.readFileSync(join(downloadPath, 'queue.webdl')).toString(), reviver)
+    if(fs.existsSync(join(downloadPath, 'queue.webdl'))) startQueue = JSON.parse(fs.readFileSync(join(downloadPath, 'queue.webdl')).toString(), reviver);
 
-    console.log(startQueue)
+    console.log(startQueue);
 
     const startPrg = Array.from({length: startQueue.length}, ():progressProps => ({progress: 0}));
     const startVel = Array.from({length: startQueue.length}, ():velProps => ({ vel: '0.0MiB/s' }));
 
-    setQueue(startQueue)
-    setQueuePrg(startPrg)
-    setQueueVel(startVel)
-  }, [])
+    setQueue(startQueue);
+    setQueuePrg(startPrg);
+    setQueueVel(startVel);
+  }, []);
 
   useEffect(() => {
-    fs.writeFile(join(downloadPath, 'queue.webdl'), JSON.stringify(queue, replacer), (e) => {if(e) console.error(e)})
-  }, [queue])
+    fs.writeFile(join(downloadPath, 'queue.webdl'), JSON.stringify(queue, replacer), (e) => {if(e) console.error(e);});
+  }, [queue]);
 
   function updateQueue(newQueue: Props[]) {
     setQueue(newQueue);

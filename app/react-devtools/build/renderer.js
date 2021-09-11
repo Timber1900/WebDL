@@ -77,11 +77,11 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/build/";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 602);
+/******/ 	return __webpack_require__(__webpack_require__.s = 196);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -93,534 +93,12 @@
 
 
 if (true) {
-  module.exports = __webpack_require__(76);
+  module.exports = __webpack_require__(59);
 } else {}
 
 /***/ }),
 
 /***/ 1:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return __DEBUG__; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return TREE_OPERATION_ADD; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return TREE_OPERATION_REMOVE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return TREE_OPERATION_REORDER_CHILDREN; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return TREE_OPERATION_UPDATE_TREE_BASE_DURATION; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return TREE_OPERATION_UPDATE_ERRORS_OR_WARNINGS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return TREE_OPERATION_REMOVE_ROOT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return LOCAL_STORAGE_FILTER_PREFERENCES_KEY; });
-/* unused harmony export SESSION_STORAGE_LAST_SELECTION_KEY */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return LOCAL_STORAGE_PARSE_HOOK_NAMES_KEY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return SESSION_STORAGE_RECORD_CHANGE_DESCRIPTIONS_KEY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return SESSION_STORAGE_RELOAD_AND_PROFILE_KEY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return LOCAL_STORAGE_SHOULD_BREAK_ON_CONSOLE_ERRORS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return LOCAL_STORAGE_SHOULD_PATCH_CONSOLE_KEY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return LOCAL_STORAGE_SHOW_INLINE_WARNINGS_AND_ERRORS_KEY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return LOCAL_STORAGE_TRACE_UPDATES_ENABLED_KEY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return PROFILER_EXPORT_VERSION; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CHANGE_LOG_URL; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return UNSUPPORTED_VERSION_URL; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return REACT_DEVTOOLS_WORKPLACE_URL; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return COMFORTABLE_LINE_HEIGHT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return COMPACT_LINE_HEIGHT; });
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-// Flip this flag to true to enable verbose console debug logging.
-const __DEBUG__ = false;
-const TREE_OPERATION_ADD = 1;
-const TREE_OPERATION_REMOVE = 2;
-const TREE_OPERATION_REORDER_CHILDREN = 3;
-const TREE_OPERATION_UPDATE_TREE_BASE_DURATION = 4;
-const TREE_OPERATION_UPDATE_ERRORS_OR_WARNINGS = 5;
-const TREE_OPERATION_REMOVE_ROOT = 6;
-const LOCAL_STORAGE_FILTER_PREFERENCES_KEY = 'React::DevTools::componentFilters';
-const SESSION_STORAGE_LAST_SELECTION_KEY = 'React::DevTools::lastSelection';
-const LOCAL_STORAGE_PARSE_HOOK_NAMES_KEY = 'React::DevTools::parseHookNames';
-const SESSION_STORAGE_RECORD_CHANGE_DESCRIPTIONS_KEY = 'React::DevTools::recordChangeDescriptions';
-const SESSION_STORAGE_RELOAD_AND_PROFILE_KEY = 'React::DevTools::reloadAndProfile';
-const LOCAL_STORAGE_SHOULD_BREAK_ON_CONSOLE_ERRORS = 'React::DevTools::breakOnConsoleErrors';
-const LOCAL_STORAGE_SHOULD_PATCH_CONSOLE_KEY = 'React::DevTools::appendComponentStack';
-const LOCAL_STORAGE_SHOW_INLINE_WARNINGS_AND_ERRORS_KEY = 'React::DevTools::showInlineWarningsAndErrors';
-const LOCAL_STORAGE_TRACE_UPDATES_ENABLED_KEY = 'React::DevTools::traceUpdatesEnabled';
-const PROFILER_EXPORT_VERSION = 5;
-const CHANGE_LOG_URL = 'https://github.com/facebook/react/blob/main/packages/react-devtools/CHANGELOG.md';
-const UNSUPPORTED_VERSION_URL = 'https://reactjs.org/blog/2019/08/15/new-react-devtools.html#how-do-i-get-the-old-version-back';
-const REACT_DEVTOOLS_WORKPLACE_URL = 'https://fburl.com/react-devtools-workplace-group'; // HACK
-//
-// Extracting during build time avoids a temporarily invalid state for the inline target.
-// Sometimes the inline target is rendered before root styles are applied,
-// which would result in e.g. NaN itemSize being passed to react-window list.
-//
-
-let COMFORTABLE_LINE_HEIGHT;
-let COMPACT_LINE_HEIGHT;
-
-try {
-  // $FlowFixMe
-  const rawStyleString = __webpack_require__(74).default;
-
-  const extractVar = varName => {
-    const regExp = new RegExp(`${varName}: ([0-9]+)`);
-    const match = rawStyleString.match(regExp);
-    return parseInt(match[1], 10);
-  };
-
-  COMFORTABLE_LINE_HEIGHT = extractVar('comfortable-line-height-data');
-  COMPACT_LINE_HEIGHT = extractVar('compact-line-height-data');
-} catch (error) {
-  // We can't use the Webpack loader syntax in the context of Jest,
-  // so tests need some reasonably meaningful fallback value.
-  COMFORTABLE_LINE_HEIGHT = 15;
-  COMPACT_LINE_HEIGHT = 10;
-}
-
-
-
-/***/ }),
-
-/***/ 10:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-if (true) {
-  module.exports = __webpack_require__(73);
-} else {}
-
-/***/ }),
-
-/***/ 119:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/** @license React vundefined
- * react-debug-tools.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-var k = __webpack_require__(50),
-    p = __webpack_require__(66);
-
-function r(a) {
-  for (var b = "https://reactjs.org/docs/error-decoder.html?invariant=" + a, e = 1; e < arguments.length; e++) b += "&args[]=" + encodeURIComponent(arguments[e]);
-
-  return "Minified React error #" + a + "; visit " + b + " for the full message or use the non-minified dev environment for full errors and additional helpful warnings.";
-}
-
-var w = __webpack_require__(0).__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED,
-    x = 60128;
-
-if ("function" === typeof Symbol && Symbol.for) {
-  var y = Symbol.for;
-  x = y("react.opaque.id");
-}
-
-var z = [],
-    A = null,
-    B = null;
-
-function C() {
-  if (null === A) {
-    var a = new Map();
-
-    try {
-      D.useContext({
-        _currentValue: null
-      }), D.useState(null), D.useReducer(function (a) {
-        return a;
-      }, null), D.useRef(null), "function" === typeof D.useCacheRefresh && D.useCacheRefresh(), D.useLayoutEffect(function () {}), D.useEffect(function () {}), D.useImperativeHandle(void 0, function () {
-        return null;
-      }), D.useDebugValue(null), D.useCallback(function () {}), D.useMemo(function () {
-        return null;
-      });
-    } finally {
-      var b = z;
-      z = [];
-    }
-
-    for (var e = 0; e < b.length; e++) {
-      var f = b[e];
-      a.set(f.primitive, p.parse(f.stackError));
-    }
-
-    A = a;
-  }
-
-  return A;
-}
-
-var E = null;
-
-function F() {
-  var a = E;
-  null !== a && (E = a.next);
-  return a;
-}
-
-var D = {
-  getCacheForType: function () {
-    throw Error(r(248));
-  },
-  readContext: function (a) {
-    return a._currentValue;
-  },
-  useCacheRefresh: function () {
-    var a = F();
-    z.push({
-      primitive: "CacheRefresh",
-      stackError: Error(),
-      value: null !== a ? a.memoizedState : function () {}
-    });
-    return function () {};
-  },
-  useCallback: function (a) {
-    var b = F();
-    z.push({
-      primitive: "Callback",
-      stackError: Error(),
-      value: null !== b ? b.memoizedState[0] : a
-    });
-    return a;
-  },
-  useContext: function (a) {
-    z.push({
-      primitive: "Context",
-      stackError: Error(),
-      value: a._currentValue
-    });
-    return a._currentValue;
-  },
-  useEffect: function (a) {
-    F();
-    z.push({
-      primitive: "Effect",
-      stackError: Error(),
-      value: a
-    });
-  },
-  useImperativeHandle: function (a) {
-    F();
-    var b = void 0;
-    null !== a && "object" === typeof a && (b = a.current);
-    z.push({
-      primitive: "ImperativeHandle",
-      stackError: Error(),
-      value: b
-    });
-  },
-  useDebugValue: function (a, b) {
-    z.push({
-      primitive: "DebugValue",
-      stackError: Error(),
-      value: "function" === typeof b ? b(a) : a
-    });
-  },
-  useLayoutEffect: function (a) {
-    F();
-    z.push({
-      primitive: "LayoutEffect",
-      stackError: Error(),
-      value: a
-    });
-  },
-  useMemo: function (a) {
-    var b = F();
-    a = null !== b ? b.memoizedState[0] : a();
-    z.push({
-      primitive: "Memo",
-      stackError: Error(),
-      value: a
-    });
-    return a;
-  },
-  useReducer: function (a, b, e) {
-    a = F();
-    b = null !== a ? a.memoizedState : void 0 !== e ? e(b) : b;
-    z.push({
-      primitive: "Reducer",
-      stackError: Error(),
-      value: b
-    });
-    return [b, function () {}];
-  },
-  useRef: function (a) {
-    var b = F();
-    a = null !== b ? b.memoizedState : {
-      current: a
-    };
-    z.push({
-      primitive: "Ref",
-      stackError: Error(),
-      value: a.current
-    });
-    return a;
-  },
-  useState: function (a) {
-    var b = F();
-    a = null !== b ? b.memoizedState : "function" === typeof a ? a() : a;
-    z.push({
-      primitive: "State",
-      stackError: Error(),
-      value: a
-    });
-    return [a, function () {}];
-  },
-  useTransition: function () {
-    F();
-    F();
-    z.push({
-      primitive: "Transition",
-      stackError: Error(),
-      value: void 0
-    });
-    return [!1, function () {}];
-  },
-  useMutableSource: function (a, b) {
-    F();
-    F();
-    F();
-    F();
-    a = b(a._source);
-    z.push({
-      primitive: "MutableSource",
-      stackError: Error(),
-      value: a
-    });
-    return a;
-  },
-  useDeferredValue: function (a) {
-    F();
-    F();
-    z.push({
-      primitive: "DeferredValue",
-      stackError: Error(),
-      value: a
-    });
-    return a;
-  },
-  useOpaqueIdentifier: function () {
-    var a = F();
-    B && 0 === B.mode && F();
-    (a = null === a ? void 0 : a.memoizedState) && a.$$typeof === x && (a = void 0);
-    z.push({
-      primitive: "OpaqueIdentifier",
-      stackError: Error(),
-      value: a
-    });
-    return a;
-  }
-},
-    G = 0;
-
-function H(a, b, e) {
-  var f = b[e].source,
-      c = 0;
-
-  a: for (; c < a.length; c++) if (a[c].source === f) {
-    for (var l = e + 1, q = c + 1; l < b.length && q < a.length; l++, q++) if (a[q].source !== b[l].source) continue a;
-
-    return c;
-  }
-
-  return -1;
-}
-
-function I(a, b) {
-  if (!a) return !1;
-  b = "use" + b;
-  return a.length < b.length ? !1 : a.lastIndexOf(b) === a.length - b.length;
-}
-
-function J(a, b, e) {
-  for (var f = [], c = null, l = f, q = 0, t = [], v = 0; v < b.length; v++) {
-    var u = b[v];
-    var d = a;
-    var h = p.parse(u.stackError);
-
-    b: {
-      var m = h,
-          n = H(m, d, G);
-      if (-1 !== n) d = n;else {
-        for (var g = 0; g < d.length && 5 > g; g++) if (n = H(m, d, g), -1 !== n) {
-          G = g;
-          d = n;
-          break b;
-        }
-
-        d = -1;
-      }
-    }
-
-    b: {
-      m = h;
-      n = C().get(u.primitive);
-      if (void 0 !== n) for (g = 0; g < n.length && g < m.length; g++) if (n[g].source !== m[g].source) {
-        g < m.length - 1 && I(m[g].functionName, u.primitive) && g++;
-        g < m.length - 1 && I(m[g].functionName, u.primitive) && g++;
-        m = g;
-        break b;
-      }
-      m = -1;
-    }
-
-    h = -1 === d || -1 === m || 2 > d - m ? null : h.slice(m, d - 1);
-
-    if (null !== h) {
-      d = 0;
-
-      if (null !== c) {
-        for (; d < h.length && d < c.length && h[h.length - d - 1].source === c[c.length - d - 1].source;) d++;
-
-        for (c = c.length - 1; c > d; c--) l = t.pop();
-      }
-
-      for (c = h.length - d - 1; 1 <= c; c--) d = [], m = h[c], (n = h[c - 1].functionName) ? (g = n.lastIndexOf("."), -1 === g && (g = 0), "use" === n.substr(g, 3) && (g += 3), n = n.substr(g)) : n = "", n = {
-        id: null,
-        isStateEditable: !1,
-        name: n,
-        value: void 0,
-        subHooks: d
-      }, e && (n.hookSource = {
-        lineNumber: m.lineNumber,
-        columnNumber: m.columnNumber,
-        functionName: m.functionName,
-        fileName: m.fileName
-      }), l.push(n), t.push(l), l = d;
-
-      c = h;
-    }
-
-    d = u.primitive;
-    u = {
-      id: "Context" === d || "DebugValue" === d ? null : q++,
-      isStateEditable: "Reducer" === d || "State" === d,
-      name: d,
-      value: u.value,
-      subHooks: []
-    };
-    e && (d = {
-      lineNumber: null,
-      functionName: null,
-      fileName: null,
-      columnNumber: null
-    }, h && 1 <= h.length && (h = h[0], d.lineNumber = h.lineNumber, d.functionName = h.functionName, d.fileName = h.fileName, d.columnNumber = h.columnNumber), u.hookSource = d);
-    l.push(u);
-  }
-
-  K(f, null);
-  return f;
-}
-
-function K(a, b) {
-  for (var e = [], f = 0; f < a.length; f++) {
-    var c = a[f];
-    "DebugValue" === c.name && 0 === c.subHooks.length ? (a.splice(f, 1), f--, e.push(c)) : K(c.subHooks, c);
-  }
-
-  null !== b && (1 === e.length ? b.value = e[0].value : 1 < e.length && (b.value = e.map(function (a) {
-    return a.value;
-  })));
-}
-
-function L(a, b, e) {
-  var f = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : !1;
-  null == e && (e = w.ReactCurrentDispatcher);
-  var c = e.current;
-  e.current = D;
-
-  try {
-    var l = Error();
-    a(b);
-  } finally {
-    var q = z;
-    z = [];
-    e.current = c;
-  }
-
-  c = p.parse(l);
-  return J(c, q, f);
-}
-
-function M(a) {
-  a.forEach(function (a, e) {
-    return e._currentValue = a;
-  });
-}
-
-exports.inspectHooks = L;
-
-exports.inspectHooksOfFiber = function (a, b) {
-  var e = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : !1;
-  null == b && (b = w.ReactCurrentDispatcher);
-  B = a;
-  if (0 !== a.tag && 15 !== a.tag && 11 !== a.tag) throw Error("Unknown Fiber. Needs to be a function component to inspect hooks.");
-  C();
-  var f = a.type,
-      c = a.memoizedProps;
-
-  if (f !== a.elementType && f && f.defaultProps) {
-    c = k({}, c);
-    var l = f.defaultProps;
-
-    for (q in l) void 0 === c[q] && (c[q] = l[q]);
-  }
-
-  E = a.memoizedState;
-  var q = new Map();
-
-  try {
-    for (l = a; l;) {
-      if (10 === l.tag) {
-        var t = l.type._context;
-        q.has(t) || (q.set(t, t._currentValue), t._currentValue = l.memoizedProps.value);
-      }
-
-      l = l.return;
-    }
-
-    if (11 === a.tag) {
-      var v = f.render;
-      f = c;
-      var u = a.ref;
-      t = b;
-      var d = t.current;
-      t.current = D;
-
-      try {
-        var h = Error();
-        v(f, u);
-      } finally {
-        var m = z;
-        z = [];
-        t.current = d;
-      }
-
-      var n = p.parse(h);
-      return J(n, m, e);
-    }
-
-    return L(f, c, b, e);
-  } finally {
-    E = null, M(q);
-  }
-};
-
-/***/ }),
-
-/***/ 2:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -680,7 +158,627 @@ const ComponentFilterHOC = 4;
 
 /***/ }),
 
-/***/ 20:
+/***/ 10:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return meta; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return dehydrate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return fillInPath; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return hydrate; });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+
+const meta = {
+  inspectable: Symbol('inspectable'),
+  inspected: Symbol('inspected'),
+  name: Symbol('name'),
+  preview_long: Symbol('preview_long'),
+  preview_short: Symbol('preview_short'),
+  readonly: Symbol('readonly'),
+  size: Symbol('size'),
+  type: Symbol('type'),
+  unserializable: Symbol('unserializable')
+};
+// This threshold determines the depth at which the bridge "dehydrates" nested data.
+// Dehydration means that we don't serialize the data for e.g. postMessage or stringify,
+// unless the frontend explicitly requests it (e.g. a user clicks to expand a props object).
+//
+// Reducing this threshold will improve the speed of initial component inspection,
+// but may decrease the responsiveness of expanding objects/arrays to inspect further.
+const LEVEL_THRESHOLD = 2;
+/**
+ * Generate the dehydrated metadata for complex object instances
+ */
+
+function createDehydrated(type, inspectable, data, cleaned, path) {
+  cleaned.push(path);
+  const dehydrated = {
+    inspectable,
+    type,
+    preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
+    preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
+    name: !data.constructor || data.constructor.name === 'Object' ? '' : data.constructor.name
+  };
+
+  if (type === 'array' || type === 'typed_array') {
+    dehydrated.size = data.length;
+  } else if (type === 'object') {
+    dehydrated.size = Object.keys(data).length;
+  }
+
+  if (type === 'iterator' || type === 'typed_array') {
+    dehydrated.readonly = true;
+  }
+
+  return dehydrated;
+}
+/**
+ * Strip out complex data (instances, functions, and data nested > LEVEL_THRESHOLD levels deep).
+ * The paths of the stripped out objects are appended to the `cleaned` list.
+ * On the other side of the barrier, the cleaned list is used to "re-hydrate" the cleaned representation into
+ * an object with symbols as attributes, so that a sanitized object can be distinguished from a normal object.
+ *
+ * Input: {"some": {"attr": fn()}, "other": AnInstance}
+ * Output: {
+ *   "some": {
+ *     "attr": {"name": the fn.name, type: "function"}
+ *   },
+ *   "other": {
+ *     "name": "AnInstance",
+ *     "type": "object",
+ *   },
+ * }
+ * and cleaned = [["some", "attr"], ["other"]]
+ */
+
+
+function dehydrate(data, cleaned, unserializable, path, isPathAllowed, level = 0) {
+  const type = Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* getDataType */ "f"])(data);
+  let isPathAllowedCheck;
+
+  switch (type) {
+    case 'html_element':
+      cleaned.push(path);
+      return {
+        inspectable: false,
+        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
+        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
+        name: data.tagName,
+        type
+      };
+
+    case 'function':
+      cleaned.push(path);
+      return {
+        inspectable: false,
+        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
+        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
+        name: typeof data.name === 'function' || !data.name ? 'function' : data.name,
+        type
+      };
+
+    case 'string':
+      isPathAllowedCheck = isPathAllowed(path);
+
+      if (isPathAllowedCheck) {
+        return data;
+      } else {
+        return data.length <= 500 ? data : data.slice(0, 500) + '...';
+      }
+
+    case 'bigint':
+      cleaned.push(path);
+      return {
+        inspectable: false,
+        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
+        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
+        name: data.toString(),
+        type
+      };
+
+    case 'symbol':
+      cleaned.push(path);
+      return {
+        inspectable: false,
+        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
+        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
+        name: data.toString(),
+        type
+      };
+    // React Elements aren't very inspector-friendly,
+    // and often contain private fields or circular references.
+
+    case 'react_element':
+      cleaned.push(path);
+      return {
+        inspectable: false,
+        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
+        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
+        name: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* getDisplayNameForReactElement */ "i"])(data) || 'Unknown',
+        type
+      };
+    // ArrayBuffers error if you try to inspect them.
+
+    case 'array_buffer':
+    case 'data_view':
+      cleaned.push(path);
+      return {
+        inspectable: false,
+        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
+        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
+        name: type === 'data_view' ? 'DataView' : 'ArrayBuffer',
+        size: data.byteLength,
+        type
+      };
+
+    case 'array':
+      isPathAllowedCheck = isPathAllowed(path);
+
+      if (level >= LEVEL_THRESHOLD && !isPathAllowedCheck) {
+        return createDehydrated(type, true, data, cleaned, path);
+      }
+
+      return data.map((item, i) => dehydrate(item, cleaned, unserializable, path.concat([i]), isPathAllowed, isPathAllowedCheck ? 1 : level + 1));
+
+    case 'html_all_collection':
+    case 'typed_array':
+    case 'iterator':
+      isPathAllowedCheck = isPathAllowed(path);
+
+      if (level >= LEVEL_THRESHOLD && !isPathAllowedCheck) {
+        return createDehydrated(type, true, data, cleaned, path);
+      } else {
+        const unserializableValue = {
+          unserializable: true,
+          type: type,
+          readonly: true,
+          size: type === 'typed_array' ? data.length : undefined,
+          preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
+          preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
+          name: !data.constructor || data.constructor.name === 'Object' ? '' : data.constructor.name
+        }; // TRICKY
+        // Don't use [...spread] syntax for this purpose.
+        // This project uses @babel/plugin-transform-spread in "loose" mode which only works with Array values.
+        // Other types (e.g. typed arrays, Sets) will not spread correctly.
+
+        Array.from(data).forEach((item, i) => unserializableValue[i] = dehydrate(item, cleaned, unserializable, path.concat([i]), isPathAllowed, isPathAllowedCheck ? 1 : level + 1));
+        unserializable.push(path);
+        return unserializableValue;
+      }
+
+    case 'opaque_iterator':
+      cleaned.push(path);
+      return {
+        inspectable: false,
+        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
+        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
+        name: data[Symbol.toStringTag],
+        type
+      };
+
+    case 'date':
+      cleaned.push(path);
+      return {
+        inspectable: false,
+        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
+        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
+        name: data.toString(),
+        type
+      };
+
+    case 'regexp':
+      cleaned.push(path);
+      return {
+        inspectable: false,
+        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
+        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
+        name: data.toString(),
+        type
+      };
+
+    case 'object':
+      isPathAllowedCheck = isPathAllowed(path);
+
+      if (level >= LEVEL_THRESHOLD && !isPathAllowedCheck) {
+        return createDehydrated(type, true, data, cleaned, path);
+      } else {
+        const object = {};
+        Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* getAllEnumerableKeys */ "c"])(data).forEach(key => {
+          const name = key.toString();
+          object[name] = dehydrate(data[key], cleaned, unserializable, path.concat([name]), isPathAllowed, isPathAllowedCheck ? 1 : level + 1);
+        });
+        return object;
+      }
+
+    case 'infinity':
+    case 'nan':
+    case 'undefined':
+      // Some values are lossy when sent through a WebSocket.
+      // We dehydrate+rehydrate them to preserve their type.
+      cleaned.push(path);
+      return {
+        type
+      };
+
+    default:
+      return data;
+  }
+}
+function fillInPath(object, data, path, value) {
+  const target = Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* getInObject */ "k"])(object, path);
+
+  if (target != null) {
+    if (!target[meta.unserializable]) {
+      delete target[meta.inspectable];
+      delete target[meta.inspected];
+      delete target[meta.name];
+      delete target[meta.preview_long];
+      delete target[meta.preview_short];
+      delete target[meta.readonly];
+      delete target[meta.size];
+      delete target[meta.type];
+    }
+  }
+
+  if (value !== null && data.unserializable.length > 0) {
+    const unserializablePath = data.unserializable[0];
+    let isMatch = unserializablePath.length === path.length;
+
+    for (let i = 0; i < path.length; i++) {
+      if (path[i] !== unserializablePath[i]) {
+        isMatch = false;
+        break;
+      }
+    }
+
+    if (isMatch) {
+      upgradeUnserializable(value, value);
+    }
+  }
+
+  Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* setInObject */ "r"])(object, path, value);
+}
+function hydrate(object, cleaned, unserializable) {
+  cleaned.forEach(path => {
+    const length = path.length;
+    const last = path[length - 1];
+    const parent = Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* getInObject */ "k"])(object, path.slice(0, length - 1));
+
+    if (!parent || !parent.hasOwnProperty(last)) {
+      return;
+    }
+
+    const value = parent[last];
+
+    if (!value) {
+      return;
+    } else if (value.type === 'infinity') {
+      parent[last] = Infinity;
+    } else if (value.type === 'nan') {
+      parent[last] = NaN;
+    } else if (value.type === 'undefined') {
+      parent[last] = undefined;
+    } else {
+      // Replace the string keys with Symbols so they're non-enumerable.
+      const replaced = {};
+      replaced[meta.inspectable] = !!value.inspectable;
+      replaced[meta.inspected] = false;
+      replaced[meta.name] = value.name;
+      replaced[meta.preview_long] = value.preview_long;
+      replaced[meta.preview_short] = value.preview_short;
+      replaced[meta.size] = value.size;
+      replaced[meta.readonly] = !!value.readonly;
+      replaced[meta.type] = value.type;
+      parent[last] = replaced;
+    }
+  });
+  unserializable.forEach(path => {
+    const length = path.length;
+    const last = path[length - 1];
+    const parent = Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* getInObject */ "k"])(object, path.slice(0, length - 1));
+
+    if (!parent || !parent.hasOwnProperty(last)) {
+      return;
+    }
+
+    const node = parent[last];
+    const replacement = { ...node
+    };
+    upgradeUnserializable(replacement, node);
+    parent[last] = replacement;
+  });
+  return object;
+}
+
+function upgradeUnserializable(destination, source) {
+  Object.defineProperties(destination, {
+    [meta.inspected]: {
+      configurable: true,
+      enumerable: false,
+      value: !!source.inspected
+    },
+    [meta.name]: {
+      configurable: true,
+      enumerable: false,
+      value: source.name
+    },
+    [meta.preview_long]: {
+      configurable: true,
+      enumerable: false,
+      value: source.preview_long
+    },
+    [meta.preview_short]: {
+      configurable: true,
+      enumerable: false,
+      value: source.preview_short
+    },
+    [meta.size]: {
+      configurable: true,
+      enumerable: false,
+      value: source.size
+    },
+    [meta.readonly]: {
+      configurable: true,
+      enumerable: false,
+      value: !!source.readonly
+    },
+    [meta.type]: {
+      configurable: true,
+      enumerable: false,
+      value: source.type
+    },
+    [meta.unserializable]: {
+      configurable: true,
+      enumerable: false,
+      value: !!source.unserializable
+    }
+  });
+  delete destination.inspected;
+  delete destination.name;
+  delete destination.preview_long;
+  delete destination.preview_short;
+  delete destination.size;
+  delete destination.readonly;
+  delete destination.type;
+  delete destination.unserializable;
+}
+
+/***/ }),
+
+/***/ 11:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__(57);
+} else {}
+
+/***/ }),
+
+/***/ 12:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return cleanForBridge; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return copyToClipboard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return copyWithDelete; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return copyWithRename; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return copyWithSet; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return getEffectDurations; });
+/* unused harmony export serializeToString */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return format; });
+/* unused harmony export isSynchronousXHRSupported */
+/* harmony import */ var clipboard_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var clipboard_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(clipboard_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hydration__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(10);
+/* harmony import */ var shared_isArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(23);
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+
+
+
+function cleanForBridge(data, isPathAllowed, path = []) {
+  if (data !== null) {
+    const cleanedPaths = [];
+    const unserializablePaths = [];
+    const cleanedData = Object(_hydration__WEBPACK_IMPORTED_MODULE_1__[/* dehydrate */ "a"])(data, cleanedPaths, unserializablePaths, path, isPathAllowed);
+    return {
+      data: cleanedData,
+      cleaned: cleanedPaths,
+      unserializable: unserializablePaths
+    };
+  } else {
+    return null;
+  }
+}
+function copyToClipboard(value) {
+  const safeToCopy = serializeToString(value);
+  const text = safeToCopy === undefined ? 'undefined' : safeToCopy;
+  const {
+    clipboardCopyText
+  } = window.__REACT_DEVTOOLS_GLOBAL_HOOK__; // On Firefox navigator.clipboard.writeText has to be called from
+  // the content script js code (because it requires the clipboardWrite
+  // permission to be allowed out of a "user handling" callback),
+  // clipboardCopyText is an helper injected into the page from.
+  // injectGlobalHook.
+
+  if (typeof clipboardCopyText === 'function') {
+    clipboardCopyText(text).catch(err => {});
+  } else {
+    Object(clipboard_js__WEBPACK_IMPORTED_MODULE_0__["copy"])(text);
+  }
+}
+function copyWithDelete(obj, path, index = 0) {
+  const key = path[index];
+  const updated = Object(shared_isArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(obj) ? obj.slice() : { ...obj
+  };
+
+  if (index + 1 === path.length) {
+    if (Object(shared_isArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(updated)) {
+      updated.splice(key, 1);
+    } else {
+      delete updated[key];
+    }
+  } else {
+    // $FlowFixMe number or string is fine here
+    updated[key] = copyWithDelete(obj[key], path, index + 1);
+  }
+
+  return updated;
+} // This function expects paths to be the same except for the final value.
+// e.g. ['path', 'to', 'foo'] and ['path', 'to', 'bar']
+
+function copyWithRename(obj, oldPath, newPath, index = 0) {
+  const oldKey = oldPath[index];
+  const updated = Object(shared_isArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(obj) ? obj.slice() : { ...obj
+  };
+
+  if (index + 1 === oldPath.length) {
+    const newKey = newPath[index]; // $FlowFixMe number or string is fine here
+
+    updated[newKey] = updated[oldKey];
+
+    if (Object(shared_isArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(updated)) {
+      updated.splice(oldKey, 1);
+    } else {
+      delete updated[oldKey];
+    }
+  } else {
+    // $FlowFixMe number or string is fine here
+    updated[oldKey] = copyWithRename(obj[oldKey], oldPath, newPath, index + 1);
+  }
+
+  return updated;
+}
+function copyWithSet(obj, path, value, index = 0) {
+  if (index >= path.length) {
+    return value;
+  }
+
+  const key = path[index];
+  const updated = Object(shared_isArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(obj) ? obj.slice() : { ...obj
+  }; // $FlowFixMe number or string is fine here
+
+  updated[key] = copyWithSet(obj[key], path, value, index + 1);
+  return updated;
+}
+function getEffectDurations(root) {
+  // Profiling durations are only available for certain builds.
+  // If available, they'll be stored on the HostRoot.
+  let effectDuration = null;
+  let passiveEffectDuration = null;
+  const hostRoot = root.current;
+
+  if (hostRoot != null) {
+    const stateNode = hostRoot.stateNode;
+
+    if (stateNode != null) {
+      effectDuration = stateNode.effectDuration != null ? stateNode.effectDuration : null;
+      passiveEffectDuration = stateNode.passiveEffectDuration != null ? stateNode.passiveEffectDuration : null;
+    }
+  }
+
+  return {
+    effectDuration,
+    passiveEffectDuration
+  };
+}
+function serializeToString(data) {
+  const cache = new Set(); // Use a custom replacer function to protect against circular references.
+
+  return JSON.stringify(data, (key, value) => {
+    if (typeof value === 'object' && value !== null) {
+      if (cache.has(value)) {
+        return;
+      }
+
+      cache.add(value);
+    } // $FlowFixMe
+
+
+    if (typeof value === 'bigint') {
+      return value.toString() + 'n';
+    }
+
+    return value;
+  });
+} // based on https://github.com/tmpfs/format-util/blob/0e62d430efb0a1c51448709abd3e2406c14d8401/format.js#L1
+// based on https://developer.mozilla.org/en-US/docs/Web/API/console#Using_string_substitutions
+// Implements s, d, i and f placeholders
+// NOTE: KEEP IN SYNC with src/hook.js
+
+function format(maybeMessage, ...inputArgs) {
+  const args = inputArgs.slice(); // Symbols cannot be concatenated with Strings.
+
+  let formatted = typeof maybeMessage === 'symbol' ? maybeMessage.toString() : '' + maybeMessage; // If the first argument is a string, check for substitutions.
+
+  if (typeof maybeMessage === 'string') {
+    if (args.length) {
+      const REGEXP = /(%?)(%([jds]))/g;
+      formatted = formatted.replace(REGEXP, (match, escaped, ptn, flag) => {
+        let arg = args.shift();
+
+        switch (flag) {
+          case 's':
+            arg += '';
+            break;
+
+          case 'd':
+          case 'i':
+            arg = parseInt(arg, 10).toString();
+            break;
+
+          case 'f':
+            arg = parseFloat(arg).toString();
+            break;
+        }
+
+        if (!escaped) {
+          return arg;
+        }
+
+        args.unshift(arg);
+        return match;
+      });
+    }
+  } // Arguments that remain after formatting.
+
+
+  if (args.length) {
+    for (let i = 0; i < args.length; i++) {
+      const arg = args[i]; // Symbols cannot be concatenated with Strings.
+
+      formatted += ' ' + (typeof arg === 'symbol' ? arg.toString() : arg);
+    }
+  } // Update escaped %% values.
+
+
+  formatted = formatted.replace(/%{2,2}/g, '%');
+  return '' + formatted;
+}
+function isSynchronousXHRSupported() {
+  return !!(window.document && window.document.featurePolicy && window.document.featurePolicy.allowsFeature('sync-xhr'));
+}
+
+/***/ }),
+
+/***/ 13:
 /***/ (function(module, exports, __webpack_require__) {
 
 //  Import support https://stackoverflow.com/questions/13673346/supporting-both-commonjs-and-amd
@@ -995,217 +1093,458 @@ const ComponentFilterHOC = 4;
 
 /***/ }),
 
-/***/ 21:
-/***/ (function(module, exports) {
+/***/ 196:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// shim for using process in browser
-var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_devtools_shared_src_backend_renderer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(44);
+/**
+ * In order to support reload-and-profile functionality, the renderer needs to be injected before any other scripts.
+ * Since it is a complex file (with imports) we can't just toString() it like we do with the hook itself,
+ * So this entry point (one of the web_accessible_resources) provides a way to eagerly inject it.
+ * The hook will look for the presence of a global __REACT_DEVTOOLS_ATTACH__ and attach an injected renderer early.
+ * The normal case (not a reload-and-profile) will not make use of this entry point though.
+ *
+ * 
+ */
 
-var cachedSetTimeout;
-var cachedClearTimeout;
+Object.defineProperty(window, '__REACT_DEVTOOLS_ATTACH__', {
+  enumerable: false,
+  // This property needs to be configurable to allow third-party integrations
+  // to attach their own renderer. Note that using third-party integrations
+  // is not officially supported. Use at your own risk.
+  configurable: true,
 
-function defaultSetTimout() {
-  throw new Error('setTimeout has not been defined');
+  get() {
+    return react_devtools_shared_src_backend_renderer__WEBPACK_IMPORTED_MODULE_0__[/* attach */ "a"];
+  }
+
+});
+
+/***/ }),
+
+/***/ 2:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return __DEBUG__; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "x", function() { return __PERFORMANCE_PROFILE__; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return TREE_OPERATION_ADD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return TREE_OPERATION_REMOVE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return TREE_OPERATION_REORDER_CHILDREN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return TREE_OPERATION_UPDATE_TREE_BASE_DURATION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return TREE_OPERATION_UPDATE_ERRORS_OR_WARNINGS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return TREE_OPERATION_REMOVE_ROOT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return LOCAL_STORAGE_FILTER_PREFERENCES_KEY; });
+/* unused harmony export SESSION_STORAGE_LAST_SELECTION_KEY */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return LOCAL_STORAGE_PARSE_HOOK_NAMES_KEY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return SESSION_STORAGE_RECORD_CHANGE_DESCRIPTIONS_KEY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return SESSION_STORAGE_RELOAD_AND_PROFILE_KEY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return LOCAL_STORAGE_SHOULD_BREAK_ON_CONSOLE_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return LOCAL_STORAGE_SHOULD_PATCH_CONSOLE_KEY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return LOCAL_STORAGE_SHOW_INLINE_WARNINGS_AND_ERRORS_KEY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return LOCAL_STORAGE_TRACE_UPDATES_ENABLED_KEY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return LOCAL_STORAGE_HIDE_CONSOLE_LOGS_IN_STRICT_MODE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return PROFILER_EXPORT_VERSION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CHANGE_LOG_URL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return UNSUPPORTED_VERSION_URL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return REACT_DEVTOOLS_WORKPLACE_URL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return THEME_STYLES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return COMFORTABLE_LINE_HEIGHT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return COMPACT_LINE_HEIGHT; });
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+// Flip this flag to true to enable verbose console debug logging.
+const __DEBUG__ = false; // Flip this flag to true to enable performance.mark() and performance.measure() timings.
+
+const __PERFORMANCE_PROFILE__ = false;
+const TREE_OPERATION_ADD = 1;
+const TREE_OPERATION_REMOVE = 2;
+const TREE_OPERATION_REORDER_CHILDREN = 3;
+const TREE_OPERATION_UPDATE_TREE_BASE_DURATION = 4;
+const TREE_OPERATION_UPDATE_ERRORS_OR_WARNINGS = 5;
+const TREE_OPERATION_REMOVE_ROOT = 6;
+const LOCAL_STORAGE_FILTER_PREFERENCES_KEY = 'React::DevTools::componentFilters';
+const SESSION_STORAGE_LAST_SELECTION_KEY = 'React::DevTools::lastSelection';
+const LOCAL_STORAGE_PARSE_HOOK_NAMES_KEY = 'React::DevTools::parseHookNames';
+const SESSION_STORAGE_RECORD_CHANGE_DESCRIPTIONS_KEY = 'React::DevTools::recordChangeDescriptions';
+const SESSION_STORAGE_RELOAD_AND_PROFILE_KEY = 'React::DevTools::reloadAndProfile';
+const LOCAL_STORAGE_SHOULD_BREAK_ON_CONSOLE_ERRORS = 'React::DevTools::breakOnConsoleErrors';
+const LOCAL_STORAGE_SHOULD_PATCH_CONSOLE_KEY = 'React::DevTools::appendComponentStack';
+const LOCAL_STORAGE_SHOW_INLINE_WARNINGS_AND_ERRORS_KEY = 'React::DevTools::showInlineWarningsAndErrors';
+const LOCAL_STORAGE_TRACE_UPDATES_ENABLED_KEY = 'React::DevTools::traceUpdatesEnabled';
+const LOCAL_STORAGE_HIDE_CONSOLE_LOGS_IN_STRICT_MODE = 'React::DevTools::hideConsoleLogsInStrictMode';
+const PROFILER_EXPORT_VERSION = 5;
+const CHANGE_LOG_URL = 'https://github.com/facebook/react/blob/main/packages/react-devtools/CHANGELOG.md';
+const UNSUPPORTED_VERSION_URL = 'https://reactjs.org/blog/2019/08/15/new-react-devtools.html#how-do-i-get-the-old-version-back';
+const REACT_DEVTOOLS_WORKPLACE_URL = 'https://fburl.com/react-devtools-workplace-group';
+const THEME_STYLES = {
+  light: {
+    '--color-attribute-name': '#ef6632',
+    '--color-attribute-name-not-editable': '#23272f',
+    '--color-attribute-name-inverted': 'rgba(255, 255, 255, 0.7)',
+    '--color-attribute-value': '#1a1aa6',
+    '--color-attribute-value-inverted': '#ffffff',
+    '--color-attribute-editable-value': '#1a1aa6',
+    '--color-background': '#ffffff',
+    '--color-background-hover': 'rgba(0, 136, 250, 0.1)',
+    '--color-background-inactive': '#e5e5e5',
+    '--color-background-invalid': '#fff0f0',
+    '--color-background-selected': '#0088fa',
+    '--color-button-background': '#ffffff',
+    '--color-button-background-focus': '#ededed',
+    '--color-button': '#5f6673',
+    '--color-button-disabled': '#cfd1d5',
+    '--color-button-active': '#0088fa',
+    '--color-button-focus': '#23272f',
+    '--color-button-hover': '#23272f',
+    '--color-border': '#eeeeee',
+    '--color-commit-did-not-render-fill': '#cfd1d5',
+    '--color-commit-did-not-render-fill-text': '#000000',
+    '--color-commit-did-not-render-pattern': '#cfd1d5',
+    '--color-commit-did-not-render-pattern-text': '#333333',
+    '--color-commit-gradient-0': '#37afa9',
+    '--color-commit-gradient-1': '#63b19e',
+    '--color-commit-gradient-2': '#80b393',
+    '--color-commit-gradient-3': '#97b488',
+    '--color-commit-gradient-4': '#abb67d',
+    '--color-commit-gradient-5': '#beb771',
+    '--color-commit-gradient-6': '#cfb965',
+    '--color-commit-gradient-7': '#dfba57',
+    '--color-commit-gradient-8': '#efbb49',
+    '--color-commit-gradient-9': '#febc38',
+    '--color-commit-gradient-text': '#000000',
+    '--color-component-name': '#6a51b2',
+    '--color-component-name-inverted': '#ffffff',
+    '--color-component-badge-background': 'rgba(0, 0, 0, 0.1)',
+    '--color-component-badge-background-inverted': 'rgba(255, 255, 255, 0.25)',
+    '--color-component-badge-count': '#777d88',
+    '--color-component-badge-count-inverted': 'rgba(255, 255, 255, 0.7)',
+    '--color-console-error-badge-text': '#ffffff',
+    '--color-console-error-background': '#fff0f0',
+    '--color-console-error-border': '#ffd6d6',
+    '--color-console-error-icon': '#eb3941',
+    '--color-console-error-text': '#fe2e31',
+    '--color-console-warning-badge-text': '#000000',
+    '--color-console-warning-background': '#fffbe5',
+    '--color-console-warning-border': '#fff5c1',
+    '--color-console-warning-icon': '#f4bd00',
+    '--color-console-warning-text': '#64460c',
+    '--color-context-background': 'rgba(0,0,0,.9)',
+    '--color-context-background-hover': 'rgba(255, 255, 255, 0.1)',
+    '--color-context-background-selected': '#178fb9',
+    '--color-context-border': '#3d424a',
+    '--color-context-text': '#ffffff',
+    '--color-context-text-selected': '#ffffff',
+    '--color-dim': '#777d88',
+    '--color-dimmer': '#cfd1d5',
+    '--color-dimmest': '#eff0f1',
+    '--color-error-background': 'hsl(0, 100%, 97%)',
+    '--color-error-border': 'hsl(0, 100%, 92%)',
+    '--color-error-text': '#ff0000',
+    '--color-expand-collapse-toggle': '#777d88',
+    '--color-link': '#0000ff',
+    '--color-modal-background': 'rgba(255, 255, 255, 0.75)',
+    '--color-bridge-version-npm-background': '#eff0f1',
+    '--color-bridge-version-npm-text': '#000000',
+    '--color-bridge-version-number': '#0088fa',
+    '--color-primitive-hook-badge-background': '#e5e5e5',
+    '--color-primitive-hook-badge-text': '#5f6673',
+    '--color-record-active': '#fc3a4b',
+    '--color-record-hover': '#3578e5',
+    '--color-record-inactive': '#0088fa',
+    '--color-resize-bar': '#eeeeee',
+    '--color-resize-bar-active': '#dcdcdc',
+    '--color-resize-bar-border': '#d1d1d1',
+    '--color-resize-bar-dot': '#333333',
+    '--color-scheduling-profiler-native-event': '#ccc',
+    '--color-scheduling-profiler-native-event-hover': '#aaa',
+    '--color-scheduling-profiler-network-primary': '#fcf3dc',
+    '--color-scheduling-profiler-network-primary-hover': '#f0e7d1',
+    '--color-scheduling-profiler-network-secondary': '#efc457',
+    '--color-scheduling-profiler-network-secondary-hover': '#e3ba52',
+    '--color-scheduling-profiler-priority-background': '#f6f6f6',
+    '--color-scheduling-profiler-priority-border': '#eeeeee',
+    '--color-scheduling-profiler-user-timing': '#c9cacd',
+    '--color-scheduling-profiler-user-timing-hover': '#93959a',
+    '--color-scheduling-profiler-react-idle': '#d3e5f6',
+    '--color-scheduling-profiler-react-idle-hover': '#c3d9ef',
+    '--color-scheduling-profiler-react-render': '#9fc3f3',
+    '--color-scheduling-profiler-react-render-hover': '#83afe9',
+    '--color-scheduling-profiler-react-render-text': '#11365e',
+    '--color-scheduling-profiler-react-commit': '#c88ff0',
+    '--color-scheduling-profiler-react-commit-hover': '#b281d6',
+    '--color-scheduling-profiler-react-commit-text': '#3e2c4a',
+    '--color-scheduling-profiler-react-layout-effects': '#b281d6',
+    '--color-scheduling-profiler-react-layout-effects-hover': '#9d71bd',
+    '--color-scheduling-profiler-react-layout-effects-text': '#3e2c4a',
+    '--color-scheduling-profiler-react-passive-effects': '#b281d6',
+    '--color-scheduling-profiler-react-passive-effects-hover': '#9d71bd',
+    '--color-scheduling-profiler-react-passive-effects-text': '#3e2c4a',
+    '--color-scheduling-profiler-react-schedule': '#9fc3f3',
+    '--color-scheduling-profiler-react-schedule-hover': '#2683E2',
+    '--color-scheduling-profiler-react-suspense-rejected': '#f1cc14',
+    '--color-scheduling-profiler-react-suspense-rejected-hover': '#ffdf37',
+    '--color-scheduling-profiler-react-suspense-resolved': '#a6e59f',
+    '--color-scheduling-profiler-react-suspense-resolved-hover': '#89d281',
+    '--color-scheduling-profiler-react-suspense-unresolved': '#c9cacd',
+    '--color-scheduling-profiler-react-suspense-unresolved-hover': '#93959a',
+    '--color-scheduling-profiler-text-color': '#000000',
+    '--color-scheduling-profiler-text-dim-color': '#ccc',
+    '--color-scheduling-profiler-react-work-border': '#ffffff',
+    '--color-search-match': 'yellow',
+    '--color-search-match-current': '#f7923b',
+    '--color-selected-tree-highlight-active': 'rgba(0, 136, 250, 0.1)',
+    '--color-selected-tree-highlight-inactive': 'rgba(0, 0, 0, 0.05)',
+    '--color-scroll-caret': 'rgba(150, 150, 150, 0.5)',
+    '--color-tab-selected-border': '#0088fa',
+    '--color-text': '#000000',
+    '--color-text-invalid': '#ff0000',
+    '--color-text-selected': '#ffffff',
+    '--color-toggle-background-invalid': '#fc3a4b',
+    '--color-toggle-background-on': '#0088fa',
+    '--color-toggle-background-off': '#cfd1d5',
+    '--color-toggle-text': '#ffffff',
+    '--color-warning-background': '#fb3655',
+    '--color-warning-background-hover': '#f82042',
+    '--color-warning-text-color': '#ffffff',
+    '--color-warning-text-color-inverted': '#fd4d69',
+    // The styles below should be kept in sync with 'root.css'
+    // They are repeated there because they're used by e.g. tooltips or context menus
+    // which get rendered outside of the DOM subtree (where normal theme/styles are written).
+    '--color-scroll-thumb': '#c2c2c2',
+    '--color-scroll-track': '#fafafa',
+    '--color-tooltip-background': 'rgba(0, 0, 0, 0.9)',
+    '--color-tooltip-text': '#ffffff'
+  },
+  dark: {
+    '--color-attribute-name': '#9d87d2',
+    '--color-attribute-name-not-editable': '#ededed',
+    '--color-attribute-name-inverted': '#282828',
+    '--color-attribute-value': '#cedae0',
+    '--color-attribute-value-inverted': '#ffffff',
+    '--color-attribute-editable-value': 'yellow',
+    '--color-background': '#282c34',
+    '--color-background-hover': 'rgba(255, 255, 255, 0.1)',
+    '--color-background-inactive': '#3d424a',
+    '--color-background-invalid': '#5c0000',
+    '--color-background-selected': '#178fb9',
+    '--color-button-background': '#282c34',
+    '--color-button-background-focus': '#3d424a',
+    '--color-button': '#afb3b9',
+    '--color-button-active': '#61dafb',
+    '--color-button-disabled': '#4f5766',
+    '--color-button-focus': '#a2e9fc',
+    '--color-button-hover': '#ededed',
+    '--color-border': '#3d424a',
+    '--color-commit-did-not-render-fill': '#777d88',
+    '--color-commit-did-not-render-fill-text': '#000000',
+    '--color-commit-did-not-render-pattern': '#666c77',
+    '--color-commit-did-not-render-pattern-text': '#ffffff',
+    '--color-commit-gradient-0': '#37afa9',
+    '--color-commit-gradient-1': '#63b19e',
+    '--color-commit-gradient-2': '#80b393',
+    '--color-commit-gradient-3': '#97b488',
+    '--color-commit-gradient-4': '#abb67d',
+    '--color-commit-gradient-5': '#beb771',
+    '--color-commit-gradient-6': '#cfb965',
+    '--color-commit-gradient-7': '#dfba57',
+    '--color-commit-gradient-8': '#efbb49',
+    '--color-commit-gradient-9': '#febc38',
+    '--color-commit-gradient-text': '#000000',
+    '--color-component-name': '#61dafb',
+    '--color-component-name-inverted': '#282828',
+    '--color-component-badge-background': 'rgba(255, 255, 255, 0.25)',
+    '--color-component-badge-background-inverted': 'rgba(0, 0, 0, 0.25)',
+    '--color-component-badge-count': '#8f949d',
+    '--color-component-badge-count-inverted': 'rgba(255, 255, 255, 0.7)',
+    '--color-console-error-badge-text': '#000000',
+    '--color-console-error-background': '#290000',
+    '--color-console-error-border': '#5c0000',
+    '--color-console-error-icon': '#eb3941',
+    '--color-console-error-text': '#fc7f7f',
+    '--color-console-warning-badge-text': '#000000',
+    '--color-console-warning-background': '#332b00',
+    '--color-console-warning-border': '#665500',
+    '--color-console-warning-icon': '#f4bd00',
+    '--color-console-warning-text': '#f5f2ed',
+    '--color-context-background': 'rgba(255,255,255,.95)',
+    '--color-context-background-hover': 'rgba(0, 136, 250, 0.1)',
+    '--color-context-background-selected': '#0088fa',
+    '--color-context-border': '#eeeeee',
+    '--color-context-text': '#000000',
+    '--color-context-text-selected': '#ffffff',
+    '--color-dim': '#8f949d',
+    '--color-dimmer': '#777d88',
+    '--color-dimmest': '#4f5766',
+    '--color-error-background': '#200',
+    '--color-error-border': '#900',
+    '--color-error-text': '#f55',
+    '--color-expand-collapse-toggle': '#8f949d',
+    '--color-link': '#61dafb',
+    '--color-modal-background': 'rgba(0, 0, 0, 0.75)',
+    '--color-bridge-version-npm-background': 'rgba(0, 0, 0, 0.25)',
+    '--color-bridge-version-npm-text': '#ffffff',
+    '--color-bridge-version-number': 'yellow',
+    '--color-primitive-hook-badge-background': 'rgba(0, 0, 0, 0.25)',
+    '--color-primitive-hook-badge-text': 'rgba(255, 255, 255, 0.7)',
+    '--color-record-active': '#fc3a4b',
+    '--color-record-hover': '#a2e9fc',
+    '--color-record-inactive': '#61dafb',
+    '--color-resize-bar': '#282c34',
+    '--color-resize-bar-active': '#31363f',
+    '--color-resize-bar-border': '#3d424a',
+    '--color-resize-bar-dot': '#cfd1d5',
+    '--color-scheduling-profiler-native-event': '#b2b2b2',
+    '--color-scheduling-profiler-native-event-hover': '#949494',
+    '--color-scheduling-profiler-network-primary': '#fcf3dc',
+    '--color-scheduling-profiler-network-primary-hover': '#e3dbc5',
+    '--color-scheduling-profiler-network-secondary': '#efc457',
+    '--color-scheduling-profiler-network-secondary-hover': '#d6af4d',
+    '--color-scheduling-profiler-priority-background': '#1d2129',
+    '--color-scheduling-profiler-priority-border': '#282c34',
+    '--color-scheduling-profiler-user-timing': '#c9cacd',
+    '--color-scheduling-profiler-user-timing-hover': '#93959a',
+    '--color-scheduling-profiler-react-idle': '#3d485b',
+    '--color-scheduling-profiler-react-idle-hover': '#465269',
+    '--color-scheduling-profiler-react-render': '#2683E2',
+    '--color-scheduling-profiler-react-render-hover': '#1a76d4',
+    '--color-scheduling-profiler-react-render-text': '#11365e',
+    '--color-scheduling-profiler-react-commit': '#731fad',
+    '--color-scheduling-profiler-react-commit-hover': '#611b94',
+    '--color-scheduling-profiler-react-commit-text': '#e5c1ff',
+    '--color-scheduling-profiler-react-layout-effects': '#611b94',
+    '--color-scheduling-profiler-react-layout-effects-hover': '#51167a',
+    '--color-scheduling-profiler-react-layout-effects-text': '#e5c1ff',
+    '--color-scheduling-profiler-react-passive-effects': '#611b94',
+    '--color-scheduling-profiler-react-passive-effects-hover': '#51167a',
+    '--color-scheduling-profiler-react-passive-effects-text': '#e5c1ff',
+    '--color-scheduling-profiler-react-schedule': '#2683E2',
+    '--color-scheduling-profiler-react-schedule-hover': '#1a76d4',
+    '--color-scheduling-profiler-react-suspense-rejected': '#f1cc14',
+    '--color-scheduling-profiler-react-suspense-rejected-hover': '#e4c00f',
+    '--color-scheduling-profiler-react-suspense-resolved': '#a6e59f',
+    '--color-scheduling-profiler-react-suspense-resolved-hover': '#89d281',
+    '--color-scheduling-profiler-react-suspense-unresolved': '#c9cacd',
+    '--color-scheduling-profiler-react-suspense-unresolved-hover': '#93959a',
+    '--color-scheduling-profiler-text-color': '#282c34',
+    '--color-scheduling-profiler-text-dim-color': '#555b66',
+    '--color-scheduling-profiler-react-work-border': '#ffffff',
+    '--color-search-match': 'yellow',
+    '--color-search-match-current': '#f7923b',
+    '--color-selected-tree-highlight-active': 'rgba(23, 143, 185, 0.15)',
+    '--color-selected-tree-highlight-inactive': 'rgba(255, 255, 255, 0.05)',
+    '--color-scroll-caret': '#4f5766',
+    '--color-shadow': 'rgba(0, 0, 0, 0.5)',
+    '--color-tab-selected-border': '#178fb9',
+    '--color-text': '#ffffff',
+    '--color-text-invalid': '#ff8080',
+    '--color-text-selected': '#ffffff',
+    '--color-toggle-background-invalid': '#fc3a4b',
+    '--color-toggle-background-on': '#178fb9',
+    '--color-toggle-background-off': '#777d88',
+    '--color-toggle-text': '#ffffff',
+    '--color-warning-background': '#ee1638',
+    '--color-warning-background-hover': '#da1030',
+    '--color-warning-text-color': '#ffffff',
+    '--color-warning-text-color-inverted': '#ee1638',
+    // The styles below should be kept in sync with 'root.css'
+    // They are repeated there because they're used by e.g. tooltips or context menus
+    // which get rendered outside of the DOM subtree (where normal theme/styles are written).
+    '--color-scroll-thumb': '#afb3b9',
+    '--color-scroll-track': '#313640',
+    '--color-tooltip-background': 'rgba(255, 255, 255, 0.95)',
+    '--color-tooltip-text': '#000000'
+  },
+  compact: {
+    '--font-size-monospace-small': '9px',
+    '--font-size-monospace-normal': '11px',
+    '--font-size-monospace-large': '15px',
+    '--font-size-sans-small': '10px',
+    '--font-size-sans-normal': '12px',
+    '--font-size-sans-large': '14px',
+    '--line-height-data': '18px'
+  },
+  comfortable: {
+    '--font-size-monospace-small': '10px',
+    '--font-size-monospace-normal': '13px',
+    '--font-size-monospace-large': '17px',
+    '--font-size-sans-small': '12px',
+    '--font-size-sans-normal': '14px',
+    '--font-size-sans-large': '16px',
+    '--line-height-data': '22px'
+  }
+}; // HACK
+//
+// Sometimes the inline target is rendered before root styles are applied,
+// which would result in e.g. NaN itemSize being passed to react-window list.
+
+const COMFORTABLE_LINE_HEIGHT = parseInt(THEME_STYLES.comfortable['--line-height-data'], 10);
+const COMPACT_LINE_HEIGHT = parseInt(THEME_STYLES.compact['--line-height-data'], 10);
+
+
+/***/ }),
+
+/***/ 22:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return enableProfilerChangedHookIndices; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return isInternalFacebookBuild; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return consoleManagedByDevToolsDuringStrictMode; });
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+
+/************************************************************************
+ * This file is forked between different DevTools implementations.
+ * It should never be imported directly!
+ * It should always be imported from "react-devtools-feature-flags".
+ ************************************************************************/
+const enableProfilerChangedHookIndices = true;
+const isInternalFacebookBuild = false;
+const consoleManagedByDevToolsDuringStrictMode = true;
+/************************************************************************
+ * Do not edit the code below.
+ * It ensures this fork exports the same types as the default flags file.
+ ************************************************************************/
+
+// eslint-disable-next-line no-unused-expressions
+null;
+
+/***/ }),
+
+/***/ 23:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+const isArrayImpl = Array.isArray; // eslint-disable-next-line no-redeclare
+
+function isArray(a) {
+  return isArrayImpl(a);
 }
 
-function defaultClearTimeout() {
-  throw new Error('clearTimeout has not been defined');
-}
-
-(function () {
-  try {
-    if (typeof setTimeout === 'function') {
-      cachedSetTimeout = setTimeout;
-    } else {
-      cachedSetTimeout = defaultSetTimout;
-    }
-  } catch (e) {
-    cachedSetTimeout = defaultSetTimout;
-  }
-
-  try {
-    if (typeof clearTimeout === 'function') {
-      cachedClearTimeout = clearTimeout;
-    } else {
-      cachedClearTimeout = defaultClearTimeout;
-    }
-  } catch (e) {
-    cachedClearTimeout = defaultClearTimeout;
-  }
-})();
-
-function runTimeout(fun) {
-  if (cachedSetTimeout === setTimeout) {
-    //normal enviroments in sane situations
-    return setTimeout(fun, 0);
-  } // if setTimeout wasn't available but was latter defined
-
-
-  if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-    cachedSetTimeout = setTimeout;
-    return setTimeout(fun, 0);
-  }
-
-  try {
-    // when when somebody has screwed with setTimeout but no I.E. maddness
-    return cachedSetTimeout(fun, 0);
-  } catch (e) {
-    try {
-      // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-      return cachedSetTimeout.call(null, fun, 0);
-    } catch (e) {
-      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-      return cachedSetTimeout.call(this, fun, 0);
-    }
-  }
-}
-
-function runClearTimeout(marker) {
-  if (cachedClearTimeout === clearTimeout) {
-    //normal enviroments in sane situations
-    return clearTimeout(marker);
-  } // if clearTimeout wasn't available but was latter defined
-
-
-  if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-    cachedClearTimeout = clearTimeout;
-    return clearTimeout(marker);
-  }
-
-  try {
-    // when when somebody has screwed with setTimeout but no I.E. maddness
-    return cachedClearTimeout(marker);
-  } catch (e) {
-    try {
-      // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-      return cachedClearTimeout.call(null, marker);
-    } catch (e) {
-      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-      // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-      return cachedClearTimeout.call(this, marker);
-    }
-  }
-}
-
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-  if (!draining || !currentQueue) {
-    return;
-  }
-
-  draining = false;
-
-  if (currentQueue.length) {
-    queue = currentQueue.concat(queue);
-  } else {
-    queueIndex = -1;
-  }
-
-  if (queue.length) {
-    drainQueue();
-  }
-}
-
-function drainQueue() {
-  if (draining) {
-    return;
-  }
-
-  var timeout = runTimeout(cleanUpNextTick);
-  draining = true;
-  var len = queue.length;
-
-  while (len) {
-    currentQueue = queue;
-    queue = [];
-
-    while (++queueIndex < len) {
-      if (currentQueue) {
-        currentQueue[queueIndex].run();
-      }
-    }
-
-    queueIndex = -1;
-    len = queue.length;
-  }
-
-  currentQueue = null;
-  draining = false;
-  runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-  var args = new Array(arguments.length - 1);
-
-  if (arguments.length > 1) {
-    for (var i = 1; i < arguments.length; i++) {
-      args[i - 1] = arguments[i];
-    }
-  }
-
-  queue.push(new Item(fun, args));
-
-  if (queue.length === 1 && !draining) {
-    runTimeout(drainQueue);
-  }
-}; // v8 likes predictible objects
-
-
-function Item(fun, array) {
-  this.fun = fun;
-  this.array = array;
-}
-
-Item.prototype.run = function () {
-  this.fun.apply(null, this.array);
-};
-
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) {
-  return [];
-};
-
-process.binding = function (name) {
-  throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () {
-  return '/';
-};
-
-process.chdir = function (dir) {
-  throw new Error('process.chdir is not supported');
-};
-
-process.umask = function () {
-  return 0;
-};
+/* harmony default export */ __webpack_exports__["a"] = (isArray);
 
 /***/ }),
 
@@ -1217,33 +1556,34 @@ process.umask = function () {
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, "c", function() { return /* binding */ getAllEnumerableKeys; });
 __webpack_require__.d(__webpack_exports__, "h", function() { return /* binding */ getDisplayName; });
-__webpack_require__.d(__webpack_exports__, "m", function() { return /* binding */ getUID; });
-__webpack_require__.d(__webpack_exports__, "s", function() { return /* binding */ utfDecodeString; });
-__webpack_require__.d(__webpack_exports__, "t", function() { return /* binding */ utfEncodeString; });
+__webpack_require__.d(__webpack_exports__, "n", function() { return /* binding */ getUID; });
+__webpack_require__.d(__webpack_exports__, "t", function() { return /* binding */ utfDecodeString; });
+__webpack_require__.d(__webpack_exports__, "u", function() { return /* binding */ utfEncodeString; });
 __webpack_require__.d(__webpack_exports__, "g", function() { return /* binding */ getDefaultComponentFilters; });
-__webpack_require__.d(__webpack_exports__, "k", function() { return /* binding */ getSavedComponentFilters; });
-__webpack_require__.d(__webpack_exports__, "o", function() { return /* binding */ saveComponentFilters; });
+__webpack_require__.d(__webpack_exports__, "l", function() { return /* binding */ getSavedComponentFilters; });
+__webpack_require__.d(__webpack_exports__, "p", function() { return /* binding */ saveComponentFilters; });
 __webpack_require__.d(__webpack_exports__, "d", function() { return /* binding */ getAppendComponentStack; });
 __webpack_require__.d(__webpack_exports__, "e", function() { return /* binding */ getBreakOnConsoleErrors; });
-__webpack_require__.d(__webpack_exports__, "l", function() { return /* binding */ getShowInlineWarningsAndErrors; });
-__webpack_require__.d(__webpack_exports__, "p", function() { return /* binding */ separateDisplayNameAndHOCs; });
-__webpack_require__.d(__webpack_exports__, "r", function() { return /* binding */ shallowDiffers; });
-__webpack_require__.d(__webpack_exports__, "j", function() { return /* binding */ getInObject; });
+__webpack_require__.d(__webpack_exports__, "j", function() { return /* binding */ getHideConsoleLogsInStrictMode; });
+__webpack_require__.d(__webpack_exports__, "m", function() { return /* binding */ getShowInlineWarningsAndErrors; });
+__webpack_require__.d(__webpack_exports__, "q", function() { return /* binding */ separateDisplayNameAndHOCs; });
+__webpack_require__.d(__webpack_exports__, "s", function() { return /* binding */ shallowDiffers; });
+__webpack_require__.d(__webpack_exports__, "k", function() { return /* binding */ getInObject; });
 __webpack_require__.d(__webpack_exports__, "a", function() { return /* binding */ deletePathInObject; });
-__webpack_require__.d(__webpack_exports__, "n", function() { return /* binding */ renamePathInObject; });
-__webpack_require__.d(__webpack_exports__, "q", function() { return /* binding */ setInObject; });
+__webpack_require__.d(__webpack_exports__, "o", function() { return /* binding */ renamePathInObject; });
+__webpack_require__.d(__webpack_exports__, "r", function() { return /* binding */ setInObject; });
 __webpack_require__.d(__webpack_exports__, "f", function() { return /* binding */ getDataType; });
 __webpack_require__.d(__webpack_exports__, "i", function() { return /* binding */ getDisplayNameForReactElement; });
 __webpack_require__.d(__webpack_exports__, "b", function() { return /* binding */ formatDataForPreview; });
 
-// UNUSED EXPORTS: alphaSortKeys, printOperationsArray, setAppendComponentStack, setBreakOnConsoleErrors, setShowInlineWarningsAndErrors
+// UNUSED EXPORTS: alphaSortKeys, printOperationsArray, setAppendComponentStack, setBreakOnConsoleErrors, sethideConsoleLogsInStrictMode, setShowInlineWarningsAndErrors
 
-// EXTERNAL MODULE: /Users/bvaughn/Documents/git/react.devtools/node_modules/lru-cache/index.js
-var lru_cache = __webpack_require__(40);
+// EXTERNAL MODULE: /Users/luna/code/react/node_modules/lru-cache/index.js
+var lru_cache = __webpack_require__(36);
 var lru_cache_default = /*#__PURE__*/__webpack_require__.n(lru_cache);
 
-// EXTERNAL MODULE: /Users/bvaughn/Documents/git/react.devtools/build/node_modules/react-is/index.js
-var react_is = __webpack_require__(10);
+// EXTERNAL MODULE: /Users/luna/code/react/build/node_modules/react-is/index.js
+var react_is = __webpack_require__(11);
 
 // CONCATENATED MODULE: ../shared/ReactSymbols.js
 /**
@@ -1316,16 +1656,16 @@ function getIteratorFn(maybeIterable) {
   return null;
 }
 // EXTERNAL MODULE: ../react-devtools-shared/src/constants.js
-var constants = __webpack_require__(1);
+var constants = __webpack_require__(2);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/types.js
-var types = __webpack_require__(2);
+var types = __webpack_require__(1);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/storage.js
 var storage = __webpack_require__(7);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/hydration.js
-var hydration = __webpack_require__(9);
+var hydration = __webpack_require__(10);
 
 // CONCATENATED MODULE: ../react-devtools-shared/src/utils.js
 /**
@@ -1445,7 +1785,7 @@ function printOperationsArray(operations) {
     const operation = operations[i];
 
     switch (operation) {
-      case constants["n" /* TREE_OPERATION_ADD */]:
+      case constants["p" /* TREE_OPERATION_ADD */]:
         {
           const id = operations[i + 1];
           const type = operations[i + 2];
@@ -1472,7 +1812,7 @@ function printOperationsArray(operations) {
           break;
         }
 
-      case constants["o" /* TREE_OPERATION_REMOVE */]:
+      case constants["q" /* TREE_OPERATION_REMOVE */]:
         {
           const removeLength = operations[i + 1];
           i += 2;
@@ -1486,14 +1826,14 @@ function printOperationsArray(operations) {
           break;
         }
 
-      case constants["p" /* TREE_OPERATION_REMOVE_ROOT */]:
+      case constants["r" /* TREE_OPERATION_REMOVE_ROOT */]:
         {
           i += 1;
           logs.push(`Remove root ${rootID}`);
           break;
         }
 
-      case constants["q" /* TREE_OPERATION_REORDER_CHILDREN */]:
+      case constants["s" /* TREE_OPERATION_REORDER_CHILDREN */]:
         {
           const id = operations[i + 1];
           const numChildren = operations[i + 2];
@@ -1504,14 +1844,14 @@ function printOperationsArray(operations) {
           break;
         }
 
-      case constants["s" /* TREE_OPERATION_UPDATE_TREE_BASE_DURATION */]:
+      case constants["u" /* TREE_OPERATION_UPDATE_TREE_BASE_DURATION */]:
         // Base duration updates are only sent while profiling is in progress.
         // We can ignore them at this point.
         // The profiler UI uses them lazily in order to generate the tree.
         i += 3;
         break;
 
-      case constants["r" /* TREE_OPERATION_UPDATE_ERRORS_OR_WARNINGS */]:
+      case constants["t" /* TREE_OPERATION_UPDATE_ERRORS_OR_WARNINGS */]:
         const id = operations[i + 1];
         const numErrors = operations[i + 2];
         const numWarnings = operations[i + 3];
@@ -1549,7 +1889,7 @@ function saveComponentFilters(componentFilters) {
 }
 function getAppendComponentStack() {
   try {
-    const raw = Object(storage["a" /* localStorageGetItem */])(constants["g" /* LOCAL_STORAGE_SHOULD_PATCH_CONSOLE_KEY */]);
+    const raw = Object(storage["a" /* localStorageGetItem */])(constants["h" /* LOCAL_STORAGE_SHOULD_PATCH_CONSOLE_KEY */]);
 
     if (raw != null) {
       return JSON.parse(raw);
@@ -1559,11 +1899,11 @@ function getAppendComponentStack() {
   return true;
 }
 function setAppendComponentStack(value) {
-  Object(storage["c" /* localStorageSetItem */])(constants["g" /* LOCAL_STORAGE_SHOULD_PATCH_CONSOLE_KEY */], JSON.stringify(value));
+  Object(storage["c" /* localStorageSetItem */])(constants["h" /* LOCAL_STORAGE_SHOULD_PATCH_CONSOLE_KEY */], JSON.stringify(value));
 }
 function getBreakOnConsoleErrors() {
   try {
-    const raw = Object(storage["a" /* localStorageGetItem */])(constants["f" /* LOCAL_STORAGE_SHOULD_BREAK_ON_CONSOLE_ERRORS */]);
+    const raw = Object(storage["a" /* localStorageGetItem */])(constants["g" /* LOCAL_STORAGE_SHOULD_BREAK_ON_CONSOLE_ERRORS */]);
 
     if (raw != null) {
       return JSON.parse(raw);
@@ -1573,11 +1913,25 @@ function getBreakOnConsoleErrors() {
   return false;
 }
 function setBreakOnConsoleErrors(value) {
-  Object(storage["c" /* localStorageSetItem */])(constants["f" /* LOCAL_STORAGE_SHOULD_BREAK_ON_CONSOLE_ERRORS */], JSON.stringify(value));
+  Object(storage["c" /* localStorageSetItem */])(constants["g" /* LOCAL_STORAGE_SHOULD_BREAK_ON_CONSOLE_ERRORS */], JSON.stringify(value));
+}
+function getHideConsoleLogsInStrictMode() {
+  try {
+    const raw = Object(storage["a" /* localStorageGetItem */])(constants["e" /* LOCAL_STORAGE_HIDE_CONSOLE_LOGS_IN_STRICT_MODE */]);
+
+    if (raw != null) {
+      return JSON.parse(raw);
+    }
+  } catch (error) {}
+
+  return false;
+}
+function sethideConsoleLogsInStrictMode(value) {
+  Object(storage["c" /* localStorageSetItem */])(constants["e" /* LOCAL_STORAGE_HIDE_CONSOLE_LOGS_IN_STRICT_MODE */], JSON.stringify(value));
 }
 function getShowInlineWarningsAndErrors() {
   try {
-    const raw = Object(storage["a" /* localStorageGetItem */])(constants["h" /* LOCAL_STORAGE_SHOW_INLINE_WARNINGS_AND_ERRORS_KEY */]);
+    const raw = Object(storage["a" /* localStorageGetItem */])(constants["i" /* LOCAL_STORAGE_SHOW_INLINE_WARNINGS_AND_ERRORS_KEY */]);
 
     if (raw != null) {
       return JSON.parse(raw);
@@ -1587,7 +1941,7 @@ function getShowInlineWarningsAndErrors() {
   return true;
 }
 function setShowInlineWarningsAndErrors(value) {
-  Object(storage["c" /* localStorageSetItem */])(constants["h" /* LOCAL_STORAGE_SHOW_INLINE_WARNINGS_AND_ERRORS_KEY */], JSON.stringify(value));
+  Object(storage["c" /* localStorageSetItem */])(constants["i" /* LOCAL_STORAGE_SHOW_INLINE_WARNINGS_AND_ERRORS_KEY */], JSON.stringify(value));
 }
 function separateDisplayNameAndHOCs(displayName, type) {
   if (displayName === null) {
@@ -2067,38 +2421,6 @@ function formatDataForPreview(data, showFormattedValue) {
 
   }
 }
-
-/***/ }),
-
-/***/ 30:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return enableProfilerChangedHookIndices; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return isInternalFacebookBuild; });
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-
-/************************************************************************
- * This file is forked between different DevTools implementations.
- * It should never be imported directly!
- * It should always be imported from "react-devtools-feature-flags".
- ************************************************************************/
-const enableProfilerChangedHookIndices = false;
-const isInternalFacebookBuild = false;
-/************************************************************************
- * Do not edit the code below.
- * It ensures this fork exports the same types as the default flags file.
- ************************************************************************/
-
-// eslint-disable-next-line no-unused-expressions
-null;
 
 /***/ }),
 
@@ -3654,103 +3976,17 @@ function coerce(version, options) {
 
   return parse(match[2] + '.' + (match[3] || '0') + '.' + (match[4] || '0'), options);
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(21)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(58)))
 
 /***/ }),
 
-/***/ 4:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CONCURRENT_MODE_NUMBER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return CONCURRENT_MODE_SYMBOL_STRING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return CONTEXT_NUMBER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return CONTEXT_SYMBOL_STRING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return DEPRECATED_ASYNC_MODE_SYMBOL_STRING; });
-/* unused harmony export ELEMENT_NUMBER */
-/* unused harmony export ELEMENT_SYMBOL_STRING */
-/* unused harmony export DEBUG_TRACING_MODE_NUMBER */
-/* unused harmony export DEBUG_TRACING_MODE_SYMBOL_STRING */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return FORWARD_REF_NUMBER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return FORWARD_REF_SYMBOL_STRING; });
-/* unused harmony export FRAGMENT_NUMBER */
-/* unused harmony export FRAGMENT_SYMBOL_STRING */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return LAZY_NUMBER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return LAZY_SYMBOL_STRING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return MEMO_NUMBER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return MEMO_SYMBOL_STRING; });
-/* unused harmony export OPAQUE_ID_NUMBER */
-/* unused harmony export OPAQUE_ID_SYMBOL_STRING */
-/* unused harmony export PORTAL_NUMBER */
-/* unused harmony export PORTAL_SYMBOL_STRING */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return PROFILER_NUMBER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return PROFILER_SYMBOL_STRING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return PROVIDER_NUMBER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return PROVIDER_SYMBOL_STRING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return SCOPE_NUMBER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return SCOPE_SYMBOL_STRING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return STRICT_MODE_NUMBER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return STRICT_MODE_SYMBOL_STRING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return SUSPENSE_NUMBER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return SUSPENSE_SYMBOL_STRING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return SUSPENSE_LIST_NUMBER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return SUSPENSE_LIST_SYMBOL_STRING; });
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-// This list should be kept updated to reflect additions to 'shared/ReactSymbols'.
-// DevTools can't import symbols from 'shared/ReactSymbols' directly for two reasons:
-// 1. DevTools requires symbols which may have been deleted in more recent versions (e.g. concurrent mode)
-// 2. DevTools must support both Symbol and numeric forms of each symbol;
-//    Since e.g. standalone DevTools runs in a separate process, it can't rely on its own ES capabilities.
-const CONCURRENT_MODE_NUMBER = 0xeacf;
-const CONCURRENT_MODE_SYMBOL_STRING = 'Symbol(react.concurrent_mode)';
-const CONTEXT_NUMBER = 0xeace;
-const CONTEXT_SYMBOL_STRING = 'Symbol(react.context)';
-const DEPRECATED_ASYNC_MODE_SYMBOL_STRING = 'Symbol(react.async_mode)';
-const ELEMENT_NUMBER = 0xeac7;
-const ELEMENT_SYMBOL_STRING = 'Symbol(react.element)';
-const DEBUG_TRACING_MODE_NUMBER = 0xeae1;
-const DEBUG_TRACING_MODE_SYMBOL_STRING = 'Symbol(react.debug_trace_mode)';
-const FORWARD_REF_NUMBER = 0xead0;
-const FORWARD_REF_SYMBOL_STRING = 'Symbol(react.forward_ref)';
-const FRAGMENT_NUMBER = 0xeacb;
-const FRAGMENT_SYMBOL_STRING = 'Symbol(react.fragment)';
-const LAZY_NUMBER = 0xead4;
-const LAZY_SYMBOL_STRING = 'Symbol(react.lazy)';
-const MEMO_NUMBER = 0xead3;
-const MEMO_SYMBOL_STRING = 'Symbol(react.memo)';
-const OPAQUE_ID_NUMBER = 0xeae0;
-const OPAQUE_ID_SYMBOL_STRING = 'Symbol(react.opaque.id)';
-const PORTAL_NUMBER = 0xeaca;
-const PORTAL_SYMBOL_STRING = 'Symbol(react.portal)';
-const PROFILER_NUMBER = 0xead2;
-const PROFILER_SYMBOL_STRING = 'Symbol(react.profiler)';
-const PROVIDER_NUMBER = 0xeacd;
-const PROVIDER_SYMBOL_STRING = 'Symbol(react.provider)';
-const SCOPE_NUMBER = 0xead7;
-const SCOPE_SYMBOL_STRING = 'Symbol(react.scope)';
-const STRICT_MODE_NUMBER = 0xeacc;
-const STRICT_MODE_SYMBOL_STRING = 'Symbol(react.strict_mode)';
-const SUSPENSE_NUMBER = 0xead1;
-const SUSPENSE_SYMBOL_STRING = 'Symbol(react.suspense)';
-const SUSPENSE_LIST_NUMBER = 0xead8;
-const SUSPENSE_LIST_SYMBOL_STRING = 'Symbol(react.suspense_list)';
-
-/***/ }),
-
-/***/ 40:
+/***/ 36:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
  // A linked list to keep track of recently-used-ness
 
-const Yallist = __webpack_require__(71);
+const Yallist = __webpack_require__(55);
 
 const MAX = Symbol('max');
 const LENGTH = Symbol('length');
@@ -4071,7 +4307,93 @@ module.exports = LRUCache;
 
 /***/ }),
 
-/***/ 50:
+/***/ 4:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CONCURRENT_MODE_NUMBER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return CONCURRENT_MODE_SYMBOL_STRING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return CONTEXT_NUMBER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return CONTEXT_SYMBOL_STRING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return DEPRECATED_ASYNC_MODE_SYMBOL_STRING; });
+/* unused harmony export ELEMENT_NUMBER */
+/* unused harmony export ELEMENT_SYMBOL_STRING */
+/* unused harmony export DEBUG_TRACING_MODE_NUMBER */
+/* unused harmony export DEBUG_TRACING_MODE_SYMBOL_STRING */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return FORWARD_REF_NUMBER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return FORWARD_REF_SYMBOL_STRING; });
+/* unused harmony export FRAGMENT_NUMBER */
+/* unused harmony export FRAGMENT_SYMBOL_STRING */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return LAZY_NUMBER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return LAZY_SYMBOL_STRING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return MEMO_NUMBER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return MEMO_SYMBOL_STRING; });
+/* unused harmony export OPAQUE_ID_NUMBER */
+/* unused harmony export OPAQUE_ID_SYMBOL_STRING */
+/* unused harmony export PORTAL_NUMBER */
+/* unused harmony export PORTAL_SYMBOL_STRING */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return PROFILER_NUMBER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return PROFILER_SYMBOL_STRING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return PROVIDER_NUMBER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return PROVIDER_SYMBOL_STRING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return SCOPE_NUMBER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return SCOPE_SYMBOL_STRING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return STRICT_MODE_NUMBER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return STRICT_MODE_SYMBOL_STRING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return SUSPENSE_NUMBER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return SUSPENSE_SYMBOL_STRING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return SUSPENSE_LIST_NUMBER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return SUSPENSE_LIST_SYMBOL_STRING; });
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+// This list should be kept updated to reflect additions to 'shared/ReactSymbols'.
+// DevTools can't import symbols from 'shared/ReactSymbols' directly for two reasons:
+// 1. DevTools requires symbols which may have been deleted in more recent versions (e.g. concurrent mode)
+// 2. DevTools must support both Symbol and numeric forms of each symbol;
+//    Since e.g. standalone DevTools runs in a separate process, it can't rely on its own ES capabilities.
+const CONCURRENT_MODE_NUMBER = 0xeacf;
+const CONCURRENT_MODE_SYMBOL_STRING = 'Symbol(react.concurrent_mode)';
+const CONTEXT_NUMBER = 0xeace;
+const CONTEXT_SYMBOL_STRING = 'Symbol(react.context)';
+const DEPRECATED_ASYNC_MODE_SYMBOL_STRING = 'Symbol(react.async_mode)';
+const ELEMENT_NUMBER = 0xeac7;
+const ELEMENT_SYMBOL_STRING = 'Symbol(react.element)';
+const DEBUG_TRACING_MODE_NUMBER = 0xeae1;
+const DEBUG_TRACING_MODE_SYMBOL_STRING = 'Symbol(react.debug_trace_mode)';
+const FORWARD_REF_NUMBER = 0xead0;
+const FORWARD_REF_SYMBOL_STRING = 'Symbol(react.forward_ref)';
+const FRAGMENT_NUMBER = 0xeacb;
+const FRAGMENT_SYMBOL_STRING = 'Symbol(react.fragment)';
+const LAZY_NUMBER = 0xead4;
+const LAZY_SYMBOL_STRING = 'Symbol(react.lazy)';
+const MEMO_NUMBER = 0xead3;
+const MEMO_SYMBOL_STRING = 'Symbol(react.memo)';
+const OPAQUE_ID_NUMBER = 0xeae0;
+const OPAQUE_ID_SYMBOL_STRING = 'Symbol(react.opaque.id)';
+const PORTAL_NUMBER = 0xeaca;
+const PORTAL_SYMBOL_STRING = 'Symbol(react.portal)';
+const PROFILER_NUMBER = 0xead2;
+const PROFILER_SYMBOL_STRING = 'Symbol(react.profiler)';
+const PROVIDER_NUMBER = 0xeacd;
+const PROVIDER_SYMBOL_STRING = 'Symbol(react.provider)';
+const SCOPE_NUMBER = 0xead7;
+const SCOPE_SYMBOL_STRING = 'Symbol(react.scope)';
+const STRICT_MODE_NUMBER = 0xeacc;
+const STRICT_MODE_SYMBOL_STRING = 'Symbol(react.strict_mode)';
+const SUSPENSE_NUMBER = 0xead1;
+const SUSPENSE_SYMBOL_STRING = 'Symbol(react.suspense)';
+const SUSPENSE_LIST_NUMBER = 0xead8;
+const SUSPENSE_LIST_SYMBOL_STRING = 'Symbol(react.suspense_list)';
+
+/***/ }),
+
+/***/ 41:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4173,436 +4495,19 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 /***/ }),
 
-/***/ 54:
+/***/ 42:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, "b", function() { return /* binding */ registerRenderer; });
-__webpack_require__.d(__webpack_exports__, "a", function() { return /* binding */ patch; });
-
-// UNUSED EXPORTS: isStringComponentStack, dangerous_setTargetConsoleForTesting, unpatch
-
-// EXTERNAL MODULE: ../react-devtools-shared/src/backend/renderer.js + 3 modules
-var backend_renderer = __webpack_require__(61);
-
-// EXTERNAL MODULE: ../react-devtools-shared/src/backend/ReactSymbols.js
-var ReactSymbols = __webpack_require__(4);
-
-// CONCATENATED MODULE: ../react-devtools-shared/src/backend/DevToolsConsolePatching.js
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-// This is a DevTools fork of shared/ConsolePatchingDev.
-// The shared console patching code is DEV-only.
-// We can't use it since DevTools only ships production builds.
-// Helpers to patch console.logs to avoid logging during side-effect free
-// replaying on render function. This currently only patches the object
-// lazily which won't cover if the log function was extracted eagerly.
-// We could also eagerly patch the method.
-let disabledDepth = 0;
-let prevLog;
-let prevInfo;
-let prevWarn;
-let prevError;
-let prevGroup;
-let prevGroupCollapsed;
-let prevGroupEnd;
-
-function disabledLog() {}
-
-disabledLog.__reactDisabledLog = true;
-function disableLogs() {
-  if (disabledDepth === 0) {
-    /* eslint-disable react-internal/no-production-logging */
-    prevLog = console.log;
-    prevInfo = console.info;
-    prevWarn = console.warn;
-    prevError = console.error;
-    prevGroup = console.group;
-    prevGroupCollapsed = console.groupCollapsed;
-    prevGroupEnd = console.groupEnd; // https://github.com/facebook/react/issues/19099
-
-    const props = {
-      configurable: true,
-      enumerable: true,
-      value: disabledLog,
-      writable: true
-    }; // $FlowFixMe Flow thinks console is immutable.
-
-    Object.defineProperties(console, {
-      info: props,
-      log: props,
-      warn: props,
-      error: props,
-      group: props,
-      groupCollapsed: props,
-      groupEnd: props
-    });
-    /* eslint-enable react-internal/no-production-logging */
-  }
-
-  disabledDepth++;
-}
-function reenableLogs() {
-  disabledDepth--;
-
-  if (disabledDepth === 0) {
-    /* eslint-disable react-internal/no-production-logging */
-    const props = {
-      configurable: true,
-      enumerable: true,
-      writable: true
-    }; // $FlowFixMe Flow thinks console is immutable.
-
-    Object.defineProperties(console, {
-      log: { ...props,
-        value: prevLog
-      },
-      info: { ...props,
-        value: prevInfo
-      },
-      warn: { ...props,
-        value: prevWarn
-      },
-      error: { ...props,
-        value: prevError
-      },
-      group: { ...props,
-        value: prevGroup
-      },
-      groupCollapsed: { ...props,
-        value: prevGroupCollapsed
-      },
-      groupEnd: { ...props,
-        value: prevGroupEnd
-      }
-    });
-    /* eslint-enable react-internal/no-production-logging */
-  }
-
-  if (disabledDepth < 0) {
-    console.error('disabledDepth fell below zero. ' + 'This is a bug in React. Please file an issue.');
-  }
-}
-// CONCATENATED MODULE: ../react-devtools-shared/src/backend/DevToolsComponentStackFrame.js
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-// This is a DevTools fork of ReactComponentStackFrame.
-// This fork enables DevTools to use the same "native" component stack format,
-// while still maintaining support for multiple renderer versions
-// (which use different values for ReactTypeOfWork).
- // The shared console patching code is DEV-only.
-// We can't use it since DevTools only ships production builds.
-
-
-let prefix;
-function describeBuiltInComponentFrame(name, source, ownerFn) {
-  if (prefix === undefined) {
-    // Extract the VM specific prefix used by each line.
-    try {
-      throw Error();
-    } catch (x) {
-      const match = x.stack.trim().match(/\n( *(at )?)/);
-      prefix = match && match[1] || '';
-    }
-  } // We use the prefix to ensure our stacks line up with native stack frames.
-
-
-  return '\n' + prefix + name;
-}
-let reentry = false;
-let componentFrameCache;
-
-if (false) {}
-
-function describeNativeComponentFrame(fn, construct, currentDispatcherRef) {
-  // If something asked for a stack inside a fake render, it should get ignored.
-  if (!fn || reentry) {
-    return '';
-  }
-
-  if (false) {}
-
-  let control;
-  const previousPrepareStackTrace = Error.prepareStackTrace; // $FlowFixMe It does accept undefined.
-
-  Error.prepareStackTrace = undefined;
-  reentry = true; // Override the dispatcher so effects scheduled by this shallow render are thrown away.
-  //
-  // Note that unlike the code this was forked from (in ReactComponentStackFrame)
-  // DevTools should override the dispatcher even when DevTools is compiled in production mode,
-  // because the app itself may be in development mode and log errors/warnings.
-
-  const previousDispatcher = currentDispatcherRef.current;
-  currentDispatcherRef.current = null;
-  disableLogs();
-
-  try {
-    // This should throw.
-    if (construct) {
-      // Something should be setting the props in the constructor.
-      const Fake = function () {
-        throw Error();
-      }; // $FlowFixMe
-
-
-      Object.defineProperty(Fake.prototype, 'props', {
-        set: function () {
-          // We use a throwing setter instead of frozen or non-writable props
-          // because that won't throw in a non-strict mode function.
-          throw Error();
-        }
-      });
-
-      if (typeof Reflect === 'object' && Reflect.construct) {
-        // We construct a different control for this case to include any extra
-        // frames added by the construct call.
-        try {
-          Reflect.construct(Fake, []);
-        } catch (x) {
-          control = x;
-        }
-
-        Reflect.construct(fn, [], Fake);
-      } else {
-        try {
-          Fake.call();
-        } catch (x) {
-          control = x;
-        }
-
-        fn.call(Fake.prototype);
-      }
-    } else {
-      try {
-        throw Error();
-      } catch (x) {
-        control = x;
-      }
-
-      fn();
-    }
-  } catch (sample) {
-    // This is inlined manually because closure doesn't do it for us.
-    if (sample && control && typeof sample.stack === 'string') {
-      // This extracts the first frame from the sample that isn't also in the control.
-      // Skipping one frame that we assume is the frame that calls the two.
-      const sampleLines = sample.stack.split('\n');
-      const controlLines = control.stack.split('\n');
-      let s = sampleLines.length - 1;
-      let c = controlLines.length - 1;
-
-      while (s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c]) {
-        // We expect at least one stack frame to be shared.
-        // Typically this will be the root most one. However, stack frames may be
-        // cut off due to maximum stack limits. In this case, one maybe cut off
-        // earlier than the other. We assume that the sample is longer or the same
-        // and there for cut off earlier. So we should find the root most frame in
-        // the sample somewhere in the control.
-        c--;
-      }
-
-      for (; s >= 1 && c >= 0; s--, c--) {
-        // Next we find the first one that isn't the same which should be the
-        // frame that called our sample function and the control.
-        if (sampleLines[s] !== controlLines[c]) {
-          // In V8, the first line is describing the message but other VMs don't.
-          // If we're about to return the first line, and the control is also on the same
-          // line, that's a pretty good indicator that our sample threw at same line as
-          // the control. I.e. before we entered the sample frame. So we ignore this result.
-          // This can happen if you passed a class to function component, or non-function.
-          if (s !== 1 || c !== 1) {
-            do {
-              s--;
-              c--; // We may still have similar intermediate frames from the construct call.
-              // The next one that isn't the same should be our match though.
-
-              if (c < 0 || sampleLines[s] !== controlLines[c]) {
-                // V8 adds a "new" prefix for native classes. Let's remove it to make it prettier.
-                const frame = '\n' + sampleLines[s].replace(' at new ', ' at ');
-
-                if (false) {} // Return the line we found.
-
-
-                return frame;
-              }
-            } while (s >= 1 && c >= 0);
-          }
-
-          break;
-        }
-      }
-    }
-  } finally {
-    reentry = false;
-    Error.prepareStackTrace = previousPrepareStackTrace;
-    currentDispatcherRef.current = previousDispatcher;
-    reenableLogs();
-  } // Fallback to just using the name if we couldn't make it throw.
-
-
-  const name = fn ? fn.displayName || fn.name : '';
-  const syntheticFrame = name ? describeBuiltInComponentFrame(name) : '';
-
-  if (false) {}
-
-  return syntheticFrame;
-}
-function describeClassComponentFrame(ctor, source, ownerFn, currentDispatcherRef) {
-  return describeNativeComponentFrame(ctor, true, currentDispatcherRef);
-}
-function describeFunctionComponentFrame(fn, source, ownerFn, currentDispatcherRef) {
-  return describeNativeComponentFrame(fn, false, currentDispatcherRef);
-}
-
-function shouldConstruct(Component) {
-  const prototype = Component.prototype;
-  return !!(prototype && prototype.isReactComponent);
-}
-
-function describeUnknownElementTypeFrameInDEV(type, source, ownerFn, currentDispatcherRef) {
-  if (true) {
-    return '';
-  }
-
-  if (type == null) {
-    return '';
-  }
-
-  if (typeof type === 'function') {
-    return describeNativeComponentFrame(type, shouldConstruct(type), currentDispatcherRef);
-  }
-
-  if (typeof type === 'string') {
-    return describeBuiltInComponentFrame(type, source, ownerFn);
-  }
-
-  switch (type) {
-    case ReactSymbols["v" /* SUSPENSE_NUMBER */]:
-    case ReactSymbols["w" /* SUSPENSE_SYMBOL_STRING */]:
-      return describeBuiltInComponentFrame('Suspense', source, ownerFn);
-
-    case ReactSymbols["t" /* SUSPENSE_LIST_NUMBER */]:
-    case ReactSymbols["u" /* SUSPENSE_LIST_SYMBOL_STRING */]:
-      return describeBuiltInComponentFrame('SuspenseList', source, ownerFn);
-  }
-
-  if (typeof type === 'object') {
-    switch (type.$$typeof) {
-      case ReactSymbols["f" /* FORWARD_REF_NUMBER */]:
-      case ReactSymbols["g" /* FORWARD_REF_SYMBOL_STRING */]:
-        return describeFunctionComponentFrame(type.render, source, ownerFn, currentDispatcherRef);
-
-      case ReactSymbols["j" /* MEMO_NUMBER */]:
-      case ReactSymbols["k" /* MEMO_SYMBOL_STRING */]:
-        // Memo may contain any component type so we recursively resolve it.
-        return describeUnknownElementTypeFrameInDEV(type.type, source, ownerFn, currentDispatcherRef);
-
-      case ReactSymbols["h" /* LAZY_NUMBER */]:
-      case ReactSymbols["i" /* LAZY_SYMBOL_STRING */]:
-        {
-          const lazyComponent = type;
-          const payload = lazyComponent._payload;
-          const init = lazyComponent._init;
-
-          try {
-            // Lazy may contain any component type so we recursively resolve it.
-            return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn, currentDispatcherRef);
-          } catch (x) {}
-        }
-    }
-  }
-
-  return '';
-}
-// CONCATENATED MODULE: ../react-devtools-shared/src/backend/DevToolsFiberComponentStack.js
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-// This is a DevTools fork of ReactFiberComponentStack.
-// This fork enables DevTools to use the same "native" component stack format,
-// while still maintaining support for multiple renderer versions
-// (which use different values for ReactTypeOfWork).
-
-
-function describeFiber(workTagMap, workInProgress, currentDispatcherRef) {
-  const {
-    HostComponent,
-    LazyComponent,
-    SuspenseComponent,
-    SuspenseListComponent,
-    FunctionComponent,
-    IndeterminateComponent,
-    SimpleMemoComponent,
-    ForwardRef,
-    ClassComponent
-  } = workTagMap;
-  const owner =  false ? undefined : null;
-  const source =  false ? undefined : null;
-
-  switch (workInProgress.tag) {
-    case HostComponent:
-      return describeBuiltInComponentFrame(workInProgress.type, source, owner);
-
-    case LazyComponent:
-      return describeBuiltInComponentFrame('Lazy', source, owner);
-
-    case SuspenseComponent:
-      return describeBuiltInComponentFrame('Suspense', source, owner);
-
-    case SuspenseListComponent:
-      return describeBuiltInComponentFrame('SuspenseList', source, owner);
-
-    case FunctionComponent:
-    case IndeterminateComponent:
-    case SimpleMemoComponent:
-      return describeFunctionComponentFrame(workInProgress.type, source, owner, currentDispatcherRef);
-
-    case ForwardRef:
-      return describeFunctionComponentFrame(workInProgress.type.render, source, owner, currentDispatcherRef);
-
-    case ClassComponent:
-      return describeClassComponentFrame(workInProgress.type, source, owner, currentDispatcherRef);
-
-    default:
-      return '';
-  }
-}
-
-function getStackByFiberInDevAndProd(workTagMap, workInProgress, currentDispatcherRef) {
-  try {
-    let info = '';
-    let node = workInProgress;
-
-    do {
-      info += describeFiber(workTagMap, node, currentDispatcherRef);
-      node = node.return;
-    } while (node);
-
-    return info;
-  } catch (x) {
-    return '\nError generating stack: ' + x.message + '\n' + x.stack;
-  }
-}
-// CONCATENATED MODULE: ../react-devtools-shared/src/backend/console.js
+/* WEBPACK VAR INJECTION */(function(global) {/* unused harmony export isStringComponentStack */
+/* unused harmony export dangerous_setTargetConsoleForTesting */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return registerRenderer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return patch; });
+/* unused harmony export unpatch */
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(12);
+/* harmony import */ var _renderer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(44);
+/* harmony import */ var _DevToolsFiberComponentStack__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(61);
+/* harmony import */ var react_devtools_feature_flags__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(22);
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -4613,7 +4518,10 @@ function getStackByFiberInDevAndProd(workTagMap, workInProgress, currentDispatch
  */
 
 
-const APPEND_STACK_TO_METHODS = ['error', 'trace', 'warn']; // React's custom built component stack strings match "\s{4}in"
+
+
+const OVERRIDE_CONSOLE_METHODS = ['error', 'trace', 'warn', 'log'];
+const DIMMED_NODE_CONSOLE_COLOR = '\x1b[2m%s\x1b[0m'; // React's custom built component stack strings match "\s{4}in"
 // Chrome's prefix matches "\s{4}at"
 
 const PREFIX_REGEX = /\s{4}(in|at)\s{1}/; // Firefox and Safari have no prefix ("")
@@ -4631,7 +4539,13 @@ for (const method in console) {
   targetConsoleMethods[method] = console[method];
 }
 
-let unpatchFn = null; // Enables e.g. Jest tests to inject a mock console object.
+let unpatchFn = null;
+let isNode = false;
+
+try {
+  isNode = undefined === global;
+} catch (error) {} // Enables e.g. Jest tests to inject a mock console object.
+
 
 function dangerous_setTargetConsoleForTesting(targetConsoleForTesting) {
   targetConsole = targetConsoleForTesting;
@@ -4648,6 +4562,7 @@ function registerRenderer(renderer, onErrorOrWarning) {
   const {
     currentDispatcherRef,
     getCurrentFiber,
+    getIsStrictMode,
     findFiberByHostInstance,
     version
   } = renderer; // Ignore React v15 and older because they don't expose a component stack anyway.
@@ -4661,10 +4576,11 @@ function registerRenderer(renderer, onErrorOrWarning) {
   if (currentDispatcherRef != null && typeof getCurrentFiber === 'function') {
     const {
       ReactTypeOfWork
-    } = Object(backend_renderer["b" /* getInternalReactConstants */])(version);
+    } = Object(_renderer__WEBPACK_IMPORTED_MODULE_1__[/* getInternalReactConstants */ "b"])(version);
     injectedRenderers.set(renderer, {
       currentDispatcherRef,
       getCurrentFiber,
+      getIsStrictMode,
       workTagMap: ReactTypeOfWork,
       onErrorOrWarning
     });
@@ -4673,20 +4589,25 @@ function registerRenderer(renderer, onErrorOrWarning) {
 const consoleSettingsRef = {
   appendComponentStack: false,
   breakOnConsoleErrors: false,
-  showInlineWarningsAndErrors: false
+  showInlineWarningsAndErrors: false,
+  hideConsoleLogsInStrictMode: false
 }; // Patches console methods to append component stack for the current fiber.
 // Call unpatch() to remove the injected behavior.
+// NOTE: KEEP IN SYNC with src/hook.js:patchConsoleForInitialRenderInExtension
 
 function patch({
   appendComponentStack,
   breakOnConsoleErrors,
-  showInlineWarningsAndErrors
+  showInlineWarningsAndErrors,
+  hideConsoleLogsInStrictMode,
+  browserTheme
 }) {
   // Settings may change after we've patched the console.
   // Using a shared ref allows the patch function to read the latest values.
   consoleSettingsRef.appendComponentStack = appendComponentStack;
   consoleSettingsRef.breakOnConsoleErrors = breakOnConsoleErrors;
   consoleSettingsRef.showInlineWarningsAndErrors = showInlineWarningsAndErrors;
+  consoleSettingsRef.hideConsoleLogsInStrictMode = hideConsoleLogsInStrictMode;
 
   if (unpatchFn !== null) {
     // Don't patch twice.
@@ -4704,57 +4625,66 @@ function patch({
     }
   };
 
-  APPEND_STACK_TO_METHODS.forEach(method => {
+  OVERRIDE_CONSOLE_METHODS.forEach(method => {
     try {
-      const originalMethod = originalConsoleMethods[method] = targetConsole[method];
+      const originalMethod = originalConsoleMethods[method] = targetConsole[method].__REACT_DEVTOOLS_ORIGINAL_METHOD__ ? targetConsole[method].__REACT_DEVTOOLS_ORIGINAL_METHOD__ : targetConsole[method];
 
       const overrideMethod = (...args) => {
         let shouldAppendWarningStack = false;
 
-        if (consoleSettingsRef.appendComponentStack) {
-          const lastArg = args.length > 0 ? args[args.length - 1] : null;
-          const alreadyHasComponentStack = typeof lastArg === 'string' && isStringComponentStack(lastArg); // If we are ever called with a string that already has a component stack,
-          // e.g. a React error/warning, don't append a second stack.
+        if (method !== 'log') {
+          if (consoleSettingsRef.appendComponentStack) {
+            const lastArg = args.length > 0 ? args[args.length - 1] : null;
+            const alreadyHasComponentStack = typeof lastArg === 'string' && isStringComponentStack(lastArg); // If we are ever called with a string that already has a component stack,
+            // e.g. a React error/warning, don't append a second stack.
 
-          shouldAppendWarningStack = !alreadyHasComponentStack;
+            shouldAppendWarningStack = !alreadyHasComponentStack;
+          }
         }
 
         const shouldShowInlineWarningsAndErrors = consoleSettingsRef.showInlineWarningsAndErrors && (method === 'error' || method === 'warn');
+        let isInStrictMode = false; // Search for the first renderer that has a current Fiber.
+        // We don't handle the edge case of stacks for more than one (e.g. interleaved renderers?)
+        // eslint-disable-next-line no-for-of-loops/no-for-of-loops
 
-        if (shouldAppendWarningStack || shouldShowInlineWarningsAndErrors) {
-          // Search for the first renderer that has a current Fiber.
-          // We don't handle the edge case of stacks for more than one (e.g. interleaved renderers?)
-          // eslint-disable-next-line no-for-of-loops/no-for-of-loops
-          for (const {
-            currentDispatcherRef,
-            getCurrentFiber,
-            onErrorOrWarning,
-            workTagMap
-          } of injectedRenderers.values()) {
-            const current = getCurrentFiber();
+        for (const {
+          currentDispatcherRef,
+          getCurrentFiber,
+          onErrorOrWarning,
+          workTagMap,
+          getIsStrictMode
+        } of injectedRenderers.values()) {
+          const current = getCurrentFiber();
 
-            if (current != null) {
-              try {
-                if (shouldShowInlineWarningsAndErrors) {
-                  // patch() is called by two places: (1) the hook and (2) the renderer backend.
-                  // The backend is what implements a message queue, so it's the only one that injects onErrorOrWarning.
-                  if (typeof onErrorOrWarning === 'function') {
-                    onErrorOrWarning(current, method, // Copy args before we mutate them (e.g. adding the component stack)
-                    args.slice());
-                  }
-                }
-
-                if (shouldAppendWarningStack) {
-                  const componentStack = getStackByFiberInDevAndProd(workTagMap, current, currentDispatcherRef);
-
-                  if (componentStack !== '') {
-                    args.push(componentStack);
-                  }
-                }
-              } catch (error) {// Don't let a DevTools or React internal error interfere with logging.
-              } finally {
-                break;
+          if (current != null) {
+            try {
+              if (typeof getIsStrictMode === 'function' && getIsStrictMode()) {
+                isInStrictMode = true;
               }
+
+              if (shouldShowInlineWarningsAndErrors) {
+                // patch() is called by two places: (1) the hook and (2) the renderer backend.
+                // The backend is what implements a message queue, so it's the only one that injects onErrorOrWarning.
+                if (typeof onErrorOrWarning === 'function') {
+                  onErrorOrWarning(current, method, // Copy args before we mutate them (e.g. adding the component stack)
+                  args.slice());
+                }
+              }
+
+              if (shouldAppendWarningStack) {
+                const componentStack = Object(_DevToolsFiberComponentStack__WEBPACK_IMPORTED_MODULE_2__[/* getStackByFiberInDevAndProd */ "a"])(workTagMap, current, currentDispatcherRef);
+
+                if (componentStack !== '') {
+                  args.push(componentStack);
+                }
+              }
+            } catch (error) {
+              // Don't let a DevTools or React internal error interfere with logging.
+              setTimeout(() => {
+                throw error;
+              }, 0);
+            } finally {
+              break;
             }
           }
         }
@@ -4768,7 +4698,40 @@ function patch({
           debugger;
         }
 
-        originalMethod(...args);
+        if (react_devtools_feature_flags__WEBPACK_IMPORTED_MODULE_3__[/* consoleManagedByDevToolsDuringStrictMode */ "a"] && isInStrictMode) {
+          if (!consoleSettingsRef.hideConsoleLogsInStrictMode) {
+            // Dim the text color of the double logs if we're not
+            // hiding them.
+            if (isNode) {
+              originalMethod(DIMMED_NODE_CONSOLE_COLOR, Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* format */ "f"])(...args));
+            } else {
+              let color;
+
+              switch (method) {
+                case 'warn':
+                  color = browserTheme === 'light' ? "rgba(250, 180, 50, 0.75)" : "rgba(250, 180, 50, 0.5)";
+                  break;
+
+                case 'error':
+                  color = browserTheme === 'light' ? "rgba(250, 123, 130, 0.75)" : "rgba(250, 123, 130, 0.5)";
+                  break;
+
+                case 'log':
+                default:
+                  color = browserTheme === 'light' ? "rgba(125, 125, 125, 0.75)" : "rgba(125, 125, 125, 0.5)";
+                  break;
+              }
+
+              if (color) {
+                originalMethod(`%c${Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* format */ "f"])(...args)}`, `color: ${color}`);
+              } else {
+                throw Error('Console color is not defined');
+              }
+            }
+          }
+        } else {
+          originalMethod(...args);
+        }
       };
 
       overrideMethod.__REACT_DEVTOOLS_ORIGINAL_METHOD__ = originalMethod;
@@ -4785,41 +4748,11 @@ function unpatch() {
     unpatchFn = null;
   }
 }
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(48)))
 
 /***/ }),
 
-/***/ 602:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_devtools_shared_src_backend_renderer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(61);
-/**
- * In order to support reload-and-profile functionality, the renderer needs to be injected before any other scripts.
- * Since it is a complex file (with imports) we can't just toString() it like we do with the hook itself,
- * So this entry point (one of the web_accessible_resources) provides a way to eagerly inject it.
- * The hook will look for the presence of a global __REACT_DEVTOOLS_ATTACH__ and attach an injected renderer early.
- * The normal case (not a reload-and-profile) will not make use of this entry point though.
- *
- * 
- */
-
-Object.defineProperty(window, '__REACT_DEVTOOLS_ATTACH__', {
-  enumerable: false,
-  // This property needs to be configurable to allow third-party integrations
-  // to attach their own renderer. Note that using third-party integrations
-  // is not officially supported. Use at your own risk.
-  configurable: true,
-
-  get() {
-    return react_devtools_shared_src_backend_renderer__WEBPACK_IMPORTED_MODULE_0__[/* attach */ "a"];
-  }
-
-});
-
-/***/ }),
-
-/***/ 61:
+/***/ 44:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4832,7 +4765,7 @@ __webpack_require__.d(__webpack_exports__, "a", function() { return /* binding *
 var semver = __webpack_require__(33);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/types.js
-var types = __webpack_require__(2);
+var types = __webpack_require__(1);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/utils.js + 1 modules
 var utils = __webpack_require__(3);
@@ -4840,235 +4773,23 @@ var utils = __webpack_require__(3);
 // EXTERNAL MODULE: ../react-devtools-shared/src/storage.js
 var storage = __webpack_require__(7);
 
-// EXTERNAL MODULE: /Users/bvaughn/Documents/git/react.devtools/node_modules/clipboard-js/clipboard.js
-var clipboard = __webpack_require__(20);
+// EXTERNAL MODULE: ../react-devtools-shared/src/backend/utils.js
+var backend_utils = __webpack_require__(12);
 
-// EXTERNAL MODULE: ../react-devtools-shared/src/hydration.js
-var hydration = __webpack_require__(9);
-
-// CONCATENATED MODULE: ../shared/isArray.js
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-const isArrayImpl = Array.isArray; // eslint-disable-next-line no-redeclare
-
-function isArray(a) {
-  return isArrayImpl(a);
-}
-
-/* harmony default export */ var shared_isArray = (isArray);
-// CONCATENATED MODULE: ../react-devtools-shared/src/backend/utils.js
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-
-
-
-function cleanForBridge(data, isPathAllowed, path = []) {
-  if (data !== null) {
-    const cleanedPaths = [];
-    const unserializablePaths = [];
-    const cleanedData = Object(hydration["a" /* dehydrate */])(data, cleanedPaths, unserializablePaths, path, isPathAllowed);
-    return {
-      data: cleanedData,
-      cleaned: cleanedPaths,
-      unserializable: unserializablePaths
-    };
-  } else {
-    return null;
-  }
-}
-function copyToClipboard(value) {
-  const safeToCopy = serializeToString(value);
-  const text = safeToCopy === undefined ? 'undefined' : safeToCopy;
-  const {
-    clipboardCopyText
-  } = window.__REACT_DEVTOOLS_GLOBAL_HOOK__; // On Firefox navigator.clipboard.writeText has to be called from
-  // the content script js code (because it requires the clipboardWrite
-  // permission to be allowed out of a "user handling" callback),
-  // clipboardCopyText is an helper injected into the page from.
-  // injectGlobalHook.
-
-  if (typeof clipboardCopyText === 'function') {
-    clipboardCopyText(text).catch(err => {});
-  } else {
-    Object(clipboard["copy"])(text);
-  }
-}
-function copyWithDelete(obj, path, index = 0) {
-  const key = path[index];
-  const updated = shared_isArray(obj) ? obj.slice() : { ...obj
-  };
-
-  if (index + 1 === path.length) {
-    if (shared_isArray(updated)) {
-      updated.splice(key, 1);
-    } else {
-      delete updated[key];
-    }
-  } else {
-    // $FlowFixMe number or string is fine here
-    updated[key] = copyWithDelete(obj[key], path, index + 1);
-  }
-
-  return updated;
-} // This function expects paths to be the same except for the final value.
-// e.g. ['path', 'to', 'foo'] and ['path', 'to', 'bar']
-
-function copyWithRename(obj, oldPath, newPath, index = 0) {
-  const oldKey = oldPath[index];
-  const updated = shared_isArray(obj) ? obj.slice() : { ...obj
-  };
-
-  if (index + 1 === oldPath.length) {
-    const newKey = newPath[index]; // $FlowFixMe number or string is fine here
-
-    updated[newKey] = updated[oldKey];
-
-    if (shared_isArray(updated)) {
-      updated.splice(oldKey, 1);
-    } else {
-      delete updated[oldKey];
-    }
-  } else {
-    // $FlowFixMe number or string is fine here
-    updated[oldKey] = copyWithRename(obj[oldKey], oldPath, newPath, index + 1);
-  }
-
-  return updated;
-}
-function copyWithSet(obj, path, value, index = 0) {
-  if (index >= path.length) {
-    return value;
-  }
-
-  const key = path[index];
-  const updated = shared_isArray(obj) ? obj.slice() : { ...obj
-  }; // $FlowFixMe number or string is fine here
-
-  updated[key] = copyWithSet(obj[key], path, value, index + 1);
-  return updated;
-}
-function getEffectDurations(root) {
-  // Profiling durations are only available for certain builds.
-  // If available, they'll be stored on the HostRoot.
-  let effectDuration = null;
-  let passiveEffectDuration = null;
-  const hostRoot = root.current;
-
-  if (hostRoot != null) {
-    const stateNode = hostRoot.stateNode;
-
-    if (stateNode != null) {
-      effectDuration = stateNode.effectDuration != null ? stateNode.effectDuration : null;
-      passiveEffectDuration = stateNode.passiveEffectDuration != null ? stateNode.passiveEffectDuration : null;
-    }
-  }
-
-  return {
-    effectDuration,
-    passiveEffectDuration
-  };
-}
-function serializeToString(data) {
-  const cache = new Set(); // Use a custom replacer function to protect against circular references.
-
-  return JSON.stringify(data, (key, value) => {
-    if (typeof value === 'object' && value !== null) {
-      if (cache.has(value)) {
-        return;
-      }
-
-      cache.add(value);
-    } // $FlowFixMe
-
-
-    if (typeof value === 'bigint') {
-      return value.toString() + 'n';
-    }
-
-    return value;
-  });
-} // based on https://github.com/tmpfs/format-util/blob/0e62d430efb0a1c51448709abd3e2406c14d8401/format.js#L1
-// based on https://developer.mozilla.org/en-US/docs/Web/API/console#Using_string_substitutions
-// Implements s, d, i and f placeholders
-
-function format(maybeMessage, ...inputArgs) {
-  const args = inputArgs.slice(); // Symbols cannot be concatenated with Strings.
-
-  let formatted = typeof maybeMessage === 'symbol' ? maybeMessage.toString() : '' + maybeMessage; // If the first argument is a string, check for substitutions.
-
-  if (typeof maybeMessage === 'string') {
-    if (args.length) {
-      const REGEXP = /(%?)(%([jds]))/g;
-      formatted = formatted.replace(REGEXP, (match, escaped, ptn, flag) => {
-        let arg = args.shift();
-
-        switch (flag) {
-          case 's':
-            arg += '';
-            break;
-
-          case 'd':
-          case 'i':
-            arg = parseInt(arg, 10).toString();
-            break;
-
-          case 'f':
-            arg = parseFloat(arg).toString();
-            break;
-        }
-
-        if (!escaped) {
-          return arg;
-        }
-
-        args.unshift(arg);
-        return match;
-      });
-    }
-  } // Arguments that remain after formatting.
-
-
-  if (args.length) {
-    for (let i = 0; i < args.length; i++) {
-      const arg = args[i]; // Symbols cannot be concatenated with Strings.
-
-      formatted += ' ' + (typeof arg === 'symbol' ? arg.toString() : arg);
-    }
-  } // Update escaped %% values.
-
-
-  formatted = formatted.replace(/%{2,2}/g, '%');
-  return '' + formatted;
-}
-function isSynchronousXHRSupported() {
-  return !!(window.document && window.document.featurePolicy && window.document.featurePolicy.allowsFeature('sync-xhr'));
-}
 // EXTERNAL MODULE: ../react-devtools-shared/src/constants.js
-var constants = __webpack_require__(1);
+var constants = __webpack_require__(2);
 
-// EXTERNAL MODULE: /Users/bvaughn/Documents/git/react.devtools/build/node_modules/react-debug-tools/index.js
-var react_debug_tools = __webpack_require__(83);
+// EXTERNAL MODULE: /Users/luna/code/react/build/node_modules/react-debug-tools/index.js
+var react_debug_tools = __webpack_require__(60);
 
-// EXTERNAL MODULE: ../react-devtools-shared/src/backend/console.js + 3 modules
-var backend_console = __webpack_require__(54);
+// EXTERNAL MODULE: ../react-devtools-shared/src/backend/console.js
+var backend_console = __webpack_require__(42);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/backend/ReactSymbols.js
 var ReactSymbols = __webpack_require__(4);
 
 // EXTERNAL MODULE: ../react-devtools-shared/src/config/DevToolsFeatureFlags.extension-oss.js
-var DevToolsFeatureFlags_extension_oss = __webpack_require__(30);
+var DevToolsFeatureFlags_extension_oss = __webpack_require__(22);
 
 // CONCATENATED MODULE: ../shared/objectIs.js
 /**
@@ -5091,6 +4812,9 @@ function is(x, y) {
 
 const objectIs = typeof Object.is === 'function' ? Object.is : is;
 /* harmony default export */ var shared_objectIs = (objectIs);
+// EXTERNAL MODULE: ../shared/isArray.js
+var isArray = __webpack_require__(23);
+
 // CONCATENATED MODULE: ../react-devtools-shared/src/backend/renderer.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -5697,9 +5421,9 @@ function attach(hook, rendererID, renderer, global) {
       }
     }
 
-    const message = format(...args);
+    const message = Object(backend_utils["f" /* format */])(...args);
 
-    if (constants["u" /* __DEBUG__ */]) {
+    if (constants["w" /* __DEBUG__ */]) {
       debug('onErrorOrWarning', fiber, null, `${type}: "${message}"`);
     } // Mark this Fiber as needed its warning/error count updated during the next flush.
 
@@ -5738,18 +5462,19 @@ function attach(hook, rendererID, renderer, global) {
     const appendComponentStack = window.__REACT_DEVTOOLS_APPEND_COMPONENT_STACK__ !== false;
     const breakOnConsoleErrors = window.__REACT_DEVTOOLS_BREAK_ON_CONSOLE_ERRORS__ === true;
     const showInlineWarningsAndErrors = window.__REACT_DEVTOOLS_SHOW_INLINE_WARNINGS_AND_ERRORS__ !== false;
-
-    if (appendComponentStack || breakOnConsoleErrors || showInlineWarningsAndErrors) {
-      Object(backend_console["a" /* patch */])({
-        appendComponentStack,
-        breakOnConsoleErrors,
-        showInlineWarningsAndErrors
-      });
-    }
+    const hideConsoleLogsInStrictMode = window.__REACT_DEVTOOLS_HIDE_CONSOLE_LOGS_IN_STRICT_MODE__ === true;
+    const browserTheme = window.__REACT_DEVTOOLS_BROWSER_THEME__;
+    Object(backend_console["a" /* patch */])({
+      appendComponentStack,
+      breakOnConsoleErrors,
+      showInlineWarningsAndErrors,
+      hideConsoleLogsInStrictMode,
+      browserTheme
+    });
   }
 
   const debug = (name, fiber, parentFiber, extraString = '') => {
-    if (constants["u" /* __DEBUG__ */]) {
+    if (constants["w" /* __DEBUG__ */]) {
       const displayName = fiber.tag + ':' + (getDisplayNameForFiber(fiber) || 'null');
       const maybeID = getFiberIDUnsafe(fiber) || '<no id>';
       const parentDisplayName = parentFiber ? parentFiber.tag + ':' + (getDisplayNameForFiber(parentFiber) || 'null') : '';
@@ -5838,7 +5563,7 @@ function attach(hook, rendererID, renderer, global) {
       // 1. It avoids sending unnecessary bridge traffic to clear a root.
       // 2. It preserves Fiber IDs when remounting (below) which in turn ID to error/warning mapping.
 
-      pushOperation(constants["p" /* TREE_OPERATION_REMOVE_ROOT */]);
+      pushOperation(constants["r" /* TREE_OPERATION_REMOVE_ROOT */]);
       flushPendingEvents(root);
       currentRootID = -1;
     });
@@ -6049,7 +5774,7 @@ function attach(hook, rendererID, renderer, global) {
 
     if (id === null) {
       didGenerateID = true;
-      id = Object(utils["m" /* getUID */])();
+      id = Object(utils["n" /* getUID */])();
     } // This refinement is for Flow purposes only.
 
 
@@ -6073,7 +5798,7 @@ function attach(hook, rendererID, renderer, global) {
       }
     }
 
-    if (constants["u" /* __DEBUG__ */]) {
+    if (constants["w" /* __DEBUG__ */]) {
       if (didGenerateID) {
         debug('getOrGenerateFiberID()', fiber, fiber.return, 'Generated a new UID');
       }
@@ -6114,7 +5839,7 @@ function attach(hook, rendererID, renderer, global) {
 
 
   function untrackFiberID(fiber) {
-    if (constants["u" /* __DEBUG__ */]) {
+    if (constants["w" /* __DEBUG__ */]) {
       debug('untrackFiberID()', fiber, fiber.return, 'schedule after delay');
     } // Untrack Fibers after a slight delay in order to support a Fast Refresh edge case:
     // 1. Component type is updated and Fast Refresh schedules an update+remount.
@@ -6201,7 +5926,7 @@ function attach(hook, rendererID, renderer, global) {
             state: getChangedKeys(prevFiber.memoizedState, nextFiber.memoizedState)
           }; // Only traverse the hooks list once, depending on what info we're returning.
 
-          if (DevToolsFeatureFlags_extension_oss["a" /* enableProfilerChangedHookIndices */]) {
+          if (DevToolsFeatureFlags_extension_oss["b" /* enableProfilerChangedHookIndices */]) {
             const indices = getChangedHooksIndices(prevFiber.memoizedState, nextFiber.memoizedState);
             data.hooks = indices;
             data.didHooksChange = indices !== null && indices.length > 0;
@@ -6219,6 +5944,7 @@ function attach(hook, rendererID, renderer, global) {
 
   function updateContextsForFiber(fiber) {
     switch (getElementTypeForFiber(fiber)) {
+      case types["h" /* ElementTypeFunction */]:
       case types["e" /* ElementTypeClass */]:
         if (idToContextsMap !== null) {
           const id = getFiberIDThrows(fiber);
@@ -6240,11 +5966,12 @@ function attach(hook, rendererID, renderer, global) {
   const NO_CONTEXT = {};
 
   function getContextsForFiber(fiber) {
+    let legacyContext = NO_CONTEXT;
+    let modernContext = NO_CONTEXT;
+
     switch (getElementTypeForFiber(fiber)) {
       case types["e" /* ElementTypeClass */]:
         const instance = fiber.stateNode;
-        let legacyContext = NO_CONTEXT;
-        let modernContext = NO_CONTEXT;
 
         if (instance != null) {
           if (instance.constructor && instance.constructor.contextType != null) {
@@ -6256,6 +5983,15 @@ function attach(hook, rendererID, renderer, global) {
               legacyContext = NO_CONTEXT;
             }
           }
+        }
+
+        return [legacyContext, modernContext];
+
+      case types["h" /* ElementTypeFunction */]:
+        const dependencies = fiber.dependencies;
+
+        if (dependencies && dependencies.firstContext) {
+          modernContext = dependencies.firstContext;
         }
 
         return [legacyContext, modernContext];
@@ -6279,31 +6015,52 @@ function attach(hook, rendererID, renderer, global) {
   }
 
   function getContextChangedKeys(fiber) {
-    switch (getElementTypeForFiber(fiber)) {
-      case types["e" /* ElementTypeClass */]:
-        if (idToContextsMap !== null) {
-          const id = getFiberIDThrows(fiber);
-          const prevContexts = idToContextsMap.has(id) ? idToContextsMap.get(id) : null;
-          const nextContexts = getContextsForFiber(fiber);
+    if (idToContextsMap !== null) {
+      const id = getFiberIDThrows(fiber);
+      const prevContexts = idToContextsMap.has(id) ? idToContextsMap.get(id) : null;
+      const nextContexts = getContextsForFiber(fiber);
 
-          if (prevContexts == null || nextContexts == null) {
-            return null;
+      if (prevContexts == null || nextContexts == null) {
+        return null;
+      }
+
+      const [prevLegacyContext, prevModernContext] = prevContexts;
+      const [nextLegacyContext, nextModernContext] = nextContexts;
+
+      switch (getElementTypeForFiber(fiber)) {
+        case types["e" /* ElementTypeClass */]:
+          if (prevContexts && nextContexts) {
+            if (nextLegacyContext !== NO_CONTEXT) {
+              return getChangedKeys(prevLegacyContext, nextLegacyContext);
+            } else if (nextModernContext !== NO_CONTEXT) {
+              return prevModernContext !== nextModernContext;
+            }
           }
 
-          const [prevLegacyContext, prevModernContext] = prevContexts;
-          const [nextLegacyContext, nextModernContext] = nextContexts;
+          break;
 
-          if (nextLegacyContext !== NO_CONTEXT) {
-            return getChangedKeys(prevLegacyContext, nextLegacyContext);
-          } else if (nextModernContext !== NO_CONTEXT) {
-            return prevModernContext !== nextModernContext;
+        case types["h" /* ElementTypeFunction */]:
+          if (nextModernContext !== NO_CONTEXT) {
+            let prevContext = prevModernContext;
+            let nextContext = nextModernContext;
+
+            while (prevContext && nextContext) {
+              if (!shared_objectIs(prevContext.memoizedValue, nextContext.memoizedValue)) {
+                return true;
+              }
+
+              prevContext = prevContext.next;
+              nextContext = nextContext.next;
+            }
+
+            return false;
           }
-        }
 
-        break;
+          break;
 
-      default:
-        break;
+        default:
+          break;
+      }
     }
 
     return null;
@@ -6334,7 +6091,7 @@ function attach(hook, rendererID, renderer, global) {
       deps
     } = memoizedState;
     const hasOwnProperty = Object.prototype.hasOwnProperty.bind(memoizedState);
-    return hasOwnProperty('create') && hasOwnProperty('destroy') && hasOwnProperty('deps') && hasOwnProperty('next') && hasOwnProperty('tag') && (deps === null || shared_isArray(deps));
+    return hasOwnProperty('create') && hasOwnProperty('destroy') && hasOwnProperty('deps') && hasOwnProperty('next') && hasOwnProperty('tag') && (deps === null || Object(isArray["a" /* default */])(deps));
   }
 
   function didHookChange(prev, next) {
@@ -6369,7 +6126,7 @@ function attach(hook, rendererID, renderer, global) {
   }
 
   function getChangedHooksIndices(prev, next) {
-    if (DevToolsFeatureFlags_extension_oss["a" /* enableProfilerChangedHookIndices */]) {
+    if (DevToolsFeatureFlags_extension_oss["b" /* enableProfilerChangedHookIndices */]) {
       if (prev == null || next == null) {
         return null;
       }
@@ -6564,7 +6321,7 @@ function attach(hook, rendererID, renderer, global) {
       } else {
         const errorCount = mergeMapsAndGetCountHelper(fiber, fiberID, pendingFiberToErrorsMap, fiberIDToErrorsMap);
         const warningCount = mergeMapsAndGetCountHelper(fiber, fiberID, pendingFiberToWarningsMap, fiberIDToWarningsMap);
-        pushOperation(constants["r" /* TREE_OPERATION_UPDATE_ERRORS_OR_WARNINGS */]);
+        pushOperation(constants["t" /* TREE_OPERATION_UPDATE_ERRORS_OR_WARNINGS */]);
         pushOperation(fiberID);
         pushOperation(errorCount);
         pushOperation(warningCount);
@@ -6617,7 +6374,7 @@ function attach(hook, rendererID, renderer, global) {
     operations[i++] = pendingStringTableLength;
     pendingStringTable.forEach((value, key) => {
       operations[i++] = key.length;
-      const encodedKey = Object(utils["t" /* utfEncodeString */])(key);
+      const encodedKey = Object(utils["u" /* utfEncodeString */])(key);
 
       for (let j = 0; j < encodedKey.length; j++) {
         operations[i + j] = encodedKey[j];
@@ -6628,7 +6385,7 @@ function attach(hook, rendererID, renderer, global) {
 
     if (numUnmountIDs > 0) {
       // All unmounts except roots are batched in a single message.
-      operations[i++] = constants["o" /* TREE_OPERATION_REMOVE */]; // The first number is how many unmounted IDs we're gonna send.
+      operations[i++] = constants["q" /* TREE_OPERATION_REMOVE */]; // The first number is how many unmounted IDs we're gonna send.
 
       operations[i++] = numUnmountIDs; // Fill in the real unmounts in the reverse order.
       // They were inserted parents-first by React, but we want children-first.
@@ -6696,7 +6453,7 @@ function attach(hook, rendererID, renderer, global) {
     const isRoot = fiber.tag === HostRoot;
     const id = getOrGenerateFiberID(fiber);
 
-    if (constants["u" /* __DEBUG__ */]) {
+    if (constants["w" /* __DEBUG__ */]) {
       debug('recordMount()', fiber, parentFiber);
     }
 
@@ -6704,7 +6461,7 @@ function attach(hook, rendererID, renderer, global) {
     const isProfilingSupported = fiber.hasOwnProperty('treeBaseDuration');
 
     if (isRoot) {
-      pushOperation(constants["n" /* TREE_OPERATION_ADD */]);
+      pushOperation(constants["p" /* TREE_OPERATION_ADD */]);
       pushOperation(id);
       pushOperation(types["m" /* ElementTypeRoot */]);
       pushOperation(isProfilingSupported ? 1 : 0);
@@ -6736,7 +6493,7 @@ function attach(hook, rendererID, renderer, global) {
 
       const keyString = key === null ? null : '' + key;
       const keyStringID = getStringID(keyString);
-      pushOperation(constants["n" /* TREE_OPERATION_ADD */]);
+      pushOperation(constants["p" /* TREE_OPERATION_ADD */]);
       pushOperation(id);
       pushOperation(elementType);
       pushOperation(parentID);
@@ -6752,7 +6509,7 @@ function attach(hook, rendererID, renderer, global) {
   }
 
   function recordUnmount(fiber, isSimulated) {
-    if (constants["u" /* __DEBUG__ */]) {
+    if (constants["w" /* __DEBUG__ */]) {
       debug('recordUnmount()', fiber, null, isSimulated ? 'unmount is simulated' : '');
     }
 
@@ -6817,7 +6574,7 @@ function attach(hook, rendererID, renderer, global) {
       // Generate an ID even for filtered Fibers, in case it's needed later (e.g. for Profiling).
       getOrGenerateFiberID(fiber);
 
-      if (constants["u" /* __DEBUG__ */]) {
+      if (constants["w" /* __DEBUG__ */]) {
         debug('mountFiberRecursively()', fiber, parentFiber);
       } // If we have the tree selection from previous reload, try to match this Fiber.
       // Also remember whether to do the same for siblings.
@@ -6889,7 +6646,7 @@ function attach(hook, rendererID, renderer, global) {
 
 
   function unmountFiberChildrenRecursively(fiber) {
-    if (constants["u" /* __DEBUG__ */]) {
+    if (constants["w" /* __DEBUG__ */]) {
       debug('unmountFiberChildrenRecursively()', fiber);
     } // We might meet a nested Suspense on our way.
 
@@ -6935,7 +6692,7 @@ function attach(hook, rendererID, renderer, global) {
         // Tree base duration updates are included in the operations typed array.
         // So we have to convert them from milliseconds to microseconds so we can send them as ints.
         const convertedTreeBaseDuration = Math.floor((treeBaseDuration || 0) * 1000);
-        pushOperation(constants["s" /* TREE_OPERATION_UPDATE_TREE_BASE_DURATION */]);
+        pushOperation(constants["u" /* TREE_OPERATION_UPDATE_TREE_BASE_DURATION */]);
         pushOperation(id);
         pushOperation(convertedTreeBaseDuration);
       }
@@ -6981,7 +6738,7 @@ function attach(hook, rendererID, renderer, global) {
   }
 
   function recordResetChildren(fiber, childSet) {
-    if (constants["u" /* __DEBUG__ */]) {
+    if (constants["w" /* __DEBUG__ */]) {
       debug('recordResetChildren()', childSet, fiber);
     } // The frontend only really cares about the displayName, key, and children.
     // The first two don't really change, so we are only concerned with the order of children here.
@@ -7005,7 +6762,7 @@ function attach(hook, rendererID, renderer, global) {
       return;
     }
 
-    pushOperation(constants["q" /* TREE_OPERATION_REORDER_CHILDREN */]);
+    pushOperation(constants["s" /* TREE_OPERATION_REORDER_CHILDREN */]);
     pushOperation(getFiberIDThrows(fiber));
     pushOperation(numChildren);
 
@@ -7045,7 +6802,7 @@ function attach(hook, rendererID, renderer, global) {
   function updateFiberRecursively(nextFiber, prevFiber, parentFiber, traceNearestHostComponentUpdate) {
     const id = getOrGenerateFiberID(nextFiber);
 
-    if (constants["u" /* __DEBUG__ */]) {
+    if (constants["w" /* __DEBUG__ */]) {
       debug('updateFiberRecursively()', nextFiber, parentFiber);
     }
 
@@ -7059,7 +6816,7 @@ function attach(hook, rendererID, renderer, global) {
           traceNearestHostComponentUpdate = false;
         }
       } else {
-        if (elementType === types["h" /* ElementTypeFunction */] || elementType === types["e" /* ElementTypeClass */] || elementType === types["f" /* ElementTypeContext */]) {
+        if (elementType === types["h" /* ElementTypeFunction */] || elementType === types["e" /* ElementTypeClass */] || elementType === types["f" /* ElementTypeContext */] || elementType === types["j" /* ElementTypeMemo */] || elementType === types["g" /* ElementTypeForwardRef */]) {
           // Otherwise if this is a traced ancestor, flag for the nearest host descendant(s).
           traceNearestHostComponentUpdate = didFiberRender(prevFiber, nextFiber);
         }
@@ -7302,7 +7059,7 @@ function attach(hook, rendererID, renderer, global) {
         const {
           effectDuration,
           passiveEffectDuration
-        } = getEffectDurations(root);
+        } = Object(backend_utils["g" /* getEffectDurations */])(root);
         currentCommitProfilingMetadata.effectDuration = effectDuration;
         currentCommitProfilingMetadata.passiveEffectDuration = passiveEffectDuration;
       }
@@ -7723,7 +7480,7 @@ function attach(hook, rendererID, renderer, global) {
 
   function prepareViewAttributeSource(id, path) {
     if (isMostRecentlyInspectedElement(id)) {
-      window.$attribute = Object(utils["j" /* getInObject */])(mostRecentlyInspectedElement, path);
+      window.$attribute = Object(utils["k" /* getInObject */])(mostRecentlyInspectedElement, path);
     }
   }
 
@@ -8174,7 +7931,7 @@ function attach(hook, rendererID, renderer, global) {
 
   function storeAsGlobal(id, path, count) {
     if (isMostRecentlyInspectedElement(id)) {
-      const value = Object(utils["j" /* getInObject */])(mostRecentlyInspectedElement, path);
+      const value = Object(utils["k" /* getInObject */])(mostRecentlyInspectedElement, path);
       const key = `$reactTemp${count}`;
       window[key] = value;
       console.log(key);
@@ -8184,7 +7941,7 @@ function attach(hook, rendererID, renderer, global) {
 
   function copyElementPath(id, path) {
     if (isMostRecentlyInspectedElement(id)) {
-      copyToClipboard(Object(utils["j" /* getInObject */])(mostRecentlyInspectedElement, path));
+      Object(backend_utils["b" /* copyToClipboard */])(Object(utils["k" /* getInObject */])(mostRecentlyInspectedElement, path));
     }
   }
 
@@ -8209,7 +7966,7 @@ function attach(hook, rendererID, renderer, global) {
             responseID: requestID,
             type: 'hydrated-path',
             path,
-            value: cleanForBridge(Object(utils["j" /* getInObject */])(mostRecentlyInspectedElement, path), createIsPathAllowed(null, secondaryCategory), path)
+            value: Object(backend_utils["a" /* cleanForBridge */])(Object(utils["k" /* getInObject */])(mostRecentlyInspectedElement, path), createIsPathAllowed(null, secondaryCategory), path)
           };
         } else {
           // If this element has not been updated since it was last inspected, we don't need to return it.
@@ -8245,10 +8002,10 @@ function attach(hook, rendererID, renderer, global) {
 
     const cleanedInspectedElement = { ...mostRecentlyInspectedElement
     };
-    cleanedInspectedElement.context = cleanForBridge(cleanedInspectedElement.context, createIsPathAllowed('context', null));
-    cleanedInspectedElement.hooks = cleanForBridge(cleanedInspectedElement.hooks, createIsPathAllowed('hooks', 'hooks'));
-    cleanedInspectedElement.props = cleanForBridge(cleanedInspectedElement.props, createIsPathAllowed('props', null));
-    cleanedInspectedElement.state = cleanForBridge(cleanedInspectedElement.state, createIsPathAllowed('state', null));
+    cleanedInspectedElement.context = Object(backend_utils["a" /* cleanForBridge */])(cleanedInspectedElement.context, createIsPathAllowed('context', null));
+    cleanedInspectedElement.hooks = Object(backend_utils["a" /* cleanForBridge */])(cleanedInspectedElement.hooks, createIsPathAllowed('hooks', 'hooks'));
+    cleanedInspectedElement.props = Object(backend_utils["a" /* cleanForBridge */])(cleanedInspectedElement.props, createIsPathAllowed('props', null));
+    cleanedInspectedElement.state = Object(backend_utils["a" /* cleanForBridge */])(cleanedInspectedElement.state, createIsPathAllowed('state', null));
     return {
       id,
       responseID: requestID,
@@ -8347,7 +8104,7 @@ function attach(hook, rendererID, renderer, global) {
               overridePropsDeletePath(fiber, path);
             }
           } else {
-            fiber.pendingProps = copyWithDelete(instance.props, path);
+            fiber.pendingProps = Object(backend_utils["c" /* copyWithDelete */])(instance.props, path);
             instance.forceUpdate();
           }
 
@@ -8379,7 +8136,7 @@ function attach(hook, rendererID, renderer, global) {
             case ClassComponent:
               if (oldPath.length === 0) {// Simple context value (noop)
               } else {
-                Object(utils["n" /* renamePathInObject */])(instance.context, oldPath, newPath);
+                Object(utils["o" /* renamePathInObject */])(instance.context, oldPath, newPath);
               }
 
               instance.forceUpdate();
@@ -8406,14 +8163,14 @@ function attach(hook, rendererID, renderer, global) {
               overridePropsRenamePath(fiber, oldPath, newPath);
             }
           } else {
-            fiber.pendingProps = copyWithRename(instance.props, oldPath, newPath);
+            fiber.pendingProps = Object(backend_utils["d" /* copyWithRename */])(instance.props, oldPath, newPath);
             instance.forceUpdate();
           }
 
           break;
 
         case 'state':
-          Object(utils["n" /* renamePathInObject */])(instance.state, oldPath, newPath);
+          Object(utils["o" /* renamePathInObject */])(instance.state, oldPath, newPath);
           instance.forceUpdate();
           break;
       }
@@ -8439,7 +8196,7 @@ function attach(hook, rendererID, renderer, global) {
                 // Simple context value
                 instance.context = value;
               } else {
-                Object(utils["q" /* setInObject */])(instance.context, path, value);
+                Object(utils["r" /* setInObject */])(instance.context, path, value);
               }
 
               instance.forceUpdate();
@@ -8463,7 +8220,7 @@ function attach(hook, rendererID, renderer, global) {
         case 'props':
           switch (fiber.tag) {
             case ClassComponent:
-              fiber.pendingProps = copyWithSet(instance.props, path, value);
+              fiber.pendingProps = Object(backend_utils["e" /* copyWithSet */])(instance.props, path, value);
               instance.forceUpdate();
               break;
 
@@ -8480,7 +8237,7 @@ function attach(hook, rendererID, renderer, global) {
         case 'state':
           switch (fiber.tag) {
             case ClassComponent:
-              Object(utils["q" /* setInObject */])(instance.state, path, value);
+              Object(utils["r" /* setInObject */])(instance.state, path, value);
               instance.forceUpdate();
               break;
           }
@@ -8603,8 +8360,8 @@ function attach(hook, rendererID, renderer, global) {
   } // Automatically start profiling so that we don't miss timing info from initial "mount".
 
 
-  if (Object(storage["d" /* sessionStorageGetItem */])(constants["m" /* SESSION_STORAGE_RELOAD_AND_PROFILE_KEY */]) === 'true') {
-    startProfiling(Object(storage["d" /* sessionStorageGetItem */])(constants["l" /* SESSION_STORAGE_RECORD_CHANGE_DESCRIPTIONS_KEY */]) === 'true');
+  if (Object(storage["d" /* sessionStorageGetItem */])(constants["n" /* SESSION_STORAGE_RELOAD_AND_PROFILE_KEY */]) === 'true') {
+    startProfiling(Object(storage["d" /* sessionStorageGetItem */])(constants["m" /* SESSION_STORAGE_RECORD_CHANGE_DESCRIPTIONS_KEY */]) === 'true');
   } // React will switch between these implementations depending on whether
   // we have any manually suspended/errored-out Fibers or not.
 
@@ -9015,251 +8772,31 @@ function attach(hook, rendererID, renderer, global) {
 
 /***/ }),
 
-/***/ 66:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 48:
+/***/ (function(module, exports) {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
-  'use strict'; // Universal Module Definition (UMD) to support AMD, CommonJS/Node.js, Rhino, and browsers.
+var g; // This works in non-strict mode
 
-  /* istanbul ignore next */
+g = function () {
+  return this;
+}();
 
-  if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(75)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else {}
-})(this, function ErrorStackParser(StackFrame) {
-  'use strict';
+try {
+  // This works if eval is allowed (see CSP)
+  g = g || new Function("return this")();
+} catch (e) {
+  // This works if the window reference is available
+  if (typeof window === "object") g = window;
+} // g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
 
-  var FIREFOX_SAFARI_STACK_REGEXP = /(^|@)\S+:\d+/;
-  var CHROME_IE_STACK_REGEXP = /^\s*at .*(\S+:\d+|\(native\))/m;
-  var SAFARI_NATIVE_CODE_REGEXP = /^(eval@)?(\[native code])?$/;
-  return {
-    /**
-     * Given an Error object, extract the most information from it.
-     *
-     * @param {Error} error object
-     * @return {Array} of StackFrames
-     */
-    parse: function ErrorStackParser$$parse(error) {
-      if (typeof error.stacktrace !== 'undefined' || typeof error['opera#sourceloc'] !== 'undefined') {
-        return this.parseOpera(error);
-      } else if (error.stack && error.stack.match(CHROME_IE_STACK_REGEXP)) {
-        return this.parseV8OrIE(error);
-      } else if (error.stack) {
-        return this.parseFFOrSafari(error);
-      } else {
-        throw new Error('Cannot parse given Error object');
-      }
-    },
-    // Separate line and column numbers from a string of the form: (URI:Line:Column)
-    extractLocation: function ErrorStackParser$$extractLocation(urlLike) {
-      // Fail-fast but return locations like "(native)"
-      if (urlLike.indexOf(':') === -1) {
-        return [urlLike];
-      }
 
-      var regExp = /(.+?)(?::(\d+))?(?::(\d+))?$/;
-      var parts = regExp.exec(urlLike.replace(/[()]/g, ''));
-      return [parts[1], parts[2] || undefined, parts[3] || undefined];
-    },
-    parseV8OrIE: function ErrorStackParser$$parseV8OrIE(error) {
-      var filtered = error.stack.split('\n').filter(function (line) {
-        return !!line.match(CHROME_IE_STACK_REGEXP);
-      }, this);
-      return filtered.map(function (line) {
-        if (line.indexOf('(eval ') > -1) {
-          // Throw away eval information until we implement stacktrace.js/stackframe#8
-          line = line.replace(/eval code/g, 'eval').replace(/(\(eval at [^()]*)|(\),.*$)/g, '');
-        }
-
-        var sanitizedLine = line.replace(/^\s+/, '').replace(/\(eval code/g, '('); // capture and preseve the parenthesized location "(/foo/my bar.js:12:87)" in
-        // case it has spaces in it, as the string is split on \s+ later on
-
-        var location = sanitizedLine.match(/ (\((.+):(\d+):(\d+)\)$)/); // remove the parenthesized location from the line, if it was matched
-
-        sanitizedLine = location ? sanitizedLine.replace(location[0], '') : sanitizedLine;
-        var tokens = sanitizedLine.split(/\s+/).slice(1); // if a location was matched, pass it to extractLocation() otherwise pop the last token
-
-        var locationParts = this.extractLocation(location ? location[1] : tokens.pop());
-        var functionName = tokens.join(' ') || undefined;
-        var fileName = ['eval', '<anonymous>'].indexOf(locationParts[0]) > -1 ? undefined : locationParts[0];
-        return new StackFrame({
-          functionName: functionName,
-          fileName: fileName,
-          lineNumber: locationParts[1],
-          columnNumber: locationParts[2],
-          source: line
-        });
-      }, this);
-    },
-    parseFFOrSafari: function ErrorStackParser$$parseFFOrSafari(error) {
-      var filtered = error.stack.split('\n').filter(function (line) {
-        return !line.match(SAFARI_NATIVE_CODE_REGEXP);
-      }, this);
-      return filtered.map(function (line) {
-        // Throw away eval information until we implement stacktrace.js/stackframe#8
-        if (line.indexOf(' > eval') > -1) {
-          line = line.replace(/ line (\d+)(?: > eval line \d+)* > eval:\d+:\d+/g, ':$1');
-        }
-
-        if (line.indexOf('@') === -1 && line.indexOf(':') === -1) {
-          // Safari eval frames only have function names and nothing else
-          return new StackFrame({
-            functionName: line
-          });
-        } else {
-          var functionNameRegex = /((.*".+"[^@]*)?[^@]*)(?:@)/;
-          var matches = line.match(functionNameRegex);
-          var functionName = matches && matches[1] ? matches[1] : undefined;
-          var locationParts = this.extractLocation(line.replace(functionNameRegex, ''));
-          return new StackFrame({
-            functionName: functionName,
-            fileName: locationParts[0],
-            lineNumber: locationParts[1],
-            columnNumber: locationParts[2],
-            source: line
-          });
-        }
-      }, this);
-    },
-    parseOpera: function ErrorStackParser$$parseOpera(e) {
-      if (!e.stacktrace || e.message.indexOf('\n') > -1 && e.message.split('\n').length > e.stacktrace.split('\n').length) {
-        return this.parseOpera9(e);
-      } else if (!e.stack) {
-        return this.parseOpera10(e);
-      } else {
-        return this.parseOpera11(e);
-      }
-    },
-    parseOpera9: function ErrorStackParser$$parseOpera9(e) {
-      var lineRE = /Line (\d+).*script (?:in )?(\S+)/i;
-      var lines = e.message.split('\n');
-      var result = [];
-
-      for (var i = 2, len = lines.length; i < len; i += 2) {
-        var match = lineRE.exec(lines[i]);
-
-        if (match) {
-          result.push(new StackFrame({
-            fileName: match[2],
-            lineNumber: match[1],
-            source: lines[i]
-          }));
-        }
-      }
-
-      return result;
-    },
-    parseOpera10: function ErrorStackParser$$parseOpera10(e) {
-      var lineRE = /Line (\d+).*script (?:in )?(\S+)(?:: In function (\S+))?$/i;
-      var lines = e.stacktrace.split('\n');
-      var result = [];
-
-      for (var i = 0, len = lines.length; i < len; i += 2) {
-        var match = lineRE.exec(lines[i]);
-
-        if (match) {
-          result.push(new StackFrame({
-            functionName: match[3] || undefined,
-            fileName: match[2],
-            lineNumber: match[1],
-            source: lines[i]
-          }));
-        }
-      }
-
-      return result;
-    },
-    // Opera 10.65+ Error.stack very similar to FF/Safari
-    parseOpera11: function ErrorStackParser$$parseOpera11(error) {
-      var filtered = error.stack.split('\n').filter(function (line) {
-        return !!line.match(FIREFOX_SAFARI_STACK_REGEXP) && !line.match(/^Error created at/);
-      }, this);
-      return filtered.map(function (line) {
-        var tokens = line.split('@');
-        var locationParts = this.extractLocation(tokens.pop());
-        var functionCall = tokens.shift() || '';
-        var functionName = functionCall.replace(/<anonymous function(: (\w+))?>/, '$2').replace(/\([^)]*\)/g, '') || undefined;
-        var argsRaw;
-
-        if (functionCall.match(/\(([^)]*)\)/)) {
-          argsRaw = functionCall.replace(/^[^(]+\(([^)]*)\)$/, '$1');
-        }
-
-        var args = argsRaw === undefined || argsRaw === '[arguments not available]' ? undefined : argsRaw.split(',');
-        return new StackFrame({
-          functionName: functionName,
-          args: args,
-          fileName: locationParts[0],
-          lineNumber: locationParts[1],
-          columnNumber: locationParts[2],
-          source: line
-        });
-      }, this);
-    }
-  };
-});
+module.exports = g;
 
 /***/ }),
 
-/***/ 7:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return localStorageGetItem; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return localStorageRemoveItem; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return localStorageSetItem; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return sessionStorageGetItem; });
-/* unused harmony export sessionStorageRemoveItem */
-/* unused harmony export sessionStorageSetItem */
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-function localStorageGetItem(key) {
-  try {
-    return localStorage.getItem(key);
-  } catch (error) {
-    return null;
-  }
-}
-function localStorageRemoveItem(key) {
-  try {
-    localStorage.removeItem(key);
-  } catch (error) {}
-}
-function localStorageSetItem(key, value) {
-  try {
-    return localStorage.setItem(key, value);
-  } catch (error) {}
-}
-function sessionStorageGetItem(key) {
-  try {
-    return sessionStorage.getItem(key);
-  } catch (error) {
-    return null;
-  }
-}
-function sessionStorageRemoveItem(key) {
-  try {
-    sessionStorage.removeItem(key);
-  } catch (error) {}
-}
-function sessionStorageSetItem(key, value) {
-  try {
-    return sessionStorage.setItem(key, value);
-  } catch (error) {}
-}
-
-/***/ }),
-
-/***/ 71:
+/***/ 55:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9744,12 +9281,12 @@ function Node(value, prev, next, list) {
 
 try {
   // add if support for Symbol.iterator is present
-  __webpack_require__(72)(Yallist);
+  __webpack_require__(56)(Yallist);
 } catch (er) {}
 
 /***/ }),
 
-/***/ 72:
+/***/ 56:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9765,7 +9302,7 @@ module.exports = function (Yallist) {
 
 /***/ }),
 
-/***/ 73:
+/***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9942,170 +9479,221 @@ exports.typeOf = y;
 
 /***/ }),
 
-/***/ 74:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ 58:
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (":root {\n  /**\n   * IMPORTANT: When new theme variables are added below– also add them to SettingsContext updateThemeVariables()\n   */\n\n  /* Light theme */\n  --light-color-attribute-name: #ef6632;\n  --light-color-attribute-name-not-editable: #23272f;\n  --light-color-attribute-name-inverted: rgba(255, 255, 255, 0.7);\n  --light-color-attribute-value: #1a1aa6;\n  --light-color-attribute-value-inverted: #ffffff;\n  --light-color-attribute-editable-value: #1a1aa6;\n  --light-color-background: #ffffff;\n  --light-color-background-hover: rgba(0, 136, 250, 0.1);\n  --light-color-background-inactive: #e5e5e5;\n  --light-color-background-invalid: #fff0f0;\n  --light-color-background-selected: #0088fa;\n  --light-color-button-background: #ffffff;\n  --light-color-button-background-focus: #ededed;\n  --light-color-button: #5f6673;\n  --light-color-button-disabled: #cfd1d5;\n  --light-color-button-active: #0088fa;\n  --light-color-button-focus: #23272f;\n  --light-color-button-hover: #23272f;\n  --light-color-border: #eeeeee;\n  --light-color-commit-did-not-render-fill: #cfd1d5;\n  --light-color-commit-did-not-render-fill-text: #000000;\n  --light-color-commit-did-not-render-pattern: #cfd1d5;\n  --light-color-commit-did-not-render-pattern-text: #333333;\n  --light-color-commit-gradient-0: #37afa9;\n  --light-color-commit-gradient-1: #63b19e;\n  --light-color-commit-gradient-2: #80b393;\n  --light-color-commit-gradient-3: #97b488;\n  --light-color-commit-gradient-4: #abb67d;\n  --light-color-commit-gradient-5: #beb771;\n  --light-color-commit-gradient-6: #cfb965;\n  --light-color-commit-gradient-7: #dfba57;\n  --light-color-commit-gradient-8: #efbb49;\n  --light-color-commit-gradient-9: #febc38;\n  --light-color-commit-gradient-text: #000000;\n  --light-color-component-name: #6a51b2;\n  --light-color-component-name-inverted: #ffffff;\n  --light-color-component-badge-background: rgba(0, 0, 0, 0.1);\n  --light-color-component-badge-background-inverted: rgba(255, 255, 255, 0.25);\n  --light-color-component-badge-count: #777d88;\n  --light-color-component-badge-count-inverted: rgba(255, 255, 255, 0.7);\n  --light-color-console-error-badge-text: #ffffff;\n  --light-color-console-error-background: #fff0f0;\n  --light-color-console-error-border: #ffd6d6;\n  --light-color-console-error-icon: #eb3941;\n  --light-color-console-error-text: #fe2e31;\n  --light-color-console-warning-badge-text: #000000;\n  --light-color-console-warning-background: #fffbe5;\n  --light-color-console-warning-border: #fff5c1;\n  --light-color-console-warning-icon: #f4bd00;\n  --light-color-console-warning-text: #64460c;\n  --light-color-context-background: rgba(0,0,0,.9);\n  --light-color-context-background-hover: rgba(255, 255, 255, 0.1);\n  --light-color-context-background-selected: #178fb9;\n  --light-color-context-border: #3d424a;\n  --light-color-context-text: #ffffff;\n  --light-color-context-text-selected: #ffffff;\n  --light-color-dim: #777d88;\n  --light-color-dimmer: #cfd1d5;\n  --light-color-dimmest: #eff0f1;\n  --light-color-error-background: hsl(0, 100%, 97%);\n  --light-color-error-border: hsl(0, 100%, 92%);\n  --light-color-error-text: #ff0000;\n  --light-color-expand-collapse-toggle: #777d88;\n  --light-color-link: #0000ff;\n  --light-color-modal-background: rgba(255, 255, 255, 0.75);\n  --light-color-bridge-version-npm-background: #eff0f1;\n  --light-color-bridge-version-npm-text: #000000;\n  --light-color-bridge-version-number: #0088fa;\n  --light-color-primitive-hook-badge-background: #e5e5e5;\n  --light-color-primitive-hook-badge-text: #5f6673;\n  --light-color-record-active: #fc3a4b;\n  --light-color-record-hover: #3578e5;\n  --light-color-record-inactive: #0088fa;\n  --light-color-scroll-thumb: #c2c2c2;\n  --light-color-scroll-track: #fafafa;\n  --light-color-search-match: yellow;\n  --light-color-search-match-current: #f7923b;\n  --light-color-selected-tree-highlight-active: rgba(0, 136, 250, 0.1);\n  --light-color-selected-tree-highlight-inactive: rgba(0, 0, 0, 0.05);\n  --light-color-shadow: rgba(0, 0, 0, 0.25);\n  --light-color-tab-selected-border: #0088fa;\n  --light-color-text: #000000;\n  --light-color-text-invalid: #ff0000;\n  --light-color-text-selected: #ffffff;\n  --light-color-toggle-background-invalid: #fc3a4b;\n  --light-color-toggle-background-on: #0088fa;\n  --light-color-toggle-background-off: #cfd1d5;\n  --light-color-toggle-text: #ffffff;\n  --light-color-tooltip-background: rgba(0, 0, 0, 0.9);\n  --light-color-tooltip-text: #ffffff;\n\n  /* Dark theme */\n  --dark-color-attribute-name: #9d87d2;\n  --dark-color-attribute-name-not-editable: #ededed;\n  --dark-color-attribute-name-inverted: #282828;\n  --dark-color-attribute-value: #cedae0;\n  --dark-color-attribute-value-inverted: #ffffff;\n  --dark-color-attribute-editable-value: yellow;\n  --dark-color-background: #282c34;\n  --dark-color-background-hover: rgba(255, 255, 255, 0.1);\n  --dark-color-background-inactive: #3d424a;\n  --dark-color-background-invalid: #5c0000;\n  --dark-color-background-selected: #178fb9;\n  --dark-color-button-background: #282c34;\n  --dark-color-button-background-focus: #3d424a;\n  --dark-color-button: #afb3b9;\n  --dark-color-button-active: #61dafb;\n  --dark-color-button-disabled: #4f5766;\n  --dark-color-button-focus: #a2e9fc;\n  --dark-color-button-hover: #ededed;\n  --dark-color-border: #3d424a;\n  --dark-color-commit-did-not-render-fill: #777d88;\n  --dark-color-commit-did-not-render-fill-text: #000000;\n  --dark-color-commit-did-not-render-pattern: #666c77;\n  --dark-color-commit-did-not-render-pattern-text: #ffffff;\n  --dark-color-commit-gradient-0: #37afa9;\n  --dark-color-commit-gradient-1: #63b19e;\n  --dark-color-commit-gradient-2: #80b393;\n  --dark-color-commit-gradient-3: #97b488;\n  --dark-color-commit-gradient-4: #abb67d;\n  --dark-color-commit-gradient-5: #beb771;\n  --dark-color-commit-gradient-6: #cfb965;\n  --dark-color-commit-gradient-7: #dfba57;\n  --dark-color-commit-gradient-8: #efbb49;\n  --dark-color-commit-gradient-9: #febc38;\n  --dark-color-commit-gradient-text: #000000;\n  --dark-color-component-name: #61dafb;\n  --dark-color-component-name-inverted: #282828;\n  --dark-color-component-badge-background: rgba(255, 255, 255, 0.25);\n  --dark-color-component-badge-background-inverted: rgba(0, 0, 0, 0.25);\n  --dark-color-component-badge-count: #8f949d;\n  --dark-color-component-badge-count-inverted: rgba(255, 255, 255, 0.7);\n  --dark-color-console-error-badge-text: #000000;\n  --dark-color-console-error-background: #290000;\n  --dark-color-console-error-border: #5c0000;\n  --dark-color-console-error-icon: #eb3941;\n  --dark-color-console-error-text: #fc7f7f;\n  --dark-color-console-warning-badge-text: #000000;\n  --dark-color-console-warning-background: #332b00;\n  --dark-color-console-warning-border: #665500;\n  --dark-color-console-warning-icon: #f4bd00;\n  --dark-color-console-warning-text: #f5f2ed;\n  --dark-color-context-background: rgba(255,255,255,.9);\n  --dark-color-context-background-hover: rgba(0, 136, 250, 0.1);\n  --dark-color-context-background-selected: #0088fa;\n  --dark-color-context-border: #eeeeee;\n  --dark-color-context-text: #000000;\n  --dark-color-context-text-selected: #ffffff;\n  --dark-color-dim: #8f949d;\n  --dark-color-dimmer: #777d88;\n  --dark-color-dimmest: #4f5766;\n  --dark-color-error-background: #200;\n  --dark-color-error-border: #900;\n  --dark-color-error-text: #f55;\n  --dark-color-expand-collapse-toggle: #8f949d;\n  --dark-color-link: #61dafb;\n  --dark-color-modal-background: rgba(0, 0, 0, 0.75);\n  --dark-color-bridge-version-npm-background: rgba(0, 0, 0, 0.25);\n  --dark-color-bridge-version-npm-text: #ffffff;\n  --dark-color-bridge-version-number: yellow;\n  --dark-color-primitive-hook-badge-background: rgba(0, 0, 0, 0.25);\n  --dark-color-primitive-hook-badge-text: rgba(255, 255, 255, 0.7);\n  --dark-color-record-active: #fc3a4b;\n  --dark-color-record-hover: #a2e9fc;\n  --dark-color-record-inactive: #61dafb;\n  --dark-color-scroll-thumb: #afb3b9;\n  --dark-color-scroll-track: #313640;\n  --dark-color-search-match: yellow;\n  --dark-color-search-match-current: #f7923b;\n  --dark-color-selected-tree-highlight-active: rgba(23, 143, 185, 0.15);\n  --dark-color-selected-tree-highlight-inactive: rgba(255, 255, 255, 0.05);\n  --dark-color-shadow: rgba(0, 0, 0, 0.5);\n  --dark-color-tab-selected-border: #178fb9;\n  --dark-color-text: #ffffff;\n  --dark-color-text-invalid: #ff8080;\n  --dark-color-text-selected: #ffffff;\n  --dark-color-toggle-background-invalid: #fc3a4b;\n  --dark-color-toggle-background-on: #178fb9;\n  --dark-color-toggle-background-off: #777d88;\n  --dark-color-toggle-text: #ffffff;\n  --dark-color-tooltip-background: rgba(255, 255, 255, 0.9);\n  --dark-color-tooltip-text: #000000;\n\n  /* Font smoothing */\n  --light-font-smoothing: auto;\n  --dark-font-smoothing: antialiased;\n  --font-smoothing: auto;\n\n  /* Compact density */\n  --compact-font-size-monospace-small: 9px;\n  --compact-font-size-monospace-normal: 11px;\n  --compact-font-size-monospace-large: 15px;\n  --compact-font-size-sans-small: 10px;\n  --compact-font-size-sans-normal: 12px;\n  --compact-font-size-sans-large: 14px;\n  --compact-line-height-data: 18px;\n  --compact-root-font-size: 16px;\n\n  /* Comfortable density */\n  --comfortable-font-size-monospace-small: 10px;\n  --comfortable-font-size-monospace-normal: 13px;\n  --comfortable-font-size-monospace-large: 17px;\n  --comfortable-font-size-sans-small: 12px;\n  --comfortable-font-size-sans-normal: 14px;\n  --comfortable-font-size-sans-large: 16px;\n  --comfortable-line-height-data: 22px;\n  --comfortable-root-font-size: 20px;\n\n  /* GitHub.com system fonts */\n  --font-family-monospace: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo,\n    Courier, monospace;\n  --font-family-sans: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,\n    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;\n}\n");
+// shim for using process in browser
+var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+  throw new Error('setTimeout has not been defined');
+}
+
+function defaultClearTimeout() {
+  throw new Error('clearTimeout has not been defined');
+}
+
+(function () {
+  try {
+    if (typeof setTimeout === 'function') {
+      cachedSetTimeout = setTimeout;
+    } else {
+      cachedSetTimeout = defaultSetTimout;
+    }
+  } catch (e) {
+    cachedSetTimeout = defaultSetTimout;
+  }
+
+  try {
+    if (typeof clearTimeout === 'function') {
+      cachedClearTimeout = clearTimeout;
+    } else {
+      cachedClearTimeout = defaultClearTimeout;
+    }
+  } catch (e) {
+    cachedClearTimeout = defaultClearTimeout;
+  }
+})();
+
+function runTimeout(fun) {
+  if (cachedSetTimeout === setTimeout) {
+    //normal enviroments in sane situations
+    return setTimeout(fun, 0);
+  } // if setTimeout wasn't available but was latter defined
+
+
+  if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+    cachedSetTimeout = setTimeout;
+    return setTimeout(fun, 0);
+  }
+
+  try {
+    // when when somebody has screwed with setTimeout but no I.E. maddness
+    return cachedSetTimeout(fun, 0);
+  } catch (e) {
+    try {
+      // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+      return cachedSetTimeout.call(null, fun, 0);
+    } catch (e) {
+      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+      return cachedSetTimeout.call(this, fun, 0);
+    }
+  }
+}
+
+function runClearTimeout(marker) {
+  if (cachedClearTimeout === clearTimeout) {
+    //normal enviroments in sane situations
+    return clearTimeout(marker);
+  } // if clearTimeout wasn't available but was latter defined
+
+
+  if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+    cachedClearTimeout = clearTimeout;
+    return clearTimeout(marker);
+  }
+
+  try {
+    // when when somebody has screwed with setTimeout but no I.E. maddness
+    return cachedClearTimeout(marker);
+  } catch (e) {
+    try {
+      // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+      return cachedClearTimeout.call(null, marker);
+    } catch (e) {
+      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+      // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+      return cachedClearTimeout.call(this, marker);
+    }
+  }
+}
+
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+  if (!draining || !currentQueue) {
+    return;
+  }
+
+  draining = false;
+
+  if (currentQueue.length) {
+    queue = currentQueue.concat(queue);
+  } else {
+    queueIndex = -1;
+  }
+
+  if (queue.length) {
+    drainQueue();
+  }
+}
+
+function drainQueue() {
+  if (draining) {
+    return;
+  }
+
+  var timeout = runTimeout(cleanUpNextTick);
+  draining = true;
+  var len = queue.length;
+
+  while (len) {
+    currentQueue = queue;
+    queue = [];
+
+    while (++queueIndex < len) {
+      if (currentQueue) {
+        currentQueue[queueIndex].run();
+      }
+    }
+
+    queueIndex = -1;
+    len = queue.length;
+  }
+
+  currentQueue = null;
+  draining = false;
+  runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+  var args = new Array(arguments.length - 1);
+
+  if (arguments.length > 1) {
+    for (var i = 1; i < arguments.length; i++) {
+      args[i - 1] = arguments[i];
+    }
+  }
+
+  queue.push(new Item(fun, args));
+
+  if (queue.length === 1 && !draining) {
+    runTimeout(drainQueue);
+  }
+}; // v8 likes predictible objects
+
+
+function Item(fun, array) {
+  this.fun = fun;
+  this.array = array;
+}
+
+Item.prototype.run = function () {
+  this.fun.apply(null, this.array);
+};
+
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) {
+  return [];
+};
+
+process.binding = function (name) {
+  throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () {
+  return '/';
+};
+
+process.chdir = function (dir) {
+  throw new Error('process.chdir is not supported');
+};
+
+process.umask = function () {
+  return 0;
+};
 
 /***/ }),
 
-/***/ 75:
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
-  'use strict'; // Universal Module Definition (UMD) to support AMD, CommonJS/Node.js, Rhino, and browsers.
-
-  /* istanbul ignore next */
-
-  if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else {}
-})(this, function () {
-  'use strict';
-
-  function _isNumber(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
-  }
-
-  function _capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.substring(1);
-  }
-
-  function _getter(p) {
-    return function () {
-      return this[p];
-    };
-  }
-
-  var booleanProps = ['isConstructor', 'isEval', 'isNative', 'isToplevel'];
-  var numericProps = ['columnNumber', 'lineNumber'];
-  var stringProps = ['fileName', 'functionName', 'source'];
-  var arrayProps = ['args'];
-  var props = booleanProps.concat(numericProps, stringProps, arrayProps);
-
-  function StackFrame(obj) {
-    if (!obj) return;
-
-    for (var i = 0; i < props.length; i++) {
-      if (obj[props[i]] !== undefined) {
-        this['set' + _capitalize(props[i])](obj[props[i]]);
-      }
-    }
-  }
-
-  StackFrame.prototype = {
-    getArgs: function () {
-      return this.args;
-    },
-    setArgs: function (v) {
-      if (Object.prototype.toString.call(v) !== '[object Array]') {
-        throw new TypeError('Args must be an Array');
-      }
-
-      this.args = v;
-    },
-    getEvalOrigin: function () {
-      return this.evalOrigin;
-    },
-    setEvalOrigin: function (v) {
-      if (v instanceof StackFrame) {
-        this.evalOrigin = v;
-      } else if (v instanceof Object) {
-        this.evalOrigin = new StackFrame(v);
-      } else {
-        throw new TypeError('Eval Origin must be an Object or StackFrame');
-      }
-    },
-    toString: function () {
-      var fileName = this.getFileName() || '';
-      var lineNumber = this.getLineNumber() || '';
-      var columnNumber = this.getColumnNumber() || '';
-      var functionName = this.getFunctionName() || '';
-
-      if (this.getIsEval()) {
-        if (fileName) {
-          return '[eval] (' + fileName + ':' + lineNumber + ':' + columnNumber + ')';
-        }
-
-        return '[eval]:' + lineNumber + ':' + columnNumber;
-      }
-
-      if (functionName) {
-        return functionName + ' (' + fileName + ':' + lineNumber + ':' + columnNumber + ')';
-      }
-
-      return fileName + ':' + lineNumber + ':' + columnNumber;
-    }
-  };
-
-  StackFrame.fromString = function StackFrame$$fromString(str) {
-    var argsStartIndex = str.indexOf('(');
-    var argsEndIndex = str.lastIndexOf(')');
-    var functionName = str.substring(0, argsStartIndex);
-    var args = str.substring(argsStartIndex + 1, argsEndIndex).split(',');
-    var locationString = str.substring(argsEndIndex + 1);
-
-    if (locationString.indexOf('@') === 0) {
-      var parts = /@(.+?)(?::(\d+))?(?::(\d+))?$/.exec(locationString, '');
-      var fileName = parts[1];
-      var lineNumber = parts[2];
-      var columnNumber = parts[3];
-    }
-
-    return new StackFrame({
-      functionName: functionName,
-      args: args || undefined,
-      fileName: fileName,
-      lineNumber: lineNumber || undefined,
-      columnNumber: columnNumber || undefined
-    });
-  };
-
-  for (var i = 0; i < booleanProps.length; i++) {
-    StackFrame.prototype['get' + _capitalize(booleanProps[i])] = _getter(booleanProps[i]);
-
-    StackFrame.prototype['set' + _capitalize(booleanProps[i])] = function (p) {
-      return function (v) {
-        this[p] = Boolean(v);
-      };
-    }(booleanProps[i]);
-  }
-
-  for (var j = 0; j < numericProps.length; j++) {
-    StackFrame.prototype['get' + _capitalize(numericProps[j])] = _getter(numericProps[j]);
-
-    StackFrame.prototype['set' + _capitalize(numericProps[j])] = function (p) {
-      return function (v) {
-        if (!_isNumber(v)) {
-          throw new TypeError(p + ' must be a Number');
-        }
-
-        this[p] = Number(v);
-      };
-    }(numericProps[j]);
-  }
-
-  for (var k = 0; k < stringProps.length; k++) {
-    StackFrame.prototype['get' + _capitalize(stringProps[k])] = _getter(stringProps[k]);
-
-    StackFrame.prototype['set' + _capitalize(stringProps[k])] = function (p) {
-      return function (v) {
-        this[p] = String(v);
-      };
-    }(stringProps[k]);
-  }
-
-  return StackFrame;
-});
-
-/***/ }),
-
-/***/ 76:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10119,7 +9707,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
  */
 
 
-var l = __webpack_require__(50),
+var l = __webpack_require__(41),
     m = 60103,
     p = 60106;
 
@@ -10555,31 +10143,34 @@ exports.useTransition = function () {
   return S.current.useTransition();
 };
 
-exports.version = "18.0.0-experimental-d0ec28381-20210716";
+exports.version = "18.0.0-experimental-3385b377f-20210901";
 
 /***/ }),
 
-/***/ 83:
+/***/ 60:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 if (true) {
-  module.exports = __webpack_require__(119);
+  module.exports = __webpack_require__(77);
 } else {}
 
 /***/ }),
 
-/***/ 9:
+/***/ 61:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return meta; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return dehydrate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return fillInPath; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return hydrate; });
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, "a", function() { return /* binding */ getStackByFiberInDevAndProd; });
+
+// EXTERNAL MODULE: ../react-devtools-shared/src/backend/ReactSymbols.js
+var ReactSymbols = __webpack_require__(4);
+
+// CONCATENATED MODULE: ../react-devtools-shared/src/backend/DevToolsConsolePatching.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -10588,381 +10179,1230 @@ if (true) {
  *
  * 
  */
+// This is a DevTools fork of shared/ConsolePatchingDev.
+// The shared console patching code is DEV-only.
+// We can't use it since DevTools only ships production builds.
+// Helpers to patch console.logs to avoid logging during side-effect free
+// replaying on render function. This currently only patches the object
+// lazily which won't cover if the log function was extracted eagerly.
+// We could also eagerly patch the method.
+let disabledDepth = 0;
+let prevLog;
+let prevInfo;
+let prevWarn;
+let prevError;
+let prevGroup;
+let prevGroupCollapsed;
+let prevGroupEnd;
 
-const meta = {
-  inspectable: Symbol('inspectable'),
-  inspected: Symbol('inspected'),
-  name: Symbol('name'),
-  preview_long: Symbol('preview_long'),
-  preview_short: Symbol('preview_short'),
-  readonly: Symbol('readonly'),
-  size: Symbol('size'),
-  type: Symbol('type'),
-  unserializable: Symbol('unserializable')
-};
-// This threshold determines the depth at which the bridge "dehydrates" nested data.
-// Dehydration means that we don't serialize the data for e.g. postMessage or stringify,
-// unless the frontend explicitly requests it (e.g. a user clicks to expand a props object).
-//
-// Reducing this threshold will improve the speed of initial component inspection,
-// but may decrease the responsiveness of expanding objects/arrays to inspect further.
-const LEVEL_THRESHOLD = 2;
-/**
- * Generate the dehydrated metadata for complex object instances
- */
+function disabledLog() {}
 
-function createDehydrated(type, inspectable, data, cleaned, path) {
-  cleaned.push(path);
-  const dehydrated = {
-    inspectable,
-    type,
-    preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
-    preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
-    name: !data.constructor || data.constructor.name === 'Object' ? '' : data.constructor.name
-  };
+disabledLog.__reactDisabledLog = true;
+function disableLogs() {
+  if (disabledDepth === 0) {
+    /* eslint-disable react-internal/no-production-logging */
+    prevLog = console.log;
+    prevInfo = console.info;
+    prevWarn = console.warn;
+    prevError = console.error;
+    prevGroup = console.group;
+    prevGroupCollapsed = console.groupCollapsed;
+    prevGroupEnd = console.groupEnd; // https://github.com/facebook/react/issues/19099
 
-  if (type === 'array' || type === 'typed_array') {
-    dehydrated.size = data.length;
-  } else if (type === 'object') {
-    dehydrated.size = Object.keys(data).length;
+    const props = {
+      configurable: true,
+      enumerable: true,
+      value: disabledLog,
+      writable: true
+    }; // $FlowFixMe Flow thinks console is immutable.
+
+    Object.defineProperties(console, {
+      info: props,
+      log: props,
+      warn: props,
+      error: props,
+      group: props,
+      groupCollapsed: props,
+      groupEnd: props
+    });
+    /* eslint-enable react-internal/no-production-logging */
   }
 
-  if (type === 'iterator' || type === 'typed_array') {
-    dehydrated.readonly = true;
-  }
-
-  return dehydrated;
+  disabledDepth++;
 }
+function reenableLogs() {
+  disabledDepth--;
+
+  if (disabledDepth === 0) {
+    /* eslint-disable react-internal/no-production-logging */
+    const props = {
+      configurable: true,
+      enumerable: true,
+      writable: true
+    }; // $FlowFixMe Flow thinks console is immutable.
+
+    Object.defineProperties(console, {
+      log: { ...props,
+        value: prevLog
+      },
+      info: { ...props,
+        value: prevInfo
+      },
+      warn: { ...props,
+        value: prevWarn
+      },
+      error: { ...props,
+        value: prevError
+      },
+      group: { ...props,
+        value: prevGroup
+      },
+      groupCollapsed: { ...props,
+        value: prevGroupCollapsed
+      },
+      groupEnd: { ...props,
+        value: prevGroupEnd
+      }
+    });
+    /* eslint-enable react-internal/no-production-logging */
+  }
+
+  if (disabledDepth < 0) {
+    console.error('disabledDepth fell below zero. ' + 'This is a bug in React. Please file an issue.');
+  }
+}
+// CONCATENATED MODULE: ../react-devtools-shared/src/backend/DevToolsComponentStackFrame.js
 /**
- * Strip out complex data (instances, functions, and data nested > LEVEL_THRESHOLD levels deep).
- * The paths of the stripped out objects are appended to the `cleaned` list.
- * On the other side of the barrier, the cleaned list is used to "re-hydrate" the cleaned representation into
- * an object with symbols as attributes, so that a sanitized object can be distinguished from a normal object.
+ * Copyright (c) Facebook, Inc. and its affiliates.
  *
- * Input: {"some": {"attr": fn()}, "other": AnInstance}
- * Output: {
- *   "some": {
- *     "attr": {"name": the fn.name, type: "function"}
- *   },
- *   "other": {
- *     "name": "AnInstance",
- *     "type": "object",
- *   },
- * }
- * and cleaned = [["some", "attr"], ["other"]]
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
  */
+// This is a DevTools fork of ReactComponentStackFrame.
+// This fork enables DevTools to use the same "native" component stack format,
+// while still maintaining support for multiple renderer versions
+// (which use different values for ReactTypeOfWork).
+ // The shared console patching code is DEV-only.
+// We can't use it since DevTools only ships production builds.
 
 
-function dehydrate(data, cleaned, unserializable, path, isPathAllowed, level = 0) {
-  const type = Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* getDataType */ "f"])(data);
-  let isPathAllowedCheck;
+let prefix;
+function describeBuiltInComponentFrame(name, source, ownerFn) {
+  if (prefix === undefined) {
+    // Extract the VM specific prefix used by each line.
+    try {
+      throw Error();
+    } catch (x) {
+      const match = x.stack.trim().match(/\n( *(at )?)/);
+      prefix = match && match[1] || '';
+    }
+  } // We use the prefix to ensure our stacks line up with native stack frames.
+
+
+  return '\n' + prefix + name;
+}
+let reentry = false;
+let componentFrameCache;
+
+if (false) {}
+
+function describeNativeComponentFrame(fn, construct, currentDispatcherRef) {
+  // If something asked for a stack inside a fake render, it should get ignored.
+  if (!fn || reentry) {
+    return '';
+  }
+
+  if (false) {}
+
+  let control;
+  const previousPrepareStackTrace = Error.prepareStackTrace; // $FlowFixMe It does accept undefined.
+
+  Error.prepareStackTrace = undefined;
+  reentry = true; // Override the dispatcher so effects scheduled by this shallow render are thrown away.
+  //
+  // Note that unlike the code this was forked from (in ReactComponentStackFrame)
+  // DevTools should override the dispatcher even when DevTools is compiled in production mode,
+  // because the app itself may be in development mode and log errors/warnings.
+
+  const previousDispatcher = currentDispatcherRef.current;
+  currentDispatcherRef.current = null;
+  disableLogs();
+
+  try {
+    // This should throw.
+    if (construct) {
+      // Something should be setting the props in the constructor.
+      const Fake = function () {
+        throw Error();
+      }; // $FlowFixMe
+
+
+      Object.defineProperty(Fake.prototype, 'props', {
+        set: function () {
+          // We use a throwing setter instead of frozen or non-writable props
+          // because that won't throw in a non-strict mode function.
+          throw Error();
+        }
+      });
+
+      if (typeof Reflect === 'object' && Reflect.construct) {
+        // We construct a different control for this case to include any extra
+        // frames added by the construct call.
+        try {
+          Reflect.construct(Fake, []);
+        } catch (x) {
+          control = x;
+        }
+
+        Reflect.construct(fn, [], Fake);
+      } else {
+        try {
+          Fake.call();
+        } catch (x) {
+          control = x;
+        }
+
+        fn.call(Fake.prototype);
+      }
+    } else {
+      try {
+        throw Error();
+      } catch (x) {
+        control = x;
+      }
+
+      fn();
+    }
+  } catch (sample) {
+    // This is inlined manually because closure doesn't do it for us.
+    if (sample && control && typeof sample.stack === 'string') {
+      // This extracts the first frame from the sample that isn't also in the control.
+      // Skipping one frame that we assume is the frame that calls the two.
+      const sampleLines = sample.stack.split('\n');
+      const controlLines = control.stack.split('\n');
+      let s = sampleLines.length - 1;
+      let c = controlLines.length - 1;
+
+      while (s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c]) {
+        // We expect at least one stack frame to be shared.
+        // Typically this will be the root most one. However, stack frames may be
+        // cut off due to maximum stack limits. In this case, one maybe cut off
+        // earlier than the other. We assume that the sample is longer or the same
+        // and there for cut off earlier. So we should find the root most frame in
+        // the sample somewhere in the control.
+        c--;
+      }
+
+      for (; s >= 1 && c >= 0; s--, c--) {
+        // Next we find the first one that isn't the same which should be the
+        // frame that called our sample function and the control.
+        if (sampleLines[s] !== controlLines[c]) {
+          // In V8, the first line is describing the message but other VMs don't.
+          // If we're about to return the first line, and the control is also on the same
+          // line, that's a pretty good indicator that our sample threw at same line as
+          // the control. I.e. before we entered the sample frame. So we ignore this result.
+          // This can happen if you passed a class to function component, or non-function.
+          if (s !== 1 || c !== 1) {
+            do {
+              s--;
+              c--; // We may still have similar intermediate frames from the construct call.
+              // The next one that isn't the same should be our match though.
+
+              if (c < 0 || sampleLines[s] !== controlLines[c]) {
+                // V8 adds a "new" prefix for native classes. Let's remove it to make it prettier.
+                const frame = '\n' + sampleLines[s].replace(' at new ', ' at ');
+
+                if (false) {} // Return the line we found.
+
+
+                return frame;
+              }
+            } while (s >= 1 && c >= 0);
+          }
+
+          break;
+        }
+      }
+    }
+  } finally {
+    reentry = false;
+    Error.prepareStackTrace = previousPrepareStackTrace;
+    currentDispatcherRef.current = previousDispatcher;
+    reenableLogs();
+  } // Fallback to just using the name if we couldn't make it throw.
+
+
+  const name = fn ? fn.displayName || fn.name : '';
+  const syntheticFrame = name ? describeBuiltInComponentFrame(name) : '';
+
+  if (false) {}
+
+  return syntheticFrame;
+}
+function describeClassComponentFrame(ctor, source, ownerFn, currentDispatcherRef) {
+  return describeNativeComponentFrame(ctor, true, currentDispatcherRef);
+}
+function describeFunctionComponentFrame(fn, source, ownerFn, currentDispatcherRef) {
+  return describeNativeComponentFrame(fn, false, currentDispatcherRef);
+}
+
+function shouldConstruct(Component) {
+  const prototype = Component.prototype;
+  return !!(prototype && prototype.isReactComponent);
+}
+
+function describeUnknownElementTypeFrameInDEV(type, source, ownerFn, currentDispatcherRef) {
+  if (true) {
+    return '';
+  }
+
+  if (type == null) {
+    return '';
+  }
+
+  if (typeof type === 'function') {
+    return describeNativeComponentFrame(type, shouldConstruct(type), currentDispatcherRef);
+  }
+
+  if (typeof type === 'string') {
+    return describeBuiltInComponentFrame(type, source, ownerFn);
+  }
 
   switch (type) {
-    case 'html_element':
-      cleaned.push(path);
-      return {
-        inspectable: false,
-        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
-        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
-        name: data.tagName,
-        type
-      };
+    case ReactSymbols["v" /* SUSPENSE_NUMBER */]:
+    case ReactSymbols["w" /* SUSPENSE_SYMBOL_STRING */]:
+      return describeBuiltInComponentFrame('Suspense', source, ownerFn);
 
-    case 'function':
-      cleaned.push(path);
-      return {
-        inspectable: false,
-        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
-        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
-        name: typeof data.name === 'function' || !data.name ? 'function' : data.name,
-        type
-      };
+    case ReactSymbols["t" /* SUSPENSE_LIST_NUMBER */]:
+    case ReactSymbols["u" /* SUSPENSE_LIST_SYMBOL_STRING */]:
+      return describeBuiltInComponentFrame('SuspenseList', source, ownerFn);
+  }
 
-    case 'string':
-      isPathAllowedCheck = isPathAllowed(path);
+  if (typeof type === 'object') {
+    switch (type.$$typeof) {
+      case ReactSymbols["f" /* FORWARD_REF_NUMBER */]:
+      case ReactSymbols["g" /* FORWARD_REF_SYMBOL_STRING */]:
+        return describeFunctionComponentFrame(type.render, source, ownerFn, currentDispatcherRef);
 
-      if (isPathAllowedCheck) {
-        return data;
-      } else {
-        return data.length <= 500 ? data : data.slice(0, 500) + '...';
-      }
+      case ReactSymbols["j" /* MEMO_NUMBER */]:
+      case ReactSymbols["k" /* MEMO_SYMBOL_STRING */]:
+        // Memo may contain any component type so we recursively resolve it.
+        return describeUnknownElementTypeFrameInDEV(type.type, source, ownerFn, currentDispatcherRef);
 
-    case 'bigint':
-      cleaned.push(path);
-      return {
-        inspectable: false,
-        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
-        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
-        name: data.toString(),
-        type
-      };
+      case ReactSymbols["h" /* LAZY_NUMBER */]:
+      case ReactSymbols["i" /* LAZY_SYMBOL_STRING */]:
+        {
+          const lazyComponent = type;
+          const payload = lazyComponent._payload;
+          const init = lazyComponent._init;
 
-    case 'symbol':
-      cleaned.push(path);
-      return {
-        inspectable: false,
-        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
-        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
-        name: data.toString(),
-        type
-      };
-    // React Elements aren't very inspector-friendly,
-    // and often contain private fields or circular references.
+          try {
+            // Lazy may contain any component type so we recursively resolve it.
+            return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn, currentDispatcherRef);
+          } catch (x) {}
+        }
+    }
+  }
 
-    case 'react_element':
-      cleaned.push(path);
-      return {
-        inspectable: false,
-        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
-        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
-        name: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* getDisplayNameForReactElement */ "i"])(data) || 'Unknown',
-        type
-      };
-    // ArrayBuffers error if you try to inspect them.
+  return '';
+}
+// CONCATENATED MODULE: ../react-devtools-shared/src/backend/DevToolsFiberComponentStack.js
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+// This is a DevTools fork of ReactFiberComponentStack.
+// This fork enables DevTools to use the same "native" component stack format,
+// while still maintaining support for multiple renderer versions
+// (which use different values for ReactTypeOfWork).
 
-    case 'array_buffer':
-    case 'data_view':
-      cleaned.push(path);
-      return {
-        inspectable: false,
-        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
-        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
-        name: type === 'data_view' ? 'DataView' : 'ArrayBuffer',
-        size: data.byteLength,
-        type
-      };
 
-    case 'array':
-      isPathAllowedCheck = isPathAllowed(path);
+function describeFiber(workTagMap, workInProgress, currentDispatcherRef) {
+  const {
+    HostComponent,
+    LazyComponent,
+    SuspenseComponent,
+    SuspenseListComponent,
+    FunctionComponent,
+    IndeterminateComponent,
+    SimpleMemoComponent,
+    ForwardRef,
+    ClassComponent
+  } = workTagMap;
+  const owner =  false ? undefined : null;
+  const source =  false ? undefined : null;
 
-      if (level >= LEVEL_THRESHOLD && !isPathAllowedCheck) {
-        return createDehydrated(type, true, data, cleaned, path);
-      }
+  switch (workInProgress.tag) {
+    case HostComponent:
+      return describeBuiltInComponentFrame(workInProgress.type, source, owner);
 
-      return data.map((item, i) => dehydrate(item, cleaned, unserializable, path.concat([i]), isPathAllowed, isPathAllowedCheck ? 1 : level + 1));
+    case LazyComponent:
+      return describeBuiltInComponentFrame('Lazy', source, owner);
 
-    case 'html_all_collection':
-    case 'typed_array':
-    case 'iterator':
-      isPathAllowedCheck = isPathAllowed(path);
+    case SuspenseComponent:
+      return describeBuiltInComponentFrame('Suspense', source, owner);
 
-      if (level >= LEVEL_THRESHOLD && !isPathAllowedCheck) {
-        return createDehydrated(type, true, data, cleaned, path);
-      } else {
-        const unserializableValue = {
-          unserializable: true,
-          type: type,
-          readonly: true,
-          size: type === 'typed_array' ? data.length : undefined,
-          preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
-          preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
-          name: !data.constructor || data.constructor.name === 'Object' ? '' : data.constructor.name
-        }; // TRICKY
-        // Don't use [...spread] syntax for this purpose.
-        // This project uses @babel/plugin-transform-spread in "loose" mode which only works with Array values.
-        // Other types (e.g. typed arrays, Sets) will not spread correctly.
+    case SuspenseListComponent:
+      return describeBuiltInComponentFrame('SuspenseList', source, owner);
 
-        Array.from(data).forEach((item, i) => unserializableValue[i] = dehydrate(item, cleaned, unserializable, path.concat([i]), isPathAllowed, isPathAllowedCheck ? 1 : level + 1));
-        unserializable.push(path);
-        return unserializableValue;
-      }
+    case FunctionComponent:
+    case IndeterminateComponent:
+    case SimpleMemoComponent:
+      return describeFunctionComponentFrame(workInProgress.type, source, owner, currentDispatcherRef);
 
-    case 'opaque_iterator':
-      cleaned.push(path);
-      return {
-        inspectable: false,
-        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
-        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
-        name: data[Symbol.toStringTag],
-        type
-      };
+    case ForwardRef:
+      return describeFunctionComponentFrame(workInProgress.type.render, source, owner, currentDispatcherRef);
 
-    case 'date':
-      cleaned.push(path);
-      return {
-        inspectable: false,
-        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
-        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
-        name: data.toString(),
-        type
-      };
-
-    case 'regexp':
-      cleaned.push(path);
-      return {
-        inspectable: false,
-        preview_short: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, false),
-        preview_long: Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* formatDataForPreview */ "b"])(data, true),
-        name: data.toString(),
-        type
-      };
-
-    case 'object':
-      isPathAllowedCheck = isPathAllowed(path);
-
-      if (level >= LEVEL_THRESHOLD && !isPathAllowedCheck) {
-        return createDehydrated(type, true, data, cleaned, path);
-      } else {
-        const object = {};
-        Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* getAllEnumerableKeys */ "c"])(data).forEach(key => {
-          const name = key.toString();
-          object[name] = dehydrate(data[key], cleaned, unserializable, path.concat([name]), isPathAllowed, isPathAllowedCheck ? 1 : level + 1);
-        });
-        return object;
-      }
-
-    case 'infinity':
-    case 'nan':
-    case 'undefined':
-      // Some values are lossy when sent through a WebSocket.
-      // We dehydrate+rehydrate them to preserve their type.
-      cleaned.push(path);
-      return {
-        type
-      };
+    case ClassComponent:
+      return describeClassComponentFrame(workInProgress.type, source, owner, currentDispatcherRef);
 
     default:
-      return data;
+      return '';
   }
 }
-function fillInPath(object, data, path, value) {
-  const target = Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* getInObject */ "j"])(object, path);
 
-  if (target != null) {
-    if (!target[meta.unserializable]) {
-      delete target[meta.inspectable];
-      delete target[meta.inspected];
-      delete target[meta.name];
-      delete target[meta.preview_long];
-      delete target[meta.preview_short];
-      delete target[meta.readonly];
-      delete target[meta.size];
-      delete target[meta.type];
+function getStackByFiberInDevAndProd(workTagMap, workInProgress, currentDispatcherRef) {
+  try {
+    let info = '';
+    let node = workInProgress;
+
+    do {
+      info += describeFiber(workTagMap, node, currentDispatcherRef);
+      node = node.return;
+    } while (node);
+
+    return info;
+  } catch (x) {
+    return '\nError generating stack: ' + x.message + '\n' + x.stack;
+  }
+}
+
+/***/ }),
+
+/***/ 7:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return localStorageGetItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return localStorageRemoveItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return localStorageSetItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return sessionStorageGetItem; });
+/* unused harmony export sessionStorageRemoveItem */
+/* unused harmony export sessionStorageSetItem */
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+function localStorageGetItem(key) {
+  try {
+    return localStorage.getItem(key);
+  } catch (error) {
+    return null;
+  }
+}
+function localStorageRemoveItem(key) {
+  try {
+    localStorage.removeItem(key);
+  } catch (error) {}
+}
+function localStorageSetItem(key, value) {
+  try {
+    return localStorage.setItem(key, value);
+  } catch (error) {}
+}
+function sessionStorageGetItem(key) {
+  try {
+    return sessionStorage.getItem(key);
+  } catch (error) {
+    return null;
+  }
+}
+function sessionStorageRemoveItem(key) {
+  try {
+    sessionStorage.removeItem(key);
+  } catch (error) {}
+}
+function sessionStorageSetItem(key, value) {
+  try {
+    return sessionStorage.setItem(key, value);
+  } catch (error) {}
+}
+
+/***/ }),
+
+/***/ 77:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/** @license React vundefined
+ * react-debug-tools.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+var k = __webpack_require__(41),
+    p = __webpack_require__(78);
+
+function r(a) {
+  for (var b = "https://reactjs.org/docs/error-decoder.html?invariant=" + a, e = 1; e < arguments.length; e++) b += "&args[]=" + encodeURIComponent(arguments[e]);
+
+  return "Minified React error #" + a + "; visit " + b + " for the full message or use the non-minified dev environment for full errors and additional helpful warnings.";
+}
+
+var w = __webpack_require__(0).__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED,
+    x = 60128;
+
+if ("function" === typeof Symbol && Symbol.for) {
+  var y = Symbol.for;
+  x = y("react.opaque.id");
+}
+
+var z = [],
+    A = null,
+    B = null;
+
+function C() {
+  if (null === A) {
+    var a = new Map();
+
+    try {
+      D.useContext({
+        _currentValue: null
+      }), D.useState(null), D.useReducer(function (a) {
+        return a;
+      }, null), D.useRef(null), "function" === typeof D.useCacheRefresh && D.useCacheRefresh(), D.useLayoutEffect(function () {}), D.useEffect(function () {}), D.useImperativeHandle(void 0, function () {
+        return null;
+      }), D.useDebugValue(null), D.useCallback(function () {}), D.useMemo(function () {
+        return null;
+      });
+    } finally {
+      var b = z;
+      z = [];
     }
+
+    for (var e = 0; e < b.length; e++) {
+      var f = b[e];
+      a.set(f.primitive, p.parse(f.stackError));
+    }
+
+    A = a;
   }
 
-  if (value !== null && data.unserializable.length > 0) {
-    const unserializablePath = data.unserializable[0];
-    let isMatch = unserializablePath.length === path.length;
+  return A;
+}
 
-    for (let i = 0; i < path.length; i++) {
-      if (path[i] !== unserializablePath[i]) {
-        isMatch = false;
-        break;
+var E = null;
+
+function F() {
+  var a = E;
+  null !== a && (E = a.next);
+  return a;
+}
+
+var D = {
+  getCacheForType: function () {
+    throw Error(r(248));
+  },
+  readContext: function (a) {
+    return a._currentValue;
+  },
+  useCacheRefresh: function () {
+    var a = F();
+    z.push({
+      primitive: "CacheRefresh",
+      stackError: Error(),
+      value: null !== a ? a.memoizedState : function () {}
+    });
+    return function () {};
+  },
+  useCallback: function (a) {
+    var b = F();
+    z.push({
+      primitive: "Callback",
+      stackError: Error(),
+      value: null !== b ? b.memoizedState[0] : a
+    });
+    return a;
+  },
+  useContext: function (a) {
+    z.push({
+      primitive: "Context",
+      stackError: Error(),
+      value: a._currentValue
+    });
+    return a._currentValue;
+  },
+  useEffect: function (a) {
+    F();
+    z.push({
+      primitive: "Effect",
+      stackError: Error(),
+      value: a
+    });
+  },
+  useImperativeHandle: function (a) {
+    F();
+    var b = void 0;
+    null !== a && "object" === typeof a && (b = a.current);
+    z.push({
+      primitive: "ImperativeHandle",
+      stackError: Error(),
+      value: b
+    });
+  },
+  useDebugValue: function (a, b) {
+    z.push({
+      primitive: "DebugValue",
+      stackError: Error(),
+      value: "function" === typeof b ? b(a) : a
+    });
+  },
+  useLayoutEffect: function (a) {
+    F();
+    z.push({
+      primitive: "LayoutEffect",
+      stackError: Error(),
+      value: a
+    });
+  },
+  useMemo: function (a) {
+    var b = F();
+    a = null !== b ? b.memoizedState[0] : a();
+    z.push({
+      primitive: "Memo",
+      stackError: Error(),
+      value: a
+    });
+    return a;
+  },
+  useReducer: function (a, b, e) {
+    a = F();
+    b = null !== a ? a.memoizedState : void 0 !== e ? e(b) : b;
+    z.push({
+      primitive: "Reducer",
+      stackError: Error(),
+      value: b
+    });
+    return [b, function () {}];
+  },
+  useRef: function (a) {
+    var b = F();
+    a = null !== b ? b.memoizedState : {
+      current: a
+    };
+    z.push({
+      primitive: "Ref",
+      stackError: Error(),
+      value: a.current
+    });
+    return a;
+  },
+  useState: function (a) {
+    var b = F();
+    a = null !== b ? b.memoizedState : "function" === typeof a ? a() : a;
+    z.push({
+      primitive: "State",
+      stackError: Error(),
+      value: a
+    });
+    return [a, function () {}];
+  },
+  useTransition: function () {
+    F();
+    F();
+    z.push({
+      primitive: "Transition",
+      stackError: Error(),
+      value: void 0
+    });
+    return [!1, function () {}];
+  },
+  useMutableSource: function (a, b) {
+    F();
+    F();
+    F();
+    F();
+    a = b(a._source);
+    z.push({
+      primitive: "MutableSource",
+      stackError: Error(),
+      value: a
+    });
+    return a;
+  },
+  useDeferredValue: function (a) {
+    F();
+    F();
+    z.push({
+      primitive: "DeferredValue",
+      stackError: Error(),
+      value: a
+    });
+    return a;
+  },
+  useOpaqueIdentifier: function () {
+    var a = F();
+    B && 0 === B.mode && F();
+    (a = null === a ? void 0 : a.memoizedState) && a.$$typeof === x && (a = void 0);
+    z.push({
+      primitive: "OpaqueIdentifier",
+      stackError: Error(),
+      value: a
+    });
+    return a;
+  }
+},
+    G = 0;
+
+function H(a, b, e) {
+  var f = b[e].source,
+      c = 0;
+
+  a: for (; c < a.length; c++) if (a[c].source === f) {
+    for (var l = e + 1, q = c + 1; l < b.length && q < a.length; l++, q++) if (a[q].source !== b[l].source) continue a;
+
+    return c;
+  }
+
+  return -1;
+}
+
+function I(a, b) {
+  if (!a) return !1;
+  b = "use" + b;
+  return a.length < b.length ? !1 : a.lastIndexOf(b) === a.length - b.length;
+}
+
+function J(a, b, e) {
+  for (var f = [], c = null, l = f, q = 0, t = [], v = 0; v < b.length; v++) {
+    var u = b[v];
+    var d = a;
+    var h = p.parse(u.stackError);
+
+    b: {
+      var m = h,
+          n = H(m, d, G);
+      if (-1 !== n) d = n;else {
+        for (var g = 0; g < d.length && 5 > g; g++) if (n = H(m, d, g), -1 !== n) {
+          G = g;
+          d = n;
+          break b;
+        }
+
+        d = -1;
       }
     }
 
-    if (isMatch) {
-      upgradeUnserializable(value, value);
+    b: {
+      m = h;
+      n = C().get(u.primitive);
+      if (void 0 !== n) for (g = 0; g < n.length && g < m.length; g++) if (n[g].source !== m[g].source) {
+        g < m.length - 1 && I(m[g].functionName, u.primitive) && g++;
+        g < m.length - 1 && I(m[g].functionName, u.primitive) && g++;
+        m = g;
+        break b;
+      }
+      m = -1;
+    }
+
+    h = -1 === d || -1 === m || 2 > d - m ? null : h.slice(m, d - 1);
+
+    if (null !== h) {
+      d = 0;
+
+      if (null !== c) {
+        for (; d < h.length && d < c.length && h[h.length - d - 1].source === c[c.length - d - 1].source;) d++;
+
+        for (c = c.length - 1; c > d; c--) l = t.pop();
+      }
+
+      for (c = h.length - d - 1; 1 <= c; c--) d = [], m = h[c], (n = h[c - 1].functionName) ? (g = n.lastIndexOf("."), -1 === g && (g = 0), "use" === n.substr(g, 3) && (g += 3), n = n.substr(g)) : n = "", n = {
+        id: null,
+        isStateEditable: !1,
+        name: n,
+        value: void 0,
+        subHooks: d
+      }, e && (n.hookSource = {
+        lineNumber: m.lineNumber,
+        columnNumber: m.columnNumber,
+        functionName: m.functionName,
+        fileName: m.fileName
+      }), l.push(n), t.push(l), l = d;
+
+      c = h;
+    }
+
+    d = u.primitive;
+    u = {
+      id: "Context" === d || "DebugValue" === d ? null : q++,
+      isStateEditable: "Reducer" === d || "State" === d,
+      name: d,
+      value: u.value,
+      subHooks: []
+    };
+    e && (d = {
+      lineNumber: null,
+      functionName: null,
+      fileName: null,
+      columnNumber: null
+    }, h && 1 <= h.length && (h = h[0], d.lineNumber = h.lineNumber, d.functionName = h.functionName, d.fileName = h.fileName, d.columnNumber = h.columnNumber), u.hookSource = d);
+    l.push(u);
+  }
+
+  K(f, null);
+  return f;
+}
+
+function K(a, b) {
+  for (var e = [], f = 0; f < a.length; f++) {
+    var c = a[f];
+    "DebugValue" === c.name && 0 === c.subHooks.length ? (a.splice(f, 1), f--, e.push(c)) : K(c.subHooks, c);
+  }
+
+  null !== b && (1 === e.length ? b.value = e[0].value : 1 < e.length && (b.value = e.map(function (a) {
+    return a.value;
+  })));
+}
+
+function L(a, b, e) {
+  var f = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : !1;
+  null == e && (e = w.ReactCurrentDispatcher);
+  var c = e.current;
+  e.current = D;
+
+  try {
+    var l = Error();
+    a(b);
+  } finally {
+    var q = z;
+    z = [];
+    e.current = c;
+  }
+
+  c = p.parse(l);
+  return J(c, q, f);
+}
+
+function M(a) {
+  a.forEach(function (a, e) {
+    return e._currentValue = a;
+  });
+}
+
+exports.inspectHooks = L;
+
+exports.inspectHooksOfFiber = function (a, b) {
+  var e = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : !1;
+  null == b && (b = w.ReactCurrentDispatcher);
+  B = a;
+  if (0 !== a.tag && 15 !== a.tag && 11 !== a.tag) throw Error("Unknown Fiber. Needs to be a function component to inspect hooks.");
+  C();
+  var f = a.type,
+      c = a.memoizedProps;
+
+  if (f !== a.elementType && f && f.defaultProps) {
+    c = k({}, c);
+    var l = f.defaultProps;
+
+    for (q in l) void 0 === c[q] && (c[q] = l[q]);
+  }
+
+  E = a.memoizedState;
+  var q = new Map();
+
+  try {
+    for (l = a; l;) {
+      if (10 === l.tag) {
+        var t = l.type._context;
+        q.has(t) || (q.set(t, t._currentValue), t._currentValue = l.memoizedProps.value);
+      }
+
+      l = l.return;
+    }
+
+    if (11 === a.tag) {
+      var v = f.render;
+      f = c;
+      var u = a.ref;
+      t = b;
+      var d = t.current;
+      t.current = D;
+
+      try {
+        var h = Error();
+        v(f, u);
+      } finally {
+        var m = z;
+        z = [];
+        t.current = d;
+      }
+
+      var n = p.parse(h);
+      return J(n, m, e);
+    }
+
+    return L(f, c, b, e);
+  } finally {
+    E = null, M(q);
+  }
+};
+
+/***/ }),
+
+/***/ 78:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
+  'use strict'; // Universal Module Definition (UMD) to support AMD, CommonJS/Node.js, Rhino, and browsers.
+
+  /* istanbul ignore next */
+
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(79)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+})(this, function ErrorStackParser(StackFrame) {
+  'use strict';
+
+  var FIREFOX_SAFARI_STACK_REGEXP = /(^|@)\S+:\d+/;
+  var CHROME_IE_STACK_REGEXP = /^\s*at .*(\S+:\d+|\(native\))/m;
+  var SAFARI_NATIVE_CODE_REGEXP = /^(eval@)?(\[native code])?$/;
+  return {
+    /**
+     * Given an Error object, extract the most information from it.
+     *
+     * @param {Error} error object
+     * @return {Array} of StackFrames
+     */
+    parse: function ErrorStackParser$$parse(error) {
+      if (typeof error.stacktrace !== 'undefined' || typeof error['opera#sourceloc'] !== 'undefined') {
+        return this.parseOpera(error);
+      } else if (error.stack && error.stack.match(CHROME_IE_STACK_REGEXP)) {
+        return this.parseV8OrIE(error);
+      } else if (error.stack) {
+        return this.parseFFOrSafari(error);
+      } else {
+        throw new Error('Cannot parse given Error object');
+      }
+    },
+    // Separate line and column numbers from a string of the form: (URI:Line:Column)
+    extractLocation: function ErrorStackParser$$extractLocation(urlLike) {
+      // Fail-fast but return locations like "(native)"
+      if (urlLike.indexOf(':') === -1) {
+        return [urlLike];
+      }
+
+      var regExp = /(.+?)(?::(\d+))?(?::(\d+))?$/;
+      var parts = regExp.exec(urlLike.replace(/[()]/g, ''));
+      return [parts[1], parts[2] || undefined, parts[3] || undefined];
+    },
+    parseV8OrIE: function ErrorStackParser$$parseV8OrIE(error) {
+      var filtered = error.stack.split('\n').filter(function (line) {
+        return !!line.match(CHROME_IE_STACK_REGEXP);
+      }, this);
+      return filtered.map(function (line) {
+        if (line.indexOf('(eval ') > -1) {
+          // Throw away eval information until we implement stacktrace.js/stackframe#8
+          line = line.replace(/eval code/g, 'eval').replace(/(\(eval at [^()]*)|(\),.*$)/g, '');
+        }
+
+        var sanitizedLine = line.replace(/^\s+/, '').replace(/\(eval code/g, '('); // capture and preseve the parenthesized location "(/foo/my bar.js:12:87)" in
+        // case it has spaces in it, as the string is split on \s+ later on
+
+        var location = sanitizedLine.match(/ (\((.+):(\d+):(\d+)\)$)/); // remove the parenthesized location from the line, if it was matched
+
+        sanitizedLine = location ? sanitizedLine.replace(location[0], '') : sanitizedLine;
+        var tokens = sanitizedLine.split(/\s+/).slice(1); // if a location was matched, pass it to extractLocation() otherwise pop the last token
+
+        var locationParts = this.extractLocation(location ? location[1] : tokens.pop());
+        var functionName = tokens.join(' ') || undefined;
+        var fileName = ['eval', '<anonymous>'].indexOf(locationParts[0]) > -1 ? undefined : locationParts[0];
+        return new StackFrame({
+          functionName: functionName,
+          fileName: fileName,
+          lineNumber: locationParts[1],
+          columnNumber: locationParts[2],
+          source: line
+        });
+      }, this);
+    },
+    parseFFOrSafari: function ErrorStackParser$$parseFFOrSafari(error) {
+      var filtered = error.stack.split('\n').filter(function (line) {
+        return !line.match(SAFARI_NATIVE_CODE_REGEXP);
+      }, this);
+      return filtered.map(function (line) {
+        // Throw away eval information until we implement stacktrace.js/stackframe#8
+        if (line.indexOf(' > eval') > -1) {
+          line = line.replace(/ line (\d+)(?: > eval line \d+)* > eval:\d+:\d+/g, ':$1');
+        }
+
+        if (line.indexOf('@') === -1 && line.indexOf(':') === -1) {
+          // Safari eval frames only have function names and nothing else
+          return new StackFrame({
+            functionName: line
+          });
+        } else {
+          var functionNameRegex = /((.*".+"[^@]*)?[^@]*)(?:@)/;
+          var matches = line.match(functionNameRegex);
+          var functionName = matches && matches[1] ? matches[1] : undefined;
+          var locationParts = this.extractLocation(line.replace(functionNameRegex, ''));
+          return new StackFrame({
+            functionName: functionName,
+            fileName: locationParts[0],
+            lineNumber: locationParts[1],
+            columnNumber: locationParts[2],
+            source: line
+          });
+        }
+      }, this);
+    },
+    parseOpera: function ErrorStackParser$$parseOpera(e) {
+      if (!e.stacktrace || e.message.indexOf('\n') > -1 && e.message.split('\n').length > e.stacktrace.split('\n').length) {
+        return this.parseOpera9(e);
+      } else if (!e.stack) {
+        return this.parseOpera10(e);
+      } else {
+        return this.parseOpera11(e);
+      }
+    },
+    parseOpera9: function ErrorStackParser$$parseOpera9(e) {
+      var lineRE = /Line (\d+).*script (?:in )?(\S+)/i;
+      var lines = e.message.split('\n');
+      var result = [];
+
+      for (var i = 2, len = lines.length; i < len; i += 2) {
+        var match = lineRE.exec(lines[i]);
+
+        if (match) {
+          result.push(new StackFrame({
+            fileName: match[2],
+            lineNumber: match[1],
+            source: lines[i]
+          }));
+        }
+      }
+
+      return result;
+    },
+    parseOpera10: function ErrorStackParser$$parseOpera10(e) {
+      var lineRE = /Line (\d+).*script (?:in )?(\S+)(?:: In function (\S+))?$/i;
+      var lines = e.stacktrace.split('\n');
+      var result = [];
+
+      for (var i = 0, len = lines.length; i < len; i += 2) {
+        var match = lineRE.exec(lines[i]);
+
+        if (match) {
+          result.push(new StackFrame({
+            functionName: match[3] || undefined,
+            fileName: match[2],
+            lineNumber: match[1],
+            source: lines[i]
+          }));
+        }
+      }
+
+      return result;
+    },
+    // Opera 10.65+ Error.stack very similar to FF/Safari
+    parseOpera11: function ErrorStackParser$$parseOpera11(error) {
+      var filtered = error.stack.split('\n').filter(function (line) {
+        return !!line.match(FIREFOX_SAFARI_STACK_REGEXP) && !line.match(/^Error created at/);
+      }, this);
+      return filtered.map(function (line) {
+        var tokens = line.split('@');
+        var locationParts = this.extractLocation(tokens.pop());
+        var functionCall = tokens.shift() || '';
+        var functionName = functionCall.replace(/<anonymous function(: (\w+))?>/, '$2').replace(/\([^)]*\)/g, '') || undefined;
+        var argsRaw;
+
+        if (functionCall.match(/\(([^)]*)\)/)) {
+          argsRaw = functionCall.replace(/^[^(]+\(([^)]*)\)$/, '$1');
+        }
+
+        var args = argsRaw === undefined || argsRaw === '[arguments not available]' ? undefined : argsRaw.split(',');
+        return new StackFrame({
+          functionName: functionName,
+          args: args,
+          fileName: locationParts[0],
+          lineNumber: locationParts[1],
+          columnNumber: locationParts[2],
+          source: line
+        });
+      }, this);
+    }
+  };
+});
+
+/***/ }),
+
+/***/ 79:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
+  'use strict'; // Universal Module Definition (UMD) to support AMD, CommonJS/Node.js, Rhino, and browsers.
+
+  /* istanbul ignore next */
+
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+})(this, function () {
+  'use strict';
+
+  function _isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
+
+  function _capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.substring(1);
+  }
+
+  function _getter(p) {
+    return function () {
+      return this[p];
+    };
+  }
+
+  var booleanProps = ['isConstructor', 'isEval', 'isNative', 'isToplevel'];
+  var numericProps = ['columnNumber', 'lineNumber'];
+  var stringProps = ['fileName', 'functionName', 'source'];
+  var arrayProps = ['args'];
+  var props = booleanProps.concat(numericProps, stringProps, arrayProps);
+
+  function StackFrame(obj) {
+    if (!obj) return;
+
+    for (var i = 0; i < props.length; i++) {
+      if (obj[props[i]] !== undefined) {
+        this['set' + _capitalize(props[i])](obj[props[i]]);
+      }
     }
   }
 
-  Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* setInObject */ "q"])(object, path, value);
-}
-function hydrate(object, cleaned, unserializable) {
-  cleaned.forEach(path => {
-    const length = path.length;
-    const last = path[length - 1];
-    const parent = Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* getInObject */ "j"])(object, path.slice(0, length - 1));
+  StackFrame.prototype = {
+    getArgs: function () {
+      return this.args;
+    },
+    setArgs: function (v) {
+      if (Object.prototype.toString.call(v) !== '[object Array]') {
+        throw new TypeError('Args must be an Array');
+      }
 
-    if (!parent || !parent.hasOwnProperty(last)) {
-      return;
+      this.args = v;
+    },
+    getEvalOrigin: function () {
+      return this.evalOrigin;
+    },
+    setEvalOrigin: function (v) {
+      if (v instanceof StackFrame) {
+        this.evalOrigin = v;
+      } else if (v instanceof Object) {
+        this.evalOrigin = new StackFrame(v);
+      } else {
+        throw new TypeError('Eval Origin must be an Object or StackFrame');
+      }
+    },
+    toString: function () {
+      var fileName = this.getFileName() || '';
+      var lineNumber = this.getLineNumber() || '';
+      var columnNumber = this.getColumnNumber() || '';
+      var functionName = this.getFunctionName() || '';
+
+      if (this.getIsEval()) {
+        if (fileName) {
+          return '[eval] (' + fileName + ':' + lineNumber + ':' + columnNumber + ')';
+        }
+
+        return '[eval]:' + lineNumber + ':' + columnNumber;
+      }
+
+      if (functionName) {
+        return functionName + ' (' + fileName + ':' + lineNumber + ':' + columnNumber + ')';
+      }
+
+      return fileName + ':' + lineNumber + ':' + columnNumber;
+    }
+  };
+
+  StackFrame.fromString = function StackFrame$$fromString(str) {
+    var argsStartIndex = str.indexOf('(');
+    var argsEndIndex = str.lastIndexOf(')');
+    var functionName = str.substring(0, argsStartIndex);
+    var args = str.substring(argsStartIndex + 1, argsEndIndex).split(',');
+    var locationString = str.substring(argsEndIndex + 1);
+
+    if (locationString.indexOf('@') === 0) {
+      var parts = /@(.+?)(?::(\d+))?(?::(\d+))?$/.exec(locationString, '');
+      var fileName = parts[1];
+      var lineNumber = parts[2];
+      var columnNumber = parts[3];
     }
 
-    const value = parent[last];
+    return new StackFrame({
+      functionName: functionName,
+      args: args || undefined,
+      fileName: fileName,
+      lineNumber: lineNumber || undefined,
+      columnNumber: columnNumber || undefined
+    });
+  };
 
-    if (!value) {
-      return;
-    } else if (value.type === 'infinity') {
-      parent[last] = Infinity;
-    } else if (value.type === 'nan') {
-      parent[last] = NaN;
-    } else if (value.type === 'undefined') {
-      parent[last] = undefined;
-    } else {
-      // Replace the string keys with Symbols so they're non-enumerable.
-      const replaced = {};
-      replaced[meta.inspectable] = !!value.inspectable;
-      replaced[meta.inspected] = false;
-      replaced[meta.name] = value.name;
-      replaced[meta.preview_long] = value.preview_long;
-      replaced[meta.preview_short] = value.preview_short;
-      replaced[meta.size] = value.size;
-      replaced[meta.readonly] = !!value.readonly;
-      replaced[meta.type] = value.type;
-      parent[last] = replaced;
-    }
-  });
-  unserializable.forEach(path => {
-    const length = path.length;
-    const last = path[length - 1];
-    const parent = Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* getInObject */ "j"])(object, path.slice(0, length - 1));
+  for (var i = 0; i < booleanProps.length; i++) {
+    StackFrame.prototype['get' + _capitalize(booleanProps[i])] = _getter(booleanProps[i]);
 
-    if (!parent || !parent.hasOwnProperty(last)) {
-      return;
-    }
+    StackFrame.prototype['set' + _capitalize(booleanProps[i])] = function (p) {
+      return function (v) {
+        this[p] = Boolean(v);
+      };
+    }(booleanProps[i]);
+  }
 
-    const node = parent[last];
-    const replacement = { ...node
-    };
-    upgradeUnserializable(replacement, node);
-    parent[last] = replacement;
-  });
-  return object;
-}
+  for (var j = 0; j < numericProps.length; j++) {
+    StackFrame.prototype['get' + _capitalize(numericProps[j])] = _getter(numericProps[j]);
 
-function upgradeUnserializable(destination, source) {
-  Object.defineProperties(destination, {
-    [meta.inspected]: {
-      configurable: true,
-      enumerable: false,
-      value: !!source.inspected
-    },
-    [meta.name]: {
-      configurable: true,
-      enumerable: false,
-      value: source.name
-    },
-    [meta.preview_long]: {
-      configurable: true,
-      enumerable: false,
-      value: source.preview_long
-    },
-    [meta.preview_short]: {
-      configurable: true,
-      enumerable: false,
-      value: source.preview_short
-    },
-    [meta.size]: {
-      configurable: true,
-      enumerable: false,
-      value: source.size
-    },
-    [meta.readonly]: {
-      configurable: true,
-      enumerable: false,
-      value: !!source.readonly
-    },
-    [meta.type]: {
-      configurable: true,
-      enumerable: false,
-      value: source.type
-    },
-    [meta.unserializable]: {
-      configurable: true,
-      enumerable: false,
-      value: !!source.unserializable
-    }
-  });
-  delete destination.inspected;
-  delete destination.name;
-  delete destination.preview_long;
-  delete destination.preview_short;
-  delete destination.size;
-  delete destination.readonly;
-  delete destination.type;
-  delete destination.unserializable;
-}
+    StackFrame.prototype['set' + _capitalize(numericProps[j])] = function (p) {
+      return function (v) {
+        if (!_isNumber(v)) {
+          throw new TypeError(p + ' must be a Number');
+        }
+
+        this[p] = Number(v);
+      };
+    }(numericProps[j]);
+  }
+
+  for (var k = 0; k < stringProps.length; k++) {
+    StackFrame.prototype['get' + _capitalize(stringProps[k])] = _getter(stringProps[k]);
+
+    StackFrame.prototype['set' + _capitalize(stringProps[k])] = function (p) {
+      return function (v) {
+        this[p] = String(v);
+      };
+    }(stringProps[k]);
+  }
+
+  return StackFrame;
+});
 
 /***/ })
 

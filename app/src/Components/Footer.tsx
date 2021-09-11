@@ -1,7 +1,8 @@
+import * as React from 'react';
 import { InfoQueueContext, progressProps, velProps } from '../contexts/InfoQueueContext';
 import { useContext, useState } from 'react';
 import { MdSettings, MdSearch } from 'react-icons/md';
-import { CgClose } from 'react-icons/cg'
+import { CgClose } from 'react-icons/cg';
 import { SettingsContext } from '../contexts/SettingsContext';
 import { downloadVideo } from '../Functions/youtube-dl-wrap/downloadVideo';
 import { downloadAudio } from '../Functions/youtube-dl-wrap/downloadAudio';
@@ -18,10 +19,10 @@ const Footer = () => {
   const context = useContext(InfoQueueContext);
 
   const clearQueue = () => {
-    updateQueue([])
-    updateQueuePrg([])
-    updateQueueVel([])
-  }
+    updateQueue([]);
+    updateQueuePrg([]);
+    updateQueueVel([]);
+  };
 
   const downloadQueue = () => {
     setDisable(true);
@@ -60,12 +61,12 @@ const Footer = () => {
       if (download_queue.reduce((previousValue, currentValue) => previousValue && !currentValue, true)) {
         let temp = [...curQueue];
         temp[queue_index].show = false;
-        temp = temp.filter((val, i) => val.show);
+        temp = temp.filter((val) => val.show);
         const tempPrg = new Array<progressProps>(temp.length).fill({ progress: 0 });
         const tempVel = new Array<velProps>(temp.length).fill({ vel: '0.0MiB/s' });
         updateQueue(temp);
         updateQueuePrg(tempPrg);
-        updateQueueVel(tempVel)
+        updateQueueVel(tempVel);
         setDisable(false);
         setStop(false);
       }
@@ -129,7 +130,7 @@ const Footer = () => {
           <CgClose onClick={clearQueue} className="ml-auto text-black transition-all duration-200 transform scale-125 rotate-0 cursor-pointer fill-current hover:scale-150 active:scale-110 hover:rotate-90 hover:text-gray-900 dark:text-white dark:hover:text-gray-200 hover:text-red-500 dark:hover:text-red-500 active:text-red-600 dark:active:text-red-600"/>
         </button>
         <button aria-label="Download queue" className="w-max h-max dark:after:content-[attr(aria-label)] after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] relative after:absolute after:text-xl after:bottom-[150%] after:bg-gray-300 dark:after:bg-gray-600 after:shadow-md after:w-max after:h-max after:-inset-x-36 after:mx-auto after:px-2 after:py-1 after:rounded-md after:text-base cursor-default after:opacity-0 after:scale-0 after:transform hover:after:opacity-100 hover:after:scale-100 after:origin-bottom after:transition-all after:delay-[0ms] hover:after:delay-1000">
-          <svg viewBox="0 0 13.33 13.33" className="text-black transition-all duration-200 transform scale-125 cursor-pointer fill-current hover:scale-150 active:scale-110 hover:text-gray-900 dark:text-white dark:hover:text-gray-200 group p-[2px]" version="1.1" x="0px" y="0px" width="20px" height="20px" onClick={() => {if(!disable) downloadQueue()}}>
+          <svg viewBox="0 0 13.33 13.33" className="text-black transition-all duration-200 transform scale-125 cursor-pointer fill-current hover:scale-150 active:scale-110 hover:text-gray-900 dark:text-white dark:hover:text-gray-200 group p-[2px]" version="1.1" x="0px" y="0px" width="20px" height="20px" onClick={() => {if(!disable) downloadQueue();}}>
             <path d="M5.83,0.83C5.83,0.37,6.2,0,6.67,0S7.5,0.37,7.5,0.83V6.8l2.7-2.7l1.18,1.18l-4.72,4.7L1.95,5.27l1.18-1.18l2.7,2.72V0.83z" className="transition-all duration-500 -translate-y-full group-hover:translate-y-0 group-hover:delay-100" />
             <path d="M5.83,0.83C5.83,0.37,6.2,0,6.67,0S7.5,0.37,7.5,0.83V6.8l2.7-2.7l1.18,1.18l-4.72,4.7L1.95,5.27l1.18-1.18l2.7,2.72V0.83z" className="group-hover:translate-y-full translate-y-0 transition-all group-hover:delay-[0] delay-100 duration-500" />
             <path d="M0,8.33h1.67v3.33h10V8.33h1.67v3.33c0,0.92-0.75,1.67-1.67,1.67h-10C0.75,13.33,0,12.58,0,11.67V8.33z" />
@@ -143,7 +144,7 @@ const Footer = () => {
         </button>
       </span>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

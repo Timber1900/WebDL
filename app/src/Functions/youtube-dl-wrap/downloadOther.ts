@@ -1,5 +1,5 @@
-import { join } from 'path';
 import { path } from '../getPath';
+import { join } from 'path';
 import fs from 'fs';
 import { updateProg, updateVel } from '../../Components/Header';
 import { InnerProps } from '../../Components/Item';
@@ -24,7 +24,8 @@ export const downloadOther = async (
   vid_index: number,
   queue_index: number,
 ) => {
-  return new Promise<index_interface>(async (res, rej) => {
+  // eslint-disable-next-line no-async-promise-executor
+  return new Promise<index_interface>(async (res) => {
     const clips: number[][] = [];
 
     for (const c of raw_clips) {
@@ -43,7 +44,7 @@ export const downloadOther = async (
     const fixedTitle: string = title.replace(regex, '');
 
 
-    const ffmpeg_helper = new FFMPEG_Helper({loglevel: '8', output_file: clips.length ? join(downloadPath, `tempvideo.${ext}`): join(path, `${fixedTitle}.${ext}`)})
+    const ffmpeg_helper = new FFMPEG_Helper({loglevel: '8', output_file: clips.length ? join(downloadPath, `tempvideo.${ext}`): join(path, `${fixedTitle}.${ext}`)});
 
     const close_function = () => {
       if (clips.length) {
@@ -64,16 +65,16 @@ export const downloadOther = async (
         updateInfo(`Done downloading ${title}`);
         res({ vid_index, queue_index });
       }
-    }
+    };
 
     const video = execStream([url, '-f', videoFormat.format_id]);
-    ffmpeg_helper.convert_video(video, close_function)
+    ffmpeg_helper.convert_video(video, close_function);
 
     video
       .on('progress', (progress: any) => {
         updateProg(progress.percent);
         updateQueuePrgIndividually(progress.percent, queue_index);
-        updateQueueVelIndividually(progress.currentSpeed, queue_index)
+        updateQueueVelIndividually(progress.currentSpeed, queue_index);
         updateVel(progress.currentSpeed);
       })
       .on('error', (err: any) => {

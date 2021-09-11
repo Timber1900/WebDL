@@ -35,7 +35,7 @@ const downloadFile = (fileURL: string | null, filePath: string) => {
   return new Promise(async (resolve, reject) => {
     while (fileURL) {
       const url = fileURL;
-      let response: any = await new Promise((resolveRequest, rejectRequest) =>
+      const response: any = await new Promise((resolveRequest) =>
         https.get(url, (httpResponse: any) => {
           httpResponse.on('error', (e: any) => reject(e));
           resolveRequest(httpResponse);
@@ -53,26 +53,26 @@ const downloadFile = (fileURL: string | null, filePath: string) => {
 };
 
 export const getCurrentVersion = (): Promise<string> => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const ls = exec(
       'for /F "tokens=3" %A in (\'reg query "HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\WebDL" /v "Version"\') DO (Echo %A)',
     );
     ls.stdout?.on('data', (data: any) => {
       if (data.toString().charAt(0) === 'v') {
         const version = data.toString().trim();
-        window.localStorage.setItem("curVer", version)
+        window.localStorage.setItem('curVer', version);
         resolve(version);
       }
     });
-    ls.stderr?.on('data', console.error)
-  })
-}
+    ls.stderr?.on('data', console.error);
+  });
+};
 
-export const downloadInstaller = ({ curInfo, updateInfo }: InfoQueueContextData) => {
+export const downloadInstaller = ({ updateInfo }: InfoQueueContextData) => {
   return new Promise((res, rej) => {
     getCurrentVersion()
       .then(async (val) => {
-        let last_check: `${number}` | number =
+        const last_check: `${number}` | number =
           (window.localStorage.getItem('webdl-lastcheck') as `${number}`) ?? Date.now() - Duration.DAY;
         if (Date.now() - Number(last_check) >= Duration.DAY) {
           window.localStorage.setItem('webdl-lastcheck', `${Date.now()}`);
@@ -91,7 +91,7 @@ export const downloadInstaller = ({ curInfo, updateInfo }: InfoQueueContextData)
                     cwd: OS.homedir(),
                     env: process.env,
                   });
-                  nw.Window.get().close(true);
+                  window.close();
                 } else {
                   res(Status.PASS);
                 }

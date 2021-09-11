@@ -24,7 +24,8 @@ export const downloadVideo = async (
   vid_index: number,
   queue_index: number,
 ) => {
-  return new Promise<index_interface>(async (res, rej) => {
+  // eslint-disable-next-line no-async-promise-executor
+  return new Promise<index_interface>(async (res) => {
     const clips: number[][] = [];
 
     for (const c of raw_clips) {
@@ -45,11 +46,11 @@ export const downloadVideo = async (
     const video = execStream([url, '-f', videoFormat.itag ?? videoFormat.format_id]);
     const audio = execStream([url, '-f', 'bestaudio']);
 
-    if (clips.length) await fs.unlink(join(downloadPath, `tempvideo.${ext}`), () => {});
+    if (clips.length) await fs.unlink(join(downloadPath, `tempvideo.${ext}`), console.log);
 
     const ffmpeg_helper = new FFMPEG_Helper({loglevel: '8', output_file: clips.length
       ? join(downloadPath, `tempvideo.${ext}`)
-      : join(path, `${fixedTitle}.${ext}`)})
+      : join(path, `${fixedTitle}.${ext}`)});
 
     const close_function = () => {
       if (clips.length) {
@@ -61,7 +62,7 @@ export const downloadVideo = async (
           i++;
         }
 
-        Promise.all(promises).then((val) => {
+        Promise.all(promises).then(() => {
           fs.unlink(join(downloadPath, `tempvideo.${ext}`), console.log);
           updateInfo(`Done downloading ${title}`);
           res({ vid_index, queue_index });
@@ -70,9 +71,9 @@ export const downloadVideo = async (
         updateInfo(`Done downloading ${title}`);
         res({ vid_index, queue_index });
       }
-    }
+    };
 
-    ffmpeg_helper.merge_video(audio, video, close_function)
+    ffmpeg_helper.merge_video(audio, video, close_function);
 
     video
       .on('progress', (progress: any) => {
