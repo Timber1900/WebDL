@@ -1,7 +1,7 @@
 import YoutubeDlWrap from 'youtube-dl-wrap';
 import fs, { chmodSync } from 'fs';
 import { join } from 'path';
-import { downloadPath, Duration, Status } from '../../Constants';
+import { downloadPath, Duration, Status } from '../../helpers/Constants';
 
 export const downloadLatestRealease = () => {
   return new Promise((res, rej) => {

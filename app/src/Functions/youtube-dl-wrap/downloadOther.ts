@@ -1,11 +1,11 @@
 import { path } from '../getPath';
 import { join } from 'path';
 import fs from 'fs';
-import { updateProg, updateVel } from '../../Components/Header';
+import { updateEta, updateProg, updateVel } from '../../Components/Header';
 import { InnerProps } from '../../Components/Item';
 import { execStream } from './execStream';
 import { InfoQueueContextData } from '../../contexts/InfoQueueContext';
-import { downloadPath } from '../../Constants';
+import { downloadPath } from '../../helpers/Constants';
 import FFMPEG_Helper from '../../helpers/ffmpeg';
 
 interface index_interface {
@@ -20,7 +20,7 @@ export const downloadOther = async (
   raw_clips: InnerProps[],
   length: number,
   videoFormat: any,
-  { updateInfo, updateQueuePrgIndividually, updateQueueVelIndividually }: InfoQueueContextData,
+  { updateInfo, updateQueuePrgIndividually, updateQueueVelIndividually, updateQueueEtaIndividually }: InfoQueueContextData,
   vid_index: number,
   queue_index: number,
 ) => {
@@ -73,9 +73,11 @@ export const downloadOther = async (
     video
       .on('progress', (progress: any) => {
         updateProg(progress.percent);
+        updateVel(progress.currentSpeed);
+        updateEta(progress.eta);
         updateQueuePrgIndividually(progress.percent, queue_index);
         updateQueueVelIndividually(progress.currentSpeed, queue_index);
-        updateVel(progress.currentSpeed);
+        updateQueueEtaIndividually(progress.eta, queue_index);
       })
       .on('error', (err: any) => {
         console.error(`%c ${err}`, 'color: #F87D7A');

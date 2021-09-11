@@ -3,9 +3,9 @@ import { join } from 'path';
 import { execStream } from './execStream';
 import { path } from '../getPath';
 import { InnerProps } from '../../Components/Item';
-import { updateProg, updateVel } from '../../Components/Header';
+import { updateEta, updateProg, updateVel } from '../../Components/Header';
 import { InfoQueueContextData } from '../../contexts/InfoQueueContext';
-import { downloadPath } from '../../Constants';
+import { downloadPath, Progress } from '../../helpers/Constants';
 import FFMPEG_Helper from '../../helpers/ffmpeg';
 
 interface index_interface {
@@ -20,7 +20,7 @@ export const downloadVideo = async (
   ext: string,
   raw_clips: InnerProps[],
   length: number,
-  { updateInfo, updateQueuePrgIndividually, updateQueueVelIndividually }: InfoQueueContextData,
+  { updateInfo, updateQueuePrgIndividually, updateQueueVelIndividually, updateQueueEtaIndividually }: InfoQueueContextData,
   vid_index: number,
   queue_index: number,
 ) => {
@@ -76,11 +76,13 @@ export const downloadVideo = async (
     ffmpeg_helper.merge_video(audio, video, close_function);
 
     video
-      .on('progress', (progress: any) => {
+      .on('progress', (progress: Progress) => {
         updateProg(progress.percent);
+        updateVel(progress.currentSpeed);
+        updateEta(progress.eta);
         updateQueuePrgIndividually(progress.percent, queue_index);
         updateQueueVelIndividually(progress.currentSpeed, queue_index);
-        updateVel(progress.currentSpeed);
+        updateQueueEtaIndividually(progress.eta, queue_index);
       })
       .on('error', (err: any) => {
         console.error(`%c ${err}`, 'color: #F87D7A');

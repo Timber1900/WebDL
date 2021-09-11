@@ -1,7 +1,7 @@
 import execa from 'execa';
 import { join } from 'path';
 import internal from 'stream';
-import { downloadPath } from '../Constants';
+import { downloadPath } from './Constants';
 
 //@ts-ignore
 const ffmpeg = window.ffmpeg;

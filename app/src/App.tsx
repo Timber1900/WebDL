@@ -10,7 +10,6 @@ import Header from './Components/Header';
 import Main from './Components/Main';
 import Footer from './Components/Footer';
 import Search from './Components/Search';
-import ytpl from 'ytpl';
 
 export let outerContext: InfoQueueContextData;
 
@@ -26,15 +25,11 @@ function App() {
   useEffect(() => {
     setDarkMode();
     startServer();
-    //@ts-ignore
-    window.ytpl = ytpl;
     CheckUpdates();
     window.addEventListener('paste', (event: any) => {
       const paste = event.clipboardData.getData('text');
       addToQueue(paste);
     });
-
-
   }, []);
 
   useEffect(() => {

@@ -4,7 +4,7 @@ import OS from 'os';
 import util from 'util';
 import { exec, spawn } from 'child_process';
 import { join } from 'path';
-import { Status, Duration, downloadPath, GithubRelease } from '../Constants';
+import { Status, Duration, downloadPath, GithubRelease } from '../helpers/Constants';
 import { outerContext } from '../App';
 import { downloadLatestRealease } from './youtube-dl-wrap/downloadLatestRelease';
 import { InfoQueueContextData } from '../contexts/InfoQueueContext';

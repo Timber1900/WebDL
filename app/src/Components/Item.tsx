@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useContext, useRef } from 'react';
 import { useState } from 'react';
 import { CgClose } from 'react-icons/all';
-import { Storage, InfoVideo } from '../Constants';
-import { InfoQueueContext, progressProps, velProps } from '../contexts/InfoQueueContext';
+import { Storage, InfoVideo } from '../helpers/Constants';
+import { etaProps, InfoQueueContext, progressProps, velProps } from '../contexts/InfoQueueContext';
 import { downloadAudio } from '../Functions/youtube-dl-wrap/downloadAudio';
 import { downloadOther } from '../Functions/youtube-dl-wrap/downloadOther';
 import { downloadVideo } from '../Functions/youtube-dl-wrap/downloadVideo';
@@ -47,7 +47,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
   const [qual, setQual] = useState(quality.get(curQual));
   const [trim, setTrim] = useState(false);
   const [showInfo, setInfo] = useState(false);
-  const {curQueue, updateQueue, updateQueuePrg, updateQueueVel, curCustomExt, curConcurrentDownload, curQueuePrg, curQueueVel} = useContext(InfoQueueContext);
+  const {curQueue, updateQueue, updateQueuePrg, updateQueueVel, updateQueueEta, curCustomExt, curConcurrentDownload, curQueuePrg, curQueueVel} = useContext(InfoQueueContext);
   const context = useContext(InfoQueueContext);
   const titleLabel = useRef<HTMLSpanElement>(null);
 
@@ -69,9 +69,11 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
       const removedQueue = curQueue.filter((e) => e.id !== id);
       const tempPrg = Array.from({length: removedQueue.length}, ():progressProps => ({progress: 0}));
       const tempVel = Array.from({length: removedQueue.length}, ():velProps => ({ vel: '0.0MiB/s' }));
+      const tempEta = Array.from({length: removedQueue.length}, ():etaProps => ({ eta: '00:00' }));
       updateQueue(removedQueue);
       updateQueuePrg(tempPrg);
       updateQueueVel(tempVel);
+      updateQueueEta(tempEta);
     };
     let type, extension;
     if (ext === 'custom') {

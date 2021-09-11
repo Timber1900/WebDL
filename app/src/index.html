@@ -1,21 +1,60 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="./icons/webdl.ico">
+    <title>WebDL: A web video downloader</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root" style="position: relative; overflow-y: hidden;"></div>
+    <style>
+      .drag {
+        -webkit-app-region: drag;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="./icons/webdl.ico">
-  <title>WebDL: A web video downloader</title>
+      *::-webkit-scrollbar {
+        width: 10px;
+      }
 
-</head>
+      /* Track */
+      *::-webkit-scrollbar-track {
+        background: #d1d5db;
+        border-radius: 0.125rem;
+      }
 
-<body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root" style="position: relative; overflow-y: hidden;"></div>
-  <style>
-  .drag {
-    -webkit-app-region: drag;
-  }
-  </style>
-</body>
+      /* Handle */
+      *::-webkit-scrollbar-thumb {
+        background: rgba(107, 114, 128);
+        border-radius: 0.125rem;
+      }
+
+      /* Handle on hover */
+      *::-webkit-scrollbar-thumb:hover {
+        background: rgba(75, 85, 99);
+      }
+
+      @keyframes translate {
+        from {
+          transform: translateY(10%);
+        }
+
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes opacity {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+    </style>
+  </body>
 </html>
 

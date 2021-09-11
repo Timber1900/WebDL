@@ -12,16 +12,6 @@ const getDarkOption = (): 'system' | 'dark' | 'light'  => {
   return (localStorage.getItem('theme') ?? 'system') as 'system' | 'dark' | 'light';
 };
 
-const selectPort = () => {
-  const temp_port: string | null = prompt('Select the default port', port);
-  if (!(temp_port && /^[0-9]+$/.test(temp_port))) {
-    alert('Port has to be a whole number');
-  } else {
-    window.localStorage.setItem('port', temp_port);
-    chrome.runtime.reload();
-  }
-};
-
 const setDarkOption = (option: 'system' | 'dark' | 'light') => {
   localStorage.setItem('theme', option);
   const sytemOption = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
