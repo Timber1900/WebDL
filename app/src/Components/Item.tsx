@@ -157,7 +157,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
     text = text.replace(/(?:\r\n|\r|\n)/g, '<br>');
     const urlRegex =/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|])/ig;
     return text.replace(urlRegex, function(url: string) {
-      return `<a onclick="require('nw.gui').Shell.openExternal('${url}')" class="text-indigo-400 hover:text-indigo-500 active:text-indigo-600 transition-colors cursor-pointer" >${url}</a>`;
+      return `<a onclick="window.require('electron').shell.openExternal('${url}')" class="text-indigo-400 hover:text-indigo-500 active:text-indigo-600 transition-colors cursor-pointer" >${url}</a>`;
     });
   }
 
@@ -172,18 +172,19 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
             <img className="col-span-2 col-start-1 row-span-2 my-auto rounded-lg shadow-md max-h-32" src={innerInfo.videoDetails.thumbnails[innerInfo.videoDetails.thumbnails.length - 1].url} alt='Video Thumbnail'/>
             <div className="flex flex-col col-span-3 row-span-2 gap-2 my-auto">
               <span className='flex flex-row items-center justify-start gap-2'>
-                <img src={innerInfo.videoDetails.author.thumbnails[innerInfo.videoDetails.author.thumbnails.length -1].url} alt='Channel logo' className="cursor-pointer rounded-full h-[50px] m-[5px]" onClick={() => {require('electron').shell.openExternal(innerInfo.videoDetails.author.channel_url);}}/>
+                <img src={innerInfo.videoDetails.author.thumbnails[innerInfo.videoDetails.author.thumbnails.length -1].url} alt='Channel logo' className="cursor-pointer rounded-full h-[50px] m-[5px]" onClick={() => {window.require('electron').shell.openExternal(innerInfo.videoDetails.author.channel_url);}}/>
                 <div className="flex flex-col items-start justify-center col-span-2 my-auto">
-                  <p className='flex flex-row items-center justify-start gap-1 mt-auto text-base font-semibold text-left cursor-pointer' onClick={() => {require('electron').shell.openExternal(innerInfo.videoDetails.author.channel_url);}}>{innerInfo.videoDetails.author.name}
+                  <span className='flex flex-row items-center justify-start gap-1 mt-auto text-base font-semibold text-left cursor-pointer' onClick={() => {window.require('electron').shell.openExternal(innerInfo.videoDetails.author.channel_url);}}>
+                    {innerInfo.videoDetails.author.name}
                     {innerInfo.videoDetails.author.verified &&
-                  <div aria-label="Verified" className="after:content-[attr(aria-label)] dark:after:content-[attr(aria-label)] dark:hover:after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] relative after:absolute after:bottom-[130%] after:-inset-x-24 after:mx-auto after:px-1 after:py-.5 after:w-max after:bg-gray-200 dark:after:bg-gray-600 after:rounded-md after:opacity-0 after:scale-0 hover:after:opacity-100 hover:after:scale-100 after:origin-bottom after:transition-all">
-                    <svg className="text-gray-400 fill-current dark:text-gray-500" version="1.1" x="0px" y="0px" height="13px" viewBox="0 0 20 20">
-                      <path style={{'fillRule': 'evenodd','clipRule':'evenodd'}} d="M10,0C4.48,0,0,4.48,0,10s4.48,10,10,10s10-4.48,10-10S15.52,0,10,0z M7.92,15.93l-4.95-4.95l2.05-2.05
-                      l2.9,2.9l7.35-7.35l2.05,2.05L7.92,15.93z"/>
-                    </svg>
-                  </div>
-                    }
-                  </p>
+                    <div aria-label="Verified" className="after:content-[attr(aria-label)] dark:after:content-[attr(aria-label)] dark:hover:after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] relative after:absolute after:bottom-[130%] after:-inset-x-24 after:mx-auto after:px-1 after:py-.5 after:w-max after:bg-gray-200 dark:after:bg-gray-600 after:rounded-md after:opacity-0 after:scale-0 hover:after:opacity-100 hover:after:scale-100 after:origin-bottom after:transition-all">
+                      <svg className="text-gray-400 fill-current dark:text-gray-500" version="1.1" x="0px" y="0px" height="13px" viewBox="0 0 20 20">
+                        <path style={{'fillRule': 'evenodd','clipRule':'evenodd'}} d="M10,0C4.48,0,0,4.48,0,10s4.48,10,10,10s10-4.48,10-10S15.52,0,10,0z M7.92,15.93l-4.95-4.95l2.05-2.05
+                        l2.9,2.9l7.35-7.35l2.05,2.05L7.92,15.93z"/>
+                      </svg>
+                    </div>
+                      }
+                  </span>
                   <p className='text-sm font-normal text-left text-gray-400 dark:text-gray-500'>{(innerInfo.videoDetails.author.subscriber_count ?? 0).toLocaleString()} subscribers</p>
                 </div>
               </span>
@@ -215,7 +216,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
           <span className="flex flex-wrap w-full gap-2 overflow-y-scroll max-h-28">
             <h2 className="text-lg font-bold">Tags:</h2>
             {innerInfo.videoDetails.keywords?.map((val, i) =>
-              <code className="px-2 py-1 my-auto text-base font-semibold text-center bg-gray-200 rounded-md cursor-pointer dark:bg-gray-700" key={i} onClick={() => {require('electron').shell.openExternal(`https://www.youtube.com/results?search_query=${val.replace(' ', '+')}`);}}>{val}</code>
+              <code className="px-2 py-1 my-auto text-base font-semibold text-center bg-gray-200 rounded-md cursor-pointer dark:bg-gray-700" key={i} onClick={() => {window.require('electron').shell.openExternal(`https://www.youtube.com/results?search_query=${val.replace(' ', '+')}`);}}>{val}</code>
             )}
           </span>
         </div>
