@@ -2,20 +2,14 @@
 
 ## Todo:
 
-- [x] Finish UI in Tailwind
-  - [x] Make the search page
-  - [x] Make the trim page
-  - [x] Make Item template
-  - [x] Make header / footer
-  - [x] Make Settings
-    - [x] Make initial layout
-    - [x] Populate Settings
-    - [x] Add functionality to settings
-- [x] Pass logic to tailwind version
-  - [x] Add logic to add videos to queue
-  - [x] Add logic to download videos
-  - [x] Add logic to search for videos
-   
+- [] Port app to electron
+  - [x] Port design
+    - [x] Add tailwind to electron
+    - [x] Add react to electron
+  - [x] Port functionality
+    - [x] Fix ffmpeg
+    - [x] Fix openExternal() for video info
+    - [ ] Fix setPort
 
 ## Table of Contents
 
