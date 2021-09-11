@@ -2,7 +2,7 @@
 
 ## Todo:
 
-- [] Port app to electron
+- [ ] Port app to electron
   - [x] Port design
     - [x] Add tailwind to electron
     - [x] Add react to electron
