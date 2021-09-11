@@ -41,7 +41,7 @@ export const addToQueue = async (url: string) => {
   const { curQueue, updateInfo, updateQueue, curQueuePrg, updateQueuePrg, curQueueVel, updateQueueVel } = outerContext;
   let currentInfo = 'Fetching videos';
   updateInfo(currentInfo);
-  const videos = await ytpl(url, { pages: Infinity }).catch(() => {return});
+  const videos = await ytpl(url, { pages: Infinity }).catch(() => {return;});
   const urls = [];
   if (videos) {
     for (const vid of videos.items) {

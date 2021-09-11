@@ -1,18 +1,16 @@
+import * as React from 'react';
 import { SettingsContext } from './contexts/SettingsContext';
 import { useContext, useEffect } from 'react';
 import Settings, { setDarkMode } from './Components/Settings';
 import { InfoQueueContext, InfoQueueContextData } from './contexts/InfoQueueContext';
-// import { setUpMinimize } from './Functions/tray.ts.ignore';
 import { CheckUpdates } from './Functions/update';
 import { addToQueue } from './Functions/server/addToQueue';
 import { startServer } from './Functions/server/server';
 import Header from './Components/Header';
 import Main from './Components/Main';
 import Footer from './Components/Footer';
-import Search from './Components/Search'
+import Search from './Components/Search';
 import ytpl from 'ytpl';
-// import { chmodSync } from 'fs';
-// const ffmpeg = window.require('ffmpeg-static')
 
 export let outerContext: InfoQueueContextData;
 
@@ -23,17 +21,13 @@ function App() {
   const closeOpen = () => {
     if(showSettings) changeShowSettings();
     if(showSearch) changeShowSearch();
-  }
+  };
 
   useEffect(() => {
     setDarkMode();
     startServer();
     //@ts-ignore
     window.ytpl = ytpl;
-    // if(process.platform === 'win32') setUpMinimize();
-    // if(process.platform === 'linux' || process.platform === 'darwin') {
-    //   chmodSync(ffmpeg, 0o755)
-    // }
     CheckUpdates();
     window.addEventListener('paste', (event: any) => {
       const paste = event.clipboardData.getData('text');
@@ -41,7 +35,7 @@ function App() {
     });
 
 
-  }, [])
+  }, []);
 
   useEffect(() => {
     outerContext = context;
@@ -61,4 +55,4 @@ function App() {
   );
 }
 
-export default App;
+export default (App);

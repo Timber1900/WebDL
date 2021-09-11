@@ -6,7 +6,7 @@ export const getOtherDiv = (info: any, i: number, url: string): Promise<Props | 
     const formats = new Map();
     for (const format of info.formats) {
       if ((format.ext === 'mp4' || format.ext === 'webm') && (format.vcodec ?? 'none') !== 'none' && (format.acodec ?? 'none') === 'none') {
-        console.log(format)
+        console.log(format);
         if (formats.has(format.format_note)) {
           formats.set(
             format.format_note,
@@ -17,7 +17,7 @@ export const getOtherDiv = (info: any, i: number, url: string): Promise<Props | 
         }
       }
     }
-    console.log(formats)
+    console.log(formats);
     let sorted_map = new Map();
     if (formats.size === 0) {
       sorted_map = new Map();
@@ -26,7 +26,7 @@ export const getOtherDiv = (info: any, i: number, url: string): Promise<Props | 
           sorted_map.set(format.height.toString(), format);
         }
       }
-      console.log(sorted_map)
+      console.log(sorted_map);
     } else {
       sorted_map = new Map(
         Array.from(formats).sort(

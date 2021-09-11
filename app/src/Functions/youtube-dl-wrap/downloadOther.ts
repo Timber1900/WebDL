@@ -44,7 +44,7 @@ export const downloadOther = async (
     const fixedTitle: string = title.replace(regex, '');
 
 
-    const ffmpeg_helper = new FFMPEG_Helper({loglevel: '8', output_file: clips.length ? join(downloadPath, `tempvideo.${ext}`): join(path, `${fixedTitle}.${ext}`)})
+    const ffmpeg_helper = new FFMPEG_Helper({loglevel: '8', output_file: clips.length ? join(downloadPath, `tempvideo.${ext}`): join(path, `${fixedTitle}.${ext}`)});
 
     const close_function = () => {
       if (clips.length) {
@@ -65,16 +65,16 @@ export const downloadOther = async (
         updateInfo(`Done downloading ${title}`);
         res({ vid_index, queue_index });
       }
-    }
+    };
 
     const video = execStream([url, '-f', videoFormat.format_id]);
-    ffmpeg_helper.convert_video(video, close_function)
+    ffmpeg_helper.convert_video(video, close_function);
 
     video
       .on('progress', (progress: any) => {
         updateProg(progress.percent);
         updateQueuePrgIndividually(progress.percent, queue_index);
-        updateQueueVelIndividually(progress.currentSpeed, queue_index)
+        updateQueueVelIndividually(progress.currentSpeed, queue_index);
         updateVel(progress.currentSpeed);
       })
       .on('error', (err: any) => {

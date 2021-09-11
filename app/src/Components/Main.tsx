@@ -1,4 +1,5 @@
-import Item from './Item'
+import * as React from 'react';
+import Item from './Item';
 import { InfoQueueContext } from '../contexts/InfoQueueContext';
 import { useContext } from 'react';
 
@@ -12,8 +13,8 @@ const Main = () => {
       ))}
 
     </div>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;
 

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import ProgressBar from './ProgressBar';
 import { useEffect, useState } from 'react';
 import { useContext } from 'react';
@@ -9,15 +10,15 @@ export let updateVel: React.Dispatch<React.SetStateAction<string>>;
 const Header = () => {
   const [prog, setProg] = useState(0);
   const [vel, setVel] = useState('0.0MiB/s');
-  const {curConcurrentDownload} = useContext(InfoQueueContext)
-  const [curD, setCurD] = useState(curConcurrentDownload)
+  const {curConcurrentDownload} = useContext(InfoQueueContext);
+  const [curD, setCurD] = useState(curConcurrentDownload);
 
   useEffect(() => {
     updateProg = setProg;
     updateVel = setVel;
   }, []);
 
-  useEffect(() => setCurD(curConcurrentDownload), [curConcurrentDownload])
+  useEffect(() => setCurD(curConcurrentDownload), [curConcurrentDownload]);
 
   return(
     <header className="flex flex-col items-center justify-start px-4 shadow-md">
@@ -29,7 +30,7 @@ const Header = () => {
         <label htmlFor='progress' className="ml-auto text-base font-medium">{curD > 1 ? '0.0MiB/s' : vel}</label>
       </span>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -1,16 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import 'tailwindcss/tailwind.css';
 import './scrollbar.css';
 import App from './App';
 import InfoQueueProvider from './contexts/InfoQueueContext';
 import SettingsProvider from './contexts/SettingsContext';
 import Titlebar from './Components/Titlebar';
-
-//@ts-ignore
-if (module.hot) {
-  //@ts-ignore
-  module.hot.accept();
-}
 
 ReactDOM.render(
   <React.StrictMode>
@@ -23,3 +18,4 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const rules = require('./webpack.rules');
 const plugins = require('./webpack.plugins');
 
@@ -25,7 +24,7 @@ module.exports = {
   module: {
     rules,
   },
-  target: 'node',
+  target: 'electron-renderer',
   plugins: plugins,
   output: {
     publicPath: './../',

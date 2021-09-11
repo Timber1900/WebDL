@@ -8,13 +8,13 @@ export const startServer = () => {
 
   if (!window.localStorage.getItem('port')) window.localStorage.setItem('port', port);
 
-  app.listen(port, () => {console.log(`%c Server open on port ${port}`, 'color: #0F1')});
+  app.listen(port, () => {console.log(`%c Server open on port ${port}`, 'color: #0F1');});
   app.use(express.json());
 
   app.post('/', (req, res) => {
-    console.log({req, res})
+    console.log({req, res});
     const { body } = req;
     res.send('Video received');
     addToQueue(body.url);
   });
-}
+};

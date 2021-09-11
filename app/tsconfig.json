@@ -7,10 +7,13 @@
     "noImplicitAny": false,
     "sourceMap": true,
     "baseUrl": ".",
-    "outDir": "./dist",
+    "outDir": "dist",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "jsx": "react-jsx",
+    "jsx": "react",
+    "paths": {
+      "*": ["node_modules/*"]
+    }
   },
   "include": [
     "src/**/*"

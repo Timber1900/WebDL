@@ -24,7 +24,7 @@ export const downloadLatestRealease = () => {
               process.platform,
             )
               .then(() => {
-                if(process.platform === 'linux' || process.platform === 'darwin') chmodSync(join(downloadPath, 'youtube-dl'), 0o755)
+                if(process.platform === 'linux' || process.platform === 'darwin') chmodSync(join(downloadPath, 'youtube-dl'), 0o755);
                 res(Status.SUCCESS);
                 alert('Done downloading latest youtube-dl!');
                 console.log('%c Done downloading latest version!', 'color: #6A8A35');

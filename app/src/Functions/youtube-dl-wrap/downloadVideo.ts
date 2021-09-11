@@ -50,7 +50,7 @@ export const downloadVideo = async (
 
     const ffmpeg_helper = new FFMPEG_Helper({loglevel: '8', output_file: clips.length
       ? join(downloadPath, `tempvideo.${ext}`)
-      : join(path, `${fixedTitle}.${ext}`)})
+      : join(path, `${fixedTitle}.${ext}`)});
 
     const close_function = () => {
       if (clips.length) {
@@ -71,9 +71,9 @@ export const downloadVideo = async (
         updateInfo(`Done downloading ${title}`);
         res({ vid_index, queue_index });
       }
-    }
+    };
 
-    ffmpeg_helper.merge_video(audio, video, close_function)
+    ffmpeg_helper.merge_video(audio, video, close_function);
 
     video
       .on('progress', (progress: any) => {

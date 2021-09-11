@@ -60,13 +60,13 @@ export const getCurrentVersion = (): Promise<string> => {
     ls.stdout?.on('data', (data: any) => {
       if (data.toString().charAt(0) === 'v') {
         const version = data.toString().trim();
-        window.localStorage.setItem("curVer", version)
+        window.localStorage.setItem('curVer', version);
         resolve(version);
       }
     });
-    ls.stderr?.on('data', console.error)
-  })
-}
+    ls.stderr?.on('data', console.error);
+  });
+};
 
 export const downloadInstaller = ({ updateInfo }: InfoQueueContextData) => {
   return new Promise((res, rej) => {
@@ -91,7 +91,7 @@ export const downloadInstaller = ({ updateInfo }: InfoQueueContextData) => {
                     cwd: OS.homedir(),
                     env: process.env,
                   });
-                  window.close()
+                  window.close();
                 } else {
                   res(Status.PASS);
                 }
