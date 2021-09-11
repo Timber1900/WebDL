@@ -61,6 +61,10 @@ const createWindow = (): void => {
     mainWindow.webContents.send('select-dirs-result', result.filePaths);
   });
 
+  ipcMain.on('reload', () => {
+    mainWindow.reload();
+  })
+
   ipcMain.on('maximize', () => {
     mainWindow.isMaximized() ? mainWindow.restore() : mainWindow.maximize();
   });

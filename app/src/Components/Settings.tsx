@@ -99,11 +99,20 @@ const Settings = ({className}: Props) => {
           Browse
         </button>
       </span>
-      <span>
+      <span className="flex flex-row items-center justify-start w-full">
         <label htmlFor='port' className="mr-4">Change port: </label>
-        <button onClick={selectPort} id='port' className="px-2 py-1 transition-colors bg-gray-100 rounded-md shadow-sm hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-600 dark:active:bg-gray-500 w-max dark:bg-gray-700 focus:outline-none">
+        <input onChange={(e) => {window.localStorage.setItem('port', e.target.value);}} defaultValue={port} placeholder="3003" type='number' className="w-20 px-2 py-1 mx-4 my-2 transition-colors bg-gray-100 rounded-md shadow-sm sm:my-0 hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-600 dark:active:bg-gray-500 dark:bg-gray-700 focus:outline-none"/>
+        <div className="grid ml-auto transition-transform duration-300 ease-in-out transform scale-100 rotate-0 place-content-center hover:rotate-180 active:scale-90" onClick={() => {window.require('electron').ipcRenderer.send('reload')}}>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18px" height="18px" viewBox="0 0 12 10" className="h-full stroke-current text-dark dark:text-white w-max">
+            <polyline fill="none" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="2" points="0.5,1 0.5,4 3.5,4 "/>
+            <polyline fill="none" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="2" points="11.5,9 11.5,6 8.5,6 "/>
+            <path fill="none" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="2" d="M10.24,3.5C9.42,1.16,6.84-0.07,4.5,0.76C3.87,0.98,3.29,1.35,2.82,1.82L0.5,4 M11.5,6L9.18,8.18
+              c-1.76,1.76-4.61,1.76-6.36,0C2.34,7.71,1.98,7.13,1.75,6.5"/>
+          </svg>
+        </div>
+        {/* <button onClick={selectPort} id='port' className="px-2 py-1 transition-colors bg-gray-100 rounded-md shadow-sm hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-600 dark:active:bg-gray-500 w-max dark:bg-gray-700 focus:outline-none">
           Change
-        </button>
+        </button> */}
       </span>
       <span>
         <label htmlFor='update' className="mr-4">Check for updates: </label>
