@@ -17,5 +17,5 @@
   },
   "include": [
     "src/**/*"
-, "src/preload.ts"  ],
+, "src/main/preload.ts"  ],
 }
