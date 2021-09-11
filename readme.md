@@ -2,14 +2,15 @@
 
 ## Todo:
 
-- [ ] Port app to electron
+- [x] Port app to electron
   - [x] Port design
     - [x] Add tailwind to electron
     - [x] Add react to electron
   - [x] Port functionality
     - [x] Fix ffmpeg
     - [x] Fix openExternal() for video info
-    - [ ] Fix setPort
+    - [x] Fix setPort
+    - [x] Added Tray functionality
 
 ## Table of Contents
 
