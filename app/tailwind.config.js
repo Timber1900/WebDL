@@ -31,9 +31,17 @@ module.exports = {
         appear: 'translate 1s ease-in-out 1, opacity 2s linear 1',
       },
     },
+    customColorPalette: {
+      colors: {
+        "gray-custom": "#6B7280", // add more colors to the plugin
+      },
+      steps: 50, // define the steps between each shade: 100 (default) | 50
+  },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require("@markusantonwolf/tailwind-css-plugin-custom-color-palette"),
+  ],
 };
