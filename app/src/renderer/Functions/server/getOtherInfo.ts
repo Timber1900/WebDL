@@ -1,4 +1,4 @@
-import { outerContext } from '../../App';
+import { outerContext } from '../../Components/Layout';
 import { Props } from '../../Components/Item';
 
 export const getOtherDiv = (info: any, i: number, url: string): Promise<Props | null> => {

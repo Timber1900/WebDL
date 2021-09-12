@@ -1,5 +1,5 @@
 import ytdl from 'ytdl-core';
-import { outerContext } from '../../App';
+import { outerContext } from '../../Components/Layout';
 import { Props } from '../../Components/Item';
 
 export const getYoutubeDiv = (info: ytdl.videoInfo, i: number): Promise<Props | null> => {

@@ -4,7 +4,7 @@ import util from 'util';
 import { youtubeDlWrap } from '../youtube-dl-wrap';
 import { getOtherDiv } from './getOtherInfo';
 import { getYoutubeDiv } from './getYoutubeInfo';
-import { outerContext } from '../../App';
+import { outerContext } from '../../Components/Layout';
 
 type info = {
   ytdl: boolean;

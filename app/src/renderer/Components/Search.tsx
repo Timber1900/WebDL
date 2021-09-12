@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import { CgClose } from 'react-icons/all';
+import { CgClose } from 'react-icons/cg';
 import ytsr from 'ytsr';
 import { addToQueue } from '../Functions/server/addToQueue';
 interface Props {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useContext, useRef } from 'react';
 import { useState } from 'react';
-import { CgClose } from 'react-icons/all';
+import { CgClose } from 'react-icons/cg';
 import { Storage, InfoVideo } from '../helpers/Constants';
 import { etaProps, InfoQueueContext, progressProps, velProps } from '../contexts/InfoQueueContext';
 import { downloadAudio } from '../Functions/youtube-dl-wrap/downloadAudio';

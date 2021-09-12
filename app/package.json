@@ -1,5 +1,5 @@
 {
-  "name": "WebDL",
+  "name": "webdl",
   "productName": "WebDL",
   "version": "11.0.0",
   "description": "A web video downloader",
@@ -21,7 +21,7 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "./src/icons/webdl.ico"
+        "icon": "./src/renderer/icons/webdl.ico"
       },
       "makers": [
         {

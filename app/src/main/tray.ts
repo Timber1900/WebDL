@@ -1,5 +1,4 @@
-import { app, BrowserWindow, ipcMain, Menu, Tray } from 'electron';
-import { join } from 'path';
+import { BrowserWindow, ipcMain, Menu, Tray } from 'electron';
 
 export const setUpMinMax = (mainWindow: BrowserWindow) => {
   ipcMain.on('maximize', () => {
@@ -22,7 +21,7 @@ export const setUpMinMax = (mainWindow: BrowserWindow) => {
 }
 let tray = null;
 export const setupTray = (mainWindow: BrowserWindow) => {
-  tray = new Tray(join(app.getAppPath(), 'src', 'renderer', 'icons', 'webdl.ico'))
+  tray = new Tray("C:/Users/Timber/Desktop/Programming/GitHub_repos/WebDL/app/src/renderer/icons/webdl.ico")
 
   const showApp = () => {
     mainWindow.show();

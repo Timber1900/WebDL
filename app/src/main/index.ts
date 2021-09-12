@@ -25,7 +25,7 @@ const createWindow = (): void => {
     titleBarStyle: 'hidden',
     autoHideMenuBar: true,
     darkTheme: true,
-    icon: join(app.getAppPath(), 'src', 'renderer', 'icons', 'webdl.ico'),
+    icon: "C:/Users/Timber/Desktop/Programming/GitHub_repos/WebDL/app/src/renderer/icons/webdl.ico",
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
