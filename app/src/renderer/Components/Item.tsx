@@ -1,14 +1,15 @@
 import * as React from 'react';
-import { useContext, useRef, useEffect } from 'react';
+import { useContext, useRef } from 'react';
 import { useState } from 'react';
 import { CgClose } from 'react-icons/cg';
-import { Storage, InfoVideo, CaptionTrack } from '../helpers/Constants';
+import { Storage, InfoVideo } from '../helpers/Constants';
 import { etaProps, InfoQueueContext, progressProps, velProps } from '../contexts/InfoQueueContext';
 import { downloadAudio } from '../Functions/youtube-dl-wrap/downloadAudio';
 import { downloadOther } from '../Functions/youtube-dl-wrap/downloadOther';
 import { downloadVideo } from '../Functions/youtube-dl-wrap/downloadVideo';
 import VerticalProgressBar from './VerticalProgressBar';
 import Trim from './Trim';
+import CaptionsChooser, { captions } from './CaptionsChooser';
 
 export interface Props {
   i: number;
@@ -42,82 +43,13 @@ export interface InnerProps {
   change: any;
 }
 
-interface captionChooserProps {
-  info: InfoVideo,
-  languageName: string | null,
-  translateName: string | null,
-  captions: captions[],
-  setCaptions: React.Dispatch<React.SetStateAction<captions[]>>,
-  index: number,
-}
-
-interface captions {
-  languageName: string | null,
-  translateName: string | null
-}
-
-const CaptionsChooser = ({ info, languageName, translateName, captions, index, setCaptions }: captionChooserProps) => {
-  const [captionString, setCaptionString] = useState(languageName ?? "");
-  const [translateString, setTranslateString] = useState(translateName ?? "Do not translate");
-  const [showCaptionLanguageDropdown, setShowCaptionLanguageDropdown] = useState(false);
-  const [showTranslateLanguageDropdown, setShowTranslateLanguageDropdown] = useState(false);
-  const [captionLanguage, setCaptionLanguage] = useState<string | null>(languageName)
-  const [translateLanguage, setTranslateLanguage] = useState<string>(translateName ?? "Do not translate")
-  const captionRef = useRef<HTMLInputElement>(null)
-  const translateRef = useRef<HTMLInputElement>(null)
-
-  useEffect(() => {
-    const temp = [...captions]
-    temp[index].languageName = captionLanguage;
-    temp[index].translateName = translateLanguage;
-    setCaptions(temp);
-  }, [captionLanguage, translateLanguage])
-
-  return(
-    <>
-      <div onClick={() => {setShowCaptionLanguageDropdown(false); setShowTranslateLanguageDropdown(false);}} className={`${showCaptionLanguageDropdown || showTranslateLanguageDropdown ? 'block pointer-events-auto' : 'none pointer-events-none'} absolute z-30 inset-0 `}/>
-      <div className="flex flex-col items-start justify-center w-full">
-        <span className="flex flex-row items-center justify-start gap-4">
-          <h2 className="text-lg font-normal">Available captions:</h2>
-          <div className="relative z-50">
-            <input onFocus={() => {setShowCaptionLanguageDropdown(true); setShowTranslateLanguageDropdown(false);} } onChange={e => {setCaptionString(e.currentTarget.value)}} ref={captionRef} className="flex-grow px-2 text-lg font-normal text-justify bg-gray-300 rounded-md dark:bg-gray-700 focus:outline-none" placeholder={captionLanguage ?? 'Choose Language'} defaultValue={captionLanguage ?? ''} type='text'/>
-            {showCaptionLanguageDropdown &&
-            <div className="absolute inset-x-0 overflow-y-scroll bg-gray-300 rounded-md z-[60] top-full max-h-36 dark:bg-gray-600">
-              <ul className="text-base font-normal divide-y divide-gray-400 dark:divide-gray-500">
-                {info.player_response.captions.playerCaptionsTracklistRenderer.captionTracks.filter(val => val.name.simpleText.toLowerCase().startsWith(captionString.toLowerCase()) || captionString === "").map((val: CaptionTrack, i: number) =>
-                  <li className="px-1 py-0.5 hover:bg-gray-custom-550 bg-gray-600 transition-colors" key={i} onClick={() => {setCaptionLanguage(val.name.simpleText); setShowCaptionLanguageDropdown(false); captionRef.current.value = val.name.simpleText; setCaptionString(val.name.simpleText)}}>{val.name.simpleText}</li>)
-                }
-              </ul>
-            </div>}
-          </div>
-        </span>
-        <span className="flex flex-row items-center justify-start gap-4">
-          <h2 className="text-lg font-normal">Translate to:</h2>
-          <div className="relative z-40">
-            <input onFocus={() => {setShowTranslateLanguageDropdown(true); setShowCaptionLanguageDropdown(false);}} onChange={e => {setTranslateString(e.currentTarget.value)}} ref={translateRef} className="flex-grow px-2 text-lg font-normal text-justify bg-gray-300 rounded-md dark:bg-gray-700 focus:outline-none" placeholder={translateLanguage ?? 'Choose Language'} defaultValue={translateLanguage} type='text'/>
-            {showTranslateLanguageDropdown &&
-            <div className="absolute inset-x-0 z-50 overflow-y-scroll bg-gray-300 rounded-md top-full max-h-36 dark:bg-gray-600">
-              <ul className="text-base font-normal divide-y divide-gray-400 dark:divide-gray-500">
-                <li className="px-1 py-0.5 hover:bg-gray-custom-550 bg-gray-600 transition-colors" onClick={() => {setTranslateLanguage("Do not translate"); setShowTranslateLanguageDropdown(false); translateRef.current.value = "Do not translate"; setTranslateString("Do not translate")}}>Do not translate</li>
-                {info.player_response.captions.playerCaptionsTracklistRenderer.translationLanguages.filter(val => val.languageName.simpleText.toLowerCase().startsWith(translateString.toLowerCase()) || translateString === "").map((val, i: number) =>
-                  <li className="px-1 py-0.5 hover:bg-gray-custom-550 bg-gray-600 transition-colors" key={i} onClick={() => {setTranslateLanguage(val.languageName.simpleText); setShowTranslateLanguageDropdown(false); translateRef.current.value = val.languageName.simpleText; setTranslateString(val.languageName.simpleText)}}>{val.languageName.simpleText}</li>)
-                }
-              </ul>
-            </div>}
-          </div>
-        </span>
-      </div>
-    </>
-  )
-}
-
 const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, merge, clips, info }: Props) => {
   const innerInfo: InfoVideo = info as InfoVideo;
   const [qual, setQual] = useState(quality.get(curQual));
   const [trim, setTrim] = useState(false);
   const [open, setOpen] = useState(false);
   const [showInfo, setInfo] = useState(false);
-  const [captions, setCaptions] = useState<captions[]>([{languageName: null, translateName: null}])
+  const [captions, setCaptions] = useState<captions[]>([{languageName: null, translateName: null, formatName: null}])
 
   const [showCaptions, setShowCaptions] = useState(false);
   const {curQueue, updateQueue, updateQueuePrg, updateQueueVel, updateQueueEta, curCustomExt, curConcurrentDownload, curQueuePrg, curQueueVel} = useContext(InfoQueueContext);
@@ -315,12 +247,10 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
           */}
           <h1 className="w-full text-2xl text-center">Caption options</h1>
           <div className="flex flex-col items-center justify-start w-full gap-4 p-4">
-            {captions.map(({languageName, translateName}, i) =>
-              <CaptionsChooser key={i} info={innerInfo} languageName={languageName} translateName={translateName} captions={captions} index={i} setCaptions={setCaptions}/>
+            {captions.map(({languageName, translateName, formatName}, i) =>
+              <CaptionsChooser key={i} info={innerInfo} languageName={languageName} translateName={translateName} formatName={formatName} captions={captions} index={i} setCaptions={setCaptions}/>
             )}
           </div>
-
-
         </div>
       }
       <div className={`relative flex ${open ? "mb-20" : "mb-0"} transition-all`}>
@@ -433,7 +363,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
             }
           </div>
         </div>
-        <div className={`absolute transform  ${open ? "translate-y-24 opacity-100" : "translate-y-0 opacity-0"} bg-gray-100 dark:bg-gray-900 inset-10 rounded-md shadow-sm z-[1] transition-all flex flex-col items-start justify-center`}>
+        <div className={`absolute transform  ${open ? "translate-y-24 opacity-100" : "translate-y-0 opacity-0"} bg-gray-100 dark:bg-gray-900 inset-10 rounded-md shadow-sm z-[1] transition-all flex flex-col items-start justify-center`} style={{clipPath: "inset(52% 0 0 0)"}}>
             <div className="h-[52%] w-full" />
             <div className="w-full h-[48%] flex flex-row p-4 gap-2">
               <button aria-label="Select captions" className="ml-auto group after:content-[attr(aria-label)] dark:after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] dark:hover:after:content-[attr(aria-label)] relative after:absolute after:text-base after:inset-y-0 after:right-[130%] after:w-max after:bg-gray-300 dark:after:bg-gray-600 after:shadow-md after:opacity-0 after:scale-0 after:transform hover:after:opacity-100 hover:after:scale-100 after:origin-right after:transition-all after:delay-[0ms] hover:after:delay-1000 after:px-2 after:py-1 after:rounded-md after:text-center after:h-max after:grid after:place-content-center disabled:opacity-60 opacity-100 disabled:after:opacity-0" onClick={() => setShowCaptions(true)}>
