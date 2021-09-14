@@ -16,7 +16,10 @@ export const downloadCaptions = (languageName: string, translateName: string, fo
       if(!translateCode) rej("Invaid translateName")
     }
 
-    const output = `${video_title}.${captionTrack.languageCode}.${format}`;
+    const regex = /["*/:<>?\\|]/g;
+    const fixedTitle: string = video_title.replace(regex, '');
+
+    const output = `${fixedTitle}.${translate ? translateCode.languageCode : captionTrack.languageCode}.${format}`;
     const download_url = `${captionTrack.baseUrl}&fmt=${format !== 'xml' ? format : ''}${translate ? `&tlang=${translateCode.languageCode}` : ''}`
 
     https.get(download_url, res => {

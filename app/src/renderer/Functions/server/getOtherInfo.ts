@@ -51,7 +51,8 @@ export const getOtherDiv = (info: any, i: number, url: string): Promise<Props | 
       ext: outerContext.curExt,
       duration: info.duration ?? 0,
       clips: [],
-      show: true,
+      captions: [],
+      show: true
     });
   } else {
     return Promise.resolve(null);

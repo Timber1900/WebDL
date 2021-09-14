@@ -9,7 +9,8 @@ import { downloadOther } from '../Functions/youtube-dl-wrap/downloadOther';
 import { downloadVideo } from '../Functions/youtube-dl-wrap/downloadVideo';
 import VerticalProgressBar from './VerticalProgressBar';
 import Trim from './Trim';
-import CaptionsChooser, { captions } from './CaptionsChooser';
+import { Captions, captions } from './Captions';
+import { downloadCaptions } from '../Functions/youtube-dl-wrap/downloadCaptions';
 
 export interface Props {
   i: number;
@@ -24,8 +25,8 @@ export interface Props {
   ext: string;
   duration: number;
   clips: InnerProps[];
-  animate?: boolean;
   show: boolean;
+  captions: captions[]
 }
 
 export interface InnerProps {
@@ -43,13 +44,13 @@ export interface InnerProps {
   change: any;
 }
 
-const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, merge, clips, info }: Props) => {
+const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, merge, clips, info, captions }: Props) => {
   const innerInfo: InfoVideo = info as InfoVideo;
   const [qual, setQual] = useState(quality.get(curQual));
   const [trim, setTrim] = useState(false);
   const [open, setOpen] = useState(false);
   const [showInfo, setInfo] = useState(false);
-  const [captions, setCaptions] = useState<captions[]>([{languageName: null, translateName: null, formatName: null}])
+  const [_captions, setCaptions] = useState<captions[]>(captions && [])
 
   const [showCaptions, setShowCaptions] = useState(false);
   const {curQueue, updateQueue, updateQueuePrg, updateQueueVel, updateQueueEta, curCustomExt, curConcurrentDownload, curQueuePrg, curQueueVel} = useContext(InfoQueueContext);
@@ -90,6 +91,10 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
       }
     } else {
       [type, extension] = ext.split(' ');
+    }
+
+    if(captions.length > 0) {
+      captions.forEach(({formatName, languageName, translateName}) => downloadCaptions(languageName, translateName, formatName, innerInfo.player_response.captions, innerInfo.videoDetails.title))
     }
 
     if (merge) {
@@ -172,10 +177,16 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
     setOpen(!open)
   }
 
+  function saveCaptions() {
+    const temp = [...curQueue];
+    temp[i].captions = _captions;
+    updateQueue(temp);
+  }
+
   return(
     <>
       {trim && <Trim closeTrim={() => setTrim(false)} hh={hours < 10 ? `0${hours}` : hours.toString()} mm={minutes < 10 ? `0${minutes}` : minutes.toString()} ss={seconds < 10 ? `0${seconds}` : seconds.toString()} clips={clips} i={i}/>}
-      <div className={`absolute inset-0 z-10 bg-black ${(showInfo || showCaptions) ? 'opacity-40 pointer-events-auto': 'opacity-0 pointer-events-none'}  transition-opacity duration-200`} onClick={() => {setInfo(false);setShowCaptions(false)}}></div>
+      <div className={`absolute inset-0 z-10 bg-black ${(showInfo || showCaptions) ? 'opacity-40 pointer-events-auto': 'opacity-0 pointer-events-none'}  transition-opacity duration-200`} onClick={() => {setInfo(false);setShowCaptions(false); saveCaptions()}}></div>
       {(showInfo && merge) &&
         <div className="absolute z-20 flex flex-col items-center justify-start gap-4 p-8 bg-white rounded-lg shadow-lg inset-x-0 mx-auto min-w-[576px] w-max max-w-[636px] inset-y-12 dark:bg-gray-800">
           <h1 className="text-2xl text-center">{innerInfo.videoDetails.title}</h1>
@@ -233,25 +244,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
         </div>
       }
       {showCaptions &&
-        <div className="absolute z-20 flex flex-col items-center justify-start gap-4 p-8 bg-white rounded-lg shadow-lg inset-x-0 mx-auto min-w-[576px] w-max max-w-[636px] inset-y-12 dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-          {/*
-            BaseURL - player_response.captions.playerCaptionsRenderer.baseUrl
-            Options:
-
-            Auto-Generated - &kind=asr
-            Base-Language - &lang=[LanguageCode]
-            Translation-Language - &tlang=[LanguageCode]
-            Format-Type - &fmt=[Format]
-
-            Formats: xml, ttml, vtt, srv1, srv2, srv3
-          */}
-          <h1 className="w-full text-2xl text-center">Caption options</h1>
-          <div className="flex flex-col items-center justify-start w-full gap-4 p-4">
-            {captions.map(({languageName, translateName, formatName}, i) =>
-              <CaptionsChooser key={i} info={innerInfo} languageName={languageName} translateName={translateName} formatName={formatName} captions={captions} index={i} setCaptions={setCaptions}/>
-            )}
-          </div>
-        </div>
+        <Captions captions={_captions} info={innerInfo} setCaptions={setCaptions} />
       }
       <div className={`relative flex ${open ? "mb-20" : "mb-0"} transition-all`}>
         <div className={`${show ? 'grid' : 'hidden'} w-auto h-auto max-w-4xl grid-cols-5 gap-2 p-4 pr-0 m-4 bg-white rounded-md shadow-md max-h-56 min-h-48 dark:bg-gray-800 place-items-center animate-appear origin-top z-[2]`}>
@@ -366,7 +359,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
         <div className={`absolute transform  ${open ? "translate-y-24 opacity-100" : "translate-y-0 opacity-0"} bg-gray-100 dark:bg-gray-900 inset-10 rounded-md shadow-sm z-[1] transition-all flex flex-col items-start justify-center`} style={{clipPath: "inset(52% 0 0 0)"}}>
             <div className="h-[52%] w-full" />
             <div className="w-full h-[48%] flex flex-row p-4 gap-2">
-              <button aria-label="Select captions" className="ml-auto group after:content-[attr(aria-label)] dark:after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] dark:hover:after:content-[attr(aria-label)] relative after:absolute after:text-base after:inset-y-0 after:right-[130%] after:w-max after:bg-gray-300 dark:after:bg-gray-600 after:shadow-md after:opacity-0 after:scale-0 after:transform hover:after:opacity-100 hover:after:scale-100 after:origin-right after:transition-all after:delay-[0ms] hover:after:delay-1000 after:px-2 after:py-1 after:rounded-md after:text-center after:h-max after:grid after:place-content-center disabled:opacity-60 opacity-100 disabled:after:opacity-0" onClick={() => setShowCaptions(true)}>
+              <button aria-label="Select captions" className="ml-auto group after:content-[attr(aria-label)] dark:after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] dark:hover:after:content-[attr(aria-label)] relative after:absolute after:text-base after:inset-y-0 after:right-[130%] after:w-max after:bg-gray-300 dark:after:bg-gray-600 after:shadow-md after:opacity-0 after:scale-0 after:transform hover:after:opacity-100 hover:after:scale-100 after:origin-right after:transition-all after:delay-[0ms] hover:after:delay-1000 after:px-2 after:py-1 after:rounded-md after:text-center after:h-max after:grid after:place-content-center disabled:opacity-60 opacity-100 disabled:after:opacity-0" onClick={() => setShowCaptions(true)} disabled={!merge}>
                 <svg version="1.1" x="0px" y="0px" viewBox="0 0 297.64 231.5" width="1em" height="1em" className="text-black group-disabled:text-black transition-all duration-200 transform scale-125 cursor-pointer fill-current group-disabled:scale-125 hover:scale-150 active:scale-110 hover:text-gray-900 dark:text-white dark:group-disabled:text-white dark:hover:text-gray-200 group p-[4px]">
                   <path d="M33.07,0C14.72,0,0,14.88,0,33.07v165.35c0,18.19,14.72,33.07,33.07,33.07h231.5
                   c18.19,0,33.07-14.88,33.07-33.07V33.07C297.64,14.88,282.76,0,264.57,0H33.07z M132.28,99.21h-24.8v-8.27H74.41v49.61h33.07v-8.27
