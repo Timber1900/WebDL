@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "WebDL"
-#define MyAppVersion "v11.1.1"
+#define MyAppVersion "v11.1.2"
 #define MyAppPublisher "Timber1900"
 #define MyAppURL "https://www.hteixeira.me/"
 #define MyAppExeName "WebDL.exe"
@@ -54,7 +54,7 @@ Source: "app\out\WebDL-win32-x64\version"; DestDir: "{app}"; Flags: ignoreversio
 Source: "app\out\WebDL-win32-x64\vk_swiftshader_icd.json"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\out\WebDL-win32-x64\vk_swiftshader.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\out\WebDL-win32-x64\vulkan-1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\out\WebDL-win32-x64\webdl.ico"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\src\renderer\icons\webdl.ico"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\out\WebDL-win32-x64\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\out\WebDL-win32-x64\locales\*"; DestDir: "{app}\locales"; Flags: ignoreversion
 Source: "app\out\WebDL-win32-x64\resources\app\*"; DestDir: "{app}\resources\app"; Flags: ignoreversion recursesubdirs

@@ -26,9 +26,9 @@ const Header = () => {
   return(
     <header className="flex flex-col items-center justify-start px-4 shadow-md">
       <span className="flex flex-row items-center justify-center w-full">
-        <ProgressBar id="progress" value={curD > 1 ? 0 :(prog / 100)}/>
+        <ProgressBar disabled={curD > 1} id="progress" value={curD > 1 ? 0 :(prog / 100)}/>
       </span>
-      <span className='flex flex-row items-start justify-start w-full px-2 mb-1 text-base font-medium'>
+      <span className={`flex flex-row items-start justify-start w-full px-2 mb-1 text-base font-medium ${curD > 1 ? "opacity-40" : "opacity-100"}`}>
         <label htmlFor='progress' className="text-base font-medium">{`${curD > 1 ? 0 : prog}%`}</label>
         <label htmlFor='progress' className="ml-auto text-base font-medium">{curD > 1 ? '0.0MiB/s' : vel} | ETA: {curD > 1 ? '00:00' : eta.replace(/\s/g, '')}s</label>
       </span>

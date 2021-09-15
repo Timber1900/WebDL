@@ -83,16 +83,20 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
   useEffect(() => {
     let startQueue: Props[] = [];
 
-    if(fs.existsSync(join(downloadPath, 'queue.webdl'))) startQueue = JSON.parse(fs.readFileSync(join(downloadPath, 'queue.webdl')).toString(), reviver);
+    try{
+      if(fs.existsSync(join(downloadPath, 'queue.webdl'))) startQueue = JSON.parse(fs.readFileSync(join(downloadPath, 'queue.webdl')).toString(), reviver);
 
-    const startPrg = Array.from({length: startQueue.length}, ():progressProps => ({progress: 0}));
-    const startVel = Array.from({length: startQueue.length}, ():velProps => ({ vel: '0.0MiB/s' }));
-    const startEta = Array.from({length: startQueue.length}, ():etaProps => ({ eta: '00:00' }));
+      const startPrg = Array.from({length: startQueue.length}, ():progressProps => ({progress: 0}));
+      const startVel = Array.from({length: startQueue.length}, ():velProps => ({ vel: '0.0MiB/s' }));
+      const startEta = Array.from({length: startQueue.length}, ():etaProps => ({ eta: '00:00' }));
 
-    setQueue(startQueue);
-    setQueuePrg(startPrg);
-    setQueueVel(startVel);
-    setQueueEta(startEta);
+      setQueue(startQueue);
+      setQueuePrg(startPrg);
+      setQueueVel(startVel);
+      setQueueEta(startEta);
+    } catch (e) {
+      console.error(e)
+    }
   }, []);
 
   useEffect(() => {

@@ -34,14 +34,16 @@ export const getYoutubeDiv = (info: ytdl.videoInfo, i: number): Promise<Props | 
       quality: sorted_map,
       title: info.videoDetails.title,
       curQual: sorted_map.entries().next().value[0],
-      info,
-      i,
-      download: true,
-      merge: true,
       ext: outerContext.curExt,
       duration: parseInt(info.videoDetails.lengthSeconds),
-      clips: [],
+      download: true,
+      merge: true,
       show: true,
+      open: null,
+      clips: [],
+      captions: [],
+      info,
+      i
     });
   } else {
     return Promise.resolve(null);
