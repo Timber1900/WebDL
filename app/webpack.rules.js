@@ -20,11 +20,13 @@ module.exports = [
     test: /\.tsx?$/,
     exclude: /(node_modules|\.webpack)/,
     use: {
-      loader: 'ts-loader',
+      loader: 'esbuild-loader',
       options: {
-        transpileOnly: true
-      }
-    }
+        loader: 'tsx',
+        tsconfigRaw: require('./tsconfig.esbuild.json'),
+        target: 'es2015',
+      },
+    },
   },
   {
     test: /node_modules[/\\](iconv-lite)[/\\].+/,

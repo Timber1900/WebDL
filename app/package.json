@@ -9,8 +9,7 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "eslint --ext .ts,.tsx .",
-    "postinstall": "patch-package"
+    "lint": "eslint --ext .ts,.tsx ."
   },
   "keywords": [],
   "author": {
@@ -77,7 +76,6 @@
     "@electron-forge/plugin-webpack": "6.0.0-beta.60",
     "@markusantonwolf/tailwind-css-plugin-custom-color-palette": "^1.2.0",
     "@types/chrome": "^0.0.157",
-    "@types/execa": "^2.0.0",
     "@types/express": "^4.17.13",
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
@@ -87,6 +85,8 @@
     "autoprefixer": "^10.3.4",
     "css-loader": "^6.0.0",
     "electron": "14.0.0",
+    "esbuild": "^0.12.28",
+    "esbuild-loader": "^2.15.1",
     "eslint": "^7.6.0",
     "eslint-plugin-import": "^2.20.0",
     "file-loader": "^6.2.0",

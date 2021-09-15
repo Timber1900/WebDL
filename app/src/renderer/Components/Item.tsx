@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useContext, useRef } from 'react';
+import { useContext, useRef, useEffect } from 'react';
 import { useState } from 'react';
 import { CgClose } from 'react-icons/cg';
 import { Storage, InfoVideo } from '../helpers/Constants';
@@ -7,26 +7,27 @@ import { etaProps, InfoQueueContext, progressProps, velProps } from '../contexts
 import { downloadAudio } from '../Functions/youtube-dl-wrap/downloadAudio';
 import { downloadOther } from '../Functions/youtube-dl-wrap/downloadOther';
 import { downloadVideo } from '../Functions/youtube-dl-wrap/downloadVideo';
-import VerticalProgressBar from './VerticalProgressBar';
 import Trim from './Trim';
 import { Captions, captions } from './Captions';
+import ProgressBar from './ProgressBar'
 import { downloadCaptions } from '../Functions/youtube-dl-wrap/downloadCaptions';
 
 export interface Props {
-  i: number;
+  open: (val?: boolean) => void | null;
+  clips: InnerProps[];
+  captions: captions[];
+  quality: Map<string, any>;
   id: string;
   thumbnail: string;
-  info: any;
-  quality: Map<string, any>;
   curQual: string;
   title: string;
+  ext: string;
+  i: number;
+  duration: number;
   download: boolean;
   merge: boolean;
-  ext: string;
-  duration: number;
-  clips: InnerProps[];
   show: boolean;
-  captions: captions[]
+  info: any;
 }
 
 export interface InnerProps {
@@ -51,14 +52,14 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
   const [open, setOpen] = useState(false);
   const [showInfo, setInfo] = useState(false);
   const [_captions, setCaptions] = useState<captions[]>(captions && [])
-
   const [showCaptions, setShowCaptions] = useState(false);
-  const {curQueue, updateQueue, updateQueuePrg, updateQueueVel, updateQueueEta, curCustomExt, curConcurrentDownload, curQueuePrg, curQueueVel} = useContext(InfoQueueContext);
+  const {curQueue, updateQueue, updateQueuePrg, updateQueueVel, updateQueueEta, curCustomExt, curQueuePrg, curQueueVel, curQueueEta} = useContext(InfoQueueContext);
   const context = useContext(InfoQueueContext);
   const titleLabel = useRef<HTMLSpanElement>(null);
 
   const prg = curQueuePrg[i].progress;
   const vel = curQueueVel[i].vel;
+  const eta = curQueueEta[i].eta;
 
   const seconds = duration % 60;
   const minutes = ((duration - seconds) / 60) % 60;
@@ -68,6 +69,16 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
   quality.forEach((value, key) => {
     options.push(key);
   });
+
+  function openExtraOptions(val?: boolean) {
+    setOpen(val ?? !open)
+  }
+
+  useEffect(() => {
+    const tempQueue = [...curQueue];
+    tempQueue[i].open = openExtraOptions;
+    updateQueue(tempQueue);
+  }, [])
 
   const dv = () => {
     const format = quality.get(curQual.toString());
@@ -173,9 +184,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
     });
   }
 
-  function openExtraOptions() {
-    setOpen(!open)
-  }
+
 
   function saveCaptions() {
     const temp = [...curQueue];
@@ -246,18 +255,18 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
       {showCaptions &&
         <Captions captions={_captions} info={innerInfo} setCaptions={setCaptions} />
       }
-      <div className={`relative flex ${open ? "mb-20" : "mb-0"} transition-all`}>
-        <div className={`${show ? 'grid' : 'hidden'} w-auto h-auto max-w-4xl grid-cols-5 gap-2 p-4 pr-0 m-4 bg-white rounded-md shadow-md max-h-56 min-h-48 dark:bg-gray-800 place-items-center animate-appear origin-top z-[2]`}>
+      <div className={`relative flex ${open ? "mb-20" : "mb-0"} ${show ? '' : 'hidden'} transition-all`}>
+        <div className={`w-auto h-auto max-w-4xl grid grid-cols-5 gap-2 p-4 pr-0 m-4 bg-white rounded-md shadow-md max-h-56 min-h-48 dark:bg-gray-800 place-items-center animate-appear origin-top z-[2]`}>
           <div className="h-auto col-span-2 rounded-md shadow-sm max-h-56 w-[300px] h-[166px] grid place-content-center">
             <img width="300" height="166" src={thumbnail} alt={title} className="rounded-md w-min"/>
           </div>
           <div className="grid w-full h-full grid-cols-10 col-span-3 grid-rows-3 gap-2">
-            <span className={`grid place-items-center ${curConcurrentDownload > 1 ? 'col-span-7' : 'col-span-9'} col-start-1 row-span-1 row-start-1 w-full`}>
+            <span className="grid w-full col-span-9 col-start-1 row-span-1 row-start-1 place-items-center">
               <span className="w-full overflow-hidden text-center truncate whitespace-nowrap" ref={titleLabel}>
                 {title}
               </span>
             </span>
-            <div className={`grid grid-cols-2 ${curConcurrentDownload > 1 ? 'col-span-7' : 'col-span-9'} col-start-1 row-span-1 row-start-2 gap-2 place-items-center`}>
+            <div className="grid grid-cols-2 col-span-9 col-start-1 row-span-1 row-start-2 gap-2 place-items-center">
               <span className="flex items-center justify-center w-full h-full gap-2 text-base font-medium flex-rows">
                 <label htmlFor='qual'>Quality: </label>
                 <select onChange={(e) => { updateQual(quality.get(e.target.value)); }} defaultValue={curQual} id='qual' className="bg-gray-100 rounded-md shadow-sm w-max dark:bg-gray-700 focus:outline-none">
@@ -290,7 +299,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
                 </select>
               </span>
             </div>
-            <div className={`grid grid-cols-2 ${curConcurrentDownload > 1 ? 'col-span-7' : 'col-span-9'} col-start-1 row-span-1 row-start-3 gap-2 place-items-center`}>
+            <div className="grid grid-cols-2 col-span-9 col-start-1 row-span-1 row-start-3 gap-2 place-items-center">
               <span className="text-base font-medium">
                 <p>Duration: <code className="dark:bg-gray-700 bg-gray-100 px-1 py-0.5 rounded-lg">{hours > 0 ? `${hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}` : `${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`}</code></p>
               </span>
@@ -337,28 +346,30 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
                 <CgClose onClick={removeQueue} className="text-black transition-all transform scale-100 rotate-0 fill-current active:text-red-600 active:scale-95 dark:active:text-red-600 dark:text-white hover:text-red-500 dark:hover:text-red-500 hover:rotate-90 hover:scale-125"/>
               </button>
 
-              <button aria-label="Open extra options" className="after:content-[attr(aria-label)] dark:after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] dark:hover:after:content-[attr(aria-label)] relative after:absolute after:text-base after:inset-y-0 after:right-[130%] after:w-max after:bg-gray-300 dark:after:bg-gray-600 after:shadow-md after:opacity-0 after:scale-0 after:transform hover:after:opacity-100 hover:after:scale-100 after:origin-right after:transition-all after:delay-[0ms] hover:after:delay-1000 after:px-2 after:py-1 after:rounded-md after:text-center after:h-max after:grid after:place-content-center" onClick={openExtraOptions}>
+              <button aria-label="Open extra options" className="after:content-[attr(aria-label)] dark:after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] dark:hover:after:content-[attr(aria-label)] relative after:absolute after:text-base after:inset-y-0 after:right-[130%] after:w-max after:bg-gray-300 dark:after:bg-gray-600 after:shadow-md after:opacity-0 after:scale-0 after:transform hover:after:opacity-100 hover:after:scale-100 after:origin-right after:transition-all after:delay-[0ms] hover:after:delay-1000 after:px-2 after:py-1 after:rounded-md after:text-center after:h-max after:grid after:place-content-center" onClick={() => openExtraOptions()}>
                 <svg className={`text-black group-disabled:text-black transition-all duration-200 transform scale-125 cursor-pointer fill-current group-disabled:scale-125 hover:scale-150 active:scale-110 hover:text-gray-900 dark:text-white dark:group-disabled:text-white dark:hover:text-gray-200 p-[4px] ${open ? "scale-y-[-1.25] group-disabled:scale-y-[-1.25] hover:scale-y-[-1.5] active:scale-y-[-1.1]" : "scale-y-125 group-disabled:scale-y-125 hover:scale-y-150 active:scale-y-110"}`} version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 5.34 3.14" width="1em" height="1em">
                   <path d="M0.13,0.13c-0.18,0.18-0.18,0.46,0,0.64l2.24,2.24C2.55,3.18,2.82,3.19,3,3.02l2.21-2.2C5.3,0.73,5.34,0.62,5.34,0.5
                   c0-0.11-0.04-0.23-0.13-0.32C5.03,0,4.75,0,4.57,0.18l-1.9,1.87l-1.9-1.92C0.6-0.04,0.31-0.04,0.13,0.13z"/>
                 </svg>
               </button>
             </div>
-            {(curConcurrentDownload > 1) &&
-            <div className='flex items-center justify-end w-full h-full col-span-2 col-start-8 row-span-3 text-base'>
-              <div className="flex flex-col items-center justify-start h-full font-normal text-right">
-                <div className="w-full mb-auto">{prg}%</div>
-                <div className="w-full">{vel.slice(0, -5)}</div>
-                <div className="w-full">{vel.substring(vel.length - 5, vel.length)}</div>
-              </div>
-              <VerticalProgressBar id={`vprogress${i}`} value={prg / 100}/>
-            </div>
-            }
           </div>
         </div>
-        <div className={`absolute transform  ${open ? "translate-y-24 opacity-100" : "translate-y-0 opacity-0"} bg-gray-100 dark:bg-gray-900 inset-10 rounded-md shadow-sm z-[1] transition-all flex flex-col items-start justify-center`} style={{clipPath: "inset(52% 0 0 0)"}}>
+        {/* Extra options */}
+        <div className={`absolute transform ${open ? "translate-y-24 opacity-100" : "translate-y-0 opacity-0"} bg-gray-100 dark:bg-gray-900 inset-10 rounded-md shadow-sm z-[1] transition-all flex-col items-start justify-center`} style={{clipPath: "inset(52% 0 0 0)"}}>
             <div className="h-[52%] w-full" />
-            <div className="w-full h-[48%] flex flex-row p-4 gap-2">
+            <div className="w-full h-[48%] flex flex-row px-4 py-2 gap-2">
+
+              <span className="flex flex-col items-start justify-center flex-grow px-4">
+                <span className="flex flex-row items-center justify-center w-full">
+                  <ProgressBar id={id} value={prg/100}/>
+                </span>
+                <span className='flex flex-row items-start justify-start w-full px-2 mb-1 text-base font-medium'>
+                  <label htmlFor={id} className="text-base font-medium">{`${prg}%`}</label>
+                  <label htmlFor={id} className="ml-auto text-base font-medium">{vel} | ETA: {eta.replace(/\s/g, '')}s</label>
+                </span>
+              </span>
+
               <button aria-label="Select captions" className="ml-auto group after:content-[attr(aria-label)] dark:after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] dark:hover:after:content-[attr(aria-label)] relative after:absolute after:text-base after:inset-y-0 after:right-[130%] after:w-max after:bg-gray-300 dark:after:bg-gray-600 after:shadow-md after:opacity-0 after:scale-0 after:transform hover:after:opacity-100 hover:after:scale-100 after:origin-right after:transition-all after:delay-[0ms] hover:after:delay-1000 after:px-2 after:py-1 after:rounded-md after:text-center after:h-max after:grid after:place-content-center disabled:opacity-60 opacity-100 disabled:after:opacity-0" onClick={() => setShowCaptions(true)} disabled={!merge}>
                 <svg version="1.1" x="0px" y="0px" viewBox="0 0 297.64 231.5" width="1em" height="1em" className="text-black group-disabled:text-black transition-all duration-200 transform scale-125 cursor-pointer fill-current group-disabled:scale-125 hover:scale-150 active:scale-110 hover:text-gray-900 dark:text-white dark:group-disabled:text-white dark:hover:text-gray-200 group p-[4px]">
                   <path d="M33.07,0C14.72,0,0,14.88,0,33.07v165.35c0,18.19,14.72,33.07,33.07,33.07h231.5
@@ -369,7 +380,6 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
                   c9.09,0,16.54,7.44,16.54,16.54V99.21L248.03,99.21z"/>
                 </svg>
               </button>
-
               <button aria-label="Show video info" className="group after:content-[attr(aria-label)] dark:after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] dark:hover:after:content-[attr(aria-label)] relative after:absolute after:text-base after:inset-y-0 after:right-[130%] after:w-max after:bg-gray-300 dark:after:bg-gray-600 after:shadow-md after:opacity-0 after:scale-0 after:transform hover:after:opacity-100 hover:after:scale-100 after:origin-right after:transition-all after:delay-[0ms] hover:after:delay-1000 after:px-2 after:py-1 after:rounded-md after:text-center after:h-max after:grid after:place-content-center disabled:opacity-60 opacity-100 disabled:after:opacity-0" onClick={() => setInfo(true)} disabled={!merge}>
                 <svg className="text-black group-disabled:text-black transition-all duration-200 transform scale-125 cursor-pointer fill-current group-disabled:scale-125 hover:scale-150 active:scale-110 hover:text-gray-900 dark:text-white dark:group-disabled:text-white dark:hover:text-gray-200 group p-[4px]" x="0px" y="0px" width="1em" height="1em" viewBox="0 0 385.92 385.92">
                   <g className="group-hover:rotate-[360deg] group-disabled:rotate-0 rotate-0 transition-all duration-700 origin-center ease-back">
@@ -390,10 +400,8 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
                   />
                 </svg>
               </button>
-
             </div>
         </div>
-
       </div>
     </>
   );

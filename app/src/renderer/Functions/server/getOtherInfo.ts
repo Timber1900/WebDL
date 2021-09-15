@@ -44,15 +44,16 @@ export const getOtherDiv = (info: any, i: number, url: string): Promise<Props | 
       quality: sorted_map,
       title: info.title,
       curQual: sorted_map.entries().next().value[0],
-      info,
-      i,
-      download: true,
-      merge: false,
       ext: outerContext.curExt,
       duration: info.duration ?? 0,
+      download: true,
+      merge: false,
+      show: true,
+      open: null,
       clips: [],
       captions: [],
-      show: true
+      info,
+      i
     });
   } else {
     return Promise.resolve(null);
