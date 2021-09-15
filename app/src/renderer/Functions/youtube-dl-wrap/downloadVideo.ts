@@ -48,7 +48,7 @@ export const downloadVideo = async (
 
     if (clips.length) await fs.unlink(join(downloadPath, `tempvideo.${ext}`), console.log);
 
-    const ffmpeg_helper = new FFMPEG_Helper({loglevel: '8', output_file: clips.length
+    const ffmpeg_helper = new FFMPEG_Helper({loglevel: '32', output_file: clips.length
       ? join(downloadPath, `tempvideo.${ext}`)
       : join(path, `${fixedTitle}.${ext}`)});
 
@@ -62,7 +62,8 @@ export const downloadVideo = async (
           i++;
         }
 
-        Promise.all(promises).then(() => {
+        Promise.all(promises).then((val) => {
+          console.log(val)
           fs.unlink(join(downloadPath, `tempvideo.${ext}`), console.log);
           updateInfo(`Done downloading ${title}`);
           res({ vid_index, queue_index });
@@ -88,5 +89,10 @@ export const downloadVideo = async (
         console.error(`%c ${err}`, 'color: #F87D7A');
         res({ vid_index, queue_index });
       });
+
+    audio.on('error', (err: any) => {
+      console.error(`%c ${err}`, 'color: #F87D7A');
+      res({ vid_index, queue_index });
+    });
   });
 };

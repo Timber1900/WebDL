@@ -29,7 +29,7 @@ export const getYoutubeDiv = (info: ytdl.videoInfo, i: number): Promise<Props | 
     );
 
     return Promise.resolve({
-      id: info.videoDetails.videoId,
+      id: info.videoDetails.video_url,
       thumbnail: info.videoDetails.thumbnails[info.videoDetails.thumbnails.length - 1].url,
       quality: sorted_map,
       title: info.videoDetails.title,

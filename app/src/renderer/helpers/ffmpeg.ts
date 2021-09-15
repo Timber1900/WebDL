@@ -18,7 +18,7 @@ export default class FFMPEG_Helper {
   constructor({loglevel, output_file}: ffmpeg_options) {
     this.video_args = [
       '-loglevel',
-      loglevel ?? '8',
+      loglevel ?? '32',
       '-hide_banner',
       '-i',
       'pipe:4',
@@ -33,19 +33,24 @@ export default class FFMPEG_Helper {
       '-y',
       output_file
     ];
-    this.loglevel = loglevel ?? '8';
+    this.loglevel = loglevel ?? '32';
     this.output_file = output_file;
   }
 
   public merge_video(audio: internal.Readable, video: internal.Readable, close_function: () => void) {
-    const ffmpeg_process = execa(ffmpeg, this.video_args, {windowsHide: true, stdio: ['inherit', 'inherit', 'inherit', 'pipe', 'pipe', 'pipe']});
+    const ffmpeg_process = execa(ffmpeg, this.video_args, {windowsHide: true, stdio: ['pipe', 'pipe', 'pipe', 'pipe', 'pipe', 'pipe']});
 
     //@ts-ignore
     audio.pipe(ffmpeg_process.stdio[4]);
     //@ts-ignore
     video.pipe(ffmpeg_process.stdio[5]);
 
-    ffmpeg_process.then(close_function);
+    let stdout_text = ""
+    let stderr_text = ""
+    ffmpeg_process.stdout.on('data', chunk => stdout_text+=chunk.toString())
+    ffmpeg_process.stderr.on('data', chunk => stderr_text+=chunk.toString())
+
+    ffmpeg_process.finally(() => {console.log({stdout_text, stderr_text}); close_function()});
   }
 
   public convert_video(audio: internal.Readable, close_function: () => void) {
@@ -58,12 +63,18 @@ export default class FFMPEG_Helper {
         'pipe:4',
         '-y',
         this.output_file
-      ], {windowsHide: true, stdio: ['inherit', 'inherit', 'inherit', 'pipe', 'pipe', 'pipe'] }
+      ], {windowsHide: true, stdio: ['pipe', 'pipe', 'pipe', 'pipe', 'pipe', 'pipe'] }
     );
 
     //@ts-ignore
     audio.pipe(ffmpeg_process.stdio[4]);
-    ffmpeg_process.then(close_function);
+
+    let stdout_text = ""
+    let stderr_text = ""
+    ffmpeg_process.stdout.on('data', chunk => stdout_text+=chunk.toString())
+    ffmpeg_process.stderr.on('data', chunk => stderr_text+=chunk.toString())
+
+    ffmpeg_process.finally(() => {console.log({stdout_text, stderr_text}); close_function()});
   }
 
   public async cut_video(start: number, end: number, path: string, title: string, i: number, ext: string) {
@@ -71,7 +82,7 @@ export default class FFMPEG_Helper {
       const duration = end - start;
       const ffmpeg_process = execa(ffmpeg, [
         '-loglevel',
-        this.loglevel ?? '8',
+        this.loglevel ?? '32',
         '-ss',
         start.toString(),
         '-i',
@@ -85,8 +96,14 @@ export default class FFMPEG_Helper {
       ], {
         windowsHide: true,
       },);
-      ffmpeg_process.then((data) => resolve(data));
-      ffmpeg_process.catch((error) => reject(error));
+
+      let stdout_text = ""
+      let stderr_text = ""
+      ffmpeg_process.stdout.on('data', chunk => stdout_text+=chunk.toString())
+      ffmpeg_process.stderr.on('data', chunk => stderr_text+=chunk.toString())
+
+      ffmpeg_process.then(() => resolve({stdout_text, stderr_text}));
+      ffmpeg_process.catch(() => reject({stdout_text, stderr_text}));
     });
   }
 }

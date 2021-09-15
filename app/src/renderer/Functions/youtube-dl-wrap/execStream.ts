@@ -5,6 +5,8 @@ import internal from 'stream';
 
 export const execStream = (youtubeDlArguments: any[] = []): internal.Readable => {
   youtubeDlArguments = youtubeDlArguments.concat(['-o', '-']);
+  console.log(youtubeDlArguments);
+
   const youtubeDlProcess = execa(youtubeDlWrap.binaryPath, youtubeDlArguments, {
     windowsHide: true,
   });
@@ -16,9 +18,6 @@ export const execStream = (youtubeDlArguments: any[] = []): internal.Readable =>
     YoutubeDlWrap.emitYoutubeDlEvents(stringData, youtubeDlProcess.stdout);
     stderrData += stringData;
   });
-  youtubeDlProcess.on('error', (error) =>
-    console.log(`Youtube DL exited with code ${error}, heres some error data: ${stderrData}`),
-  );
-  youtubeDlProcess.on('progress', console.log);
+  youtubeDlProcess.on('close', (code, signal) => {console.log({code, signal, stderrData})})
   return youtubeDlProcess.stdout as internal.Readable;
 };

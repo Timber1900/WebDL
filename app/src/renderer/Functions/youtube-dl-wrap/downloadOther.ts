@@ -44,7 +44,7 @@ export const downloadOther = async (
     const fixedTitle: string = title.replace(regex, '');
 
 
-    const ffmpeg_helper = new FFMPEG_Helper({loglevel: '8', output_file: clips.length ? join(downloadPath, `tempvideo.${ext}`): join(path, `${fixedTitle}.${ext}`)});
+    const ffmpeg_helper = new FFMPEG_Helper({loglevel: '32', output_file: clips.length ? join(downloadPath, `tempvideo.${ext}`): join(path, `${fixedTitle}.${ext}`)});
 
     const close_function = () => {
       if (clips.length) {
@@ -56,7 +56,8 @@ export const downloadOther = async (
           i++;
         }
 
-        Promise.all(promises).then(() => {
+        Promise.all(promises).then((val) => {
+          console.log(val)
           fs.unlinkSync(join(downloadPath, `tempvideo.${ext}`));
           updateInfo(`Done downloading ${title}`);
           res({ vid_index, queue_index });
