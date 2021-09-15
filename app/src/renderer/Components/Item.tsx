@@ -255,8 +255,8 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
       {showCaptions &&
         <Captions captions={_captions} info={innerInfo} setCaptions={setCaptions} />
       }
-      <div className={`relative flex ${open ? "mb-20" : "mb-0"} ${show ? '' : 'hidden'} transition-all`}>
-        <div className={`w-auto h-auto max-w-4xl grid grid-cols-5 gap-2 p-4 pr-0 m-4 bg-white rounded-md shadow-md max-h-56 min-h-48 dark:bg-gray-800 place-items-center animate-appear origin-top z-[2]`}>
+      <div className={`relative flex ${open ? "mb-20" : "mb-0"} ${show ? '' : 'hidden'} transition-all w-[790px] `}>
+        <div className={`h-auto grid grid-cols-5 gap-2 p-4 pr-0 m-4 bg-white rounded-md shadow-md max-h-56 min-h-48 dark:bg-gray-800 place-items-center animate-appear origin-top z-[2]`}>
           <div className="h-auto col-span-2 rounded-md shadow-sm max-h-56 w-[300px] h-[166px] grid place-content-center">
             <img width="300" height="166" src={thumbnail} alt={title} className="rounded-md w-min"/>
           </div>

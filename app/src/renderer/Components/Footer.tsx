@@ -46,9 +46,6 @@ const Footer = () => {
       temp[queue_index].show = false;
       updateQueue(temp);
 
-      const vid = download_queue[queue_index];
-      if(vid?.open) vid.open(false)
-
       let found = false;
       while (!found) {
         if (cur_index >= curQueue.length) {
@@ -83,7 +80,7 @@ const Footer = () => {
       const vid = download_queue[vid_index];
       if (!vid) return;
 
-      if(vid.open) vid.open(true)
+      if(vid.open && curConcurrentDownload > 1) vid.open(true)
       const format = vid.quality.get(vid.curQual.toString());
 
       let type, extension;
