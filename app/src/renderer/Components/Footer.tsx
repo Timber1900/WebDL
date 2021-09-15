@@ -23,6 +23,7 @@ const Footer = () => {
     updateQueue([]);
     updateQueuePrg([]);
     updateQueueVel([]);
+    updateQueueEta([]);
   };
 
   const downloadQueue = () => {
