@@ -9,13 +9,20 @@ const ffmpeg = window.ffmpeg;
 interface ffmpeg_options {
   loglevel?: string,
   output_file: string,
+  videoEncoder: 'copy' | 'libx265' | 'libx264' | 'mpeg4',
+  audioEncoder: 'copy' | 'aac' | 'libmp3lame' | 'wmav2'
 }
 
 export default class FFMPEG_Helper {
   private video_args: string[];
   private loglevel: string;
   private output_file: string;
-  constructor({loglevel, output_file}: ffmpeg_options) {
+  private videoEncoder: 'copy' | 'libx265' | 'libx264' | 'mpeg4';
+  private audioEncoder: 'copy' | 'aac' | 'libmp3lame' | 'wmav2';
+
+  constructor({loglevel, output_file, videoEncoder, audioEncoder}: ffmpeg_options) {
+    this.audioEncoder = audioEncoder;
+    this.videoEncoder = videoEncoder;
     this.video_args = [
       '-loglevel',
       loglevel ?? '32',
@@ -28,8 +35,10 @@ export default class FFMPEG_Helper {
       '0:a',
       '-map',
       '1:v',
-      '-c:v',
-      'copy',
+      '-acodec',
+      audioEncoder,
+      '-vcodec',
+      videoEncoder,
       '-y',
       output_file
     ];
@@ -61,6 +70,38 @@ export default class FFMPEG_Helper {
         '-hide_banner',
         '-i',
         'pipe:4',
+        '-acodec',
+        this.audioEncoder,
+        '-vcodec',
+        this.videoEncoder,
+        '-y',
+        this.output_file
+      ], {windowsHide: true, stdio: ['pipe', 'pipe', 'pipe', 'pipe', 'pipe', 'pipe'] }
+    );
+
+    //@ts-ignore
+    audio.pipe(ffmpeg_process.stdio[4]);
+
+    let stdout_text = ""
+    let stderr_text = ""
+    ffmpeg_process.stdout.on('data', chunk => stdout_text+=chunk.toString())
+    ffmpeg_process.stderr.on('data', chunk => stderr_text+=chunk.toString())
+
+    ffmpeg_process.finally(() => {console.log({stdout_text, stderr_text}); close_function()});
+  }
+
+  public convert_audio(audio: internal.Readable, close_function: () => void) {
+    const ffmpeg_process = execa(ffmpeg,
+      [
+        '-loglevel',
+        '8',
+        '-hide_banner',
+        '-i',
+        'pipe:4',
+        '-acodec',
+        this.audioEncoder,
+        '-vcodec',
+        this.videoEncoder,
         '-y',
         this.output_file
       ], {windowsHide: true, stdio: ['pipe', 'pipe', 'pipe', 'pipe', 'pipe', 'pipe'] }

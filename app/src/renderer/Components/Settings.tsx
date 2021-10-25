@@ -48,7 +48,7 @@ type extTypes = 'v mkv' | 'v mp4' | 'v avi' | 'v webm' | 'a mp3' | 'a m4a' | 'a 
 
 const Settings = ({className}: Props) => {
   const [curVersion, setCurrentVersion] = useState(window.localStorage.getItem('curVer') ?? 'Unknown');
-  const {curExt, updateExt, curCustomExt, updateCurCustomExt, curConcurrentDownload, updateConcurrentDownload } = useContext(InfoQueueContext);
+  const {curExt, updateExt, curCustomExt, updateCurCustomExt, curConcurrentDownload, updateConcurrentDownload, curAudioEncoder, curVideoEncoder, updateAudioEncoder, updateVideoEncoder } = useContext(InfoQueueContext);
 
   const refreshVersion = async () => {
     await getCurrentVersion();
@@ -159,6 +159,28 @@ const Settings = ({className}: Props) => {
             if (val.target.valueAsNumber < 1) val.target.value = '1';
             updateConcurrentDownload(val.target.valueAsNumber);
           }}/>
+      </span>
+      <div className="w-full h-0 border-b border-gray-200 dark:border-gray-700"/>
+      <h1 className="text-xl font-bold">{'Encoder settings:'}</h1>
+      <span className="flex flex-col gap-4">
+        <span>
+          <label htmlFor='update' className="mr-4">Video Encoder: </label>
+          <select name='vid' id='vid' className="px-2 py-1 transition-colors bg-gray-100 rounded-md shadow-sm w-max dark:bg-gray-700 focus:outline-none hover:bg-gray-200 dark:hover:bg-gray-600" defaultValue={curVideoEncoder} onChange={e => updateVideoEncoder(e.target.value as "copy" | "libx265" | "libx264" | "mpeg4")}>
+            <option value='copy'>Copy encoding</option>
+            <option value='libx265'>H.265</option>
+            <option value='libx264'>H.264</option>
+            <option value='mpeg4'>MPEG-4</option>
+          </select>
+        </span>
+        <span>
+          <label htmlFor='update' className="mr-4">Audio Encoder: </label>
+          <select name='vid' id='vid' className="px-2 py-1 transition-colors bg-gray-100 rounded-md shadow-sm w-max dark:bg-gray-700 focus:outline-none hover:bg-gray-200 dark:hover:bg-gray-600" defaultValue={curAudioEncoder} onChange={e => updateAudioEncoder(e.target.value as "copy" | "aac" | "libmp3lame" | "wmav2")}>
+            <option value='copy'>Copy encoding</option>
+            <option value='aac'>AAC</option>
+            <option value='libmp3lame'>MP3</option>
+            <option value='wmav2'>WMA</option>
+          </select>
+        </span>
       </span>
       <div className="w-full h-0 border-b border-gray-200 dark:border-gray-700"/>
       <h1 className="text-xl font-bold">{'About:'}</h1>
