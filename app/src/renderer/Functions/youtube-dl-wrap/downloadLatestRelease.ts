@@ -19,10 +19,7 @@ export const downloadLatestRealease = () => {
             alert('Downloading latest youtube-dl...');
             window.localStorage.setItem('ytdl-version', val[0].tag_name);
             if(!fs.existsSync(downloadPath)) fs.mkdirSync(downloadPath);
-            YoutubeDlWrap.downloadFromWebsite(
-              join(downloadPath, process.platform === 'win32' ? 'youtube-dl.exe' : 'youtube-dl'),
-              process.platform,
-            )
+            YoutubeDlWrap.downloadFromGithub(join(downloadPath, process.platform === 'win32' ? 'youtube-dl.exe' : 'youtube-dl'))
               .then(() => {
                 if(process.platform === 'linux' || process.platform === 'darwin') chmodSync(join(downloadPath, 'youtube-dl'), 0o755);
                 res(Status.SUCCESS);
