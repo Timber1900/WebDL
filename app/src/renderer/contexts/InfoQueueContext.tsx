@@ -17,6 +17,8 @@ export interface InfoQueueContextData {
   curExt: extTypes;
   curCustomExt: string | null;
   curConcurrentDownload: number;
+  curVideoEncoder: 'copy' | 'libx265' | 'libx264' | 'mpeg4',
+  curAudioEncoder: 'copy' | 'aac' | 'libmp3lame' | 'wmav2',
   updateQueue(newQueue: Props[]): void;
   updateQueuePrg(newPrg: progressProps[]): void;
   updateQueuePrgIndividually(newPrg: number, index: number): void;
@@ -29,6 +31,8 @@ export interface InfoQueueContextData {
   updateExt(newExt: extTypes): void;
   updateCurCustomExt(newCustomExt: string | null): void;
   updateConcurrentDownload(newCuncurrentDownload: number): void;
+  updateVideoEncoder(newVideoEncoder: 'copy' | 'libx265' | 'libx264' | 'mpeg4'): void;
+  updateAudioEncoder(newAudioEncoder: 'copy' | 'aac' | 'libmp3lame' | 'wmav2'): void;
 }
 
 interface InfoQueueProviderProps {
@@ -79,6 +83,8 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
   const [ext, setExt] = useState<extTypes>(process.platform !== 'darwin' ? 'v mkv' : 'v mov');
   const [customExt, setCustomExt] = useState<string | null>(null);
   const [concurrentDownloads, setConcurrentDownloads] = useState(1);
+  const [videoEncoder, setVideoEncoder] = useState<'copy' | 'libx265' | 'libx264' | 'mpeg4'>('copy');
+  const [audioEncoder, setAudioEncoder] = useState<'copy' | 'aac' | 'libmp3lame' | 'wmav2'>('copy');
 
   useEffect(() => {
     let startQueue: Props[] = [];
@@ -157,6 +163,14 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
     setConcurrentDownloads(newCuncurrentDownload);
   }
 
+  function updateVideoEncoder(newVideoEncoder: 'copy' | 'libx265' | 'libx264' | 'mpeg4') {
+    setVideoEncoder(newVideoEncoder);
+  }
+
+  function updateAudioEncoder(newAudioEncoder: 'copy' | 'aac' | 'libmp3lame' | 'wmav2') {
+    setAudioEncoder(newAudioEncoder);
+  }
+
   return (
     <InfoQueueContext.Provider
       value={{
@@ -172,6 +186,8 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
         updateExt,
         updateCurCustomExt,
         updateConcurrentDownload,
+        updateVideoEncoder,
+        updateAudioEncoder,
         curQueue: queue,
         curQueuePrg: queuePrg,
         curQueueVel: queueVel,
@@ -181,6 +197,8 @@ export default function InfoQueueProvider({ children }: InfoQueueProviderProps) 
         curExt: ext,
         curCustomExt: customExt,
         curConcurrentDownload: concurrentDownloads,
+        curVideoEncoder: videoEncoder,
+        curAudioEncoder: audioEncoder
       }}
     >
       {children}

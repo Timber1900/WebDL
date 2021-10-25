@@ -19,7 +19,7 @@ export const downloadAudio = async (
   ext: string,
   raw_clips: InnerProps[],
   length: number,
-  { updateInfo, updateQueuePrgIndividually, updateQueueVelIndividually, updateQueueEtaIndividually }: InfoQueueContextData,
+  { updateInfo, updateQueuePrgIndividually, updateQueueVelIndividually, updateQueueEtaIndividually, curAudioEncoder, curVideoEncoder }: InfoQueueContextData,
   vid_index: number,
   queue_index: number,
 ) => {
@@ -42,7 +42,7 @@ export const downloadAudio = async (
     const regex = /["*/:<>?\\|]/g;
     const fixedTitle: string = title.replace(regex, '');
 
-    const ffmpeg_helper = new FFMPEG_Helper({loglevel: '32', output_file: clips.length ? join(downloadPath, `tempvideo.${ext}`): join(path, `${fixedTitle}.${ext}`)});
+    const ffmpeg_helper = new FFMPEG_Helper({loglevel: '32', output_file: clips.length ? join(downloadPath, `tempvideo.${ext}`): join(path, `${fixedTitle}.${ext}`), videoEncoder: curVideoEncoder, audioEncoder: curAudioEncoder});
 
     const close_function = () => {
       if (clips.length) {
@@ -66,16 +66,16 @@ export const downloadAudio = async (
     };
 
     const audio = execStream([url, '-f', 'bestaudio']);
-    ffmpeg_helper.convert_video(audio, close_function);
+    ffmpeg_helper.convert_audio(audio, close_function);
 
     audio
       .on('progress', (progress: Progress) => {
-        updateProg(progress.percent);
-        updateVel(progress.currentSpeed);
-        updateEta(progress.eta);
-        updateQueuePrgIndividually(progress.percent, queue_index);
-        updateQueueVelIndividually(progress.currentSpeed, queue_index);
-        updateQueueEtaIndividually(progress.eta, queue_index);
+        updateProg(progress.percent ?? 0);
+        updateVel(progress.currentSpeed ?? '0.0MiB/s');
+        updateEta(progress.eta ?? '00:00');
+        updateQueuePrgIndividually(progress.percent ?? 0, queue_index);
+        updateQueueVelIndividually(progress.currentSpeed ?? '0.0MiB/s', queue_index);
+        updateQueueEtaIndividually(progress.eta ?? '00:00', queue_index);
       })
       .on('error', (err: any) => {
         console.error(`%c ${err}`, 'color: #F87D7A');
