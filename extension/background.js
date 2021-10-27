@@ -9,6 +9,12 @@ function buttonClicked() {
 
 const addToServer = (url) => {
   chrome.storage.sync.get(['PORT'], (result) => {
+    console.log(result)
+    if(!result.PORT) {
+      setPort()
+      alert("Please resend the video to WebDL")
+      return
+    }
     const bodyJson = { url: url };
     const bodyString = JSON.stringify(bodyJson);
     fetch(`http://localhost:${result.PORT}`, {
@@ -26,7 +32,7 @@ const addToServer = (url) => {
 
 const setPort = () => {
   chrome.storage.sync.get(['PORT'], (result) => {
-    const val = prompt('Set a default port.', result.PORT);
+    const val = prompt('Set a default port.', result.PORT ?? 3003);
     if (/^[0-9]+$/.test(val)) {
       chrome.storage.sync.set({ PORT: val }, () => console.log(`Value is set to ${val}`));
     } else {
