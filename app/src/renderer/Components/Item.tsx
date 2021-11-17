@@ -244,7 +244,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
             </div>
           </span>
           <p className="flex-grow w-full col-span-3 overflow-y-scroll text-sm text-base text-left sm:font-normal" dangerouslySetInnerHTML={{__html: linkify(innerInfo.videoDetails.description ?? '')}}></p>
-          <span className="flex flex-wrap w-full gap-2 overflow-y-scroll max-h-28">
+          <span className="flex flex-wrap w-full gap-2 overflow-y-scroll max-h-28 min-h-[2rem]">
             <h2 className="text-lg font-bold">Tags:</h2>
             {innerInfo.videoDetails.keywords?.map((val, i) =>
               <code className="px-2 py-1 my-auto text-base font-semibold text-center bg-gray-200 rounded-md cursor-pointer dark:bg-gray-700" key={i} onClick={() => {window.require('electron').shell.openExternal(`https://www.youtube.com/results?search_query=${val.replace(' ', '+')}`);}}>{val}</code>
