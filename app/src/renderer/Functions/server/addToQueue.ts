@@ -5,6 +5,8 @@ import { youtubeDlWrap } from '../youtube-dl-wrap';
 import { getOtherDiv } from './getOtherInfo';
 import { getYoutubeDiv } from './getYoutubeInfo';
 import { outerContext } from '../../Components/Layout';
+import { downloadPath } from '../../helpers/Constants';
+import { join } from "path";
 
 type info = {
   ytdl: boolean;
@@ -13,7 +15,7 @@ type info = {
 async function getQueueDiv(url: string) {
   try {
     const type: info = { ytdl: true };
-    let info: any = await ytdl.getInfo(url).catch((err) => {
+    let info: any = await ytdl.getInfo(url, {requestOptions: {headers: {cookie: window.localStorage.getItem('ytdl-cookie') ?? ''}}}).catch((err) => {
       console.log(`%c ${err}`, 'color: #7D7AF8');
       type.ytdl = false;
     });
@@ -21,7 +23,7 @@ async function getQueueDiv(url: string) {
     if (type.ytdl) {
       divs.push(getYoutubeDiv(info, 1));
     } else {
-      info = await youtubeDlWrap.getVideoInfo(url).catch(console.error);
+      info = await youtubeDlWrap.getVideoInfo([url, '--cookies', join(downloadPath, 'cookies.txt')]).catch(console.error);
       const infos = [].concat(info);
       let i = 0;
       for (const inf of infos) {

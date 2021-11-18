@@ -17,6 +17,7 @@ specifiers:
   '@vercel/webpack-asset-relocator-loader': 1.7.0
   autoprefixer: ^10.3.7
   css-loader: ^6.4.0
+  dotenv: ^10.0.0
   electron: 14.0.0
   electron-squirrel-startup: ^1.0.0
   esbuild: ^0.12.29
@@ -45,6 +46,7 @@ specifiers:
   ytsr: ^3.5.3
 
 dependencies:
+  dotenv: 10.0.0
   electron-squirrel-startup: 1.0.0
   execa: 5.1.1
   express: 4.17.1
@@ -2307,6 +2309,11 @@ packages:
       no-case: 3.0.4
       tslib: 2.3.1
     dev: true
+
+  /dotenv/10.0.0:
+    resolution: {integrity: sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==}
+    engines: {node: '>=10'}
+    dev: false
 
   /duplexer3/0.1.4:
     resolution: {integrity: sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=}

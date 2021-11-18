@@ -2,9 +2,11 @@ import YoutubeDlWrap from 'youtube-dl-wrap';
 import { youtubeDlWrap } from './index';
 import execa from 'execa';
 import internal from 'stream';
+import { downloadPath } from '../../helpers/Constants';
+import { join } from "path";
 
 export const execStream = (youtubeDlArguments: any[] = []): internal.Readable => {
-  youtubeDlArguments = youtubeDlArguments.concat(['-o', '-']);
+  youtubeDlArguments = youtubeDlArguments.concat(['-o', '-', '--cookies', join(downloadPath, 'cookies.txt')]);
   console.log(youtubeDlArguments);
 
   const youtubeDlProcess = execa(youtubeDlWrap.binaryPath, youtubeDlArguments, {

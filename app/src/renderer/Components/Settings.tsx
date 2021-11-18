@@ -4,6 +4,13 @@ import { InfoQueueContext } from '../contexts/InfoQueueContext';
 import { setPath } from '../Functions/getPath';
 import { port } from '../Functions/server/server';
 import { CheckUpdates, getCurrentVersion } from '../Functions/update';
+import fs from 'fs';
+import { getYoutubeCookies } from '../Functions/getYoutubeCookies';
+import { downloadPath } from '../helpers/Constants';
+import { join } from "path";
+import { CgClose } from 'react-icons/cg';
+
+
 interface Props {
   className?: string;
 }
@@ -60,6 +67,14 @@ const Settings = ({className}: Props) => {
       setPath(message[0]);
       console.log(message[0]);
     });
+    window.require('electron').ipcRenderer.on('open-cookies-result', (event, { filePaths }) => {
+      console.log(filePaths)
+      const cookies = fs.readFileSync(filePaths[0]).toString();
+      const ytdlCoreCookie = getYoutubeCookies(cookies);
+      console.log(ytdlCoreCookie)
+      window.localStorage.setItem('ytdl-cookie', ytdlCoreCookie);
+      fs.writeFileSync(join(downloadPath, 'cookies.txt'), cookies)
+    });
   }, []);
 
   const check = async () => {
@@ -67,6 +82,11 @@ const Settings = ({className}: Props) => {
     window.localStorage.setItem('webdl-lastcheck', '0');
     console.log(await CheckUpdates());
   };
+
+  const removeCookies = () => {
+    fs.rmSync(join(downloadPath, 'cookies.txt'))
+    window.localStorage.setItem('ytdl-cookie', "");
+  }
 
   return (
     <div className={`${className ?? ''} absolute inset-x-1/4 inset-y-24 p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-lg flex flex-col items-start gap-4 text-black dark:text-white text-base font-medium overflow-y-scroll`}>
@@ -159,6 +179,15 @@ const Settings = ({className}: Props) => {
             if (val.target.valueAsNumber < 1) val.target.value = '1';
             updateConcurrentDownload(val.target.valueAsNumber);
           }}/>
+      </span>
+      <span className="flex flex-row items-center justify-start w-full">
+        <label htmlFor='update' className="mr-4">Add cookies: </label>
+        <button onClick={() => window.require('electron').ipcRenderer.send('open-cookies')} id='update' className="px-2 py-1 transition-colors bg-gray-100 rounded-md shadow-sm hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-600 dark:active:bg-gray-500 w-max dark:bg-gray-700 focus:outline-none">
+          Upload
+        </button>
+        <div aria-label="Delete cookies" className="grid ml-auto place-content-center dark:after:content-[attr(aria-label)] after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] relative after:absolute after:text-xl after:bottom-[150%] after:bg-gray-300 dark:after:bg-gray-600 after:shadow-md after:w-max after:h-max after:right-0 after:mx-auto after:px-2 after:py-1 after:rounded-md after:text-base cursor-default after:opacity-0 after:scale-0 after:transform hover:after:opacity-100 hover:after:scale-100 after:origin-bottom-right after:transition-all after:delay-[0ms] hover:after:delay-500 after:z-10" onClick={removeCookies}>
+          <CgClose className="ml-auto text-black transition-all duration-200 transform scale-125 rotate-0 cursor-pointer fill-current hover:scale-150 active:scale-110 hover:rotate-90 hover:text-gray-900 dark:text-white dark:hover:text-gray-200 hover:text-red-500 dark:hover:text-red-500 active:text-red-600 dark:active:text-red-600" />
+        </div>
       </span>
       <div className="w-full h-0 border-b border-gray-200 dark:border-gray-700"/>
       <h1 className="text-xl font-bold">{'Encoder settings:'}</h1>

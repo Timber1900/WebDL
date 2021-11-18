@@ -55,6 +55,15 @@ const createWindow = (): void => {
     mainWindow.webContents.send('select-dirs-result', result.filePaths);
   });
 
+  ipcMain.on('open-cookies', async () => {
+    const result = await dialog.showOpenDialog(mainWindow, {
+      title: "Select cookie file",
+      buttonLabel: "Upload",
+      properties: ['openFile']
+    })
+    mainWindow.webContents.send('open-cookies-result', result);
+  })
+
   ipcMain.on('reload', () => {
     mainWindow.reload();
   })
