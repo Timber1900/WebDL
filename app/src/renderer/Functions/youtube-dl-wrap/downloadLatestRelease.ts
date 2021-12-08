@@ -1,7 +1,8 @@
-import YoutubeDlWrap from 'youtube-dl-wrap';
 import fs, { chmodSync } from 'fs';
 import { join } from 'path';
 import { downloadPath, Duration, Status } from '../../helpers/Constants';
+import { getGithubReleases } from './getGithubReleases';
+import { downloadFromGithub } from './downloadFromGithub';
 
 export const downloadLatestRealease = () => {
   return new Promise((res, rej) => {
@@ -9,7 +10,8 @@ export const downloadLatestRealease = () => {
       (window.localStorage.getItem('ytdl-lastcheck') as `${number}`) ?? Date.now() - Duration.DAY;
     if (Date.now() - Number(last_check) >= Duration.DAY) {
       window.localStorage.setItem('ytdl-lastcheck', `${Date.now()}`);
-      YoutubeDlWrap.getGithubReleases(1, 1)
+      console.log("Checking for new releases...");
+      getGithubReleases(1, 1)
         .then((val: any) => {
           const cur_ver: string | null = window.localStorage.getItem('ytdl-version');
           if (
@@ -19,7 +21,8 @@ export const downloadLatestRealease = () => {
             alert('Downloading latest youtube-dl...');
             window.localStorage.setItem('ytdl-version', val[0].tag_name);
             if(!fs.existsSync(downloadPath)) fs.mkdirSync(downloadPath);
-            YoutubeDlWrap.downloadFromGithub(join(downloadPath, process.platform === 'win32' ? 'youtube-dl.exe' : 'youtube-dl'))
+            console.log(`Downloading youtube-dl v${val[0].tag_name}...`);
+            downloadFromGithub(join(downloadPath, process.platform === 'win32' ? 'youtube-dl.exe' : 'youtube-dl'))
               .then(() => {
                 if(process.platform === 'linux' || process.platform === 'darwin') chmodSync(join(downloadPath, 'youtube-dl'), 0o755);
                 res(Status.SUCCESS);
