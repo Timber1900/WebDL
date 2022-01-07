@@ -53,6 +53,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
   const [showInfo, setInfo] = useState(false);
   const [_captions, setCaptions] = useState<captions[]>(captions && [])
   const [showCaptions, setShowCaptions] = useState(false);
+  const [dislikes, setDislikes] = useState<string>(null);
   const {curQueue, updateQueue, updateQueuePrg, updateQueueVel, updateQueueEta, curCustomExt, curQueuePrg, curQueueVel, curQueueEta} = useContext(InfoQueueContext);
   const context = useContext(InfoQueueContext);
   const titleLabel = useRef<HTMLSpanElement>(null);
@@ -184,12 +185,16 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
     });
   }
 
-
-
   function saveCaptions() {
     const temp = [...curQueue];
     temp[i].captions = _captions;
     updateQueue(temp);
+  }
+
+  async function getVideoDislikes() {
+    const res = await fetch(`https://returnyoutubedislikeapi.com/votes?videoId=${innerInfo.videoDetails.videoId}`)
+    const data = await res.json();
+    setDislikes(`${data.dislikes}`)
   }
 
   return(
@@ -234,7 +239,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
                       <path d="M14,0H5C4.17,0,3.46,0.5,3.16,1.22L0.14,8.27C0.05,8.5,0,8.74,0,9v1.91l0.01,0.01L0,11c0,1.1,0.9,2,2,2h6.31l-0.95,4.57
                       l-0.03,0.32c0,0.41,0.17,0.79,0.44,1.06L8.83,20l6.59-6.59C15.78,13.05,16,12.55,16,12V2C16,0.9,15.1,0,14,0z M18,0v12h4V0H18z"/>
                     </svg>
-                    {innerInfo.videoDetails.dislikes.toLocaleString()}
+                    {dislikes ?? "0"}
                   </span>
                 </span>
                 <span className="pl-2">
@@ -380,7 +385,7 @@ const Item = ({ duration, title, thumbnail, quality, curQual, i, ext, show, id, 
                   c9.09,0,16.54,7.44,16.54,16.54V99.21L248.03,99.21z"/>
                 </svg>
               </button>
-              <button aria-label="Show video info" className="group after:content-[attr(aria-label)] dark:after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] dark:hover:after:content-[attr(aria-label)] relative after:absolute after:text-base after:inset-y-0 after:right-[130%] after:w-max after:bg-gray-300 dark:after:bg-gray-600 after:shadow-md after:opacity-0 after:scale-0 after:transform hover:after:opacity-100 hover:after:scale-100 after:origin-right after:transition-all after:delay-[0ms] hover:after:delay-1000 after:px-2 after:py-1 after:rounded-md after:text-center after:grid after:place-content-center disabled:opacity-60 opacity-100 disabled:after:opacity-0 after:h-8 after:my-auto" onClick={() => setInfo(true)} disabled={!merge}>
+              <button aria-label="Show video info" className="group after:content-[attr(aria-label)] dark:after:content-[attr(aria-label)] hover:after:content-[attr(aria-label)] dark:hover:after:content-[attr(aria-label)] relative after:absolute after:text-base after:inset-y-0 after:right-[130%] after:w-max after:bg-gray-300 dark:after:bg-gray-600 after:shadow-md after:opacity-0 after:scale-0 after:transform hover:after:opacity-100 hover:after:scale-100 after:origin-right after:transition-all after:delay-[0ms] hover:after:delay-1000 after:px-2 after:py-1 after:rounded-md after:text-center after:grid after:place-content-center disabled:opacity-60 opacity-100 disabled:after:opacity-0 after:h-8 after:my-auto" onClick={() => {setInfo(true); if(!dislikes) getVideoDislikes()}} disabled={!merge}>
                 <svg className="text-black group-disabled:text-black transition-all duration-200 transform scale-125 cursor-pointer fill-current group-disabled:scale-125 hover:scale-150 active:scale-110 hover:text-gray-900 dark:text-white dark:group-disabled:text-white dark:hover:text-gray-200 group p-[4px]" x="0px" y="0px" width="1em" height="1em" viewBox="0 0 385.92 385.92">
                   <g className="group-hover:rotate-[360deg] group-disabled:rotate-0 rotate-0 transition-all duration-700 origin-center ease-back">
                     <path
