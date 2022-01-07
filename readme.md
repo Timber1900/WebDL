@@ -38,7 +38,7 @@ Meet **WebDL**! This windows application + companion [chrome extension](https://
 
 ## Instalation guide
 
-- Download the latest release from [here](https://github.com/Timber1900/YoutubeVideoDownloader/releases/latest)
+- Download the latest release from [here](https://github.com/Timber1900/WebDL/releases/latest)
 - Install the companion [chrome extension](https://chrome.google.com/webstore/detail/webpage-downloader/nfkaeignpggbjnhhijmggoeploenicdo)
 - Start using the app!
 
@@ -52,6 +52,10 @@ Meet **WebDL**! This windows application + companion [chrome extension](https://
   - Optionally, you can download a single video of the queue by using the "Download Video" button in the video menu
 
 ## FAQ
+
+### Notice
+
+- Information bellow is outdated, please visit this [faq](https://www.hteixeira.me/webdl/faq) for more up to date info.
 
 ### My app isn't receiving the videos from the extension...
 
@@ -91,3 +95,4 @@ Meet **WebDL**! This windows application + companion [chrome extension](https://
 - [Install Creator](https://www.clickteam.com/install-creator-2)
 - [ytdl-core](https://www.npmjs.com/package/ytdl-core)
 - [ytpl](https://www.npmjs.com/package/ytpl)
+- [Return YouTube Dislike](https://github.com/Anarios/return-youtube-dislike)
