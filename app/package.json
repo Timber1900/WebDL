@@ -92,7 +92,7 @@
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^6.4.0",
     "node-loader": "^2.0.0",
-    "postcss": "^8.3.11",
+    "postcss": "^8.4.31",
     "postcss-loader": "^6.2.0",
     "style-loader": "^3.3.1",
     "tailwindcss": "^2.2.17",
